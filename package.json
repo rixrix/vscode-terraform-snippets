@@ -1,0 +1,19 @@
+{
+    "name": "terraform-snippets",
+    "displayName": "Terraform.io Snippets Generator",
+    "description": "Terraform.io snippets generator for Visual Studio Code",
+    "version": "0.1.0",
+    "publisher": "Richard Sentino",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [{
+            "language": "terraform",
+            "path": "./snippets/terraform.json"
+        }]
+    }
+}

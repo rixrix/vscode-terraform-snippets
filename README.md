@@ -1,1 +1,1 @@
-# vscode-terraform-snippets
+# Terraform Snippets for Visual Studio Code
