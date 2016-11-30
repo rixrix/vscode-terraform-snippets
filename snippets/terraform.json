@@ -117,6 +117,23 @@
             "}"
         ]
     },
+    "aws_ebs_volume": {
+        "prefix":"tf-aws_ebs_volume",
+        "description": "Use this data source to get information about an EBS volume for use in other resources.",
+        "body": [
+            "data \"aws_ebs_volume\" \"${ebs_volume}\" {",
+            "    most_recent = true",
+            "    filter {",
+            "        name = \"volume-type\"",
+            "        values = [\"gp2\"]",
+            "    }",
+            "    filter {",
+            "        name = \"tag:${Name}\"",
+            "        values = [\"${Example}\"]",
+            "    }",
+            "}"
+        ]
+    },
     "aws_ecs_container_definition": {
         "prefix":"tf-aws_ecs_container_definition",
         "description": "aws_ecs_container_definition - The ECS container definition data source allows access to details of a specific container within an AWS ECS service.",
