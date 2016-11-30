@@ -9,6 +9,18 @@
             "}"
         ]
     },
+    "aws_alb_listener": {
+        "prefix": "tf-aws_alb_listener",
+        "description": "Provides information about an Application Load Balancer Listener. This data source can prove useful when a module accepts an ALB Listener as an input variable and needs to know the ALB it is attached to, or other information specific to the listener in question.",
+        "body": [
+            "variable \"${listener_arn}\" {",
+            "   type = \"string\"",
+            "}\n",
+            "data \"aws_alb_listener\" \"listener\" {",
+            "   arn = \"\\${var.${listener_arn}}\"",
+            "}"
+        ]
+    },
     "aws_ami": {
         "prefix": "tf-aws_ami",
         "description": "aws_ami - Use this data source to get the ID of a registered AMI for use in other resources.",
