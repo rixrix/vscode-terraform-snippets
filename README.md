@@ -13,6 +13,10 @@ tf-aws_ami      // get the ID of a registered AMI
 
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to activate snippets from within the editor.
 
+## Requirements / Dependencies
+
+Install the [Terraform Language](https://marketplace.visualstudio.com/items?itemName=mauve.terraform) support extension from the marketplace published by "Mikael Olenfalk"
+
 ## Installation
 
 1. Install Visual Studio Code 1.x or higher
