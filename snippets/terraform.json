@@ -325,5 +325,14 @@
             "EOF",
             "}"
         ]
+    },
+    "aws_region": {
+        "prefix":"tf-aws_region",
+        "description": "aws_region provides details about a specific AWS region. As well as validating a given region name (and optionally obtaining its endpoint) this resource can be used to discover the name of the region configured within the provider. The latter can be useful in a child module which is inheriting an AWS provider configuration from its parent module.",
+        "body": [
+            "data \"aws_region\" \"current\" {",
+            "    current = true",
+            "}"
+        ]
     }
 }
