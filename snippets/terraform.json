@@ -370,5 +370,19 @@
             "    handler = \"exports.test\"",
             "}"
         ]
+    },
+    "aws_security_group": {
+        "prefix":"tf-aws_security_group",
+        "description": "aws_security_group provides details about a specific Security Group. This resource can prove useful when a module accepts a Security Group id as an input variable and needs to, for example, determine the id of the VPC that the security group belongs to.",
+        "body": [
+            "variable \"security_group_id\" {}\n",
+            "data \"aws_security_group\" \"${selected}\" {",
+            "    id = \"\\${var.security_group}\"",
+            "}\n",
+            "resource \"aws_subnet\" \"subnet\" {",
+            "    vpc_id = \"\\${data.aws_security_group.${selected}.vpc_id}\"",
+            "    cidr_block = \"10.0.1.0/24\"",
+            "}"
+        ]
     }
 }
