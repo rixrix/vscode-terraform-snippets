@@ -11,6 +11,10 @@
     "bugs": {
         "url": "https://github.com/rixrix/vscode-terraform-snippets/issues"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rixrix/vscode-terraform-snippets.git"
+    },
     "engines": {
         "vscode": "^1.0.0"
     },
