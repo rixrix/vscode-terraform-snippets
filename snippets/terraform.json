@@ -403,5 +403,20 @@
             "    }",
             "}"
         ]
+    },
+    "aws_vpc": {
+        "prefix":"tf-aws_vpc",
+        "description": "aws_vpc provides details about a specific VPC. This resource can prove useful when a module accepts a vpc id as an input variable and needs to, for example, determine the CIDR block of that VPC.",
+        "body": [
+            "variable \"vpc_id\" {}\n",
+            "data \"aws_vpc\" \"${selected}\" {",
+            "   id = \"\\${var.vpc_id}\"",
+            "}\n",
+            "resource \"aws_subnet\" \"example\" {",
+            "    vpc_id            = \"\\${data.aws_vpc.${selected}.id}\"",
+            "    availability_zone = \"us-west-2a\"",
+            "    cidr_block        = \"\\${cidrsubnet(data.aws_vpc.${selected}.cidr_block, 4, 1)}\"",
+            "}"
+        ]
     }
 }
