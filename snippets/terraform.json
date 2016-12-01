@@ -384,5 +384,24 @@
             "    cidr_block = \"10.0.1.0/24\"",
             "}"
         ]
+    },
+    "aws_subnet": {
+        "prefix":"tf-aws_subnet",
+        "description": "aws_subnet provides details about a specific VPC subnet. This resource can prove useful when a module accepts a subnet id as an input variable and needs to, for example, determine the id of the VPC that the subnet belongs to.",
+        "body": [
+            "variable \"subnet_id\" {}\n",
+            "data \"aws_subnet\" \"${selected}\" {",
+            "    id = \"\\${var.subnet_id}\"",
+            "}\n",
+            "resource \"aws_security_group\" \"subnet\" {",
+            "    vpc_id = \"\\${data.aws_subnet.${selected}.vpc_id}\"\n",
+            "    ingress {",
+            "        cidr_blocks = [\"\\${data.aws_subnet.${selected}.cidr_block}\"]",
+            "        from_port   = 80",
+            "        to_port     = 80",
+            "        protocol    = \"tcp\"",
+            "    }",
+            "}"
+        ]
     }
 }
