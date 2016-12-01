@@ -3,7 +3,11 @@
     "displayName": "Terraform.io Snippets Generator",
     "description": "Terraform.io snippets generator for Visual Studio Code",
     "version": "0.1.0",
-    "publisher": "Richard Sentino <richard@mindginative.com>",
+    "publisher": "mindginative",
+    "author": {
+        "name": "Richard Sentino",
+        "email": "richard@mindginative.com"
+    },
     "bugs": {
         "url": "https://github.com/rixrix/vscode-terraform-snippets/issues"
     },
