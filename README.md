@@ -11,7 +11,7 @@ Type part of the snippets `tf`, press `enter`:
 tf-aws_ami      // get the ID of a registered AMI
 ```
 
-![Use Extension](images/screenshot.png)
+![Use Extension](https://raw.githubusercontent.com/rixrix/vscode-terraform-snippets/master/images/screenshot.png)
 
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to activate snippets from within the editor.
 
