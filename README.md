@@ -12,13 +12,28 @@ Type part of the snippets `tf`, press `enter`:
 ### Terraform Snippets
 
 ```bash
-tf-variable             // generates `variable "myVariable" { }`
-tf-variable-default     // generates `variable "myVariable" { default = ""}`
-tf-output               // generates `output "myOutName" { value = ""}`
-tf-module               // generates `module "myModuleName" { source = ""}`
-tf-resource             // generates `resource "" "myResourceName" { }`
-tf-provider             // generates `provider "aws" { }`
-tf-aws_ami              // get the ID of a registered AMI
+tf-variable                         // generates `variable "myVariable" { }`
+tf-variable-default                 // generates `variable "myVariable" { default = ""}`
+tf-output                           // generates `output "myOutputName" { value = ""}`
+tf-module                           // generates `module "myModuleName" { source = ""}`
+tf-module-github                    // generates `module "myModuleName" { source = "github.com/username"}`
+tf-module-github-private            // generates `module "myModuleName" { source = "git::https://MACHINE-USER:MACHINE-PASS@github.com/username"}`
+tf-module-bitbucket                 // generates `module "myModuleName" { source = "bitbucket.org/username"}`
+tf-module-git                       // generates `module "myModuleName" { source = "git://"}`
+tf-module-mercurial                 // generates `module "myModuleName" { source = "hg::http://"}`
+tf-module-s3                        // generates `module "myModuleName" { source = "s3::https://"}`
+tf-resource                         // generates `resource "" "myResourceName" { }`
+tf-provider                         // generates `provider "aws" { }`
+tf-depends_on                       // generates `depends_on []`
+tf-provisioner-connection           // generates `provisioner "file" { ... }`
+tf-provisioner-file                 // generates `provisioner "file" { ... }`
+tf-provisioner-local-exec           // generates `provisioner "local-exec" { ... }`
+tf-provisioner-remote-exec          // generates `provisioner "remote-exec" { ... }`
+tf-provisioner-null_resource        // generates `resource "null_resource" { ... }`
+tf-template_file                    // generates `data "template_file" "init" { ... }`
+tf-template_file-inline             // generates `data "template_file" "init" { ... }` inline
+tf-template_cloudinit_config        // generates `data "template_cloudinit_config" "config" { ... }` inline
+tf-aws_ami                          // get the ID of a registered AMI
 ```
 
 ![Use Extension](https://raw.githubusercontent.com/rixrix/vscode-terraform-snippets/master/images/screenshot.png)
@@ -43,7 +58,9 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
 * [Input variables](https://www.terraform.io/intro/getting-started/variables.html)
 * [Output Variables](https://www.terraform.io/intro/getting-started/outputs.html)
 * [Modules](https://www.terraform.io/intro/getting-started/modules.html)
-* [Resource/Provisioner](https://www.terraform.io/intro/getting-started/provision.html)
+* [Resource](https://www.terraform.io/intro/getting-started/provision.html)
+* Provisioner - [connection](https://www.terraform.io/docs/provisioners/connection.html), [file](https://www.terraform.io/docs/provisioners/file.html), [local-exec](https://www.terraform.io/docs/provisioners/local-exec.html), [remote-exec](https://www.terraform.io/docs/provisioners/remote-exec.html), [null_resource](https://www.terraform.io/docs/provisioners/null_resource.html)
+* Template for [file](https://www.terraform.io/docs/providers/template/d/file.html) and [cloudinit](https://www.terraform.io/docs/providers/template/d/cloudinit_config.html)
 * Provider eg. `provider "aws" { } `
 * AWS - [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html), [API Gateway Resources](https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html)
 
