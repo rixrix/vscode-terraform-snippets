@@ -62,7 +62,46 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
 * Provisioner - [connection](https://www.terraform.io/docs/provisioners/connection.html), [file](https://www.terraform.io/docs/provisioners/file.html), [local-exec](https://www.terraform.io/docs/provisioners/local-exec.html), [remote-exec](https://www.terraform.io/docs/provisioners/remote-exec.html), [null_resource](https://www.terraform.io/docs/provisioners/null_resource.html)
 * Template for [file](https://www.terraform.io/docs/providers/template/d/file.html) and [cloudinit](https://www.terraform.io/docs/providers/template/d/cloudinit_config.html)
 * Provider eg. `provider "aws" { } `
-* AWS - [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html), [API Gateway Resources](https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html)
+* AWS
+  * All Resources w/ examples
+    * All [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html),
+    * All [API Gateway Resources](https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html)
+  * Basic Snippets
+    * VPC RESOURCES
+    * SQS RESOURCES
+    * SSM RESOURCES
+    * SNS RESOURCES
+    * SIMPLEDB RESOURCES
+    * SES RESOURCES
+    * S3 RESOURCES
+    * ROUTE53 RESOURCES
+    * WAF RESOURCES
+    * REDSHIFT RESOURCES
+    * RDS RESOURCES
+    * OPSWORKS RESOURCES
+    * LAMBDA RESOURCES
+    * KMS RESOURCES
+    * KINESIS FIREHOSE RESOURCES
+    * KINESIS RESOURCES
+    * IAM RESOURCES
+    * GLACIER RESOURCES
+    * ELASTIC TRANSCODER RESOURCES
+    * ELASTICSEARCH RESOURCES
+    * ELASTIC MAP REDUCE RESOURCES
+    * ELASTIC BEANSTALK RESOURCES
+    * ELASTICACHE RESOURCES
+    * EFS RESOURCES
+    * ECS RESOURCES
+    * EC2 RESOURCES
+    * DYNAMODB RESOURCES
+    * DIRECTORY SERVICE RESOURCES
+    * CODEDEPLOY RESOURCES
+    * CODECOMMIT RESOURCES
+    * CLOUDWATCH RESOURCES
+    * CLOUDTRAIL RESOURCES
+    * CLOUDFRONT RESOURCES
+    * CLOUDFORMATION RESOURCES
+    * APP AUTOSCALING RESOURCES
 
 ## Todo
 
@@ -72,7 +111,6 @@ A massive list of things to add
 
 * Archive
 * Atlas
-* AWS
 * Bitbucket
 * Chef
 * CenturyLinkCloud
