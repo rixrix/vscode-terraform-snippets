@@ -2,6 +2,7 @@
 
 * Add support for `Docker`
 * Add support for `Heroku`
+* Add support for `Digital Ocean`
 
 # 0.6.0
 

@@ -105,6 +105,7 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
 * Consul
 * Docker
 * Heroku
+* DigitalOcean
 
 ## Todo
 
@@ -121,7 +122,6 @@ A massive list of things to add
 * CloudStack
 * Cobbler
 * Datadog
-* DigitalOcean
 * DNSMadeEasy
 * DNSimple
 * Dyn

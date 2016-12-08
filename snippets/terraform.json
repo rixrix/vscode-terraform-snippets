@@ -2348,5 +2348,70 @@
             "resource \"heroku_drain\" \"${MyResource}\" {",
             "}"
         ]
+    },
+    "digitalocean": {
+        "prefix":"tf-digitalocean",
+        "description": "Defines digitalocean",
+        "body": [
+            "provider \"digitalocean\" {",
+            "   token = \"\\${var.${do_token}}\"",
+            "}"
+        ]
+    },
+    "digitalocean_domain": {
+        "prefix":"tf-digitalocean_domain",
+        "description": "Defines digitalocean_domain",
+        "body": [
+            "resource \"digitalocean_domain\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "digitalocean_droplet": {
+        "prefix":"tf-digitalocean_droplet",
+        "description": "Defines digitalocean_droplet",
+        "body": [
+            "resource \"digitalocean_droplet\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "digitalocean_floating_ip": {
+        "prefix":"tf-digitalocean_floating_ip",
+        "description": "Defines digitalocean_floating_ip",
+        "body": [
+            "resource \"digitalocean_floating_ip\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "digitalocean_record": {
+        "prefix":"tf-digitalocean_record",
+        "description": "Defines digitalocean_record",
+        "body": [
+            "resource \"digitalocean_record\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "digitalocean_ssh_key": {
+        "prefix":"tf-digitalocean_ssh_key",
+        "description": "Defines digitalocean_ssh_key",
+        "body": [
+            "resource \"digitalocean_ssh_key\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "digitalocean_tag": {
+        "prefix":"tf-digitalocean_tag",
+        "description": "Defines digitalocean_tag",
+        "body": [
+            "resource \"digitalocean_tag\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "digitalocean_volume": {
+        "prefix":"tf-digitalocean_volume",
+        "description": "Defines digitalocean_volume",
+        "body": [
+            "resource \"digitalocean_volume\" \"${MyResource}\" {",
+            "}"
+        ]
     }
 }
