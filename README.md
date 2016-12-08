@@ -2,6 +2,10 @@
 
 This extension for Visual Studio Code adds snippets for Terraform.
 
+## Help
+
+> There's massive list of things to do with this snippets generator, I'd be happy to accept your `pull request` and with your name in credits section. The example is pretty easy to follow. Thanks
+
 ## Usage
 Type part of the snippets `tf`, press `enter`:
 
@@ -30,7 +34,7 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
 
 ## Done
 
-* AWS - Data Sources
+* AWS - Data Sources, API Gateway Resources
 
 ## Todo
 
@@ -102,3 +106,7 @@ A massive list of things to add
 * Generic Git, Mercurial repositories
 * HTTP URLs
 * S3 buckets
+
+### Credits
+
+* <your name here>
