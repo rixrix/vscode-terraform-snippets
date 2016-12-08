@@ -1,4 +1,4 @@
-# 1.0.0
+# 0.6.0
 
 * Add support for `Consul` (basic snippets only)
 
