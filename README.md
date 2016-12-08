@@ -12,7 +12,13 @@ Type part of the snippets `tf`, press `enter`:
 ### Terraform Snippets
 
 ```bash
-tf-aws_ami      // get the ID of a registered AMI
+tf-variable             // generates `variable "myVariable" { }`
+tf-variable-default     // generates `variable "myVariable" { default = ""}`
+tf-output               // generates `output "myOutName" { value = ""}`
+tf-module               // generates `module "myModuleName" { source = ""}`
+tf-resource             // generates `resource "" "myResourceName" { }`
+tf-provider             // generates `provider "aws" { }`
+tf-aws_ami              // get the ID of a registered AMI
 ```
 
 ![Use Extension](https://raw.githubusercontent.com/rixrix/vscode-terraform-snippets/master/images/screenshot.png)
@@ -34,7 +40,12 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
 
 ## Done
 
-* AWS - Data Sources, API Gateway Resources
+* [Input variables](https://www.terraform.io/intro/getting-started/variables.html)
+* [Output Variables](https://www.terraform.io/intro/getting-started/outputs.html)
+* [Modules](https://www.terraform.io/intro/getting-started/modules.html)
+* [Resource/Provisioner](https://www.terraform.io/intro/getting-started/provision.html)
+* Provider eg. `provider "aws" { } `
+* AWS - [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html), [API Gateway Resources](https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html)
 
 ## Todo
 
