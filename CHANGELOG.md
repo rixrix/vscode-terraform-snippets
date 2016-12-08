@@ -1,3 +1,7 @@
+# 1.0.0
+
+* Add support for `Consul` (basic snippets only)
+
 # 0.5.0
 
 * Add support for `all` AWS resources (basic snippets only)

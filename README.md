@@ -102,6 +102,7 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
     * CLOUDFRONT RESOURCES
     * CLOUDFORMATION RESOURCES
     * APP AUTOSCALING RESOURCES
+* Consul
 
 ## Todo
 
@@ -117,7 +118,6 @@ A massive list of things to add
 * CloudFlare
 * CloudStack
 * Cobbler
-* Consul
 * Datadog
 * DigitalOcean
 * DNSMadeEasy
