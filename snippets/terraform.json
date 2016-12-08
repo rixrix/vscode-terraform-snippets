@@ -790,5 +790,1413 @@
             "   description = \"This is my API for demonstration purposes\"",
             "}"
         ]
+    },
+    "aws_appautoscaling_policy": {
+        "prefix":"tf-aws_appautoscaling_policy",
+        "description": "Defines aws_appautoscaling_policy",
+        "body": [
+            "resource \"aws_appautoscaling_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_appautoscaling_target": {
+        "prefix":"tf-aws_appautoscaling_target",
+        "description": "Defines aws_appautoscaling_target",
+        "body": [
+            "resource \"aws_appautoscaling_target\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_cloudformation_stack": {
+        "prefix":"tf-aws_cloudformation_stack",
+        "description": "Defines aws_cloudformation_stack",
+        "body": [
+            "resource \"aws_cloudformation_stack\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_cloudfront_distribution": {
+        "prefix":"tf-aws_cloudfront_distribution",
+        "description": "Defines aws_cloudfront_distribution",
+        "body": [
+            "resource \"aws_cloudfront_distribution\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_cloudfront_origin_access_identity": {
+        "prefix":"tf-aws_cloudfront_origin_access_identity",
+        "description": "Defines aws_cloudfront_origin_access_identity",
+        "body": [
+            "resource \"aws_cloudfront_origin_access_identity\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_cloudtrail": {
+        "prefix":"tf-aws_cloudtrail",
+        "description": "Defines aws_cloudtrail",
+        "body": [
+            "resource \"aws_cloudtrail\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_cloudwatch_event_rule": {
+        "prefix":"tf-aws_cloudwatch_event_rule",
+        "description": "Defines aws_cloudwatch_event_rule",
+        "body": [
+            "resource \"aws_cloudwatch_event_rule\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_cloudwatch_event_target": {
+        "prefix":"tf-aws_cloudwatch_event_target",
+        "description": "Defines aws_cloudwatch_event_target",
+        "body": [
+            "resource \"aws_cloudwatch_event_target\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_cloudwatch_log_group": {
+        "prefix":"tf-aws_cloudwatch_log_group",
+        "description": "Defines aws_cloudwatch_log_group",
+        "body": [
+            "resource \"aws_cloudwatch_log_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_cloudwatch_log_metric_filter": {
+        "prefix":"tf-aws_cloudwatch_log_metric_filter",
+        "description": "Defines aws_cloudwatch_log_metric_filter",
+        "body": [
+            "resource \"aws_cloudwatch_log_metric_filter\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_cloudwatch_log_stream": {
+        "prefix":"tf-aws_cloudwatch_log_stream",
+        "description": "Defines aws_cloudwatch_log_stream",
+        "body": [
+            "resource \"aws_cloudwatch_log_stream\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_cloudwatch_log_subscription_filter": {
+        "prefix":"tf-aws_cloudwatch_log_subscription_filter",
+        "description": "Defines aws_cloudwatch_log_subscription_filter",
+        "body": [
+            "resource \"aws_cloudwatch_log_subscription_filter\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_cloudwatch_metric_alarm": {
+        "prefix":"tf-aws_cloudwatch_metric_alarm",
+        "description": "Defines aws_cloudwatch_metric_alarm",
+        "body": [
+            "resource \"aws_cloudwatch_metric_alarm\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_codecommit_repository": {
+        "prefix":"tf-aws_codecommit_repository",
+        "description": "Defines aws_codecommit_repository",
+        "body": [
+            "resource \"aws_codecommit_repository\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_codecommit_trigger": {
+        "prefix":"tf-aws_codecommit_trigger",
+        "description": "Defines aws_codecommit_trigger",
+        "body": [
+            "resource \"aws_codecommit_trigger\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_codedeploy_app": {
+        "prefix":"tf-aws_codedeploy_app",
+        "description": "Defines aws_codedeploy_app",
+        "body": [
+            "resource \"aws_codedeploy_app\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_codedeploy_deployment_group": {
+        "prefix":"tf-aws_codedeploy_deployment_group",
+        "description": "Defines aws_codedeploy_deployment_group",
+        "body": [
+            "resource \"aws_codedeploy_deployment_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_directory_service_directory": {
+        "prefix":"tf-aws_directory_service_directory",
+        "description": "Defines aws_directory_service_directory",
+        "body": [
+            "resource \"aws_directory_service_directory\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_dynamodb_table": {
+        "prefix":"tf-aws_dynamodb_table",
+        "description": "Defines aws_dynamodb_table",
+        "body": [
+            "resource \"aws_dynamodb_table\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_alb": {
+        "prefix":"tf-aws_alb",
+        "description": "Defines aws_alb",
+        "body": [
+            "resource \"aws_alb\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_alb_listener_rule": {
+        "prefix":"tf-aws_alb_listener_rule",
+        "description": "Defines aws_alb_listener_rule",
+        "body": [
+            "resource \"aws_alb_listener_rule\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_alb_target_group": {
+        "prefix":"tf-aws_alb_target_group",
+        "description": "Defines aws_alb_target_group",
+        "body": [
+            "resource \"aws_alb_target_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_alb_target_group_attachment": {
+        "prefix":"tf-aws_alb_target_group_attachment",
+        "description": "Defines aws_alb_target_group_attachment",
+        "body": [
+            "resource \"aws_alb_target_group_attachment\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ami_copy": {
+        "prefix":"tf-aws_ami_copy",
+        "description": "Defines aws_ami_copy",
+        "body": [
+            "resource \"aws_ami_copy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ami_from_instance": {
+        "prefix":"tf-aws_ami_from_instance",
+        "description": "Defines aws_ami_from_instance",
+        "body": [
+            "resource \"aws_ami_from_instance\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ami_launch_permission": {
+        "prefix":"tf-aws_ami_launch_permission",
+        "description": "Defines aws_ami_launch_permission",
+        "body": [
+            "resource \"aws_ami_launch_permission\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_app_cookie_stickiness_policy": {
+        "prefix":"tf-aws_app_cookie_stickiness_policy",
+        "description": "Defines aws_app_cookie_stickiness_policy",
+        "body": [
+            "resource \"aws_app_cookie_stickiness_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_autoscaling_group": {
+        "prefix":"tf-aws_autoscaling_group",
+        "description": "Defines aws_autoscaling_group",
+        "body": [
+            "resource \"aws_autoscaling_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_autoscaling_attachment": {
+        "prefix":"tf-aws_autoscaling_attachment",
+        "description": "Defines aws_autoscaling_attachment",
+        "body": [
+            "resource \"aws_autoscaling_attachment\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_autoscaling_lifecycle_hook": {
+        "prefix":"tf-aws_autoscaling_lifecycle_hook",
+        "description": "Defines aws_autoscaling_lifecycle_hook",
+        "body": [
+            "resource \"aws_autoscaling_lifecycle_hook\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_autoscaling_notification": {
+        "prefix":"tf-aws_autoscaling_notification",
+        "description": "Defines aws_autoscaling_notification",
+        "body": [
+            "resource \"aws_autoscaling_notification\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_autoscaling_policy": {
+        "prefix":"tf-aws_autoscaling_policy",
+        "description": "Defines aws_autoscaling_policy",
+        "body": [
+            "resource \"aws_autoscaling_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_autoscaling_schedule": {
+        "prefix":"tf-aws_autoscaling_schedule",
+        "description": "Defines aws_autoscaling_schedule",
+        "body": [
+            "resource \"aws_autoscaling_schedule\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_eip": {
+        "prefix":"tf-aws_eip",
+        "description": "Defines aws_eip",
+        "body": [
+            "resource \"aws_eip\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_eip_association": {
+        "prefix":"tf-aws_eip_association",
+        "description": "Defines aws_eip_association",
+        "body": [
+            "resource \"aws_eip_association\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elb": {
+        "prefix":"tf-aws_elb",
+        "description": "Defines aws_elb",
+        "body": [
+            "resource \"aws_elb\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elb_attachment": {
+        "prefix":"tf-aws_elb_attachment",
+        "description": "Defines aws_elb_attachment",
+        "body": [
+            "resource \"aws_elb_attachment\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_instance": {
+        "prefix":"tf-aws_instance",
+        "description": "Defines aws_instance",
+        "body": [
+            "resource \"aws_instance\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_key_pair": {
+        "prefix":"tf-aws_key_pair",
+        "description": "Defines aws_key_pair",
+        "body": [
+            "resource \"aws_key_pair\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_launch_configuration": {
+        "prefix":"tf-aws_launch_configuration",
+        "description": "Defines aws_launch_configuration",
+        "body": [
+            "resource \"aws_launch_configuration\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_lb_cookie_stickiness_policy": {
+        "prefix":"tf-aws_lb_cookie_stickiness_policy",
+        "description": "Defines aws_lb_cookie_stickiness_policy",
+        "body": [
+            "resource \"aws_lb_cookie_stickiness_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_lb_ssl_negotiation_policy": {
+        "prefix":"tf-aws_lb_ssl_negotiation_policy",
+        "description": "Defines aws_lb_ssl_negotiation_policy",
+        "body": [
+            "resource \"aws_lb_ssl_negotiation_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_load_balancer_backend_server_policy": {
+        "prefix":"tf-aws_load_balancer_backend_server_policy",
+        "description": "Defines aws_load_balancer_backend_server_policy",
+        "body": [
+            "resource \"aws_load_balancer_backend_server_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_load_balancer_listener_policy": {
+        "prefix":"tf-aws_load_balancer_listener_policy",
+        "description": "Defines aws_load_balancer_listener_policy",
+        "body": [
+            "resource \"aws_load_balancer_listener_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_load_balancer_policy": {
+        "prefix":"tf-aws_load_balancer_policy",
+        "description": "Defines aws_load_balancer_policy",
+        "body": [
+            "resource \"aws_load_balancer_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_placement_group": {
+        "prefix":"tf-aws_placement_group",
+        "description": "Defines aws_placement_group",
+        "body": [
+            "resource \"aws_placement_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_proxy_protocol_policy": {
+        "prefix":"tf-aws_proxy_protocol_policy",
+        "description": "Defines aws_proxy_protocol_policy",
+        "body": [
+            "resource \"aws_proxy_protocol_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_spot_datafeed_subscription": {
+        "prefix":"tf-aws_spot_datafeed_subscription",
+        "description": "Defines aws_spot_datafeed_subscription",
+        "body": [
+            "resource \"aws_spot_datafeed_subscription\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_spot_fleet_request": {
+        "prefix":"tf-aws_spot_fleet_request",
+        "description": "Defines aws_spot_fleet_request",
+        "body": [
+            "resource \"aws_spot_fleet_request\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_spot_instance_request": {
+        "prefix":"tf-aws_spot_instance_request",
+        "description": "Defines aws_spot_instance_request",
+        "body": [
+            "resource \"aws_spot_instance_request\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_volume_attachment": {
+        "prefix":"tf-aws_volume_attachment",
+        "description": "Defines aws_volume_attachment",
+        "body": [
+            "resource \"aws_volume_attachment\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ecr_repository": {
+        "prefix":"tf-aws_ecr_repository",
+        "description": "Defines aws_ecr_repository",
+        "body": [
+            "resource \"aws_ecr_repository\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ecr_repository_policy": {
+        "prefix":"tf-aws_ecr_repository_policy",
+        "description": "Defines aws_ecr_repository_policy",
+        "body": [
+            "resource \"aws_ecr_repository_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ecs_cluster": {
+        "prefix":"tf-aws_ecs_cluster",
+        "description": "Defines aws_ecs_cluster",
+        "body": [
+            "resource \"aws_ecs_cluster\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ecs_service": {
+        "prefix":"tf-aws_ecs_service",
+        "description": "Defines aws_ecs_service",
+        "body": [
+            "resource \"aws_ecs_service\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ecs_task_definition": {
+        "prefix":"tf-aws_ecs_task_definition",
+        "description": "Defines aws_ecs_task_definition",
+        "body": [
+            "resource \"aws_ecs_task_definition\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_efs_file_system": {
+        "prefix":"tf-aws_efs_file_system",
+        "description": "Defines aws_efs_file_system",
+        "body": [
+            "resource \"aws_efs_file_system\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_efs_mount_target": {
+        "prefix":"tf-aws_efs_mount_target",
+        "description": "Defines aws_efs_mount_target",
+        "body": [
+            "resource \"aws_efs_mount_target\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elasticache_cluster": {
+        "prefix":"tf-aws_elasticache_cluster",
+        "description": "Defines aws_elasticache_cluster",
+        "body": [
+            "resource \"aws_elasticache_cluster\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elasticache_parameter_group": {
+        "prefix":"tf-aws_elasticache_parameter_group",
+        "description": "Defines aws_elasticache_parameter_group",
+        "body": [
+            "resource \"aws_elasticache_parameter_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elasticache_replication_group": {
+        "prefix":"tf-aws_elasticache_replication_group",
+        "description": "Defines aws_elasticache_replication_group",
+        "body": [
+            "resource \"aws_elasticache_replication_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elasticache_security_group": {
+        "prefix":"tf-aws_elasticache_security_group",
+        "description": "Defines aws_elasticache_security_group",
+        "body": [
+            "resource \"aws_elasticache_security_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elasticache_subnet_group": {
+        "prefix":"tf-aws_elasticache_subnet_group",
+        "description": "Defines aws_elasticache_subnet_group",
+        "body": [
+            "resource \"aws_elasticache_subnet_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elastic_beanstalk_application": {
+        "prefix":"tf-aws_elastic_beanstalk_application",
+        "description": "Defines aws_elastic_beanstalk_application",
+        "body": [
+            "resource \"aws_elastic_beanstalk_application\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elastic_beanstalk_configuration_template": {
+        "prefix":"tf-aws_elastic_beanstalk_configuration_template",
+        "description": "Defines aws_elastic_beanstalk_configuration_template",
+        "body": [
+            "resource \"aws_elastic_beanstalk_configuration_template\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elastic_beanstalk_environment": {
+        "prefix":"tf-aws_elastic_beanstalk_environment",
+        "description": "Defines aws_elastic_beanstalk_environment",
+        "body": [
+            "resource \"aws_elastic_beanstalk_environment\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_emr_cluster": {
+        "prefix":"tf-aws_emr_cluster",
+        "description": "Defines aws_emr_cluster",
+        "body": [
+            "resource \"aws_emr_cluster\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_emr_instance_group": {
+        "prefix":"tf-aws_emr_instance_group",
+        "description": "Defines aws_emr_instance_group",
+        "body": [
+            "resource \"aws_emr_instance_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elasticsearch_domain": {
+        "prefix":"tf-aws_elasticsearch_domain",
+        "description": "Defines aws_elasticsearch_domain",
+        "body": [
+            "resource \"aws_elasticsearch_domain\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elastictranscoder_pipeline": {
+        "prefix":"tf-aws_elastictranscoder_pipeline",
+        "description": "Defines aws_elastictranscoder_pipeline",
+        "body": [
+            "resource \"aws_elastictranscoder_pipeline\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_elastictranscoder_preset": {
+        "prefix":"tf-aws_elastictranscoder_preset",
+        "description": "Defines aws_elastictranscoder_preset",
+        "body": [
+            "resource \"aws_elastictranscoder_preset\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_glacier_vault": {
+        "prefix":"tf-aws_glacier_vault",
+        "description": "Defines aws_glacier_vault",
+        "body": [
+            "resource \"aws_glacier_vault\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_access_key": {
+        "prefix":"tf-aws_iam_access_key",
+        "description": "Defines aws_iam_access_key",
+        "body": [
+            "resource \"aws_iam_access_key\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_account_password_policy": {
+        "prefix":"tf-aws_iam_account_password_policy",
+        "description": "Defines aws_iam_account_password_policy",
+        "body": [
+            "resource \"aws_iam_account_password_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_group": {
+        "prefix":"tf-aws_iam_group",
+        "description": "Defines aws_iam_group",
+        "body": [
+            "resource \"aws_iam_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_group_membership": {
+        "prefix":"tf-aws_iam_group_membership",
+        "description": "Defines aws_iam_group_membership",
+        "body": [
+            "resource \"aws_iam_group_membership\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_group_policy": {
+        "prefix":"tf-aws_iam_group_policy",
+        "description": "Defines aws_iam_group_policy",
+        "body": [
+            "resource \"aws_iam_group_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_group_policy_attachment": {
+        "prefix":"tf-aws_iam_group_policy_attachment",
+        "description": "Defines aws_iam_group_policy_attachment",
+        "body": [
+            "resource \"aws_iam_group_policy_attachment\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_instance_profile": {
+        "prefix":"tf-aws_iam_instance_profile",
+        "description": "Defines aws_iam_instance_profile",
+        "body": [
+            "resource \"aws_iam_instance_profile\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_policy": {
+        "prefix":"tf-aws_iam_policy",
+        "description": "Defines aws_iam_policy",
+        "body": [
+            "resource \"aws_iam_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_policy_attachment": {
+        "prefix":"tf-aws_iam_policy_attachment",
+        "description": "Defines aws_iam_policy_attachment",
+        "body": [
+            "resource \"aws_iam_policy_attachment\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_role": {
+        "prefix":"tf-aws_iam_role",
+        "description": "Defines aws_iam_role",
+        "body": [
+            "resource \"aws_iam_role\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_role_policy": {
+        "prefix":"tf-aws_iam_role_policy",
+        "description": "Defines aws_iam_role_policy",
+        "body": [
+            "resource \"aws_iam_role_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_role_policy_attachment": {
+        "prefix":"tf-aws_iam_role_policy_attachment",
+        "description": "Defines aws_iam_role_policy_attachment",
+        "body": [
+            "resource \"aws_iam_role_policy_attachment\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_saml_provider": {
+        "prefix":"tf-aws_iam_saml_provider",
+        "description": "Defines aws_iam_saml_provider",
+        "body": [
+            "resource \"aws_iam_saml_provider\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_server_certificate": {
+        "prefix":"tf-aws_iam_server_certificate",
+        "description": "Defines aws_iam_server_certificate",
+        "body": [
+            "resource \"aws_iam_server_certificate\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_user": {
+        "prefix":"tf-aws_iam_user",
+        "description": "Defines aws_iam_user",
+        "body": [
+            "resource \"aws_iam_user\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_user_login_profile": {
+        "prefix":"tf-aws_iam_user_login_profile",
+        "description": "Defines aws_iam_user_login_profile",
+        "body": [
+            "resource \"aws_iam_user_login_profile\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_user_policy": {
+        "prefix":"tf-aws_iam_user_policy",
+        "description": "Defines aws_iam_user_policy",
+        "body": [
+            "resource \"aws_iam_user_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_user_policy_attachment": {
+        "prefix":"tf-aws_iam_user_policy_attachment",
+        "description": "Defines aws_iam_user_policy_attachment",
+        "body": [
+            "resource \"aws_iam_user_policy_attachment\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_iam_user_ssh_key": {
+        "prefix":"tf-aws_iam_user_ssh_key",
+        "description": "Defines aws_iam_user_ssh_key",
+        "body": [
+            "resource \"aws_iam_user_ssh_key\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_kinesis_stream": {
+        "prefix":"tf-aws_kinesis_stream",
+        "description": "Defines aws_kinesis_stream",
+        "body": [
+            "resource \"aws_kinesis_stream\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_kinesis_firehose_delivery_stream": {
+        "prefix":"tf-aws_kinesis_firehose_delivery_stream",
+        "description": "Defines aws_kinesis_firehose_delivery_stream",
+        "body": [
+            "resource \"aws_kinesis_firehose_delivery_stream\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_kms_alias": {
+        "prefix":"tf-aws_kms_alias",
+        "description": "Defines aws_kms_alias",
+        "body": [
+            "resource \"aws_kms_alias\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_kms_key": {
+        "prefix":"tf-aws_kms_key",
+        "description": "Defines aws_kms_key",
+        "body": [
+            "resource \"aws_kms_key\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_lambda_alias": {
+        "prefix":"tf-aws_lambda_alias",
+        "description": "Defines aws_lambda_alias",
+        "body": [
+            "resource \"aws_lambda_alias\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_lambda_event_source_mapping": {
+        "prefix":"tf-aws_lambda_event_source_mapping",
+        "description": "Defines aws_lambda_event_source_mapping",
+        "body": [
+            "resource \"aws_lambda_event_source_mapping\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_lambda_function": {
+        "prefix":"tf-aws_lambda_function",
+        "description": "Defines aws_lambda_function",
+        "body": [
+            "resource \"aws_lambda_function\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_lambda_permission": {
+        "prefix":"tf-aws_lambda_permission",
+        "description": "Defines aws_lambda_permission",
+        "body": [
+            "resource \"aws_lambda_permission\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_application": {
+        "prefix":"tf-aws_opsworks_application",
+        "description": "Defines aws_opsworks_application",
+        "body": [
+            "resource \"aws_opsworks_application\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_custom_layer": {
+        "prefix":"tf-aws_opsworks_custom_layer",
+        "description": "Defines aws_opsworks_custom_layer",
+        "body": [
+            "resource \"aws_opsworks_custom_layer\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_ganglia_layer": {
+        "prefix":"tf-aws_opsworks_ganglia_layer",
+        "description": "Defines aws_opsworks_ganglia_layer",
+        "body": [
+            "resource \"aws_opsworks_ganglia_layer\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_haproxy_layer": {
+        "prefix":"tf-aws_opsworks_haproxy_layer",
+        "description": "Defines aws_opsworks_haproxy_layer",
+        "body": [
+            "resource \"aws_opsworks_haproxy_layer\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_instance": {
+        "prefix":"tf-aws_opsworks_instance",
+        "description": "Defines aws_opsworks_instance",
+        "body": [
+            "resource \"aws_opsworks_instance\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_java_app_layer": {
+        "prefix":"tf-aws_opsworks_java_app_layer",
+        "description": "Defines aws_opsworks_java_app_layer",
+        "body": [
+            "resource \"aws_opsworks_java_app_layer\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_memcached_layer": {
+        "prefix":"tf-aws_opsworks_memcached_layer",
+        "description": "Defines aws_opsworks_memcached_layer",
+        "body": [
+            "resource \"aws_opsworks_memcached_layer\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_mysql_layer": {
+        "prefix":"tf-aws_opsworks_mysql_layer",
+        "description": "Defines aws_opsworks_mysql_layer",
+        "body": [
+            "resource \"aws_opsworks_mysql_layer\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_nodejs_app_layer": {
+        "prefix":"tf-aws_opsworks_nodejs_app_layer",
+        "description": "Defines aws_opsworks_nodejs_app_layer",
+        "body": [
+            "resource \"aws_opsworks_nodejs_app_layer\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_permission": {
+        "prefix":"tf-aws_opsworks_permission",
+        "description": "Defines aws_opsworks_permission",
+        "body": [
+            "resource \"aws_opsworks_permission\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_php_app_layer": {
+        "prefix":"tf-aws_opsworks_php_app_layer",
+        "description": "Defines aws_opsworks_php_app_layer",
+        "body": [
+            "resource \"aws_opsworks_php_app_layer\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_rails_app_layer": {
+        "prefix":"tf-aws_opsworks_rails_app_layer",
+        "description": "Defines aws_opsworks_rails_app_layer",
+        "body": [
+            "resource \"aws_opsworks_rails_app_layer\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_stack": {
+        "prefix":"tf-aws_opsworks_stack",
+        "description": "Defines aws_opsworks_stack",
+        "body": [
+            "resource \"aws_opsworks_stack\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_static_web_layer": {
+        "prefix":"tf-aws_opsworks_static_web_layer",
+        "description": "Defines aws_opsworks_static_web_layer",
+        "body": [
+            "resource \"aws_opsworks_static_web_layer\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_opsworks_user_profile": {
+        "prefix":"tf-aws_opsworks_user_profile",
+        "description": "Defines aws_opsworks_user_profile",
+        "body": [
+            "resource \"aws_opsworks_user_profile\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_db_event_subscription": {
+        "prefix":"tf-aws_db_event_subscription",
+        "description": "Defines aws_db_event_subscription",
+        "body": [
+            "resource \"aws_db_event_subscription\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_db_instance": {
+        "prefix":"tf-aws_db_instance",
+        "description": "Defines aws_db_instance",
+        "body": [
+            "resource \"aws_db_instance\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_db_option_group": {
+        "prefix":"tf-aws_db_option_group",
+        "description": "Defines aws_db_option_group",
+        "body": [
+            "resource \"aws_db_option_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_db_parameter_group": {
+        "prefix":"tf-aws_db_parameter_group",
+        "description": "Defines aws_db_parameter_group",
+        "body": [
+            "resource \"aws_db_parameter_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_db_security_group": {
+        "prefix":"tf-aws_db_security_group",
+        "description": "Defines aws_db_security_group",
+        "body": [
+            "resource \"aws_db_security_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_db_subnet_group": {
+        "prefix":"tf-aws_db_subnet_group",
+        "description": "Defines aws_db_subnet_group",
+        "body": [
+            "resource \"aws_db_subnet_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_rds_cluster": {
+        "prefix":"tf-aws_rds_cluster",
+        "description": "Defines aws_rds_cluster",
+        "body": [
+            "resource \"aws_rds_cluster\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_rds_cluster_instance": {
+        "prefix":"tf-aws_rds_cluster_instance",
+        "description": "Defines aws_rds_cluster_instance",
+        "body": [
+            "resource \"aws_rds_cluster_instance\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_rds_cluster_parameter_group": {
+        "prefix":"tf-aws_rds_cluster_parameter_group",
+        "description": "Defines aws_rds_cluster_parameter_group",
+        "body": [
+            "resource \"aws_rds_cluster_parameter_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_redshift_cluster": {
+        "prefix":"tf-aws_redshift_cluster",
+        "description": "Defines aws_redshift_cluster",
+        "body": [
+            "resource \"aws_redshift_cluster\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_redshift_parameter_group": {
+        "prefix":"tf-aws_redshift_parameter_group",
+        "description": "Defines aws_redshift_parameter_group",
+        "body": [
+            "resource \"aws_redshift_parameter_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_redshift_security_group": {
+        "prefix":"tf-aws_redshift_security_group",
+        "description": "Defines aws_redshift_security_group",
+        "body": [
+            "resource \"aws_redshift_security_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_redshift_subnet_group": {
+        "prefix":"tf-aws_redshift_subnet_group",
+        "description": "Defines aws_redshift_subnet_group",
+        "body": [
+            "resource \"aws_redshift_subnet_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_waf_web_acl": {
+        "prefix":"tf-aws_waf_web_acl",
+        "description": "Defines aws_waf_web_acl",
+        "body": [
+            "resource \"aws_waf_web_acl\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_waf_byte_match_set": {
+        "prefix":"tf-aws_waf_byte_match_set",
+        "description": "Defines aws_waf_byte_match_set",
+        "body": [
+            "resource \"aws_waf_byte_match_set\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_waf_size_constraint_set": {
+        "prefix":"tf-aws_waf_size_constraint_set",
+        "description": "Defines aws_waf_size_constraint_set",
+        "body": [
+            "resource \"aws_waf_size_constraint_set\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_waf_rule": {
+        "prefix":"tf-aws_waf_rule",
+        "description": "Defines aws_waf_rule",
+        "body": [
+            "resource \"aws_waf_rule\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_waf_ipset": {
+        "prefix":"tf-aws_waf_ipset",
+        "description": "Defines aws_waf_ipset",
+        "body": [
+            "resource \"aws_waf_ipset\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_waf_xss_match_set": {
+        "prefix":"tf-aws_waf_xss_match_set",
+        "description": "Defines aws_waf_xss_match_set",
+        "body": [
+            "resource \"aws_waf_xss_match_set\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_waf_sql_injection_match_set": {
+        "prefix":"tf-aws_waf_sql_injection_match_set",
+        "description": "Defines aws_waf_sql_injection_match_set",
+        "body": [
+            "resource \"aws_waf_sql_injection_match_set\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_route53_delegation_set": {
+        "prefix":"tf-aws_route53_delegation_set",
+        "description": "Defines aws_route53_delegation_set",
+        "body": [
+            "resource \"aws_route53_delegation_set\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_route53_health_check": {
+        "prefix":"tf-aws_route53_health_check",
+        "description": "Defines aws_route53_health_check",
+        "body": [
+            "resource \"aws_route53_health_check\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_route53_record": {
+        "prefix":"tf-aws_route53_record",
+        "description": "Defines aws_route53_record",
+        "body": [
+            "resource \"aws_route53_record\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_route53_zone": {
+        "prefix":"tf-aws_route53_zone",
+        "description": "Defines aws_route53_zone",
+        "body": [
+            "resource \"aws_route53_zone\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_route53_zone_association": {
+        "prefix":"tf-aws_route53_zone_association",
+        "description": "Defines aws_route53_zone_association",
+        "body": [
+            "resource \"aws_route53_zone_association\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_s3_bucket": {
+        "prefix":"tf-aws_s3_bucket",
+        "description": "Defines aws_s3_bucket",
+        "body": [
+            "resource \"aws_s3_bucket\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_s3_bucket_notification": {
+        "prefix":"tf-aws_s3_bucket_notification",
+        "description": "Defines aws_s3_bucket_notification",
+        "body": [
+            "resource \"aws_s3_bucket_notification\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_s3_bucket_policy": {
+        "prefix":"tf-aws_s3_bucket_policy",
+        "description": "Defines aws_s3_bucket_policy",
+        "body": [
+            "resource \"aws_s3_bucket_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ses_active_receipt_rule_set": {
+        "prefix":"tf-aws_ses_active_receipt_rule_set",
+        "description": "Defines aws_ses_active_receipt_rule_set",
+        "body": [
+            "resource \"aws_ses_active_receipt_rule_set\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ses_receipt_filter": {
+        "prefix":"tf-aws_ses_receipt_filter",
+        "description": "Defines aws_ses_receipt_filter",
+        "body": [
+            "resource \"aws_ses_receipt_filter\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ses_receipt_rule": {
+        "prefix":"tf-aws_ses_receipt_rule",
+        "description": "Defines aws_ses_receipt_rule",
+        "body": [
+            "resource \"aws_ses_receipt_rule\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ses_receipt_rule_set": {
+        "prefix":"tf-aws_ses_receipt_rule_set",
+        "description": "Defines aws_ses_receipt_rule_set",
+        "body": [
+            "resource \"aws_ses_receipt_rule_set\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_simpledb_domain": {
+        "prefix":"tf-aws_simpledb_domain",
+        "description": "Defines aws_simpledb_domain",
+        "body": [
+            "resource \"aws_simpledb_domain\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_sns_topic": {
+        "prefix":"tf-aws_sns_topic",
+        "description": "Defines aws_sns_topic",
+        "body": [
+            "resource \"aws_sns_topic\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_sns_topic_policy": {
+        "prefix":"tf-aws_sns_topic_policy",
+        "description": "Defines aws_sns_topic_policy",
+        "body": [
+            "resource \"aws_sns_topic_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_sns_topic_subscription": {
+        "prefix":"tf-aws_sns_topic_subscription",
+        "description": "Defines aws_sns_topic_subscription",
+        "body": [
+            "resource \"aws_sns_topic_subscription\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_ssm_document": {
+        "prefix":"tf-aws_ssm_document",
+        "description": "Defines aws_ssm_document",
+        "body": [
+            "resource \"aws_ssm_document\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_sqs_queue": {
+        "prefix":"tf-aws_sqs_queue",
+        "description": "Defines aws_sqs_queue",
+        "body": [
+            "resource \"aws_sqs_queue\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_sqs_queue_policy": {
+        "prefix":"tf-aws_sqs_queue_policy",
+        "description": "Defines aws_sqs_queue_policy",
+        "body": [
+            "resource \"aws_sqs_queue_policy\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_customer_gateway": {
+        "prefix":"tf-aws_customer_gateway",
+        "description": "Defines aws_customer_gateway",
+        "body": [
+            "resource \"aws_customer_gateway\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_default_network_acl": {
+        "prefix":"tf-aws_default_network_acl",
+        "description": "Defines aws_default_network_acl",
+        "body": [
+            "resource \"aws_default_network_acl\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_default_route_table": {
+        "prefix":"tf-aws_default_route_table",
+        "description": "Defines aws_default_route_table",
+        "body": [
+            "resource \"aws_default_route_table\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_default_security_group": {
+        "prefix":"tf-aws_default_security_group",
+        "description": "Defines aws_default_security_group",
+        "body": [
+            "resource \"aws_default_security_group\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_flow_log": {
+        "prefix":"tf-aws_flow_log",
+        "description": "Defines aws_flow_log",
+        "body": [
+            "resource \"aws_flow_log\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_internet_gateway": {
+        "prefix":"tf-aws_internet_gateway",
+        "description": "Defines aws_internet_gateway",
+        "body": [
+            "resource \"aws_internet_gateway\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_main_route_table_association": {
+        "prefix":"tf-aws_main_route_table_association",
+        "description": "Defines aws_main_route_table_association",
+        "body": [
+            "resource \"aws_main_route_table_association\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_nat_gateway": {
+        "prefix":"tf-aws_nat_gateway",
+        "description": "Defines aws_nat_gateway",
+        "body": [
+            "resource \"aws_nat_gateway\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_network_acl": {
+        "prefix":"tf-aws_network_acl",
+        "description": "Defines aws_network_acl",
+        "body": [
+            "resource \"aws_network_acl\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_network_acl_rule": {
+        "prefix":"tf-aws_network_acl_rule",
+        "description": "Defines aws_network_acl_rule",
+        "body": [
+            "resource \"aws_network_acl_rule\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_network_interface": {
+        "prefix":"tf-aws_network_interface",
+        "description": "Defines aws_network_interface",
+        "body": [
+            "resource \"aws_network_interface\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_route": {
+        "prefix":"tf-aws_route",
+        "description": "Defines aws_route",
+        "body": [
+            "resource \"aws_route\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_route_table": {
+        "prefix":"tf-aws_route_table",
+        "description": "Defines aws_route_table",
+        "body": [
+            "resource \"aws_route_table\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_route_table_association": {
+        "prefix":"tf-aws_route_table_association",
+        "description": "Defines aws_route_table_association",
+        "body": [
+            "resource \"aws_route_table_association\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_security_group_rule": {
+        "prefix":"tf-aws_security_group_rule",
+        "description": "Defines aws_security_group_rule",
+        "body": [
+            "resource \"aws_security_group_rule\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_vpc_dhcp_options": {
+        "prefix":"tf-aws_vpc_dhcp_options",
+        "description": "Defines aws_vpc_dhcp_options",
+        "body": [
+            "resource \"aws_vpc_dhcp_options\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_vpc_dhcp_options_association": {
+        "prefix":"tf-aws_vpc_dhcp_options_association",
+        "description": "Defines aws_vpc_dhcp_options_association",
+        "body": [
+            "resource \"aws_vpc_dhcp_options_association\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_vpc_endpoint": {
+        "prefix":"tf-aws_vpc_endpoint",
+        "description": "Defines aws_vpc_endpoint",
+        "body": [
+            "resource \"aws_vpc_endpoint\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_vpc_peering_connection": {
+        "prefix":"tf-aws_vpc_peering_connection",
+        "description": "Defines aws_vpc_peering_connection",
+        "body": [
+            "resource \"aws_vpc_peering_connection\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_vpn_connection": {
+        "prefix":"tf-aws_vpn_connection",
+        "description": "Defines aws_vpn_connection",
+        "body": [
+            "resource \"aws_vpn_connection\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_vpn_connection_route": {
+        "prefix":"tf-aws_vpn_connection_route",
+        "description": "Defines aws_vpn_connection_route",
+        "body": [
+            "resource \"aws_vpn_connection_route\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_vpn_gateway": {
+        "prefix":"tf-aws_vpn_gateway",
+        "description": "Defines aws_vpn_gateway",
+        "body": [
+            "resource \"aws_vpn_gateway\" \"${MyAWSResource}\" {",
+            "}"
+        ]
+    },
+    "aws_vpn_gateway_attachment": {
+        "prefix":"tf-aws_vpn_gateway_attachment",
+        "description": "Defines aws_vpn_gateway_attachment",
+        "body": [
+            "resource \"aws_vpn_gateway_attachment\" \"${MyAWSResource}\" {",
+            "}"
+        ]
     }
 }
