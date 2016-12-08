@@ -103,6 +103,8 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
     * CLOUDFORMATION RESOURCES
     * APP AUTOSCALING RESOURCES
 * Consul
+* Docker
+* Heroku
 
 ## Todo
 
@@ -122,13 +124,11 @@ A massive list of things to add
 * DigitalOcean
 * DNSMadeEasy
 * DNSimple
-* Docker
 * Dyn
 * GitHub
 * Fastly
 * Google Cloud
 * Grafana
-* Heroku
 * InfluxDB
 * Librato
 * Logentries

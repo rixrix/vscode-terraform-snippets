@@ -1,3 +1,8 @@
+# 0.7.0
+
+* Add support for `Docker`
+* Add support for `Heroku`
+
 # 0.6.0
 
 * Add support for `Consul` (basic snippets only)
