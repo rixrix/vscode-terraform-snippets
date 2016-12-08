@@ -2,7 +2,7 @@
     "name": "terraform-snippets",
     "displayName": "Terraform.io Snippets Generator",
     "description": "Terraform.io snippets generator for Visual Studio Code",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "publisher": "mindginative",
     "author": {
         "name": "Richard Sentino",
