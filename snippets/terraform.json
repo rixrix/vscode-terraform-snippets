@@ -52,6 +52,159 @@
             "}"
         ]
     },
+    "depends_on": {
+        "prefix": "tf-depends_on",
+        "description": "Define explicit dependencies.",
+        "body": [
+            "depends_on = [\"${dependsOn}\"]"
+        ]
+    },
+    "module-github": {
+        "prefix": "tf-module-github",
+        "description": "Define a module with github source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"github.com/username\"",
+            "}"
+        ]
+    },
+    "module-github-private": {
+        "prefix": "tf-module-github-private",
+        "description": "Define a module with github with private source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"git::https://MACHINE-USER:MACHINE-PASS@github.com/username\"",
+            "}"
+        ]
+    },
+    "module-bitbucket": {
+        "prefix": "tf-module-bitbucket",
+        "description": "Define a module with BitBucket source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"bitbucket.org/username\"",
+            "}"
+        ]
+    },
+    "module-git": {
+        "prefix": "tf-module-git",
+        "description": "Define a module with genertic Git source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"git://\"",
+            "}"
+        ]
+    },
+    "module-mercurial": {
+        "prefix": "tf-module-mercurial",
+        "description": "Define a module with Mercurial source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"hg::http://\"",
+            "}"
+        ]
+    },
+    "module-s3": {
+        "prefix": "tf-module-s3",
+        "description": "Define a module with S3 source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"s3::https://\"",
+            "}"
+        ]
+    },
+    "provisioner-connection": {
+        "prefix": "tf-provisioner-connection",
+        "description": "Define a connection provisioner",
+        "body": [
+            "# Copies the file as the root user using SSH",
+            "provisioner \"file\" {",
+            "   source      = \"conf/myapp.conf\"",
+            "   destination = \"/etc/myapp.conf\"",
+            "   connection {",
+            "       type        = \"ssh\"",
+            "       user        = \"root\"",
+            "       password    = \"samplePasswordHere\"",
+            "   }",
+            "}"
+        ]
+    },
+    "provisioner-file": {
+        "prefix": "tf-provisioner-file",
+        "description": "Define a file provisioner",
+        "body": [
+            "   # Copies the myapp.conf file to /etc/myapp.conf",
+            "   provisioner \"file\" {",
+            "       source = \"conf/myapp.conf\"",
+            "       destination = \"/etc/myapp.conf\"",
+            "   }"
+        ]
+    },
+    "provisioner-local-exec": {
+        "prefix": "tf-provisioner-local-exec",
+        "description": "Define a local-exec provisioner",
+        "body": [
+            "   provisioner \"local-exec\" {",
+            "       command = \"echo ${aws_instance.web.private_ip} >> private_ips.txt\"",
+            "   }"
+        ]
+    },
+    "provisioner-remote-exec": {
+        "prefix": "tf-provisioner-remote-exec",
+        "description": "Define a remote-exec provisioner",
+        "body": [
+            "   provisioner \"remote-exec\" {",
+            "       inline = [",
+            "           \"puppet apply\",",
+            "           \"consul join ${aws_instance.web.private_ip}\"",
+            "       ]",
+            "   }"
+        ]
+    },
+    "provisioner-null_resource": {
+        "prefix": "tf-provisioner-null_resource",
+        "description": "Define a null_resource provisioner",
+        "body": [
+            "resource \"null_resource\" \"${cluster}\" {",
+            "   # Changes to any instance of the cluster requires re-provisioning",
+            "   triggers {",
+            "       cluster_instance_ids = \"\\${join(",", aws_instance.cluster.*.id)}\"",
+            "   }",
+            "}"
+        ]
+    },
+    "template_file": {
+        "prefix": "tf-template_file",
+        "description": "Define a template_file template from file",
+        "body": [
+            "data \"template_file\" \"${init}\" {",
+            "   template = \"\\${file(\"\\${path.module}/${init}.tpl\")}\"\n",
+            "   vars {",
+            "       consul_address = \"\\${aws_instance.consul.private_ip}\"",
+            "   }",
+            "}"
+        ]
+    },
+    "template_file-inline": {
+        "prefix": "tf-template_file-inline",
+        "description": "Define a template_file template inline",
+        "body": [
+            "data \"template_file\" \"${init}\" {",
+            "   template = \"\\$\\${consul_address}:1234\"",
+            "   vars {",
+            "       consul_address = \"\\${aws_instance.consul.private_ip}\"",
+            "   }",
+            "}"
+        ]
+    },
+    "template_cloudinit_config": {
+        "prefix": "tf-template_cloudinit_config",
+        "description": "Define a template_cloudinit_config template",
+        "body": [
+            "data \"template_cloudinit_config\" \"${config}\" {",
+            "}"
+        ]
+    },
     "aws_acm_certificate": {
         "prefix": "tf-aws_acm_certificate",
         "description": "Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM). The process of requesting and verifying a certificate in ACM requires some manual steps, which means that Terraform cannot automate the creation of ACM certificates. But using this data source, you can reference them by domain without having to hard code the ARNs as input.",
