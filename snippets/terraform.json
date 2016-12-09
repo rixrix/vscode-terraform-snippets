@@ -2633,4 +2633,47 @@
             "}"
         ]
     },
+    "mysql": {
+        "prefix":"tf-mysql",
+        "description": "Defines mysql provider",
+        "body": [
+            "provider \"mysql\" {",
+            "   endpoint  = \"endpoint-example\"",
+            "   username  = \"username-example\"",
+            "   password  = \"password-example\"",
+            "}"
+        ]
+    },
+    "mysql_database": {
+        "prefix":"tf-mysql_database",
+        "description": "Defines mysql_database resource",
+        "body": [
+            "resource \"mysql_database\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "}"
+        ]
+    },
+    "mysql_grant": {
+        "prefix":"tf-mysql_grant",
+        "description": "Defines mysql_grant resource",
+        "body": [
+            "resource \"mysql_grant\" \"${MyResource}\" {",
+            "   user        = \"example-user\"",
+            "   host        = \"example-host\"",
+            "   database    = \"example-database\"",
+            "   privileges  = \"example-privileges \"",
+            "}"
+        ]
+    },
+    "mysql_user": {
+        "prefix":"tf-mysql_user",
+        "description": "Defines mysql_user resource",
+        "body": [
+            "resource \"mysql_user\" \"${MyResource}\" {",
+            "   user        = \"example-user\"",
+            "   host        = \"example-host\"",
+            "   password    = \"example-password \"",
+            "}"
+        ]
+    }
 }

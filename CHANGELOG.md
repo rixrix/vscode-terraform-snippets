@@ -4,6 +4,7 @@
 * Add support for `Atlas`
 * Add support for `Chef`
 * Add support for `Cloudflare`
+* Add support for `MySQL`
 
 # 0.8.0
 
