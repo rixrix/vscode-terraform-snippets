@@ -1,6 +1,7 @@
 # 0.9.0
 
 * Add support for `Archive`
+* Add support for `Atlas`
 
 # 0.8.0
 

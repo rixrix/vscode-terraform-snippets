@@ -2526,4 +2526,27 @@
             "}"
         ]
     },
+    "atlas": {
+        "prefix":"tf-atlas",
+        "description": "Defines atlas",
+        "body": [
+            "provider \"atlas\" {",
+            "   token = \"${atlasToken}\"",
+            "}"
+        ]
+    },
+    "atlas_artifact_data": {
+        "prefix":"tf-atlas_artifact",
+        "description": "Defines atlas_artifact data",
+        "body": [
+            "data \"atlas_artifact\" \"${web}\" {",
+            "   name = \"hashicorp/web\"",
+            "   type = \"amazon.image\"",
+            "   build = \"latest\"",
+            "   metadata {",
+            "       arch = \"386\"",
+            "   }",
+            "}"
+        ]
+    }
 }
