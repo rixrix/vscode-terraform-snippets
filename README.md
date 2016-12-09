@@ -16,6 +16,7 @@ This extension for Visual Studio Code adds snippets for Terraform.
 * Heroku
 * DigitalOcean
 * Bitbucket
+* GitHub
 * AWS
   * Resources w/ examples
     * All [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html),
@@ -93,7 +94,6 @@ A massive list of things to add
 * DNSMadeEasy
 * DNSimple
 * Dyn
-* GitHub
 * Fastly
 * Google Cloud
 * Grafana

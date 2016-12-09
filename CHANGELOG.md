@@ -1,6 +1,7 @@
 # 0.8.0
 
 * Add support for `BitBucket`
+* Add support for `Github`
 
 # 0.7.0
 
