@@ -5,6 +5,7 @@
 * Add support for `Chef`
 * Add support for `Cloudflare`
 * Add support for `MySQL`
+* Add support for `PostgreSQL`
 
 # 0.8.0
 
