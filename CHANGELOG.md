@@ -1,3 +1,7 @@
+# 0.9.0
+
+* Add support for `Archive`
+
 # 0.8.0
 
 * Add support for `BitBucket`

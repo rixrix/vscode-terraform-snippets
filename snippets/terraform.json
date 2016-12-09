@@ -2506,5 +2506,24 @@
             "resource \"github_issue_label\" \"${MyResource}\" {",
             "}"
         ]
-    }
+    },
+    "archive": {
+        "prefix":"tf-archive",
+        "description": "Defines archive",
+        "body": [
+            "provider \"archive\" {",
+            "}"
+        ]
+    },
+    "archive_file": {
+        "prefix":"tf-archive_file",
+        "description": "Defines archive_file",
+        "body": [
+            "data \"archive_file\" \"${init}\" {",
+            "   type        = \"zip\"",
+            "   source_file = \"\\${path.module}/init.tpl\"",
+            "   output_path = \"\\${path.module}/files/init.zip\"",
+            "}"
+        ]
+    },
 }
