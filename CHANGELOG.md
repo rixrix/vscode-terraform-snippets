@@ -2,6 +2,7 @@
 
 * Add support for `Archive`
 * Add support for `Atlas`
+* Add support for `Chef`
 
 # 0.8.0
 

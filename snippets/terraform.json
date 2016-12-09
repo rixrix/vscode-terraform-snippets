@@ -2548,5 +2548,66 @@
             "   }",
             "}"
         ]
+    },
+    "chef": {
+        "prefix":"tf-chef",
+        "description": "Defines chef",
+        "body": [
+            "provider \"chef\" {",
+            "   server_url  = \"${url}\"",
+            "   client_name = \"samplechef\"",
+            "}"
+        ]
+    },
+    "chef_data_bag": {
+        "prefix":"tf-chef_data_bag",
+        "description": "Defines chef_data_bag resource",
+        "body": [
+            "resource \"chef_data_bag\" \"${MyResource}\" {",
+            "   name = \"sampleName\"",
+            "}"
+        ]
+    },
+    "chef_data_bag_item": {
+        "prefix":"tf-chef_data_bag_item",
+        "description": "Defines chef_data_bag_item resource",
+        "body": [
+            "resource \"chef_data_bag_item\" \"${MyResource}\" {",
+            "   data_bag_name = \"example-data-bag\"",
+            "content_json = <<EOT",
+            "{",
+            "   \"id\": \"example-item\",",
+            "   \"any_arbitrary_data\": true",
+            "}",
+            "EOT",
+            "}"
+        ]
+    },
+    "chef_environment": {
+        "prefix":"tf-chef_environment",
+        "description": "Defines chef_environment resource",
+        "body": [
+            "resource \"chef_environment\" \"${MyResource}\" {",
+            "   name = \"example-environment\"",
+            "}"
+        ]
+    },
+    "chef_node": {
+        "prefix":"tf-chef_node",
+        "description": "Defines chef_node resource",
+        "body": [
+            "resource \"chef_node\" \"${MyResource}\" {",
+            "   name = \"example-environment\"",
+            "}"
+        ]
+    },
+    "chef_role": {
+        "prefix":"tf-chef_role",
+        "description": "Defines chef_role resource",
+        "body": [
+            "resource \"chef_role\" \"${MyResource}\" {",
+            "   name = \"example-environment\"",
+            "}"
+        ]
     }
 }
