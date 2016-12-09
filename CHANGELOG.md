@@ -3,6 +3,7 @@
 * Add support for `Archive`
 * Add support for `Atlas`
 * Add support for `Chef`
+* Add support for `Cloudflare`
 
 # 0.8.0
 
