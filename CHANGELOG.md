@@ -1,3 +1,7 @@
+# 0.8.0
+
+* Add support for `BitBucket`
+
 # 0.7.0
 
 * Add support for `Docker`

@@ -2,14 +2,33 @@
 
 This extension for Visual Studio Code adds snippets for Terraform.
 
-## Help
+## Supported Snippets
 
-> There's massive list of things to do with this snippets generator, I'd be happy to accept your `pull request` and with your name in credits section. The example is pretty easy to follow. Thanks
+* [Input variables](https://www.terraform.io/intro/getting-started/variables.html)
+* [Output Variables](https://www.terraform.io/intro/getting-started/outputs.html)
+* [Modules](https://www.terraform.io/intro/getting-started/modules.html)
+* [Resource](https://www.terraform.io/intro/getting-started/provision.html)
+* Provisioner - [connection](https://www.terraform.io/docs/provisioners/connection.html), [file](https://www.terraform.io/docs/provisioners/file.html), [local-exec](https://www.terraform.io/docs/provisioners/local-exec.html), [remote-exec](https://www.terraform.io/docs/provisioners/remote-exec.html), [null_resource](https://www.terraform.io/docs/provisioners/null_resource.html)
+* Template for [file](https://www.terraform.io/docs/providers/template/d/file.html) and [cloudinit](https://www.terraform.io/docs/providers/template/d/cloudinit_config.html)
+* Provider eg. `provider "aws" { } `
+* Consul
+* Docker
+* Heroku
+* DigitalOcean
+* Bitbucket
+* AWS
+  * Resources w/ examples
+    * All [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html),
+    * All [API Gateway Resources](https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html)
+  * Resources w/o examples
+    * All AWS resources
 
 ## Usage
 Type part of the snippets `tf`, press `enter`:
 
-### Terraform Snippets
+### Sample Snippets
+
+These are common snippets you can use across other providers, provisioners, etc.
 
 ```bash
 tf-variable                         // generates `variable "myVariable" { }`
@@ -53,59 +72,9 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
 5. Choose the extension
 6. Reload Visual Studio Code
 
-## Done
+## Help
 
-* [Input variables](https://www.terraform.io/intro/getting-started/variables.html)
-* [Output Variables](https://www.terraform.io/intro/getting-started/outputs.html)
-* [Modules](https://www.terraform.io/intro/getting-started/modules.html)
-* [Resource](https://www.terraform.io/intro/getting-started/provision.html)
-* Provisioner - [connection](https://www.terraform.io/docs/provisioners/connection.html), [file](https://www.terraform.io/docs/provisioners/file.html), [local-exec](https://www.terraform.io/docs/provisioners/local-exec.html), [remote-exec](https://www.terraform.io/docs/provisioners/remote-exec.html), [null_resource](https://www.terraform.io/docs/provisioners/null_resource.html)
-* Template for [file](https://www.terraform.io/docs/providers/template/d/file.html) and [cloudinit](https://www.terraform.io/docs/providers/template/d/cloudinit_config.html)
-* Provider eg. `provider "aws" { } `
-* AWS
-  * All Resources w/ examples
-    * All [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html),
-    * All [API Gateway Resources](https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html)
-  * Basic Snippets
-    * VPC RESOURCES
-    * SQS RESOURCES
-    * SSM RESOURCES
-    * SNS RESOURCES
-    * SIMPLEDB RESOURCES
-    * SES RESOURCES
-    * S3 RESOURCES
-    * ROUTE53 RESOURCES
-    * WAF RESOURCES
-    * REDSHIFT RESOURCES
-    * RDS RESOURCES
-    * OPSWORKS RESOURCES
-    * LAMBDA RESOURCES
-    * KMS RESOURCES
-    * KINESIS FIREHOSE RESOURCES
-    * KINESIS RESOURCES
-    * IAM RESOURCES
-    * GLACIER RESOURCES
-    * ELASTIC TRANSCODER RESOURCES
-    * ELASTICSEARCH RESOURCES
-    * ELASTIC MAP REDUCE RESOURCES
-    * ELASTIC BEANSTALK RESOURCES
-    * ELASTICACHE RESOURCES
-    * EFS RESOURCES
-    * ECS RESOURCES
-    * EC2 RESOURCES
-    * DYNAMODB RESOURCES
-    * DIRECTORY SERVICE RESOURCES
-    * CODEDEPLOY RESOURCES
-    * CODECOMMIT RESOURCES
-    * CLOUDWATCH RESOURCES
-    * CLOUDTRAIL RESOURCES
-    * CLOUDFRONT RESOURCES
-    * CLOUDFORMATION RESOURCES
-    * APP AUTOSCALING RESOURCES
-* Consul
-* Docker
-* Heroku
-* DigitalOcean
+> There's massive list of things to do with this snippets generator, I'd be happy to accept your `pull request` and with your name in credits section. The example is pretty easy to follow. Thanks
 
 ## Todo
 
@@ -115,7 +84,6 @@ A massive list of things to add
 
 * Archive
 * Atlas
-* Bitbucket
 * Chef
 * CenturyLinkCloud
 * CloudFlare
@@ -147,7 +115,6 @@ A massive list of things to add
 * StatusCake
 * SoftLayer
 * Scaleway
-* Template
 * Terraform
 * TLS
 * Triton
@@ -158,20 +125,6 @@ A massive list of things to add
 ### Provisioners
 
 * chef
-* connection
-* file
-* local-exec
-* remote-exec
-* null_resource
-
-### Modules (Sources)
-
-* Local file paths
-* GitHub
-* Bitbucket
-* Generic Git, Mercurial repositories
-* HTTP URLs
-* S3 buckets
 
 ### Credits
 
