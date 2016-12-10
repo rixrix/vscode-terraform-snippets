@@ -33,6 +33,7 @@ This extension for Visual Studio Code adds snippets for Terraform.
 * Datadog
 * DNSMadeEasy
 * DNSimple
+* Dyn
 * AWS
   * Resources w/ examples
     * All [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html),
@@ -99,7 +100,6 @@ A massive list of things to add
 
 ### Providers
 
-* Dyn
 * Fastly
 * Grafana
 * InfluxDB

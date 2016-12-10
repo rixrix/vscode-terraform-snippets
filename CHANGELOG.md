@@ -5,6 +5,7 @@
 * Add support for `Datadog`
 * Add support for `DNSMadeEasy`
 * Add support for `DNSimple`
+* Add support for `Dyn`
 
 # 0.10.0
 
