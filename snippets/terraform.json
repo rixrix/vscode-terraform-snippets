@@ -4956,4 +4956,36 @@
             "}"
         ]
     },
+    "logentries": {
+        "prefix": "tf-logentries",
+        "description": "define a logentries provider.",
+        "body": [
+            "provider \"logentries\" {",
+            "   account_key = \"${account_key}\"",
+            "}"
+        ]
+    },
+    "logentries_log": {
+        "prefix": "tf-logentries_log",
+        "description": "define logentries_log resource.",
+        "body": [
+            "resource \"logentries_log\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   logset_id = \"\\${logentries_logset.host_logs.id}\"",
+            "   source = \"token\"",
+            "}"
+        ]
+    },
+    "logentries_logset": {
+        "prefix": "tf-logentries_logset",
+        "description": "define logentries_logset resource.",
+        "body": [
+            "resource \"logentries_logset\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   location = \"www.example.com\"",
+            "}"
+        ]
+    }
 }

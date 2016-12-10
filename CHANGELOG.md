@@ -10,6 +10,7 @@
 * Add support for `Grafana`
 * Add support for `InfluxDB`
 * Add support for `Librato`
+* Add support for `Logentries`
 
 # 0.10.0
 
