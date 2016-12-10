@@ -6,6 +6,7 @@
 * Add support for `DNSMadeEasy`
 * Add support for `DNSimple`
 * Add support for `Dyn`
+* Add support for `Fastly`
 
 # 0.10.0
 
