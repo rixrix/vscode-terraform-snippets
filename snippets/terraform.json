@@ -2719,5 +2719,500 @@
             "   name        = \"example-name\"",
             "}"
         ]
-    }
+    },
+    "google": {
+        "prefix":"tf-google",
+        "description": "Defines google provider",
+        "body": [
+            "provider \"google\" {",
+            "   credentials = \"credentials -example\"",
+            "   project     = \"project-example\"",
+            "   region      = \"us-central1\"",
+            "}"
+        ]
+    },
+    "google_iam_policy": {
+        "prefix":"tf-google_iam_policy",
+        "description": "Defines google_iam_policy policy",
+        "body": [
+            "data \"google_iam_policy\" \"${admin}\" {",
+            "   binding {",
+            "       role = \"roles/compute.instanceAdmin\"",
+            "           members = [",
+            "               \"serviceAccount:your-custom-sa@your-project.iam.gserviceaccount.com\",",
+            "           ]",
+            "   }",
+            "   binding {",
+            "       role = \"roles/storage.objectViewer\"",
+            "       members = [",
+            "           \"user:evanbrown@google.com\",",
+            "       ]",
+            "   }",
+            "}"
+        ]
+    },
+    "google_project": {
+        "prefix":"tf-google_project",
+        "description": "Defines google_project resource",
+        "body": [
+            "resource \"google_project\" \"${MyResource}\" {",
+            "   id          = \"example-id\"",
+            "   policy_data = \"example-policy_data\"",
+            "}"
+        ]
+    },
+    "google_compute_address": {
+        "prefix":"tf-google_compute_address",
+        "description": "Defines google_compute_address resource",
+        "body": [
+            "resource \"google_compute_address\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "}"
+        ]
+    },
+    "google_compute_autoscaler": {
+        "prefix":"tf-google_compute_autoscaler",
+        "description": "Defines google_compute_autoscaler resource",
+        "body": [
+            "resource \"google_compute_autoscaler\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   zone = \"example-zone\"",
+            "   target = \"example-target\"",
+            "   autoscaling_policy = {",
+            "       max_replicas    = 5",
+            "       min_replicas    = 1",
+            "       cooldown_period = 60\n",
+            "       cpu_utilization {",
+            "           target = 0.5",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "google_pubsub_subscription": {
+        "prefix":"tf-google_pubsub_subscription",
+        "description": "Defines google_pubsub_subscription resource",
+        "body": [
+            "resource \"google_pubsub_subscription\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   topic = \"example-topic\"",
+            "}"
+        ]
+    },
+    "google_compute_backend_service": {
+        "prefix":"tf-google_compute_backend_service",
+        "description": "Defines google_compute_backend_service resource",
+        "body": [
+            "resource \"google_compute_backend_service\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   health_checks  = [\"example-health_checks\"]",
+            "}"
+        ]
+    },
+    "google_compute_disk": {
+        "prefix":"tf-google_compute_disk",
+        "description": "Defines google_compute_disk resource",
+        "body": [
+            "resource \"google_compute_disk\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   type = \"pd-ssd\"",
+            "   zone = \"us-central1-a\"",
+            "   image = \"debian7-wheezy\"",
+            "}"
+        ]
+    },
+    "google_compute_firewall": {
+        "prefix":"tf-google_compute_firewall",
+        "description": "Defines google_compute_firewall resource",
+        "body": [
+            "resource \"google_compute_firewall\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   network = \"example-network\"",
+            "   allow {",
+            "       protocol = \"icmp\"",
+            "   }",
+            "}"
+        ]
+    },
+    "google_compute_forwarding_rule": {
+        "prefix":"tf-google_compute_forwarding_rule",
+        "description": "Defines google_compute_forwarding_rule resource",
+        "body": [
+            "resource \"google_compute_forwarding_rule\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   target = \"\\${google_compute_target_pool.default.self_link}\"",
+            "   port_range = \"80\"",
+            "}"
+        ]
+    },
+    "google_compute_global_address": {
+        "prefix":"tf-google_compute_global_address",
+        "description": "Defines google_compute_global_address resource",
+        "body": [
+            "resource \"google_compute_global_address\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "}"
+        ]
+    },
+    "google_compute_global_forwarding_rule": {
+        "prefix":"tf-google_compute_global_forwarding_rule",
+        "description": "Defines google_compute_global_forwarding_rule resource",
+        "body": [
+            "resource \"google_compute_global_forwarding_rule\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   target = \"\\${google_compute_target_http_proxy.default.self_link}\"",
+            "   port_range = \"80\"",
+            "}"
+        ]
+    },
+    "google_compute_http_health_check": {
+        "prefix":"tf-google_compute_http_health_check",
+        "description": "Defines google_compute_http_health_check resource",
+        "body": [
+            "resource \"google_compute_http_health_check\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   request_path  = \"/health_check\"",
+            "   timeout_sec = 1",
+            "   check_interval_sec = 1",
+            "}"
+        ]
+    },
+    "google_compute_https_health_check": {
+        "prefix":"tf-google_compute_https_health_check",
+        "description": "Defines google_compute_https_health_check resource",
+        "body": [
+            "resource \"google_compute_https_health_check\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   request_path  = \"/health_check\"",
+            "   timeout_sec = 1",
+            "   check_interval_sec = 1",
+            "}"
+        ]
+    },
+    "google_compute_image": {
+        "prefix":"tf-google_compute_image",
+        "description": "Defines google_compute_image resource",
+        "body": [
+            "resource \"google_compute_image\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   raw_disk {",
+            "       source = \"https://storage.googleapis.com/my-bucket/my-disk-image-tarball.tar.gz\"",
+            "   }",
+            "}"
+        ]
+    },
+    "google_compute_instance": {
+        "prefix":"tf-google_compute_instance",
+        "description": "Defines google_compute_instance resource",
+        "body": [
+            "resource \"google_compute_instance\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   machine_type = \"n1-standard-1\"",
+            "   zone = \"us-central1-a\"",
+            "   disk { image = \"debian-cloud/debian-8\" }",
+            "}"
+        ]
+    },
+    "google_compute_instance_group": {
+        "prefix":"tf-google_compute_instance_group",
+        "description": "Defines google_compute_instance_group resource",
+        "body": [
+            "resource \"google_compute_instance_group\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   zone = \"us-central1-a\"",
+            "}"
+        ]
+    },
+    "google_compute_instance_group_manager": {
+        "prefix":"tf-google_compute_instance_group_manager",
+        "description": "Defines google_compute_instance_group_manager resource",
+        "body": [
+            "resource \"google_compute_instance_group_manager\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   base_instance_name = \"example-base_instance_name\"",
+            "   instance_template = \"\\${google_compute_instance_template.foobar.self_link}\"",
+            "   zone = \"us-central1-a\"",
+            "}"
+        ]
+    },
+    "google_compute_instance_template": {
+        "prefix":"tf-google_compute_instance_template",
+        "description": "Defines google_compute_instance_template resource",
+        "body": [
+            "resource \"google_compute_instance_template\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   machine_type = \"n1-standard-1\"",
+            "   disk {",
+            "       source_image = \"debian-cloud/debian-8\"",
+            "       auto_delete = true",
+            "       boot = true",
+            "   }",
+            "}"
+        ]
+    },
+    "google_compute_network": {
+        "prefix":"tf-google_compute_network",
+        "description": "Defines google_compute_network resource",
+        "body": [
+            "resource \"google_compute_network\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   ipv4_range = \"10.0.0.0/16\"",
+            "}"
+        ]
+    },
+    "google_compute_project_metadata": {
+        "prefix":"tf-google_compute_project_metadata",
+        "description": "Defines google_compute_project_metadata resource",
+        "body": [
+            "resource \"google_compute_project_metadata\" \"${MyResource}\" {",
+            "   metadata {",
+            "       foo  = \"bar\"",
+            "       fizz = \"buzz\"",
+            "       13   = \"42\"",
+            "   }",
+            "}"
+        ]
+    },
+    "google_compute_route": {
+        "prefix":"tf-google_compute_route",
+        "description": "Defines google_compute_route resource",
+        "body": [
+            "resource \"google_compute_route\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   dest_range = \"15.0.0.0/24\"",
+            "   network = \"\\${google_compute_network.foobar.name}\"",
+            "   next_hop_ip = \"10.0.1.5\"",
+            "   priority = 100",
+            "}"
+        ]
+    },
+    "google_compute_ssl_certificate": {
+        "prefix":"tf-google_compute_ssl_certificate",
+        "description": "Defines google_compute_ssl_certificate resource",
+        "body": [
+            "resource \"google_compute_ssl_certificate\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   private_key = \"\\${file(\"path/to/private.key\")}\"",
+            "   certificate = \"\\${file(\"path/to/certificate.crt\")}",
+            "}"
+        ]
+    },
+    "google_compute_subnetwork": {
+        "prefix":"tf-google_compute_subnetwork",
+        "description": "Defines google_compute_subnetwork resource",
+        "body": [
+            "resource \"google_compute_subnetwork\" \"${MyResource}\" {",
+            "   name          = \"default-us-east1\"",
+            "   ip_cidr_range = \"10.0.0.0/16\"",
+            "   network       = \"\\${google_compute_network.default.self_link}\"",
+            "   region        = \"us-east1\"",
+            "}"
+        ]
+    },
+    "google_compute_target_http_proxy": {
+        "prefix":"tf-google_compute_target_http_proxy",
+        "description": "Defines google_compute_target_http_proxy resource",
+        "body": [
+            "resource \"google_compute_target_http_proxy\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   url_map = \"\\${google_compute_url_map.default.self_link}\"",
+            "}"
+        ]
+    },
+    "google_compute_target_https_proxy": {
+        "prefix":"tf-google_compute_target_https_proxy",
+        "description": "Defines google_compute_target_https_proxy resource",
+        "body": [
+            "resource \"google_compute_target_https_proxy\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   url_map = \"\\${google_compute_url_map.default.self_link}\"",
+            "   ssl_certificates = [\"\\${google_compute_ssl_certificate.default.self_link}\"]",
+            "}"
+        ]
+    },
+    "google_compute_target_pool": {
+        "prefix":"tf-google_compute_target_pool",
+        "description": "Defines google_compute_target_pool resource",
+        "body": [
+            "resource \"google_compute_target_pool\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   instances = [",
+            "       \"us-central1-a/myinstance1\",",
+            "       \"us-central1-b/myinstance2\",",
+            "   ]\n",
+            "   health_checks = [",
+            "       \"\\${google_compute_http_health_check.default.name}\",",
+            "   ]",
+            "}"
+        ]
+    },
+    "google_compute_url_map": {
+        "prefix":"tf-google_compute_url_map",
+        "description": "Defines google_compute_url_map resource",
+        "body": [
+            "resource \"google_compute_url_map\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   default_service = \"\\${google_compute_backend_service.home.self_link}\"",
+            "}"
+        ]
+    },
+    "google_compute_vpn_gateway": {
+        "prefix":"tf-google_compute_vpn_gateway",
+        "description": "Defines google_compute_vpn_gateway resource",
+        "body": [
+            "resource \"google_compute_vpn_gateway\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   network = \"\\${google_compute_network.network1.self_link}\"",
+            "   region = \"\\${var.region}\"",
+            "}"
+        ]
+    },
+    "google_compute_vpn_tunnel": {
+        "prefix":"tf-google_compute_vpn_tunnel",
+        "description": "Defines google_compute_vpn_tunnel resource",
+        "body": [
+            "resource \"google_compute_vpn_tunnel\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   peer_ip = \"15.0.0.120\"",
+            "   shared_secret = \"a shared_secret\"",
+            "   target_vpn_gateway = \"\\${google_compute_vpn_gateway.target_gateway.self_link}\"",
+            "}"
+        ]
+    },
+    "google_container_cluster": {
+        "prefix":"tf-google_container_cluster",
+        "description": "Defines google_container_cluster resource",
+        "body": [
+            "resource \"google_container_cluster\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   zone = \"us-central1-a\"",
+            "   initial_node_count = 1\n",
+            "   master_auth {",
+            "       username = \"mr.yoda\"",
+            "       password = \"adoy.rm\"",
+            "   }",
+            "}"
+        ]
+    },
+    "google_dns_managed_zone": {
+        "prefix":"tf-google_dns_managed_zone",
+        "description": "Defines google_dns_managed_zone resource",
+        "body": [
+            "resource \"google_dns_managed_zone\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   dns_name = \"prod.mydomain.com.\"",
+            "}"
+        ]
+    },
+    "google_dns_record_set": {
+        "prefix":"tf-google_dns_record_set",
+        "description": "Defines google_dns_record_set resource",
+        "body": [
+            "resource \"google_dns_record_set\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   type = \"A\"",
+            "   ttl = 300",
+            "}"
+        ]
+    },
+    "google_pubsub_topic": {
+        "prefix":"tf-google_pubsub_topic",
+        "description": "Defines google_pubsub_topic resource",
+        "body": [
+            "resource \"google_pubsub_topic\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "}"
+        ]
+    },
+    "google_sql_database": {
+        "prefix":"tf-google_sql_database",
+        "description": "Defines google_sql_database resource",
+        "body": [
+            "resource \"google_sql_database\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   instance = \"\\${google_sql_database_instance.master.name}\"",
+            "}"
+        ]
+    },
+    "google_sql_database_instance": {
+        "prefix":"tf-google_sql_database_instance",
+        "description": "Defines google_sql_database_instance resource",
+        "body": [
+            "resource \"google_sql_database_instance\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   region = \"us-central",
+            "   settings { tier = \"D0\" }",
+            "}"
+        ]
+    },
+    "google_sql_user": {
+        "prefix":"tf-google_sql_user",
+        "description": "Defines google_sql_user resource",
+        "body": [
+            "resource \"google_sql_user\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   host = \"me.com",
+            "   password = \"example-password\"",
+            "   instance = \"\\${google_sql_database_instance.master.name}\"",
+            "}"
+        ]
+    },
+    "google_storage_bucket": {
+        "prefix":"tf-google_storage_bucket",
+        "description": "Defines google_storage_bucket resource",
+        "body": [
+            "resource \"google_storage_bucket\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "}"
+        ]
+    },
+    "google_storage_bucket_acl": {
+        "prefix":"tf-google_storage_bucket_acl",
+        "description": "Defines google_storage_bucket_acl resource",
+        "body": [
+            "resource \"google_storage_bucket_acl\" \"${MyResource}\" {",
+            "   bucket = \"\\${google_storage_bucket.image_store.name}\"",
+            "}"
+        ]
+    },
+    "google_storage_bucket_object": {
+        "prefix":"tf-google_storage_bucket_object",
+        "description": "Defines google_storage_bucket_object resource",
+        "body": [
+            "resource \"google_storage_bucket_object\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   bucket = \"bucket-store\"",
+            "   source = \"/images/nature/garden-tiger-moth.jpg\"",
+            "}"
+        ]
+    },
+    "google_storage_object_acl": {
+        "prefix":"tf-google_storage_object_acl",
+        "description": "Defines google_storage_object_acl resource",
+        "body": [
+            "resource \"google_storage_object_acl\" \"${MyResource}\" {",
+            "   bucket = \"\\${google_storage_bucket.image_store.name}\"",
+            "   object = \"\\${google_storage_bucket_object.image_store.name}\"",
+            "}"
+        ]
+    },
 }

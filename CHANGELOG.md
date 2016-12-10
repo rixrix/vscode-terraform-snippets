@@ -1,3 +1,7 @@
+# 0.10.0
+
+* Add support for `Google Cloud`
+
 # 0.9.0
 
 * Add support for `Archive`
