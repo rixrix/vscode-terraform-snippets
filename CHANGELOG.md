@@ -16,6 +16,7 @@
 * Add support for `PagerDuty`
 * Add support for `PowerDNS`
 * Add support for `RabbitMQ`
+* Add support for `Random`
 
 # 0.10.0
 
