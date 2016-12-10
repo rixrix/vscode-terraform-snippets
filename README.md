@@ -7,8 +7,7 @@ Type part of the snippets `tf`, press `enter`:
 
 ### Sample Snippets
 
-These are common snippets you can use across other providers, provisioners, etc.
-
+#### Input / Output / Module
 ```bash
 tf-variable                         // generates `variable "myVariable" { }`
 tf-variable-default                 // generates `variable "myVariable" { default = ""}`
@@ -20,7 +19,27 @@ tf-module-bitbucket                 // generates `module "myModuleName" { source
 tf-module-git                       // generates `module "myModuleName" { source = "git://"}`
 tf-module-mercurial                 // generates `module "myModuleName" { source = "hg::http://"}`
 tf-module-s3                        // generates `module "myModuleName" { source = "s3::https://"}`
-tf-provider                         // generates `provider "aws" { }`
+```
+
+#### Providers
+
+```bash
+tf-aws                              // generates `provider "aws" { ... }`
+tf-google                           // generates `provider "google" { ... }`
+tf-openstack                        // generates `provider "openstack" { ... }`
+```
+
+#### Backends / Remote State
+
+```bash
+tf-backend-azure                    // generates `data "terraform_remote_state" "xxx" { backend = "azure" ... }`
+tf-backend-s3                       // generates `data "terraform_remote_state" "xxx" { backend = "s3" ... }`
+tf-backend-gcs                      // generates `data "terraform_remote_state" "xxx" { backend = "gcs" ... }`
+tf-backend-consul                   // generates `data "terraform_remote_state" "xxx" { backend = "consul" ... }`
+```
+
+#### Others + more, see supported list
+```bash
 tf-depends_on                       // generates `depends_on []`
 tf-provisioner-connection           // generates `provisioner "file" { ... }`
 tf-provisioner-file                 // generates `provisioner "file" { ... }`
@@ -61,6 +80,11 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 * Mailgun, Packet, PagerDuty, PowerDNS, RabbitMQ
 * Random, Rundeck, StatusCake, Terraform, TLS,
 * Triton, UltraDNS, OpenStack, VMware vCloud Director, VMware vSphere, Chef provisioner
+
+### Backends / Remote State
+
+* Artifactory, Atlas, Microsoft Azure Storage, Consul, Etcd,
+* Google Cloud Storage, Http, Local, Manta, Amazon S3, Openstack Swift
 
 ## Requirements / Dependencies
 

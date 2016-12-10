@@ -1,3 +1,9 @@
+# 1.2.1
+
+* Backends / Remote State
+* - Artifactory, Atlas, Microsoft Azure Storage, Consul, Etcd,
+* - Google Cloud Storage, Http, Local, Manta, Amazon S3, Openstack Swift
+
 # 1.1.1
 
 * Add support for `VMware vCloud Director`
