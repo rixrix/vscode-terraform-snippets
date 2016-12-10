@@ -1,6 +1,7 @@
 # 0.10.0
 
 * Add support for `Google Cloud`
+* Add support for `Azure Resource Manager`
 
 # 0.9.0
 
