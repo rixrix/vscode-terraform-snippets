@@ -1,3 +1,7 @@
+# 1.1.2
+
+* Add support for `VMware vCloud Director`
+
 # 1.0.0
 
 * Add support for `CenturyLinkCloud`
