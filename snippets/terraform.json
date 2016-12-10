@@ -6090,5 +6090,74 @@
             "   }",
             "}"
         ]
+    },
+    "vsphere": {
+        "prefix": "tf-vsphere",
+        "description": "define a vsphere.",
+        "body": [
+            "provider \"vsphere\" {",
+            "   user           = \"\\${var.vsphere_user}\"",
+            "   password       = \"\\${var.vsphere_password}\"",
+            "   vsphere_server = \"\\${var.vsphere_server}\"",
+            "}"
+        ]
+    },
+    "vsphere_virtual_machine": {
+        "prefix": "tf-vsphere_virtual_machine",
+        "description": "define vsphere_virtual_machine resource.",
+        "body": [
+            "resource \"vsphere_virtual_machine\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   vcpu   = 2",
+            "   memory = 4096",
+            "   network_interface {",
+            "       label = \"VM Network\"",
+            "   }",
+            "   disk {",
+            "       template = \"centos-7\"",
+            "   }",
+            "}"
+        ]
+    },
+    "vsphere_folder": {
+        "prefix": "tf-vsphere_folder",
+        "description": "define vsphere_folder resource.",
+        "body": [
+            "resource \"vsphere_folder\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   path = \"my-path-${myResourceName}\"",
+            "}"
+        ]
+    },
+    "vsphere_file": {
+        "prefix": "tf-vsphere_file",
+        "description": "define vsphere_file resource.",
+        "body": [
+            "resource \"vsphere_file\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   datacenter = \"my_datacenter\"",
+            "   datastore = \"local\"",
+            "   source_file = \"/home/ubuntu/my_disks/custom_ubuntu.vmdk\"",
+            "   destination_file = \"/my_path/disks/custom_ubuntu.vmdk\"",
+            "}"
+        ]
+    },
+    "vsphere_virtual_disk": {
+        "prefix": "tf-vsphere_virtual_disk",
+        "description": "define vsphere_virtual_disk resource.",
+        "body": [
+            "resource \"vsphere_virtual_disk\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   size = 2",
+            "   vmdk_path = \"myDisk.vmdk\"",
+            "   datacenter = \"Datacenter\"",
+            "   datastore = \"local\"",
+            "   type = \"thin\"",
+            "}"
+        ]
     }
 }

@@ -1,6 +1,7 @@
 # 1.1.2
 
 * Add support for `VMware vCloud Director`
+* Add support for `VMware vSphere`
 
 # 1.0.0
 
