@@ -4716,4 +4716,30 @@
             "}"
         ]
     },
+    "dnsimple": {
+        "prefix": "tf-dnsimple",
+        "description": "define a dnsimple provider.",
+        "body": [
+            "provider \"dnsimple\" {",
+            "   token = \"\\${var.dnsimple_token}\"",
+            "   email = \"\\${var.dnsimple_email}\"",
+            "}"
+        ]
+    },
+    "dnsimple_record": {
+        "prefix": "tf-dnsimple_record",
+        "description": "define dnsimple_record resource.",
+        "body": [
+            "resource \"dnsimple_record\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   # Add a record to the root domain",
+            "   domain = \"\\${var.dnsimple_domain}\"",
+            "   name = \"",
+            "   value = \"192.168.0.11\"",
+            "   type = \"A\"",
+            "   ttl = 3600",
+            "}"
+        ]
+    },
 }

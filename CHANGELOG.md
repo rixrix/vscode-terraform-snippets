@@ -4,6 +4,7 @@
 * Add support for `Cobbler`
 * Add support for `Datadog`
 * Add support for `DNSMadeEasy`
+* Add support for `DNSimple`
 
 # 0.10.0
 
