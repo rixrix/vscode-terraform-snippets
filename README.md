@@ -42,6 +42,7 @@ This extension for Visual Studio Code adds snippets for Terraform.
 * Mailgun
 * Packet
 * PagerDuty
+* PowerDNS
 * AWS
   * Resources w/ examples
     * All [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html),
@@ -110,7 +111,6 @@ A massive list of things to add
 
 * Microsoft Azure (Legacy ASM)
 * OpenStack
-* PowerDNS
 * RabbitMQ
 * Random
 * Rundeck

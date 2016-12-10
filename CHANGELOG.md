@@ -14,6 +14,7 @@
 * Add support for `Mailgun`
 * Add support for `Packet`
 * Add support for `PagerDuty`
+* Add support for `PowerDNS`
 
 # 0.10.0
 
