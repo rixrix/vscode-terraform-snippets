@@ -41,11 +41,11 @@
             "}"
         ]
     },
-    "provider": {
-        "prefix": "tf-provider",
-        "description": "define a provider.",
+    "aws": {
+        "prefix": "tf-aws",
+        "description": "define a aws provider.",
         "body": [
-            "provider \"${aws}\" {",
+            "provider \"aws\" {",
             "   access_key = \"AWS ACCESS KEY\"",
             "   secret_key = \"AWS SECRET KEY\"",
             "   region = \"AWS REGION\"",
@@ -6170,6 +6170,138 @@
             "   datacenter = \"Datacenter\"",
             "   datastore = \"local\"",
             "   type = \"thin\"",
+            "}"
+        ]
+    },
+    "backend-artifactory": {
+        "prefix": "tf-backend-artifactory",
+        "description": "Define a backend-artifactory backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"artifactory\"",
+            "   config {",
+            "       username = \"SheldonCooper\"",
+            "       password = \"AmyFarrahFowler\"",
+            "       url = \"https://custom.artifactoryonline.com/artifactory\"",
+            "       repo = \"foo\"",
+            "       subpath = \"terraform-bar\"",
+            "   }",
+            "}"
+        ]
+    },
+    "backend-atlas": {
+        "prefix": "tf-backend-atlas",
+        "description": "Define a backend-atlas backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"atlas\"",
+            "   config {",
+            "       name = \"bigbang/example\"",
+            "       access_token = \"X2iTFefU5aWOjg.atlasv1.YaDa\"",
+            "   }",
+            "}"
+        ]
+    },
+    "backend-azure": {
+        "prefix": "tf-backend-azure",
+        "description": "Define a backend-azure backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"azure\"",
+            "   config {",
+            "       storage_account_name = \"terraform123abc\"",
+            "       container_name = \"terraform-state\"",
+            "       key = \"prod.terraform.tfstate\"",
+            "   }",
+            "}"
+        ]
+    },
+    "backend-consul": {
+        "prefix": "tf-backend-consul",
+        "description": "Define a backend-consul backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"consul\"",
+            "   config {",
+            "       path = \"full/path\"",
+            "   }",
+            "}"
+        ]
+    },
+    "backend-etcd": {
+        "prefix": "tf-backend-etcd",
+        "description": "Define a backend-etcd backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"etcd\"",
+            "   config {",
+            "       path = \"path/to/terraform.tfstate\"",
+            "       endpoints = \"http://one:4001 http://two:4001\"",
+            "   }",
+            "}"
+        ]
+    },
+    "backend-gcs": {
+        "prefix": "tf-backend-gcs",
+        "description": "Define a backend-gcs backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"gcs\"",
+            "   config {",
+            "       bucket = \"terraform-state-prod\"",
+            "       path = \"network/terraform.tfstate\"",
+            "       project = \"goopro\"",
+            "   }",
+            "}"
+        ]
+    },
+    "backend-http": {
+        "prefix": "tf-backend-http",
+        "description": "Define a backend-http backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"http\"",
+            "   config {",
+            "       address = \"http://my.rest.api.com\"",
+            "   }",
+            "}"
+        ]
+    },
+    "backend-local": {
+        "prefix": "tf-backend-local",
+        "description": "Define a backend-local backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"local\"",
+            "   config {",
+            "       path = \"\\${path.module}/../../terraform.tfstate\"",
+            "   }",
+            "}"
+        ]
+    },
+    "backend-s3": {
+        "prefix": "tf-backend-s3",
+        "description": "Define a backend-s3 backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"s3\"",
+            "   config {",
+            "       bucket = \"terraform-state-prod\"",
+            "       key = \"network/terraform.tfstate\"",
+            "       region = \"us-east-1\"",
+            "   }",
+            "}"
+        ]
+    },
+    "backend-swift": {
+        "prefix": "tf-backend-swift",
+        "description": "Define a backend-swift backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"swift\"",
+            "   config {",
+            "       path = \"terraform_state\"",
+            "   }",
             "}"
         ]
     }
