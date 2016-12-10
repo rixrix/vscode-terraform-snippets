@@ -1,6 +1,6 @@
 # Terraform Snippets for Visual Studio Code
 
-This extension for Visual Studio Code adds snippets for Terraform.
+Provides complete snippets of Hashicorp's Terraform cloud orchestration tool for Visual Studio Code.
 
 ## Supported Snippets
 
