@@ -1,3 +1,7 @@
+# 1.0.0
+
+* Add support for `CenturyLinkCloud`
+
 # 0.10.0
 
 * Add support for `Google Cloud`
