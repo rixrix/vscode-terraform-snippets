@@ -12,6 +12,7 @@
 * Add support for `Librato`
 * Add support for `Logentries`
 * Add support for `Mailgun`
+* Add support for `Packet`
 
 # 0.10.0
 
