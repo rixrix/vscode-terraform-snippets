@@ -21,6 +21,7 @@
 * Add support for `StatusCake`
 * Add support for `Terraform`
 * Add support for `TLS`
+* Add support for `Triton`
 
 # 0.10.0
 

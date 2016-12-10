@@ -5518,5 +5518,53 @@
             "   }",
             "}"
         ]
+    },
+    "triton": {
+        "prefix": "tf-triton",
+        "description": "define a triton provider.",
+        "body": [
+            "provider \"triton\" {",
+            "   account      = \"AccountName\"",
+            "   key_material = \"\\${file(\"~/.ssh/id_rsa\")}\"",
+            "   key_id       = \"25:d4:a9:fe:ef:e6:c0:bf:b4:4b:4b:d4:a8:8f:01:0f\"",
+            "   # If using a private installation of Triton, specify the URL",
+            "   url = \"https://us-west-1.api.joyentcloud.com\"",
+            "}"
+        ]
+    },
+    "triton_firewall_rule": {
+        "prefix": "tf-triton_firewall_rule",
+        "description": "define triton_firewall_rule resource.",
+        "body": [
+            "resource \"triton_firewall_rule\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   rule = \"FROM any TO tag www ALLOW tcp (PORT 80 AND PORT 443)\"",
+            "   enabled = true",
+            "}"
+        ]
+    },
+    "triton_key": {
+        "prefix": "tf-triton_key",
+        "description": "define triton_key resource.",
+        "body": [
+            "resource \"triton_key\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   key = \"\\${file(\"keys/id_rsa\")}\"",
+            "}"
+        ]
+    },
+    "triton_machine": {
+        "prefix": "tf-triton_machine",
+        "description": "define triton_machine resource.",
+        "body": [
+            "resource \"triton_machine\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   package = \"g3-standard-0.25-smartos\"",
+            "   image = \"842e6fa6-6e9b-11e5-8402-1b490459e334\"",
+            "}"
+        ]
     }
 }
