@@ -1,8 +1,8 @@
 {
     "name": "terraform-snippets",
-    "displayName": "Terraform.io Snippets Generator",
-    "description": "Terraform.io snippets generator for Visual Studio Code",
-    "version": "0.10.0",
+    "displayName": "Terraform Snippets Generator (advanced)",
+    "description": "Provides complete snippets of Hashicorp's Terraform cloud orchestration tool.",
+    "version": "1.0.0",
     "publisher": "mindginative",
     "author": {
         "name": "Richard Sentino",
