@@ -46,6 +46,7 @@ This extension for Visual Studio Code adds snippets for Terraform.
 * RabbitMQ
 * Random
 * Rundeck
+* StatusCake
 * AWS
   * Resources w/ examples
     * All [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html),
@@ -114,7 +115,6 @@ A massive list of things to add
 
 * Microsoft Azure (Legacy ASM)
 * OpenStack
-* StatusCake
 * Terraform
 * TLS
 * Triton

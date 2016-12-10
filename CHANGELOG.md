@@ -18,6 +18,7 @@
 * Add support for `RabbitMQ`
 * Add support for `Random`
 * Add support for `Rundeck`
+* Add support for `StatusCake`
 
 # 0.10.0
 
