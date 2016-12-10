@@ -5436,5 +5436,17 @@
             "   check_rate = 300",
             "}"
         ]
+    },
+    "terraform_remote_state": {
+        "prefix": "tf-terraform_remote_state",
+        "description": "Define a terraform_remote_state template",
+        "body": [
+            "data \"terraform_remote_state\" \"${config}\" {",
+            "   backend = \"atlas\"",
+            "   config {",
+            "       name = \"hashicorp/vpc-prod\"",
+            "   }",
+            "}"
+        ]
     }
 }

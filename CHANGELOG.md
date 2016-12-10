@@ -19,6 +19,7 @@
 * Add support for `Random`
 * Add support for `Rundeck`
 * Add support for `StatusCake`
+* Add support for `Terraform`
 
 # 0.10.0
 
