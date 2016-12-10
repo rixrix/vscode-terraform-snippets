@@ -1,4 +1,4 @@
-# 1.1.2
+# 1.1.1
 
 * Add support for `VMware vCloud Director`
 * Add support for `VMware vSphere`

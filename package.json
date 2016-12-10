@@ -2,7 +2,7 @@
     "name": "terraform-snippets",
     "displayName": "Terraform Snippets Generator (advanced)",
     "description": "Provides complete snippets of Hashicorp's Terraform cloud orchestration tool.",
-    "version": "1.0.2",
+    "version": "1.1.1",
     "publisher": "mindginative",
     "author": {
         "name": "Richard Sentino",
