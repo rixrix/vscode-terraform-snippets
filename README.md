@@ -75,16 +75,10 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
 5. Choose the extension
 6. Reload Visual Studio Code
 
-## Help
-
-> There's massive list of things to do with this snippets generator, I'd be happy to accept your `pull request` and with your name in credits section. The example is pretty easy to follow. Thanks
-
-## Todo
-
 ### Notes
 
 * Microsoft Azure (Legacy ASM) is being deprecated
 
 ### Credits
 
-* "your name here"
+* ???

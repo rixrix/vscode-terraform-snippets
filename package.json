@@ -1,46 +1,46 @@
 {
-  "name": "terraform-snippets",
-  "displayName": "Terraform Snippets Generator (advanced)",
-  "description": "Provides complete snippets of Hashicorp's Terraform cloud orchestration tool.",
-  "version": "1.1.1",
-  "publisher": "mindginative",
-  "author": {
-    "name": "Richard Sentino",
-    "email": "richard@mindginative.com"
-  },
-  "bugs": {
-    "url": "https://github.com/rixrix/vscode-terraform-snippets/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rixrix/vscode-terraform-snippets.git"
-  },
-  "engines": {
-    "vscode": "^1.0.0"
-  },
-  "categories": [
-    "Snippets"
-  ],
-  "contributes": {
-    "snippets": [
-      {
-        "language": "terraform",
-        "path": "./snippets/terraform.json"
-      }
-    ]
-  },
-  "icon": "images/logo-header-black@2x-c6b59644.png",
-  "galleryBanner": {
-    "color": "#822ff7",
-    "theme": "dark"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "vsce": "^1.18.0"
-  },
-  "scripts": {
-      "publish:major": "vsce publish major",
-      "publish:minor": "vsce publish minor",
-      "publish:patch": "vsce publish patch"
-  }
+    "name": "terraform-snippets",
+    "displayName": "Terraform Snippets Generator (advanced)",
+    "description": "Provides complete snippets of Hashicorp's Terraform cloud orchestration tool.",
+    "version": "1.1.2",
+    "publisher": "mindginative",
+    "author": {
+        "name": "Richard Sentino",
+        "email": "richard@mindginative.com"
+    },
+    "bugs": {
+        "url": "https://github.com/rixrix/vscode-terraform-snippets/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rixrix/vscode-terraform-snippets.git"
+    },
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "terraform",
+                "path": "./snippets/terraform.json"
+            }
+        ]
+    },
+    "icon": "images/logo-header-black@2x-c6b59644.png",
+    "galleryBanner": {
+        "color": "#822ff7",
+        "theme": "dark"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "vsce": "^1.18.0"
+    },
+    "scripts": {
+        "publish:major": "vsce publish major",
+        "publish:minor": "vsce publish minor",
+        "publish:patch": "vsce publish patch"
+    }
 }
