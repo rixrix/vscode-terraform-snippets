@@ -13,6 +13,7 @@
 * Add support for `Logentries`
 * Add support for `Mailgun`
 * Add support for `Packet`
+* Add support for `PagerDuty`
 
 # 0.10.0
 

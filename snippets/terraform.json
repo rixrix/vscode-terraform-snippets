@@ -5072,5 +5072,113 @@
             "   snapshot_policies = { snapshot_frequency = \"1month\", snapshot_count = 6 }",
             "}"
         ]
+    },
+    "pagerduty": {
+        "prefix": "tf-pagerduty",
+        "description": "define a pagerduty provider.",
+        "body": [
+            "provider \"pagerduty\" {",
+            "   token = \"${token}\"",
+            "}"
+        ]
+    },
+    "pagerduty_vendor": {
+        "prefix": "tf-pagerduty_vendor",
+        "description": "Define a pagerduty_vendor template",
+        "body": [
+            "data \"pagerduty_vendor\" \"${config}\" {",
+            "   name_regex = \"^Datadog$\"",
+            "}"
+        ]
+    },
+    "pagerduty_user": {
+        "prefix": "tf-pagerduty_user",
+        "description": "define pagerduty_user resource.",
+        "body": [
+            "resource \"pagerduty_user\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   email = \"125.greenholt.earline@graham.name\"",
+            "   teams = [\"${pagerduty_team.example.id}\"]",
+            "}"
+        ]
+    },
+    "pagerduty_team": {
+        "prefix": "tf-pagerduty_team",
+        "description": "define pagerduty_team resource.",
+        "body": [
+            "resource \"pagerduty_team\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "}"
+        ]
+    },
+    "pagerduty_escalation_policy": {
+        "prefix": "tf-pagerduty_escalation_policy",
+        "description": "define pagerduty_escalation_policy resource.",
+        "body": [
+            "resource \"pagerduty_escalation_policy\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   num_loops = 2",
+            "   teams     = [\"\\${pagerduty_team.example.id}\"]\n",
+            "   rule {",
+            "       escalation_delay_in_minutes = 10",
+            "       target {",
+            "           type = \"user\"",
+            "           id   = \"\\${pagerduty_user.example.id}\"",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "pagerduty_schedule": {
+        "prefix": "tf-pagerduty_schedule",
+        "description": "define pagerduty_schedule resource.",
+        "body": [
+            "resource \"pagerduty_schedule\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   time_zone = \"America/New_York\"\n",
+            "   layer {",
+            "       name                         = \"Night Shift\"",
+            "       start                        = \"2015-11-06T20:00:00-05:00\"",
+            "       rotation_virtual_start       = \"2015-11-06T20:00:00-05:00\"",
+            "       rotation_turn_length_seconds = 86400",
+            "       users                        = [\"\\${pagerduty_user.foo.id}\"]",
+            "       restriction {",
+            "           type              = \"daily_restriction\"",
+            "           start_time_of_day = \"08:00:00\"",
+            "           duration_seconds  = 32400",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "pagerduty_service": {
+        "prefix": "tf-pagerduty_service",
+        "description": "define pagerduty_service resource.",
+        "body": [
+            "resource \"pagerduty_service\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   auto_resolve_timeout    = 14400",
+            "   acknowledgement_timeout = 600",
+            "   escalation_policy       = \"\\${pagerduty_escalation_policy.example.id}\"",
+            "}"
+        ]
+    },
+    "pagerduty_service_integration": {
+        "prefix": "tf-pagerduty_service_integration",
+        "description": "define pagerduty_service_integration resource.",
+        "body": [
+            "resource \"pagerduty_service_integration\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   type    = \"generic_events_api_inbound_integration\"",
+            "   service = \"\\${pagerduty_service.example.id}\"",
+            "   vendor  = \"\\${data.pagerduty_vendor.datadog.id}\"",
+            "}"
+        ]
     }
 }
