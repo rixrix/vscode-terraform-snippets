@@ -17,6 +17,7 @@
 * Add support for `PowerDNS`
 * Add support for `RabbitMQ`
 * Add support for `Random`
+* Add support for `Rundeck`
 
 # 0.10.0
 
