@@ -22,6 +22,7 @@
 * Add support for `Terraform`
 * Add support for `TLS`
 * Add support for `Triton`
+* Add support for `UltraDNS`
 
 # 0.10.0
 
