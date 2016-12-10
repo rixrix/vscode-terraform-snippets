@@ -20,6 +20,7 @@
 * Add support for `Rundeck`
 * Add support for `StatusCake`
 * Add support for `Terraform`
+* Add support for `TLS`
 
 # 0.10.0
 
