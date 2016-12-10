@@ -11,6 +11,7 @@
 * Add support for `InfluxDB`
 * Add support for `Librato`
 * Add support for `Logentries`
+* Add support for `Mailgun`
 
 # 0.10.0
 
