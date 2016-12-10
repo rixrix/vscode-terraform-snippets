@@ -8,6 +8,7 @@
 * Add support for `Dyn`
 * Add support for `Fastly`
 * Add support for `Grafana`
+* Add support for `InfluxDB`
 
 # 0.10.0
 

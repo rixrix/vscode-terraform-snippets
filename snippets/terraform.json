@@ -4841,4 +4841,51 @@
             "}"
         ]
     },
+    "influxdb": {
+        "prefix": "tf-influxdb",
+        "description": "define a influxdb provider.",
+        "body": [
+            "provider \"influxdb\" {",
+            "   username = \"1234abcd\"",
+            "   url  = \"http://influxdb.example.com/\"",
+            "}"
+        ]
+    },
+    "influxdb_database": {
+        "prefix": "tf-influxdb_database",
+        "description": "define influxdb_database resource.",
+        "body": [
+            "resource \"influxdb_database\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "}"
+        ]
+    },
+    "influxdb_user": {
+        "prefix": "tf-influxdb_user",
+        "description": "define influxdb_user resource.",
+        "body": [
+            "resource \"influxdb_user\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   password = \"super-secret\"\n",
+            "   grant {",
+            "       database = \"\\${influxdb_database.green.name}\"",
+            "       privilege = \"write\"",
+            "   }",
+            "}"
+        ]
+    },
+    "influxdb_continuous_query": {
+        "prefix": "tf-influxdb_continuous_query",
+        "description": "define influxdb_continuous_query resource.",
+        "body": [
+            "resource \"influxdb_continuous_query\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   database = \"\\${influxdb_database.test.name}\"",
+            "   query = \"SELECT min(mouse) INTO min_mouse FROM zoo GROUP BY time(30m)\"",
+            "}"
+        ]
+    }
 }
