@@ -27,6 +27,7 @@ This extension for Visual Studio Code adds snippets for Terraform.
 * Microsoft Azure
 * CloudStack
 * SoftLayer
+* Scaleway
 * AWS
   * Resources w/ examples
     * All [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html),
@@ -114,7 +115,6 @@ A massive list of things to add
 * Random
 * Rundeck
 * StatusCake
-* Scaleway
 * Terraform
 * TLS
 * Triton

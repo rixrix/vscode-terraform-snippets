@@ -4,6 +4,7 @@
 * Add support for `Azure Resource Manager`
 * Add support for `Cloudstack`
 * Add support for `SoftLayer`
+* Add support for `Scaleway`
 
 # 0.9.0
 
