@@ -3,6 +3,7 @@
 * Add support for `CenturyLinkCloud`
 * Add support for `Cobbler`
 * Add support for `Datadog`
+* Add support for `DNSMadeEasy`
 
 # 0.10.0
 
