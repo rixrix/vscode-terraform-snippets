@@ -5205,4 +5205,119 @@
             "}"
         ]
     },
+    "rabbitmq": {
+        "prefix": "tf-rabbitmq",
+        "description": "define a rabbitmq provider.",
+        "body": [
+            "provider \"rabbitmq\" {",
+            "   endpoint = \"http://127.0.0.1\"",
+            "   username = \"guest\"",
+            "   password = \"guest\"",
+            "}"
+        ]
+    },
+    "rabbitmq_binding": {
+        "prefix": "tf-rabbitmq_binding",
+        "description": "define rabbitmq_binding resource.",
+        "body": [
+            "resource \"rabbitmq_binding\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   source = \"\\${rabbitmq_exchange.test.name}\"",
+            "   vhost = \"\\${rabbitmq_vhost.test.name}\"",
+            "   destination = \"\\${rabbitmq_queue.test.name}\"",
+            "   destination_type = \"queue\"",
+            "   routing_key = \"#\"",
+            "   properties_key = \"%23\"",
+            "}"
+        ]
+    },
+    "rabbitmq_exchange": {
+        "prefix": "tf-rabbitmq_exchange",
+        "description": "define rabbitmq_exchange resource.",
+        "body": [
+            "resource \"rabbitmq_exchange\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   vhost = \"\\${rabbitmq_permissions.guest.vhost}\"",
+            "   settings {",
+            "       type = \"fanout\"",
+            "       durable = false",
+            "       auto_delete = true",
+            "   }",
+            "}"
+        ]
+    },
+    "rabbitmq_permissions": {
+        "prefix": "tf-rabbitmq_permissions",
+        "description": "define rabbitmq_permissions resource.",
+        "body": [
+            "resource \"rabbitmq_permissions\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   user = \"${rabbitmq_user.test.name}\"",
+            "   vhost = \"${rabbitmq_vhost.test.name}\"",
+            "   permissions {",
+            "       configure = \".*\"",
+            "       write = \".*\"",
+            "       read = \".*\"",
+            "   }",
+            "}"
+        ]
+    },
+    "rabbitmq_policy": {
+        "prefix": "tf-rabbitmq_policy",
+        "description": "define rabbitmq_policy resource.",
+        "body": [
+            "resource \"rabbitmq_policy\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   vhost = \"\\${rabbitmq_permissions.guest.vhost}\"",
+            "   policy {",
+            "       pattern = \".*\"",
+            "       priority = 0",
+            "       apply_to = \"all\"",
+            "       definition {",
+            "           ha-mode = \"all\"",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "rabbitmq_queue": {
+        "prefix": "tf-rabbitmq_queue",
+        "description": "define rabbitmq_queue resource.",
+        "body": [
+            "resource \"rabbitmq_queue\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   vhost = \"\\${rabbitmq_permissions.guest.vhost}\"",
+            "   settings {",
+            "       durable = false",
+            "       auto_delete = true",
+            "   }",
+            "}"
+        ]
+    },
+    "rabbitmq_user": {
+        "prefix": "tf-rabbitmq_user",
+        "description": "define rabbitmq_user resource.",
+        "body": [
+            "resource \"rabbitmq_user\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   password = \"foobar\"",
+            "   tags = [\"administrator\", \"management\"]",
+            "}"
+        ]
+    },
+    "rabbitmq_vhost": {
+        "prefix": "tf-rabbitmq_vhost",
+        "description": "define rabbitmq_vhost resource.",
+        "body": [
+            "resource \"rabbitmq_vhost\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "}"
+        ]
+    }
 }

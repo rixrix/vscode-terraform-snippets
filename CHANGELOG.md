@@ -15,6 +15,7 @@
 * Add support for `Packet`
 * Add support for `PagerDuty`
 * Add support for `PowerDNS`
+* Add support for `RabbitMQ`
 
 # 0.10.0
 
