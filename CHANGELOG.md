@@ -9,6 +9,7 @@
 * Add support for `Fastly`
 * Add support for `Grafana`
 * Add support for `InfluxDB`
+* Add support for `Librato`
 
 # 0.10.0
 

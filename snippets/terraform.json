@@ -4887,5 +4887,73 @@
             "   query = \"SELECT min(mouse) INTO min_mouse FROM zoo GROUP BY time(30m)\"",
             "}"
         ]
-    }
+    },
+    "librato": {
+        "prefix": "tf-librato",
+        "description": "define a librato provider.",
+        "body": [
+            "provider \"librato\" {",
+            "   email = \"ops@company.com\"",
+            "   token = \"\\${var.librato_token}\"",
+            "}"
+        ]
+    },
+    "librato_alert": {
+        "prefix": "tf-librato_alert",
+        "description": "define librato_alert resource.",
+        "body": [
+            "resource \"librato_alert\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   services = [ \"\\${librato_service.myservice.id}\" ]",
+            "   condition {",
+            "       type = \"above\"",
+            "       threshold = 10",
+            "       metric_name = \"librato.cpu.percent.idle\"",
+            "   }",
+            "}"
+        ]
+    },
+    "librato_service": {
+        "prefix": "tf-librato_service",
+        "description": "define librato_service resource.",
+        "body": [
+            "resource \"librato_service\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   title = \"Email the admins\"",
+            "   type = \"mail\"",
+            "   settings = <<EOF",
+            "{",
+            "   \"addresses\": \"admin@example.com\"",
+            "}",
+            "EOF",
+            "}"
+        ]
+    },
+    "librato_space": {
+        "prefix": "tf-librato_space",
+        "description": "define librato_space resource.",
+        "body": [
+            "resource \"librato_space\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "}"
+        ]
+    },
+    "librato_space_chart": {
+        "prefix": "tf-librato_space_chart",
+        "description": "define librato_space_chart resource.",
+        "body": [
+            "resource \"librato_space_chart\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   space_id = \"\\${librato_space.my_space.id}\"\n",
+            "   stream {",
+            "       metric = \"server_temp\"",
+            "       source = \"app1\"",
+            "   }",
+            "}"
+        ]
+    },
 }
