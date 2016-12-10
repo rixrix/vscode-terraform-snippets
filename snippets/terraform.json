@@ -4805,4 +4805,40 @@
             "}"
         ]
     },
+    "grafana": {
+        "prefix": "tf-grafana",
+        "description": "define a grafana provider.",
+        "body": [
+            "provider \"grafana\" {",
+            "   url  = \"http://grafana.example.com/\"",
+            "   auth = \"1234abcd\"",
+            "}"
+        ]
+    },
+    "grafana_dashboard": {
+        "prefix": "tf-grafana_dashboard",
+        "description": "define grafana_dashboard resource.",
+        "body": [
+            "resource \"grafana_dashboard\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   config_json = \"\\${file(\"grafana-dashboard.json\")}\"",
+            "}"
+        ]
+    },
+    "grafana_data_source": {
+        "prefix": "tf-grafana_data_source",
+        "description": "define grafana_data_source resource.",
+        "body": [
+            "resource \"grafana_data_source\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   type          = \"influxdb\"",
+            "   url           = \"http://influxdb.example.net:8086/\"",
+            "   username      = \"myapp\"",
+            "   password      = \"foobarbaz\"",
+            "   database_name = \"\\${influxdb_database.metrics.name}\"",
+            "}"
+        ]
+    },
 }

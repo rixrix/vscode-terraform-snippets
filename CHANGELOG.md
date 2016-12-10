@@ -7,6 +7,7 @@
 * Add support for `DNSimple`
 * Add support for `Dyn`
 * Add support for `Fastly`
+* Add support for `Grafana`
 
 # 0.10.0
 
