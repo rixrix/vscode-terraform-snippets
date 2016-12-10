@@ -60,7 +60,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 * Fastly, Grafana, InfluxDB, Librato, Logentries
 * Mailgun, Packet, PagerDuty, PowerDNS, RabbitMQ
 * Random, Rundeck, StatusCake, Terraform, TLS,
-* Triton, UltraDNS, OpenStack, VMware vCloud Director, VMware vSphere
+* Triton, UltraDNS, OpenStack, VMware vCloud Director, VMware vSphere, Chef provisioner
 
 ## Requirements / Dependencies
 
@@ -81,13 +81,9 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
 
 ## Todo
 
-### Providers
+### Notes
 
-* Microsoft Azure (Legacy ASM)
-
-### Provisioners
-
-* chef
+* Microsoft Azure (Legacy ASM) is being deprecated
 
 ### Credits
 

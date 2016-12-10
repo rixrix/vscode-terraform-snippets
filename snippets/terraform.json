@@ -173,6 +173,19 @@
             "}"
         ]
     },
+    "provisioner-chef": {
+        "prefix": "tf-provisioner-chef",
+        "description": "Define a local-exec provisioner",
+        "body": [
+            "   provisioner \"chef\" {",
+            "       node_name = \"${webserver1}\"",
+            "       run_list = [\"cookbook::recipe\"]",
+            "       user_name = \"user_name-example\"",
+            "       user_key = \"user_key-example\"",
+            "       server_url = \"server_url-example\"",
+            "   }"
+        ]
+    },
     "template_file": {
         "prefix": "tf-template_file",
         "description": "Define a template_file template from file",

@@ -2,6 +2,7 @@
 
 * Add support for `VMware vCloud Director`
 * Add support for `VMware vSphere`
+* Add support for `Chef provisioner`
 
 # 1.0.0
 
