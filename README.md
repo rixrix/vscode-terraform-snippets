@@ -2,62 +2,6 @@
 
 Provides complete snippets of Hashicorp's Terraform cloud orchestration tool for Visual Studio Code.
 
-## Supported Snippets
-
-* [Input variables](https://www.terraform.io/intro/getting-started/variables.html)
-* [Output Variables](https://www.terraform.io/intro/getting-started/outputs.html)
-* [Modules](https://www.terraform.io/intro/getting-started/modules.html)
-* [Resource](https://www.terraform.io/intro/getting-started/provision.html)
-* Provisioner - [connection](https://www.terraform.io/docs/provisioners/connection.html), [file](https://www.terraform.io/docs/provisioners/file.html), [local-exec](https://www.terraform.io/docs/provisioners/local-exec.html), [remote-exec](https://www.terraform.io/docs/provisioners/remote-exec.html), [null_resource](https://www.terraform.io/docs/provisioners/null_resource.html)
-* Template for [file](https://www.terraform.io/docs/providers/template/d/file.html) and [cloudinit](https://www.terraform.io/docs/providers/template/d/cloudinit_config.html)
-* Provider eg. `provider "aws" { } `
-* Consul
-* Docker
-* Heroku
-* DigitalOcean
-* Bitbucket
-* GitHub
-* Archive
-* Atlas
-* Chef
-* Cloudflare
-* MySQL
-* PostgreSQL
-* Google Cloud
-* Microsoft Azure
-* CloudStack
-* SoftLayer
-* Scaleway
-* CenturyLinkCloud
-* Cobbler
-* Datadog
-* DNSMadeEasy
-* DNSimple
-* Dyn
-* Fastly
-* Grafana
-* InfluxDB
-* Librato
-* Logentries
-* Mailgun
-* Packet
-* PagerDuty
-* PowerDNS
-* RabbitMQ
-* Random
-* Rundeck
-* StatusCake
-* Terraform
-* TLS
-* Triton
-* UltraDNS
-* AWS
-  * Resources w/ examples
-    * All [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html),
-    * All [API Gateway Resources](https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html)
-  * Resources w/o examples
-    * All AWS resources
-
 ## Usage
 Type part of the snippets `tf`, press `enter`:
 
@@ -76,7 +20,6 @@ tf-module-bitbucket                 // generates `module "myModuleName" { source
 tf-module-git                       // generates `module "myModuleName" { source = "git://"}`
 tf-module-mercurial                 // generates `module "myModuleName" { source = "hg::http://"}`
 tf-module-s3                        // generates `module "myModuleName" { source = "s3::https://"}`
-tf-resource                         // generates `resource "" "myResourceName" { }`
 tf-provider                         // generates `provider "aws" { }`
 tf-depends_on                       // generates `depends_on []`
 tf-provisioner-connection           // generates `provisioner "file" { ... }`
@@ -87,12 +30,37 @@ tf-provisioner-null_resource        // generates `resource "null_resource" { ...
 tf-template_file                    // generates `data "template_file" "init" { ... }`
 tf-template_file-inline             // generates `data "template_file" "init" { ... }` inline
 tf-template_cloudinit_config        // generates `data "template_cloudinit_config" "config" { ... }` inline
-tf-aws_ami                          // get the ID of a registered AMI
 ```
 
 ![Use Extension](https://raw.githubusercontent.com/rixrix/vscode-terraform-snippets/master/images/screenshot.png)
 
 Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to activate snippets from within the editor.
+
+## Supported Snippets
+
+### Input, Output, Module
+
+* [Input variables](https://www.terraform.io/intro/getting-started/variables.html)
+* [Output Variables](https://www.terraform.io/intro/getting-started/outputs.html)
+* [Modules](https://www.terraform.io/intro/getting-started/modules.html)
+
+### Provisioners
+
+* [Resource](https://www.terraform.io/intro/getting-started/provision.html)
+* Provisioner - [connection](https://www.terraform.io/docs/provisioners/connection.html), [file](https://www.terraform.io/docs/provisioners/file.html), [local-exec](https://www.terraform.io/docs/provisioners/local-exec.html), [remote-exec](https://www.terraform.io/docs/provisioners/remote-exec.html), [null_resource](https://www.terraform.io/docs/provisioners/null_resource.html)
+* Template for [file](https://www.terraform.io/docs/providers/template/d/file.html) and [cloudinit](https://www.terraform.io/docs/providers/template/d/cloudinit_config.html)
+
+### Providers
+
+* Amazon Web Services, Google Cloud, Microsoft Azure, CloudStack
+* Consul, Docker, Heroku, DigitalOcean, Bitbucket
+* GitHub, Archive, Atlas, Chef, Cloudflare
+* MySQL, PostgreSQL, SoftLayer, Scaleway, CenturyLinkCloud
+* Cobbler, Datadog, DNSMadeEasy, DNSimple, Dyn
+* Fastly, Grafana, InfluxDB, Librato, Logentries
+* Mailgun, Packet, PagerDuty, PowerDNS, RabbitMQ
+* Random, Rundeck, StatusCake, Terraform, TLS,
+* Triton, UltraDNS
 
 ## Requirements / Dependencies
 
@@ -112,8 +80,6 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
 > There's massive list of things to do with this snippets generator, I'd be happy to accept your `pull request` and with your name in credits section. The example is pretty easy to follow. Thanks
 
 ## Todo
-
-A massive list of things to add
 
 ### Providers
 
