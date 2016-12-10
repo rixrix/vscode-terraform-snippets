@@ -4626,5 +4626,67 @@
             "   }",
             "}"
         ]
+    },
+    "datadog": {
+        "prefix": "tf-datadog",
+        "description": "define a datadog provider.",
+        "body": [
+            "provider \"datadog\" {",
+            "   api_key = \"\\${var.datadog_api_key}\"",
+            "   app_key = \"\\${var.datadog_app_key}\"",
+            "}"
+        ]
+    },
+    "datadog_monitor": {
+        "prefix": "tf-datadog_monitor",
+        "description": "define datadog_monitor resource.",
+        "body": [
+            "resource \"datadog_monitor\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   type = \"metric alert\"",
+            "   message = \"Monitor triggered. Notify: @hipchat-channel\"",
+            "   escalation_message = \"Escalation message @pagerduty\"\n",
+            "   query = \"avg(last_1h):avg:aws.ec2.cpu{environment:foo,host:foo} by {host} > 2\"\n",
+            "   thresholds {",
+            "       ok = 0",
+            "       warning = 1",
+            "       critical = 2",
+            "   }\n",
+            "   notify_no_data = false",
+            "   renotify_interval = 60\n",
+            "   notify_audit = false",
+            "   timeout_h = 60",
+            "   include_tags = true\n",
+            "   silenced {",
+            "       \"*\" = 0",
+            "   }",
+            "}"
+        ]
+    },
+    "datadog_timeboard": {
+        "prefix": "tf-datadog_timeboard",
+        "description": "define datadog_timeboard resource.",
+        "body": [
+            "resource \"datadog_timeboard\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   title = \"Redis Timeboard (created via Terraform)\"",
+            "   read_only = true\n",
+            "   graph {",
+            "       title = \"Redis latency (ms)\"",
+            "       viz = \"timeseries\"",
+            "       request {",
+            "           q = \"avg:redis.info.latency_ms{$host}\"",
+            "           type = \"bars\"",
+            "       }",
+            "   }\n",
+            "   template_variable {",
+            "       name = \"host\"",
+            "       prefix = \"host\"",
+            "   }",
+
+            "}"
+        ]
     }
 }

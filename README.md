@@ -30,6 +30,7 @@ This extension for Visual Studio Code adds snippets for Terraform.
 * Scaleway
 * CenturyLinkCloud
 * Cobbler
+* Datadog
 * AWS
   * Resources w/ examples
     * All [Data Sources](https://www.terraform.io/docs/providers/aws/d/acm_certificate.html),
@@ -96,7 +97,6 @@ A massive list of things to add
 
 ### Providers
 
-* Datadog
 * DNSMadeEasy
 * DNSimple
 * Dyn

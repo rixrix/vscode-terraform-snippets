@@ -2,6 +2,7 @@
 
 * Add support for `CenturyLinkCloud`
 * Add support for `Cobbler`
+* Add support for `Datadog`
 
 # 0.10.0
 
