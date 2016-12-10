@@ -2,6 +2,7 @@
 
 * Add support for `Google Cloud`
 * Add support for `Azure Resource Manager`
+* Add support for `Cloudstack`
 
 # 0.9.0
 
