@@ -1,4 +1,4 @@
-# 1.2.1
+# 1.2.0
 
 * Backends / Remote State
 * - Artifactory, Atlas, Microsoft Azure Storage, Consul, Etcd,
