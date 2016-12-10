@@ -1,6 +1,7 @@
 # 1.0.0
 
 * Add support for `CenturyLinkCloud`
+* Add support for `Cobbler`
 
 # 0.10.0
 
