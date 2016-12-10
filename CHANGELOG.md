@@ -3,6 +3,7 @@
 * Add support for `Google Cloud`
 * Add support for `Azure Resource Manager`
 * Add support for `Cloudstack`
+* Add support for `SoftLayer`
 
 # 0.9.0
 
