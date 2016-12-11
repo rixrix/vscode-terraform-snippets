@@ -6304,5 +6304,96 @@
             "   }",
             "}"
         ]
+    },
+    "aws-region-us-east-1": {
+        "prefix": "tf-aws-region-us-east-1",
+        "description": "Define a aws-region-us-east-1 US East (N.Virginia) region code",
+        "body": [
+            "\"us-east-1\""
+        ]
+    },
+    "aws-region-us-east-2": {
+        "prefix": "tf-aws-region-us-east-2",
+        "description": "Define a aws-region-us-east-2 US East (Ohio) region code",
+        "body": [
+            "\"us-east-2\""
+        ]
+    },
+    "aws-region-us-west-1": {
+        "prefix": "tf-aws-region-us-west-1",
+        "description": "Define a aws-region-us-west-1 US West (N. California) region code",
+        "body": [
+            "\"us-west-1\""
+        ]
+    },
+    "aws-region-us-west-2": {
+        "prefix": "tf-aws-region-us-west-2",
+        "description": "Define a aws-region-us-west-2 US West (Oregon) region code",
+        "body": [
+            "\"us-west-2\""
+        ]
+    },
+    "aws-region-eu-west-1": {
+        "prefix": "tf-aws-region-eu-west-1",
+        "description": "Define a aws-region-eu-west-1 EU (Ireland) region code",
+        "body": [
+            "\"eu-west-1\""
+        ]
+    },
+    "aws-region-eu-central-1": {
+        "prefix": "tf-aws-region-eu-central-1",
+        "description": "Define a aws-region-eu-central-1 EU (Frankfurt) region code",
+        "body": [
+            "\"eu-central-1\""
+        ]
+    },
+    "aws-region-ap-northeast-1": {
+        "prefix": "tf-aws-region-ap-northeast-1",
+        "description": "Define a aws-region-ap-northeast-1 Asia Pacific (Tokyo) region code",
+        "body": [
+            "\"ap-northeast-1\""
+        ]
+    },
+    "aws-region-ap-northeast-2": {
+        "prefix": "tf-aws-region-ap-northeast-2",
+        "description": "Define a aws-region-ap-northeast-2 Asia Pacific (Seoul) region code",
+        "body": [
+            "\"ap-northeast-2\""
+        ]
+    },
+    "aws-region-ap-southeast-1": {
+        "prefix": "tf-aws-region-ap-southeast-1",
+        "description": "Define a aws-region-ap-southeast-1 Asia Pacific (Singapore) region code",
+        "body": [
+            "\"ap-southeast-1\""
+        ]
+    },
+    "aws-region-ap-southeast-2": {
+        "prefix": "tf-aws-region-ap-southeast-2",
+        "description": "Define a aws-region-ap-southeast-2 Asia Pacific (Sydney) region code",
+        "body": [
+            "\"ap-southeast-2\""
+        ]
+    },
+    "aws-region-ap-south-1": {
+        "prefix": "tf-aws-region-ap-south-1",
+        "description": "Define a aws-region-ap-south-1 Asia Pacific (Mumbai) region code",
+        "body": [
+            "\"ap-south-1\""
+        ]
+    },
+    "aws-region-sa-east-1": {
+        "prefix": "tf-aws-region-sa-east-1",
+        "description": "Define a aws-region-sa-east-1 South America (São Paulo) region code",
+        "body": [
+            "\"sa-east-1\""
+        ]
+    },
+    "aws-region-ca-central-1": {
+        "prefix": "tf-aws-region-ca-central-1",
+        "description": "Define a aws-region-ca-central-1 Canada (Central) region code",
+        "body": [
+            "\"ca-central-1\""
+        ]
     }
 }

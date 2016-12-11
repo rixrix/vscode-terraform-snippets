@@ -37,6 +37,15 @@ tf-backend-s3                       // generates `data "terraform_remote_state" 
 tf-backend-gcs                      // generates `data "terraform_remote_state" "xxx" { backend = "gcs" ... }`
 tf-backend-consul                   // generates `data "terraform_remote_state" "xxx" { backend = "consul" ... }`
 ```
+#### Handy shortcuts for AWS Regions
+
+```bash
+tf-aws-region-us-east-1             // generates US East (N.Virginia) `us-east-1`
+tf-aws-region-ap-south-1            // generates Asia Pacific (Mumbai) `ap-south-1`
+
+plus all other AWS regions
+
+```
 
 #### Others + more, see supported list
 ```bash
