@@ -1,6 +1,6 @@
 # Terraform Snippets for Visual Studio Code
 
-Provides complete snippets of Hashicorp's Terraform cloud orchestration tool for Visual Studio Code.
+Provides **550+** code snippets of Hashicorp's [Terraform](https://www.terraform.io/) cloud orchestration tool for [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Usage
 Type part of the snippets `tf`, press `enter`:
@@ -65,9 +65,8 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 
 ### Provisioners
 
-* [Resource](https://www.terraform.io/intro/getting-started/provision.html)
-* Provisioner - [connection](https://www.terraform.io/docs/provisioners/connection.html), [file](https://www.terraform.io/docs/provisioners/file.html), [local-exec](https://www.terraform.io/docs/provisioners/local-exec.html), [remote-exec](https://www.terraform.io/docs/provisioners/remote-exec.html), [null_resource](https://www.terraform.io/docs/provisioners/null_resource.html)
-* Template for [file](https://www.terraform.io/docs/providers/template/d/file.html) and [cloudinit](https://www.terraform.io/docs/providers/template/d/cloudinit_config.html)
+* [Resource](https://www.terraform.io/intro/getting-started/provision.html), [connection](https://www.terraform.io/docs/provisioners/connection.html), [file](https://www.terraform.io/docs/provisioners/file.html), [local-exec](https://www.terraform.io/docs/provisioners/local-exec.html), [remote-exec](https://www.terraform.io/docs/provisioners/remote-exec.html)
+* [null_resource](https://www.terraform.io/docs/provisioners/null_resource.html), [file](https://www.terraform.io/docs/providers/template/d/file.html), [cloudinit](https://www.terraform.io/docs/providers/template/d/cloudinit_config.html), [Chef provisioner](https://www.terraform.io/docs/provisioners/chef.html)
 
 ### Providers
 
@@ -79,7 +78,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 * Fastly, Grafana, InfluxDB, Librato, Logentries
 * Mailgun, Packet, PagerDuty, PowerDNS, RabbitMQ
 * Random, Rundeck, StatusCake, Terraform, TLS,
-* Triton, UltraDNS, OpenStack, VMware vCloud Director, VMware vSphere, Chef provisioner
+* Triton, UltraDNS, OpenStack, VMware vCloud Director, VMware vSphere
 
 ### Backends / Remote State
 
@@ -99,10 +98,14 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
 5. Choose the extension
 6. Reload Visual Studio Code
 
-### Notes
+## Issues / Comments / Suggestions
 
-* Microsoft Azure (Legacy ASM) is being deprecated
+Feel free to file an issue or submit a pull request at https://github.com/rixrix/vscode-terraform-snippets/issues
 
-### Credits
+## Notes
 
-* ???
+* Microsoft Azure (Legacy ASM) is not included in this release due to [inactivity of development](https://www.terraform.io/docs/providers/azure/index.html).
+
+## License
+
+MIT

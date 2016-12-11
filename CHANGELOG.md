@@ -1,3 +1,7 @@
+# 1.2.1
+
+* Doc updates
+
 # 1.2.0
 
 * Backends / Remote State
