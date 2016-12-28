@@ -1,3 +1,9 @@
+# Changelog
+
+# 1.3.2
+* AWS
+  * Fix missing required parameters for aws_instance
+
 # 1.3.0
 
 * Add support for Amazon Regions
