@@ -52,6 +52,17 @@
             "}"
         ]
     },
+    "aws-profile": {
+        "prefix": "tf-aws-profile",
+        "description": "define a aws provider with profile.",
+        "body": [
+            "provider \"aws\" {",
+            "   region = \"${1:AWS REGION}\"",
+            "   shared_credentials_file = \"${2:path/to/.aws/creds}\"",
+            "   profile = \"${3:AWS PROFILE}\"",
+            "}"
+        ]
+    },
     "depends_on": {
         "prefix": "tf-depends_on",
         "description": "Define explicit dependencies.",
