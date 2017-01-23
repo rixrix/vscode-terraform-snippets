@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.4.0
+
+* AWS
+  * Add support for provider `Shared Credentials file` [661d3d4](https://github.com/rixrix/vscode-terraform-snippets/commit/661d3d49a8b3f4737c34e96ac38b119170c21483) c/o [Lionel T.](https://github.com/lktslionel)
+
 # 1.3.2
 * AWS
   * Fix missing required parameters for aws_instance

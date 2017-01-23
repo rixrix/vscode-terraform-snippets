@@ -116,6 +116,10 @@ Feel free to file an issue or submit a pull request at https://github.com/rixrix
 
 * Microsoft Azure (Legacy ASM) is not included in this release due to [inactivity of development](https://www.terraform.io/docs/providers/azure/index.html).
 
+## Contributors
+
+* [Lionel T.](https://github.com/lktslionel)
+
 ## License
 
 MIT
