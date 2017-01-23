@@ -25,6 +25,7 @@ tf-module-s3                        // generates `module "myModuleName" { source
 
 ```bash
 tf-aws                              // generates `provider "aws" { ... }`
+tf-aws-profile                       // generates `provider "aws" { profile = "", shared_credentials_file="",... }`
 tf-google                           // generates `provider "google" { ... }`
 tf-openstack                        // generates `provider "openstack" { ... }`
 ```
