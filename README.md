@@ -1,4 +1,4 @@
-# Terraform Snippets for Visual Studio Code
+# Advanced Terraform Snippets for Visual Studio Code
 
 Provides **550+** code snippets of Hashicorp's [Terraform](https://www.terraform.io/) cloud orchestration tool for [Visual Studio Code](https://code.visualstudio.com/).
 
