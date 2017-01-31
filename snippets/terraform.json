@@ -37,7 +37,8 @@
         "prefix": "tf-resource",
         "description": "define a provisioner.",
         "body": [
-            "resource \"\" \"${myResourceName}\" {\n",
+            "resource \"${1}\" \"${2}\" {",
+            "\t${3}",
             "}"
         ]
     },
