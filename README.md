@@ -119,6 +119,7 @@ Feel free to file an issue or submit a pull request at https://github.com/rixrix
 ## Contributors
 
 * [Lionel T.](https://github.com/lktslionel)
+* [madole](https://github.com/madole)
 
 ## License
 

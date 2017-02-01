@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.4.2
+
+* Resource template
+  * Logicial ordering in how you fill out variables [7ac40c1](https://github.com/rixrix/vscode-terraform-snippets/commit/7ac40c14388760b731edcedb57a2554dea654dc9) c/o [madole](https://github.com/madole)
+
 # 1.4.0
 
 * AWS
