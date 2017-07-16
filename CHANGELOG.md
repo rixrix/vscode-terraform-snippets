@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.5.0
+
+* GitLab
+* * see, https://www.terraform.io/docs/providers/gitlab/index.html
+
 # 1.4.2
 
 * Resource template
