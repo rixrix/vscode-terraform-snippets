@@ -40,6 +40,6 @@
   },
   "scripts": {
     "vsce:publish": "vsce publish",
-    "postversion": "npm run vsce:publish && npm"
+    "postversion": "npm run vsce:publish && git push && git push --tags"
   }
 }
