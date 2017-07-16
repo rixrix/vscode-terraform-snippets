@@ -39,8 +39,7 @@
         "vsce": "^1.18.0"
     },
     "scripts": {
-        "publish:major": "vsce publish major",
-        "publish:minor": "vsce publish minor",
-        "publish:patch": "vsce publish patch"
+        "vsce:publish": "vsce publish",
+        "postversion": "npm run vsce:publish && npm"
     }
 }
