@@ -14,7 +14,7 @@
             "   }",
             "}"
         ]
-    },    "atlas_backend": {
+    },    "atlas_backend": {
         "prefix": "tf-atlas_backend",
         "description": "Define a backend-atlas backend",
         "body": [
@@ -26,7 +26,7 @@
             "   }",
             "}"
         ]
-    },    "azure_backend": {
+    },    "azure_backend": {
         "prefix": "tf-azure_backend",
         "description": "Define a backend-azure backend",
         "body": [
@@ -39,7 +39,7 @@
             "   }",
             "}"
         ]
-    },    "consul_backend": {
+    },    "consul_backend": {
         "prefix": "tf-consul_backend",
         "description": "Define a backend-consul backend",
         "body": [
@@ -50,7 +50,7 @@
             "   }",
             "}"
         ]
-    },    "etcd_backend": {
+    },    "etcd_backend": {
         "prefix": "tf-etcd_backend",
         "description": "Define a backend-etcd backend",
         "body": [
@@ -62,7 +62,7 @@
             "   }",
             "}"
         ]
-    },    "gcs_backend": {
+    },    "gcs_backend": {
         "prefix": "tf-gcs_backend",
         "description": "Define a backend-gcs backend",
         "body": [
@@ -75,7 +75,7 @@
             "   }",
             "}"
         ]
-    },    "http_backend": {
+    },    "http_backend": {
         "prefix": "tf-http_backend",
         "description": "Define a backend-http backend",
         "body": [
@@ -86,7 +86,7 @@
             "   }",
             "}"
         ]
-    },    "local_backend": {
+    },    "local_backend": {
         "prefix": "tf-local_backend",
         "description": "Define a backend-local backend",
         "body": [
@@ -97,7 +97,7 @@
             "   }",
             "}"
         ]
-    },    "s3_backend": {
+    },    "s3_backend": {
         "prefix": "tf-s3_backend",
         "description": "Define a backend-s3 backend",
         "body": [
@@ -110,7 +110,7 @@
             "   }",
             "}"
         ]
-    },    "swift_backend": {
+    },    "swift_backend": {
         "prefix": "tf-swift_backend",
         "description": "Define a backend-swift backend",
         "body": [
@@ -121,7 +121,7 @@
             "   }",
             "}"
         ]
-    },    "module": {
+    },    "module": {
         "prefix": "tf-module",
         "description": "Modules in Terraform are self-contained packages of Terraform configurations that are managed as a group.",
         "body": [
@@ -129,7 +129,7 @@
             "   source = \"\"",
             "}"
         ]
-    },    "output": {
+    },    "output": {
         "prefix": "tf-output",
         "description": "Outputs are a way to tell Terraform what data is important.",
         "body": [
@@ -137,7 +137,7 @@
             "   value = \"\"",
             "}"
         ]
-    },    "resource": {
+    },    "resource": {
         "prefix": "tf-resource",
         "description": "define a provisioner.",
         "body": [
@@ -147,12 +147,12 @@
         ]
     },
     "depends_on": {
-        "prefix": "tf-depends_on_rix",
+        "prefix": "tf-depends_on",
         "description": "Define explicit dependencies.",
         "body": [
             "depends_on = [\"${dependsOn}\"]"
         ]
-    },    "variable": {
+    },    "variable": {
         "prefix": "tf-variable",
         "description": "Define variables.",
         "body": [
@@ -167,7 +167,7 @@
             "   default =   \"\"",
             "}"
         ]
-    },    "bitbucket_module": {
+    },    "bitbucket_module": {
         "prefix": "tf-bitbucket_module",
         "description": "Define a module with BitBucket source.",
         "body": [
@@ -175,7 +175,7 @@
             "   source = \"bitbucket.org/username\"",
             "}"
         ]
-    },    "git_module": {
+    },    "git_module": {
         "prefix": "tf-git_module",
         "description": "Define a module with genertic Git source.",
         "body": [
@@ -183,7 +183,7 @@
             "   source = \"git://\"",
             "}"
         ]
-    },    "github_private_module": {
+    },    "github_private_module": {
         "prefix": "tf-github_private_module",
         "description": "Define a module with github with private source.",
         "body": [
@@ -200,7 +200,7 @@
             "   source = \"github.com/username\"",
             "}"
         ]
-    },    "mercurial_module": {
+    },    "mercurial_module": {
         "prefix": "tf-mercurial_module",
         "description": "Define a module with Mercurial source.",
         "body": [
@@ -208,7 +208,7 @@
             "   source = \"hg::http://\"",
             "}"
         ]
-    },    "s3_module": {
+    },    "s3_module": {
         "prefix": "tf-s3_module",
         "description": "Define a module with S3 source.",
         "body": [
@@ -216,7 +216,7 @@
             "   source = \"s3::https://\"",
             "}"
         ]
-    },    "archive": {
+    },    "archive": {
         "prefix":"tf-archive",
         "description": "Defines archive",
         "body": [
@@ -232,6 +232,24 @@
             "   type        = \"zip\"",
             "   source_file = \"\\${path.module}/init.tpl\"",
             "   output_path = \"\\${path.module}/files/init.zip\"",
+            "}"
+        ]
+    },    "arukas": {
+        "prefix":"tf-arukas",
+        "description": "Defines Arukas provider",
+        "body": [
+            "provider \"arukas\" {",
+            "   token   = \"\"",
+            "   secret  = \"\"",
+            "}"
+        ]
+    },
+    "arukas_container": {
+        "prefix":"tf-arukas_container",
+        "description": "Defines Arukas container",
+        "body": [
+            "resource \"arukas_container\" \"${myArukas}\" {",
+            "   name   = \"${myArukas}\"",
             "}"
         ]
     },    "atlas": {
@@ -256,7 +274,7 @@
             "   }",
             "}"
         ]
-    },    "aws": {
+    },    "aws": {
         "prefix": "tf-aws",
         "description": "define a aws provider.",
         "body": [
@@ -2364,7 +2382,7 @@
         "body": [
             "\"ca-central-1\""
         ]
-    },    "azurerm": {
+    },    "azurerm": {
         "prefix":"tf-azurerm",
         "description": "Defines azurerm provider",
         "body": [
@@ -3114,7 +3132,7 @@
             "   }",
             "}"
         ]
-    },    "bitbucket": {
+    },    "bitbucket": {
         "prefix":"tf-bitbucket",
         "description": "Defines bitbucket",
         "body": [
@@ -3147,7 +3165,7 @@
             "resource \"bitbucket_repository\" \"${MyResource}\" {",
             "}"
         ]
-    },    "clc": {
+    },    "clc": {
         "prefix": "tf-clc",
         "description": "define a clc provider.",
         "body": [
@@ -3261,7 +3279,7 @@
             "   }",
             "}"
         ]
-    },    "chef": {
+    },    "chef": {
         "prefix":"tf-chef",
         "description": "Defines chef",
         "body": [
@@ -3321,7 +3339,7 @@
             "   name = \"example-environment\"",
             "}"
         ]
-    },    "cloudflare": {
+    },    "cloudflare": {
         "prefix":"tf-cloudflare",
         "description": "Defines cloudflare provider",
         "body": [
@@ -3343,7 +3361,7 @@
             "   ttl = 3600",
             "}"
         ]
-    },    "cloudstack": {
+    },    "cloudstack": {
         "prefix": "tf-cloudstack",
         "description": "define a cloudstack.",
         "body": [
@@ -3653,7 +3671,7 @@
             "   vpn_gateway_id = \"a7900060-f8a8-44eb-be15-ea54cf499703\"",
             "}"
         ]
-    },    "cobbler": {
+    },    "cobbler": {
         "prefix": "tf-cobbler",
         "description": "define a cobbler provider.",
         "body": [
@@ -3738,7 +3756,7 @@
             "   }",
             "}"
         ]
-    },    "consul_keys": {
+    },    "consul_keys": {
         "prefix":"tf-consul_keys",
         "description": "Defines consul_keys",
         "body": [
@@ -3796,7 +3814,7 @@
             "resource \"consul_service\" \"${MyResource}\" {",
             "}"
         ]
-    },    "datadog": {
+    },    "datadog": {
         "prefix": "tf-datadog",
         "description": "define a datadog provider.",
         "body": [
@@ -3857,7 +3875,7 @@
 
             "}"
         ]
-    },    "digitalocean": {
+    },    "digitalocean": {
         "prefix":"tf-digitalocean",
         "description": "Defines digitalocean",
         "body": [
@@ -3921,7 +3939,7 @@
             "resource \"digitalocean_volume\" \"${MyResource}\" {",
             "}"
         ]
-    },    "dnsimple": {
+    },    "dnsimple": {
         "prefix": "tf-dnsimple",
         "description": "define a dnsimple provider.",
         "body": [
@@ -3946,7 +3964,7 @@
             "   ttl = 3600",
             "}"
         ]
-    },    "dme": {
+    },    "dme": {
         "prefix": "tf-dme",
         "description": "define a dme provider.",
         "body": [
@@ -3972,7 +3990,7 @@
             "   gtdLocation = \"DEFAULT\"",
             "}"
         ]
-    },    "docker_registry_image": {
+    },    "docker_registry_image": {
         "prefix":"tf-docker_registry_image",
         "description": "Defines docker_registry_image",
         "body": [
@@ -4012,7 +4030,7 @@
             "resource \"docker_volume\" \"${MyResource}\" {",
             "}"
         ]
-    },    "dyn": {
+    },    "dyn": {
         "prefix": "tf-dyn",
         "description": "define a dyn provider.",
         "body": [
@@ -4037,7 +4055,7 @@
             "   ttl = 3600",
             "}"
         ]
-    },    "fastly": {
+    },    "fastly": {
         "prefix": "tf-fastly",
         "description": "define a fastly provider.",
         "body": [
@@ -4073,7 +4091,7 @@
             "   force_destroy = true",
             "}"
         ]
-    },    "github_membership": {
+    },    "github_membership": {
         "prefix":"tf-github_membership",
         "description": "Defines github_membership",
         "body": [
@@ -4131,7 +4149,7 @@
             "resource \"github_issue_label\" \"${MyResource}\" {",
             "}"
         ]
-    },    "gitlab": {
+    },    "gitlab": {
         "prefix": "tf-gitlab",
         "description": "define a GitLab provider.",
         "body": [
@@ -4181,7 +4199,7 @@
             "   description = \"${example}\"",
             "}"
         ]
-    },    "google": {
+    },    "google": {
         "prefix":"tf-google",
         "description": "Defines google provider",
         "body": [
@@ -4675,7 +4693,7 @@
             "   object = \"\\${google_storage_bucket_object.image_store.name}\"",
             "}"
         ]
-    },    "grafana": {
+    },    "grafana": {
         "prefix": "tf-grafana",
         "description": "define a grafana provider.",
         "body": [
@@ -4710,7 +4728,7 @@
             "   database_name = \"\\${influxdb_database.metrics.name}\"",
             "}"
         ]
-    },    "heroku": {
+    },    "heroku": {
         "prefix":"tf-heroku",
         "description": "Defines heroku",
         "body": [
@@ -4759,7 +4777,7 @@
             "resource \"heroku_drain\" \"${MyResource}\" {",
             "}"
         ]
-    },    "influxdb": {
+    },    "influxdb": {
         "prefix": "tf-influxdb",
         "description": "define a influxdb provider.",
         "body": [
@@ -4805,7 +4823,7 @@
             "   query = \"SELECT min(mouse) INTO min_mouse FROM zoo GROUP BY time(30m)\"",
             "}"
         ]
-    },    "librato": {
+    },    "librato": {
         "prefix": "tf-librato",
         "description": "define a librato provider.",
         "body": [
@@ -4872,7 +4890,7 @@
             "   }",
             "}"
         ]
-    },    "logentries": {
+    },    "logentries": {
         "prefix": "tf-logentries",
         "description": "define a logentries provider.",
         "body": [
@@ -4903,7 +4921,7 @@
             "   location = \"www.example.com\"",
             "}"
         ]
-    },    "mailgun": {
+    },    "mailgun": {
         "prefix": "tf-mailgun",
         "description": "define a mailgun provider.",
         "body": [
@@ -4923,7 +4941,7 @@
             "   smtp_password = \"foobar\"",
             "}"
         ]
-    },    "mysql": {
+    },    "mysql": {
         "prefix":"tf-mysql",
         "description": "Defines mysql provider",
         "body": [
@@ -4965,7 +4983,7 @@
             "   password    = \"example-password \"",
             "}"
         ]
-    },    "openstack": {
+    },    "openstack": {
         "prefix": "tf-openstack",
         "description": "define a openstack provider.",
         "body": [
@@ -5357,7 +5375,7 @@
             "   content_type = \"application/json\"",
             "}"
         ]
-    },    "packet": {
+    },    "packet": {
         "prefix": "tf-packet",
         "description": "define a packet provider.",
         "body": [
@@ -5420,7 +5438,7 @@
             "   snapshot_policies = { snapshot_frequency = \"1month\", snapshot_count = 6 }",
             "}"
         ]
-    },    "pagerduty": {
+    },    "pagerduty": {
         "prefix": "tf-pagerduty",
         "description": "define a pagerduty provider.",
         "body": [
@@ -5527,7 +5545,7 @@
             "   vendor  = \"\\${data.pagerduty_vendor.datadog.id}\"",
             "}"
         ]
-    },    "postgresql": {
+    },    "postgresql": {
         "prefix":"tf-postgresql",
         "description": "Defines postgresql provider",
         "body": [
@@ -5570,7 +5588,7 @@
             "   name        = \"example-name\"",
             "}"
         ]
-    },    "powerdns": {
+    },    "powerdns": {
         "prefix": "tf-powerdns",
         "description": "define a powerdns provider.",
         "body": [
@@ -5593,7 +5611,7 @@
             "   records = [\"192.168.0.11\"]",
             "}"
         ]
-    },    "rabbitmq": {
+    },    "rabbitmq": {
         "prefix": "tf-rabbitmq",
         "description": "define a rabbitmq provider.",
         "body": [
@@ -5707,7 +5725,7 @@
             "   name = \"my-${myResourceName}\"",
             "}"
         ]
-    },    "random_id": {
+    },    "random_id": {
         "prefix": "tf-random_id",
         "description": "define random_id resource.",
         "body": [
@@ -5731,7 +5749,7 @@
             "   result_count = 2",
             "}"
         ]
-    },    "rundeck": {
+    },    "rundeck": {
         "prefix": "tf-rundeck",
         "description": "define a rundeck provider.",
         "body": [
@@ -5798,7 +5816,7 @@
             "   }",
             "}"
         ]
-    },    "scaleway": {
+    },    "scaleway": {
         "prefix": "tf-scaleway",
         "description": "define a scaleway provider.",
         "body": [
@@ -5902,7 +5920,7 @@
             "   volume = \"\\${scaleway_volume.test.id}\"",
             "}"
         ]
-    },    "softlayer": {
+    },    "softlayer": {
         "prefix": "tf-softlayer",
         "description": "define a softlayer provider.",
         "body": [
@@ -5945,7 +5963,7 @@
             "   public_key = \"ssh-rsa <rsa_public_key>\"",
             "}"
         ]
-    },    "statuscake": {
+    },    "statuscake": {
         "prefix": "tf-statuscake",
         "description": "define a statuscake provider.",
         "body": [
@@ -5968,7 +5986,7 @@
             "   check_rate = 300",
             "}"
         ]
-    },    "template_file": {
+    },    "template_file": {
         "prefix": "tf-template_file",
         "description": "Define a template_file template from file",
         "body": [
@@ -5999,7 +6017,7 @@
             "data \"template_cloudinit_config\" \"${config}\" {",
             "}"
         ]
-    },    "tls_private_key": {
+    },    "tls_private_key": {
         "prefix": "tf-tls_private_key",
         "description": "define tls_private_key resource.",
         "body": [
@@ -6068,7 +6086,7 @@
             "   }",
             "}"
         ]
-    },    "triton": {
+    },    "triton": {
         "prefix": "tf-triton",
         "description": "define a triton provider.",
         "body": [
@@ -6115,7 +6133,7 @@
             "   image = \"842e6fa6-6e9b-11e5-8402-1b490459e334\"",
             "}"
         ]
-    },    "ultradns": {
+    },    "ultradns": {
         "prefix": "tf-ultradns",
         "description": "define a ultradns provider.",
         "body": [
@@ -6140,7 +6158,7 @@
             "   ttl = 3600",
             "}"
         ]
-    },    "vcd": {
+    },    "vcd": {
         "prefix": "tf-vcd",
         "description": "define a vcd provider.",
         "body": [
@@ -6244,7 +6262,7 @@
             "   }",
             "}"
         ]
-    },    "vsphere": {
+    },    "vsphere": {
         "prefix": "tf-vsphere",
         "description": "define a vsphere.",
         "body": [
@@ -6312,7 +6330,7 @@
             "   type = \"thin\"",
             "}"
         ]
-    },    "chef_provisioner": {
+    },    "chef_provisioner": {
         "prefix": "tf-chef_provisioner",
         "description": "Define a Chef provisioner",
         "body": [
@@ -6324,7 +6342,7 @@
             "       server_url = \"server_url-example\"",
             "   }"
         ]
-    },    "connection_provisioner": {
+    },    "connection_provisioner": {
         "prefix": "tf-connection_provisioner",
         "description": "Define a connection provisioner",
         "body": [
@@ -6339,7 +6357,7 @@
             "   }",
             "}"
         ]
-    },    "file_provisioner": {
+    },    "file_provisioner": {
         "prefix": "tf-file_provisioner",
         "description": "Define a file provisioner",
         "body": [
@@ -6349,7 +6367,7 @@
             "       destination = \"/etc/myapp.conf\"",
             "   }"
         ]
-    },    "local_exec_provisioner": {
+    },    "local_exec_provisioner": {
         "prefix": "tf-local_exec_provisioner",
         "description": "Define a local-exec provisioner",
         "body": [
@@ -6357,7 +6375,7 @@
             "       command = \"echo ${aws_instance.web.private_ip} >> private_ips.txt\"",
             "   }"
         ]
-    },    "null_resource_provisioner": {
+    },    "null_resource_provisioner": {
         "prefix": "tf-null_resource_provisioner",
         "description": "Define a null_resource provisioner",
         "body": [
@@ -6368,7 +6386,7 @@
             "   }",
             "}"
         ]
-    },    "remote_exec_provisioner": {
+    },    "remote_exec_provisioner": {
         "prefix": "tf-remote_exec_provisioner",
         "description": "Define a remote-exec provisioner",
         "body": [
@@ -6379,7 +6397,7 @@
             "       ]",
             "   }"
         ]
-    },    "terraform_remote_state": {
+    },    "terraform_remote_state": {
         "prefix": "tf-terraform_remote_state",
         "description": "Define a terraform_remote_state template",
         "body": [
@@ -6390,6 +6408,6 @@
             "   }",
             "}"
         ]
-    },
+    },
 "copyright": { "year": "2017" } 
 }

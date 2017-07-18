@@ -1,0 +1,21 @@
+{
+    "arukas": {
+        "prefix":"tf-arukas",
+        "description": "Defines Arukas provider",
+        "body": [
+            "provider \"arukas\" {",
+            "   token   = \"\"",
+            "   secret  = \"\"",
+            "}"
+        ]
+    },
+    "arukas_container": {
+        "prefix":"tf-arukas_container",
+        "description": "Defines Arukas container",
+        "body": [
+            "resource \"arukas_container\" \"${myArukas}\" {",
+            "   name   = \"${myArukas}\"",
+            "}"
+        ]
+    }
+}
