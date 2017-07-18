@@ -1,0 +1,107 @@
+{
+    "vcd": {
+        "prefix": "tf-vcd",
+        "description": "define a vcd provider.",
+        "body": [
+            "provider \"vcd\" {",
+            "   user                 = \"\\${var.vcd_user}\"",
+            "   password             = \"\\${var.vcd_pass}\"",
+            "   org                  = \"\\${var.vcd_org}\"",
+            "   url                  = \"\\${var.vcd_url}\"",
+            "   vdc                  = \"\\${var.vcd_vdc}\"",
+            "   maxRetryTimeout      = \"\\${var.vcd_maxRetryTimeout}\"",
+            "   allow_unverified_ssl = \"\\${var.vcd_allow_unverified_ssl}\"",
+            "}"
+        ]
+    },
+    "vcd_dnat": {
+        "prefix": "tf-vcd_dnat",
+        "description": "define vcd_dnat resource.",
+        "body": [
+            "resource \"vcd_dnat\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   edge_gateway  = \"Edge Gateway Name\"",
+            "   external_ip   = \"78.101.10.20\"",
+            "   port          = 80",
+            "   internal_ip   = \"10.10.0.5\"",
+            "}"
+        ]
+    },
+    "vcd_firewall_rules": {
+        "prefix": "tf-vcd_firewall_rules",
+        "description": "define vcd_firewall_rules resource.",
+        "body": [
+            "resource \"vcd_firewall_rules\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   edge_gateway   = \"Edge Gateway Name\"",
+            "   default_action = \"drop\"",
+            "   rule {",
+            "       description      = \"deny-ftp-out\"",
+            "       policy           = \"deny\"",
+            "       protocol         = \"tcp\"",
+            "       destination_port = \"21\"",
+            "       destination_ip   = \"any\"",
+            "       source_port      = \"any\"",
+            "       source_ip        = \"10.10.0.0/24\"",
+            "   }",
+            "}"
+        ]
+    },
+    "vcd_network": {
+        "prefix": "tf-vcd_network",
+        "description": "define vcd_network resource.",
+        "body": [
+            "resource \"vcd_network\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   edge_gateway = \"Edge Gateway Name\"",
+            "   gateway = \"10.10.0.1\"",
+            "   dhcp_pool {",
+            "       start_address = \"10.10.0.2\"",
+            "       end_address = \"10.10.0.100\"",
+            "   }",
+            "   static_ip_pool {",
+            "       start_address = \"10.10.0.152\"",
+            "       end_address = \"10.10.0.254\"",
+            "   }",
+            "}"
+        ]
+    },
+    "vcd_snat": {
+        "prefix": "tf-vcd_snat",
+        "description": "define vcd_snat resource.",
+        "body": [
+            "resource \"vcd_snat\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   edge_gateway = \"Edge Gateway Name\"",
+            "   external_ip  = \"78.101.10.20\"",
+            "   internal_ip  = \"10.10.0.0/24\"",
+            "}"
+        ]
+    },
+    "vcd_vapp": {
+        "prefix": "tf-vcd_vapp",
+        "description": "define vcd_vapp resource.",
+        "body": [
+            "resource \"vcd_vapp\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   catalog_name  = \"Boxes\"",
+            "   template_name = \"lampstack-1.10.1-ubuntu-10.04\"",
+            "   memory        = 2048",
+            "   cpus          = 1",
+            "   network_name  = \"\\${vcd_network.net.name}\"",
+            "   network_href  = \"\\${vcd_network.net.href}\"",
+            "   ip            = \"10.10.104.160\"",
+            "   metadata {",
+            "       role    = \"web\"",
+            "       env     = \"staging\"",
+            "       version = \"v1\"",
+            "   }",
+            "}"
+        ]
+    }
+}

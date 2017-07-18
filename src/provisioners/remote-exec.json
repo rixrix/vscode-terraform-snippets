@@ -1,0 +1,14 @@
+{
+    "remote_exec_provisioner": {
+        "prefix": "tf-remote_exec_provisioner",
+        "description": "Define a remote-exec provisioner",
+        "body": [
+            "   provisioner \"remote-exec\" {",
+            "       inline = [",
+            "           \"puppet apply\",",
+            "           \"consul join ${aws_instance.web.private_ip}\"",
+            "       ]",
+            "   }"
+        ]
+    }
+}

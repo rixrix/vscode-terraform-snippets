@@ -1,0 +1,11 @@
+{
+    "s3_module": {
+        "prefix": "tf-s3_module",
+        "description": "Define a module with S3 source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"s3::https://\"",
+            "}"
+        ]
+    }
+}

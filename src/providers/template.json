@@ -1,0 +1,34 @@
+{
+    "template_file": {
+        "prefix": "tf-template_file",
+        "description": "Define a template_file template from file",
+        "body": [
+            "data \"template_file\" \"${init}\" {",
+            "   template = \"\\${file(\"\\${path.module}/${init}.tpl\")}\"\n",
+            "   vars {",
+            "       consul_address = \"\\${aws_instance.consul.private_ip}\"",
+            "   }",
+            "}"
+        ]
+    },
+    "template_file-inline": {
+        "prefix": "tf-template_file-inline",
+        "description": "Define a template_file template inline",
+        "body": [
+            "data \"template_file\" \"${init}\" {",
+            "   template = \"\\$\\${consul_address}:1234\"",
+            "   vars {",
+            "       consul_address = \"\\${aws_instance.consul.private_ip}\"",
+            "   }",
+            "}"
+        ]
+    },
+    "template_cloudinit_config": {
+        "prefix": "tf-template_cloudinit_config",
+        "description": "Define a template_cloudinit_config template",
+        "body": [
+            "data \"template_cloudinit_config\" \"${config}\" {",
+            "}"
+        ]
+    }
+}

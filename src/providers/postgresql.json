@@ -1,0 +1,46 @@
+{
+    "postgresql": {
+        "prefix":"tf-postgresql",
+        "description": "Defines postgresql provider",
+        "body": [
+            "provider \"postgresql\" {",
+            "   host        = \"host-example\"",
+            "   port        = \"port-example\"",
+            "   username    = \"username-example\"",
+            "   password    = \"password-example\"",
+            "   ssl_mode    = \"ssl_mode-example\"",
+            "}"
+        ]
+    },
+    "postgresql_database": {
+        "prefix":"tf-postgresql_database",
+        "description": "Defines postgresql_database resource",
+        "body": [
+            "resource \"postgresql_database\" \"${MyResource}\" {",
+            "   name    = \"example-name\"",
+            "   owner   = \"example-owner\"",
+            "}"
+        ]
+    },
+    "postgresql_role": {
+        "prefix":"tf-postgresql_role",
+        "description": "Defines postgresql_role resource",
+        "body": [
+            "resource \"postgresql_role\" \"${MyResource}\" {",
+            "   name        = \"example-name\"",
+            "   login       = true",
+            "   password    = \"example-password\"",
+            "   encrypted   = true",
+            "}"
+        ]
+    },
+    "postgresql_extension": {
+        "prefix":"tf-postgresql_extension",
+        "description": "Defines postgresql_extension resource",
+        "body": [
+            "resource \"postgresql_extension\" \"${MyResource}\" {",
+            "   name        = \"example-name\"",
+            "}"
+        ]
+    }
+}

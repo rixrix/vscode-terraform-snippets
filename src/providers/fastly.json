@@ -1,0 +1,39 @@
+{
+    "fastly": {
+        "prefix": "tf-fastly",
+        "description": "define a fastly provider.",
+        "body": [
+            "provider \"fastly\" {",
+            "   api_key = \"${fastlyApiKey}\"",
+            "}"
+        ]
+    },
+    "fastly_ip_ranges": {
+        "prefix": "tf-fastly_ip_ranges",
+        "description": "define a fastly_ip_ranges data source.",
+        "body": [
+            "data \"fastly_ip_ranges\" \"${myDataSource}\" {",
+            "}"
+        ]
+    },
+    "fastly_service_v1": {
+        "prefix": "tf-fastly_service_v1",
+        "description": "define fastly_service_v1 resource.",
+        "body": [
+            "resource \"fastly_service_v1\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   domain {",
+            "       name    = \"demo.notexample.com\"",
+            "       comment = \"demo\"",
+            "   }\n",
+            "   backend {",
+            "       address = \"127.0.0.1\"",
+            "       name    = \"localhost\"",
+            "       port    = 80",
+            "   }\n",
+            "   force_destroy = true",
+            "}"
+        ]
+    }
+}

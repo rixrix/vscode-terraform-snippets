@@ -1,0 +1,15 @@
+{
+    "atlas_backend": {
+        "prefix": "tf-atlas_backend",
+        "description": "Define a backend-atlas backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"atlas\"",
+            "   config {",
+            "       name = \"bigbang/example\"",
+            "       access_token = \"X2iTFefU5aWOjg.atlasv1.YaDa\"",
+            "   }",
+            "}"
+        ]
+    }
+}

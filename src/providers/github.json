@@ -1,0 +1,61 @@
+{
+    "github_membership": {
+        "prefix":"tf-github_membership",
+        "description": "Defines github_membership",
+        "body": [
+            "resource \"github_membership\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "github_repository": {
+        "prefix":"tf-github_repository",
+        "description": "Defines github_repository",
+        "body": [
+            "resource \"github_repository\" \"${MyResource}\" {",
+            "   name        = \"example\"",
+            "   description = \"example\"",
+            "",
+            "}"
+        ]
+    },
+    "github_repository_collaborator": {
+        "prefix":"tf-github_repository_collaborator",
+        "description": "Defines github_repository_collaborator",
+        "body": [
+            "resource \"github_repository_collaborator\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "github_team": {
+        "prefix":"tf-github_team",
+        "description": "Defines github_team",
+        "body": [
+            "resource \"github_team\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "github_team_membership": {
+        "prefix":"tf-github_team_membership",
+        "description": "Defines github_team_membership",
+        "body": [
+            "resource \"github_team_membership\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "github_team_repository": {
+        "prefix":"tf-github_team_repository",
+        "description": "Defines github_team_repository",
+        "body": [
+            "resource \"github_team_repository\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "github_issue_label": {
+        "prefix":"tf-github_issue_label",
+        "description": "Defines github_issue_label",
+        "body": [
+            "resource \"github_issue_label\" \"${MyResource}\" {",
+            "}"
+        ]
+    }
+}

@@ -1,0 +1,88 @@
+{
+    "cobbler": {
+        "prefix": "tf-cobbler",
+        "description": "define a cobbler provider.",
+        "body": [
+            "provider \"cobbler\" {",
+            "   username = \"\\${var.cobbler}\"",
+            "   password = \"\\${var.cobbler_password}\"",
+            "   url  = \"\\${var.cobbler_url}\"",
+            "}"
+        ]
+    },
+    "cobbler_distro": {
+        "prefix": "tf-cobbler_distro",
+        "description": "define cobbler_distro resource.",
+        "body": [
+            "resource \"cobbler_distro\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   breed = \"ubuntu\"",
+            "   os_version = \"trusty\"",
+            "   arch = \"x86_64\"",
+            "   kernel = \"/var/www/cobbler/ks_mirror/Ubuntu-14.04/install/netboot/ubuntu-installer/amd64/linux\"",
+            "   initrd = \"/var/www/cobbler/ks_mirror/Ubuntu-14.04/install/netboot/ubuntu-installer/amd64/initrd.gz\"",
+            "}"
+        ]
+    },
+    "cobbler_kickstart_file": {
+        "prefix": "tf-cobbler_kickstart_file",
+        "description": "define cobbler_kickstart_file resource.",
+        "body": [
+            "resource \"cobbler_kickstart_file\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   body = \"my-body-${myResourceName}\"",
+            "}"
+        ]
+    },
+    "cobbler_profile": {
+        "prefix": "tf-cobbler_profile",
+        "description": "define cobbler_profile resource.",
+        "body": [
+            "resource \"cobbler_profile\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   distro = \"ubuntu-1404-x86_64\"",
+            "}"
+        ]
+    },
+    "cobbler_snippet": {
+        "prefix": "tf-cobbler_snippet",
+        "description": "define cobbler_snippet resource.",
+        "body": [
+            "resource \"cobbler_snippet\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   body = \"<content of snippet>\"",
+            "}"
+        ]
+    },
+    "cobbler_system": {
+        "prefix": "tf-cobbler_system",
+        "description": "define cobbler_system resource.",
+        "body": [
+            "resource \"cobbler_system\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   profile = \"\\${cobbler_profile.my_profile.name}\"",
+            "   name_servers = [\"8.8.8.8\", \"8.8.4.4\"]",
+            "   comment = \"I'm a system\"\n",
+            "   interface {",
+            "       name = \"eth0\"",
+            "       mac_address = \"aa:bb:cc:dd:ee:ff\"",
+            "       static = true",
+            "       ip_address = \"1.2.3.4\"",
+            "       netmask = \"255.255.255.0\"",
+            "   }\n",
+            "   interface {",
+            "       name = \"eth1\"",
+            "       mac_address = \"aa:bb:cc:dd:ee:fa\"",
+            "       static = true",
+            "       ip_address = \"1.2.3.5\"",
+            "       netmask = \"255.255.255.0\"",
+            "   }",
+            "}"
+        ]
+    }
+}

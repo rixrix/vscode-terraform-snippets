@@ -1,0 +1,11 @@
+{
+    "git_module": {
+        "prefix": "tf-git_module",
+        "description": "Define a module with genertic Git source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"git://\"",
+            "}"
+        ]
+    }
+}

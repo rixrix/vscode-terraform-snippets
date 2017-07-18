@@ -1,0 +1,14 @@
+{
+    "consul_backend": {
+        "prefix": "tf-consul_backend",
+        "description": "Define a backend-consul backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"consul\"",
+            "   config {",
+            "       path = \"full/path\"",
+            "   }",
+            "}"
+        ]
+    }
+}

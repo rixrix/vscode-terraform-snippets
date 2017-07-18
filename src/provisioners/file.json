@@ -1,0 +1,13 @@
+{
+    "file_provisioner": {
+        "prefix": "tf-file_provisioner",
+        "description": "Define a file provisioner",
+        "body": [
+            "   # Copies the myapp.conf file to /etc/myapp.conf",
+            "   provisioner \"file\" {",
+            "       source = \"conf/myapp.conf\"",
+            "       destination = \"/etc/myapp.conf\"",
+            "   }"
+        ]
+    }
+}

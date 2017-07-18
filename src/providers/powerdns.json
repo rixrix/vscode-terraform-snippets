@@ -1,0 +1,26 @@
+{
+    "powerdns": {
+        "prefix": "tf-powerdns",
+        "description": "define a powerdns provider.",
+        "body": [
+            "provider \"powerdns\" {",
+            "   api_key = \"\\${var.pdns_api_key}\"",
+            "   server_url = \"\\${var.pdns_server_url}\"",
+            "}"
+        ]
+    },
+    "powerdns_record": {
+        "prefix": "tf-powerdns_record",
+        "description": "define powerdns_record resource.",
+        "body": [
+            "resource \"powerdns_record\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   zone = \"example.com.\"",
+            "   type = \"A\"",
+            "   ttl = 300",
+            "   records = [\"192.168.0.11\"]",
+            "}"
+        ]
+    }
+}

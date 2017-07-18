@@ -1,0 +1,46 @@
+{
+    "softlayer": {
+        "prefix": "tf-softlayer",
+        "description": "define a softlayer provider.",
+        "body": [
+            "provider \"softlayer\" {",
+            "   username = \"\"",
+            "   api_key = \"\"",
+            "}"
+        ]
+    },
+    "softlayer_virtual_guest": {
+        "prefix": "tf-softlayer_virtual_guest",
+        "description": "define softlayer_virtual_guest resource.",
+        "body": [
+            "resource \"softlayer_virtual_guest\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   domain = \"bar.example.com\"",
+            "   image = \"DEBIAN_7_64\"",
+            "   region = \"ams01\"",
+            "   public_network_speed = 10",
+            "   hourly_billing = true",
+            "   private_network_only = false",
+            "   cpu = 1",
+            "   ram = 1024",
+            "   disks = [25, 10, 20]",
+            "   user_data = \"{\"value\":\"newvalue\"}\"",
+            "   dedicated_acct_host_only = true",
+            "   local_disk = false",
+            "   frontend_vlan_id = 1085155",
+            "   backend_vlan_id = 1085157",
+            "}"
+        ]
+    },
+    "softlayer_ssh_key": {
+        "prefix": "tf-softlayer_ssh_key",
+        "description": "define softlayer_ssh_key resource.",
+        "body": [
+            "resource \"softlayer_ssh_key\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   notes = \"test_ssh_key_notes\"",
+            "   public_key = \"ssh-rsa <rsa_public_key>\"",
+            "}"
+        ]
+    }
+}

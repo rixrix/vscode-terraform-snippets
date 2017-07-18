@@ -1,0 +1,53 @@
+{
+    "gitlab": {
+        "prefix": "tf-gitlab",
+        "description": "define a GitLab provider.",
+        "body": [
+            "provider \"gitlab\" {",
+            "   token = \"${myGitLabToken}\"",
+            "}"
+        ]
+    },
+    "gitlab_deploy_key": {
+        "prefix": "tf-gitlab_deploy_key",
+        "description": "define a gitlab_deploy_key resource.",
+        "body": [
+            "resource \"gitlab_deploy_key\" \"${example}\" {",
+            "   project = \"${example}/deploying\"",
+            "   title   = \"${example} deploy key\"",
+            "   key     = \"ssh-rsa AAAA\"",
+            "}"
+        ]
+    },
+    "gitlab_group": {
+        "prefix": "tf-gitlab_group",
+        "description": "define a gitlab_group resource.",
+        "body": [
+            "resource \"gitlab_group\" \"${example}\" {",
+            "   name        = \"${example}\"",
+            "   path        = \"${example}\"",
+            "   description = \"${example} description\"",
+            "}"
+        ]
+    },
+    "gitlab_project_hook": {
+        "prefix": "tf-gitlab_project_hook",
+        "description": "define a  gitlab_project_hook resource.",
+        "body": [
+            "resource \"gitlab_project_hook\" \"${example}\" {",
+            "   project = \"${example}/hooked\"",
+            "   url     = \"https://${example}.com/hooke/example\"",
+            "}"
+        ]
+    },
+    "gitlab_project": {
+        "prefix": "tf-gitlab_project",
+        "description": "define a  gitlab_project resource.",
+        "body": [
+            "resource \"gitlab_project\" \"${example}\" {",
+            "   name        = \"${example}\"",
+            "   description = \"${example}\"",
+            "}"
+        ]
+    }
+}

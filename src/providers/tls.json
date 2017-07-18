@@ -1,0 +1,72 @@
+{
+    "tls_private_key": {
+        "prefix": "tf-tls_private_key",
+        "description": "define tls_private_key resource.",
+        "body": [
+            "resource \"tls_private_key\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   algorithm = \"ECDSA\"",
+            "   ecdsa_curve = \"P384\"",
+            "}"
+        ]
+    },
+    "tls_self_signed_cert": {
+        "prefix": "tf-tls_self_signed_cert",
+        "description": "define tls_self_signed_cert resource.",
+        "body": [
+            "resource \"tls_self_signed_cert\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   key_algorithm = \"ECDSA\"",
+            "   private_key_pem = \"\\${file(\"private_key.pem\")}\"",
+            "   subject {",
+            "       common_name = \"example.com\"",
+            "       organization = \"ACME Examples, Inc\"",
+            "   }",
+            "   validity_period_hours = 12",
+            "   allowed_uses = [",
+            "       \"key_encipherment\",",
+            "       \"digital_signature\",",
+            "       \"server_auth\",",
+            "   ]",
+            "}"
+        ]
+    },
+    "tls_locally_signed_cert": {
+        "prefix": "tf-tls_locally_signed_cert",
+        "description": "define tls_locally_signed_cert resource.",
+        "body": [
+            "resource \"tls_locally_signed_cert\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   cert_request_pem = \"\\${file(\\\"cert_request.pem\\\")}\"",
+            "   ca_key_algorithm = \"ECDSA\"",
+            "   ca_private_key_pem = \"\\${file(\\\"ca_private_key.pem\\\")}\"",
+            "   ca_cert_pem = \"\\${file(\\\"ca_cert.pem\\\")}\"",
+            "   validity_period_hours = 12",
+            "   allowed_uses = [",
+            "       \"key_encipherment\",",
+            "       \"digital_signature\",",
+            "       \"server_auth\",",
+            "   ]",
+            "}"
+        ]
+    },
+    "tls_cert_request": {
+        "prefix": "tf-tls_cert_request",
+        "description": "define tls_cert_request resource.",
+        "body": [
+            "resource \"tls_cert_request\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   key_algorithm = \"ECDSA\"",
+            "   private_key_pem = \"\\${file(\\\"private_key.pem\\\")}\"",
+            "   subject {",
+            "       common_name = \"example.com\"",
+            "       organization = \"ACME Examples, Inc\"",
+            "   }",
+            "}"
+        ]
+    }
+}

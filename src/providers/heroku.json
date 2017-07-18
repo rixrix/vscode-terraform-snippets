@@ -1,0 +1,52 @@
+{
+    "heroku": {
+        "prefix":"tf-heroku",
+        "description": "Defines heroku",
+        "body": [
+            "provider \"heroku\" {",
+            "   email = \"ops@company.com\"",
+            "   api_key = \"\\${var.heroku_api_key}\"",
+            "}"
+        ]
+    },
+    "heroku_addon": {
+        "prefix":"tf-heroku_addon",
+        "description": "Defines heroku_addon",
+        "body": [
+            "resource \"heroku_addon\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "heroku_app": {
+        "prefix":"tf-heroku_app",
+        "description": "Defines heroku_app",
+        "body": [
+            "resource \"heroku_app\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "heroku_cert": {
+        "prefix":"tf-heroku_cert",
+        "description": "Defines heroku_cert",
+        "body": [
+            "resource \"heroku_cert\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "heroku_domain": {
+        "prefix":"tf-heroku_domain",
+        "description": "Defines heroku_domain",
+        "body": [
+            "resource \"heroku_domain\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "heroku_drain": {
+        "prefix":"tf-heroku_drain",
+        "description": "Defines heroku_drain",
+        "body": [
+            "resource \"heroku_drain\" \"${MyResource}\" {",
+            "}"
+        ]
+    }
+}

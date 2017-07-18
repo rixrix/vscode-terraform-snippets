@@ -1,0 +1,66 @@
+{
+    "packet": {
+        "prefix": "tf-packet",
+        "description": "define a packet provider.",
+        "body": [
+            "provider \"packet\" {",
+            "   auth_token = \"${auth_token}\"",
+            "}"
+        ]
+    },
+    "packet_device": {
+        "prefix": "tf-packet_device",
+        "description": "define packet_device resource.",
+        "body": [
+            "resource \"packet_device\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   hostname = \"tf.coreos2\"",
+            "   plan = \"baremetal_1\"",
+            "   facility = \"ewr1\"",
+            "   operating_system = \"coreos_stable\"",
+            "   billing_cycle = \"hourly\"",
+            "   project_id = \"\\${packet_project.cool_project.id}\"",
+            "}"
+        ]
+    },
+    "packet_project": {
+        "prefix": "tf-packet_project",
+        "description": "define packet_project resource.",
+        "body": [
+            "resource \"packet_project\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   payment_method = \"payment_method-id\"",
+            "}"
+        ]
+    },
+    "packet_ssh_key": {
+        "prefix": "tf-packet_ssh_key",
+        "description": "define packet_ssh_key resource.",
+        "body": [
+            "resource \"packet_ssh_key\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   public_key = \"\\${file(\"/home/terraform/.ssh/id_rsa.pub\")}\"",
+            "}"
+        ]
+    },
+    "packet_volume": {
+        "prefix": "tf-packet_volume",
+        "description": "define packet_volume resource.",
+        "body": [
+            "resource \"packet_volume\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   facility = \"ewr1\"",
+            "   project_id = \"\\${packet_project.cool_project.id}\"",
+            "   plan = \"storage_1\"",
+            "   size = 100",
+            "   billing_cycle = \"hourly\"",
+            "   snapshot_policies = { snapshot_frequency = \"1day\", snapshot_count = 7 }",
+            "   snapshot_policies = { snapshot_frequency = \"1month\", snapshot_count = 6 }",
+            "}"
+        ]
+    }
+}

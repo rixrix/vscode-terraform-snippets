@@ -1,0 +1,28 @@
+{
+    "dyn": {
+        "prefix": "tf-dyn",
+        "description": "define a dyn provider.",
+        "body": [
+            "provider \"dyn\" {",
+            "   customer_name = \"\\${var.dyn_customer_name}\"",
+            "   username = \"\\${var.dyn_username}\"",
+            "   password = \"\\${var.dyn_password}\"",
+            "}"
+        ]
+    },
+    "dyn_record": {
+        "prefix": "tf-dyn_record",
+        "description": "define dyn_record resource.",
+        "body": [
+            "resource \"dyn_record\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   zone = \"\\${var.dyn_zone}\"",
+            "   name = \"terraform\"",
+            "   value = \"192.168.0.11\"",
+            "   type = \"A\"",
+            "   ttl = 3600",
+            "}"
+        ]
+    }
+}

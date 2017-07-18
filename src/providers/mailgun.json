@@ -1,0 +1,23 @@
+{
+    "mailgun": {
+        "prefix": "tf-mailgun",
+        "description": "define a mailgun provider.",
+        "body": [
+            "provider \"mailgun\" {",
+            "   api_key = \"${api_key}\"",
+            "}"
+        ]
+    },
+    "mailgun_domain": {
+        "prefix": "tf-mailgun_domain",
+        "description": "define mailgun_domain resource.",
+        "body": [
+            "resource \"mailgun_domain\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   spam_action = \"disabled\"",
+            "   smtp_password = \"foobar\"",
+            "}"
+        ]
+    }
+}

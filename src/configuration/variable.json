@@ -1,0 +1,18 @@
+{
+    "variable": {
+        "prefix": "tf-variable",
+        "description": "Define variables.",
+        "body": [
+            "variable \"${myVariable}\" { }"
+        ]
+    },
+    "variable-default": {
+        "prefix": "tf-variable-default",
+        "description": "Define variables with default",
+        "body": [
+            "variable \"${myVariable}\" {",
+            "   default =   \"\"",
+            "}"
+        ]
+    }
+}
