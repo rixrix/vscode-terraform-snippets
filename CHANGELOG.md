@@ -1,5 +1,11 @@
 # Changelog
 
+# 1.6.0
+
+* Arukas
+* * https://www.terraform.io/docs/providers/arukas/index.html
+* * https://arukas.io/en/
+
 # 1.5.0
 
 * GitLab
