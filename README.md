@@ -109,6 +109,23 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
 5. Choose the extension
 6. Reload Visual Studio Code
 
+## How can you help ?
+
+It is super easy, the snippets for each Terraform features are self-contained into its own single JSON file.
+
+```
+src/
+    backends/
+    configuration/
+    modules/
+    state/
+    provisioners/
+    providers/
+        aws.json
+        chef.json
+        your-new-feature-here.json
+```
+
 ## Issues / Comments / Suggestions
 
 Feel free to file an issue or submit a pull request at https://github.com/rixrix/vscode-terraform-snippets/issues
