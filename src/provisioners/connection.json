@@ -1,0 +1,18 @@
+{
+    "connection_provisioner": {
+        "prefix": "tf-connection_provisioner",
+        "description": "Define a connection provisioner",
+        "body": [
+            "# Copies the file as the root user using SSH",
+            "provisioner \"file\" {",
+            "   source      = \"conf/myapp.conf\"",
+            "   destination = \"/etc/myapp.conf\"",
+            "   connection {",
+            "       type        = \"ssh\"",
+            "       user        = \"root\"",
+            "       password    = \"samplePasswordHere\"",
+            "   }",
+            "}"
+        ]
+    }
+}

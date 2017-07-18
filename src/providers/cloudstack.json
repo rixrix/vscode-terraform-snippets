@@ -1,0 +1,313 @@
+{
+    "cloudstack": {
+        "prefix": "tf-cloudstack",
+        "description": "define a cloudstack.",
+        "body": [
+            "cloudstack \"${aws}\" {",
+            "   api_url = \"\\${var.cloudstack_api_url}\"",
+            "   api_key = \"\\${var.cloudstack_api_key}\"",
+            "   secret_key = \"\\${var.cloudstack_secret_key}\"",
+            "}"
+        ]
+    },
+    "cloudstack_affinity_group": {
+        "prefix": "tf-cloudstack_affinity_group",
+        "description": "define cloudstack_affinity_group resource.",
+        "body": [
+            "resource \"cloudstack_affinity_group\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   type = \"host anti-affinity\"",
+            "}"
+        ]
+    },
+    "cloudstack_disk": {
+        "prefix": "tf-cloudstack_disk",
+        "description": "define cloudstack_disk resource.",
+        "body": [
+            "resource \"cloudstack_disk\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   attach = \"true\"",
+            "   disk_offering = \"custom\"",
+            "   size = 50",
+            "   virtual_machine = \"server-1\"",
+            "   zone = \"zone-1\"",
+            "}"
+        ]
+    },
+    "cloudstack_egress_firewall": {
+        "prefix": "tf-cloudstack_egress_firewall",
+        "description": "define cloudstack_egress_firewall resource.",
+        "body": [
+            "resource \"cloudstack_egress_firewall\" \"${myResourceName}\" {",
+            "   network_id = \"6eb22f91-7454-4107-89f4-36afcdf33021\"\n",
+            "   rule {",
+            "       cidr_list = [\"10.0.0.0/8\"]",
+            "       protocol = \"tcp\"",
+            "       ports = [\"80\", \"1000-2000\"]",
+            "   }",
+            "}"
+        ]
+    },
+    "cloudstack_firewall": {
+        "prefix": "tf-cloudstack_firewall",
+        "description": "define cloudstack_firewall resource.",
+        "body": [
+            "resource \"cloudstack_firewall\" \"${myResourceName}\" {",
+            "   network_id = \"6eb22f91-7454-4107-89f4-36afcdf33021\"\n",
+            "   rule {",
+            "       cidr_list = [\"10.0.0.0/8\"]",
+            "       protocol = \"tcp\"",
+            "       ports = [\"80\", \"1000-2000\"]",
+            "   }",
+            "}"
+        ]
+    },
+    "cloudstack_instance": {
+        "prefix": "tf-cloudstack_instance",
+        "description": "define cloudstack_instance resource.",
+        "body": [
+            "resource \"cloudstack_instance\" \"${myResourceName}\" {",
+            "   name = \"server-1\"",
+            "   service_offering= \"small\"",
+            "   network_id = \"6eb22f91-7454-4107-89f4-36afcdf33021\"",
+            "   template = \"CentOS 6.5\"",
+            "   zone = \"zone-1\"",
+            "}"
+        ]
+    },
+    "cloudstack_ipaddress": {
+        "prefix": "tf-cloudstack_ipaddress",
+        "description": "define cloudstack_ipaddress resource.",
+        "body": [
+            "resource \"cloudstack_ipaddress\" \"${myResourceName}\" {",
+            "   network_id = \"6eb22f91-7454-4107-89f4-36afcdf33021\"\n",
+            "}"
+        ]
+    },
+    "cloudstack_loadbalancer_rule": {
+        "prefix": "tf-cloudstack_loadbalancer_rule",
+        "description": "define cloudstack_loadbalancer_rule resource.",
+        "body": [
+            "resource \"cloudstack_loadbalancer_rule\" \"${myResourceName}\" {",
+            "   name = \"loadbalancer-rule-1\"",
+            "   description = \"Loadbalancer rule 1\"",
+            "   ip_address_id = \"30b21801-d4b3-4174-852b-0c0f30bdbbfb\"",
+            "   algorithm = \"roundrobin\"",
+            "   private_port = 80",
+            "   public_port = 80",
+            "   member_ids = [\"f8141e2f-4e7e-4c63-9362-986c908b7ea7\"]",
+            "}"
+        ]
+    },
+    "cloudstack_network": {
+        "prefix": "tf-cloudstack_network",
+        "description": "define cloudstack_network resource.",
+        "body": [
+            "resource \"cloudstack_network\" \"${myResourceName}\" {",
+            "   name = \"test-network\"",
+            "   cidr = \"10.0.0.0/16\"",
+            "   network_offering = \"Default Network\"",
+            "   zone = \"zone-1\"",
+            "}"
+        ]
+    },
+    "cloudstack_network_acl": {
+        "prefix": "tf-cloudstack_network_acl",
+        "description": "define cloudstack_network_acl resource.",
+        "body": [
+            "resource \"cloudstack_network_acl\" \"${myResourceName}\" {",
+            "   name = \"test-acl\"",
+            "   vpc_id = \"76f6e8dc-07e3-4971-b2a2-8831b0cc4cb4\"",
+            "}"
+        ]
+    },
+    "cloudstack_network_acl_rule": {
+        "prefix": "tf-cloudstack_network_acl_rule",
+        "description": "define cloudstack_network_acl_rule resource.",
+        "body": [
+            "resource \"cloudstack_network_acl_rule\" \"${myResourceName}\" {",
+            "   acl_id = \"f3843ce0-334c-4586-bbd3-0c2e2bc946c6\"]]\n",
+            "   rule {",
+            "       action = \"allow\"",
+            "       cidr_list = [\"10.0.0.0/8\"]",
+            "       protocol = \"tcp\"",
+            "       ports = [\"80\", \"1000-2000\"]",
+            "       traffic_type = \"ingress\"",
+            "   }",
+            "}"
+        ]
+    },
+    "cloudstack_nic": {
+        "prefix": "tf-cloudstack_nic",
+        "description": "define cloudstack_nic resource.",
+        "body": [
+            "resource \"cloudstack_nic\" \"${myResourceName}\" {",
+            "   network_id = \"6eb22f91-7454-4107-89f4-36afcdf33021\"",
+            "   ip_address = \"192.168.1.1\"",
+            "   virtual_machine_id = \"f8141e2f-4e7e-4c63-9362-986c908b7ea7\"",
+            "}"
+        ]
+    },
+    "cloudstack_port_forward": {
+        "prefix": "tf-cloudstack_port_forward",
+        "description": "define cloudstack_port_forward resource.",
+        "body": [
+            "resource \"cloudstack_port_forward\" \"${myResourceName}\" {",
+            "   ip_address_id = \"30b21801-d4b3-4174-852b-0c0f30bdbbfb\"\n",
+            "   forward {",
+            "       protocol = \"tcp\"",
+            "       private_port = 80",
+            "       public_port = 8080",
+            "       virtual_machine_id = \"f8141e2f-4e7e-4c63-9362-986c908b7ea7\"",
+            "   }",
+            "}"
+        ]
+    },
+    "cloudstack_private_gateway": {
+        "prefix": "tf-cloudstack_private_gateway",
+        "description": "define cloudstack_private_gateway resource.",
+        "body": [
+            "resource \"cloudstack_private_gateway\" \"${myResourceName}\" {",
+            "   gateway = 10.0.0.1",
+            "   ip_address = \"10.0.0.2\"",
+            "   netmask = \"255.255.255.252\"",
+            "   vlan = \"200\"",
+            "   vpc_id = \"76f6e8dc-07e3-4971-b2a2-8831b0cc4cb4\"",
+            "}"
+        ]
+    },
+    "cloudstack_secondary_ipaddress": {
+        "prefix": "tf-cloudstack_secondary_ipaddress",
+        "description": "define cloudstack_secondary_ipaddress resource.",
+        "body": [
+            "resource \"cloudstack_secondary_ipaddress\" \"${myResourceName}\" {",
+            "   virtual_machine_id = \"server-1\"",
+            "}"
+        ]
+    },
+    "cloudstack_security_group": {
+        "prefix": "tf-cloudstack_security_group",
+        "description": "define cloudstack_security_group resource.",
+        "body": [
+            "resource \"cloudstack_security_group\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "}"
+        ]
+    },
+    "cloudstack_security_group_rule": {
+        "prefix": "tf-cloudstack_security_group_rule",
+        "description": "define cloudstack_security_group_rule resource.",
+        "body": [
+            "resource \"cloudstack_security_group_rule\" \"${myResourceName}\" {",
+            "   security_group_id = \"e340b62b-fbc2-4081-8f67-e40455c44bce\"\n",
+            "   rule {",
+            "       cidr_list = [\"0.0.0.0/0\"]",
+            "       protocol  = \"tcp\"",
+            "       ports     = [\"80\", \"443\"]",
+            "   }\n",
+            "   rule {",
+            "       cidr_list                = [\"192.168.0.0/24\", \"192.168.1.0/25\"]",
+            "       protocol                 = \"tcp\"",
+            "       ports                    = [\"80-90\", \"443\"]",
+            "       traffic_type             = \"egress\"",
+            "       user_security_group_list = [\"group01\", \"group02\"]",
+            "   }",
+            "}"
+        ]
+    },
+    "cloudstack_ssh_keypair": {
+        "prefix": "tf-cloudstack_ssh_keypair",
+        "description": "define cloudstack_ssh_keypair resource.",
+        "body": [
+            "resource \"cloudstack_ssh_keypair\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   public_key = \"\\${file(\"~/.ssh/id_rsa.pub\")}\"",
+            "   project = \"myProject\"",
+            "}"
+        ]
+    },
+    "cloudstack_static_nat": {
+        "prefix": "tf-cloudstack_static_nat",
+        "description": "define cloudstack_static_nat resource.",
+        "body": [
+            "resource \"cloudstack_static_nat\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   ip_address_id = \"f8141e2f-4e7e-4c63-9362-986c908b7ea7\"",
+            "   virtual_machine_id = \"6ca2a163-bc68-429c-adc8-ab4a620b1bb3\"",
+            "}"
+        ]
+    },
+    "cloudstack_static_route": {
+        "prefix": "tf-cloudstack_static_route",
+        "description": "define cloudstack_static_route resource.",
+        "body": [
+            "resource \"cloudstack_static_route\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   cidr = \"10.0.0.0/16\"",
+            "   gateway_id = \"76f607e3-e8dc-4971-8831-b2a2b0cc4cb4\"",
+            "}"
+        ]
+    },
+    "cloudstack_template": {
+        "prefix": "tf-cloudstack_template",
+        "description": "define cloudstack_template resource.",
+        "body": [
+            "resource \"cloudstack_template\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   format= \"VHD\"",
+            "   hypervisor = \"XenServer\"",
+            "   os_type = \"CentOS 6.4 (64bit)\"",
+            "   url = \"http://someurl.com/template.vhd\"",
+            "   zone = \"zone-1\"",
+            "}"
+        ]
+    },
+    "cloudstack_vpc": {
+        "prefix": "tf-cloudstack_vpc",
+        "description": "define cloudstack_vpc resource.",
+        "body": [
+            "resource \"cloudstack_vpc\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   cidr = \"10.0.0.0/16\"",
+            "   vpc_offering = \"Default VPC Offering\"",
+            "   zone = \"zone-1\"",
+            "}"
+        ]
+    },
+    "cloudstack_vpn_gateway": {
+        "prefix": "tf-cloudstack_vpn_gateway",
+        "description": "define cloudstack_vpn_gateway resource.",
+        "body": [
+            "resource \"cloudstack_vpn_gateway\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   vpc_id = \"f8141e2f-4e7e-4c63-9362-986c908b7ea7\"",
+            "}"
+        ]
+    },
+    "cloudstack_vpn_customer_gateway": {
+        "prefix": "tf-cloudstack_vpn_customer_gateway",
+        "description": "define cloudstack_vpn_customer_gateway resource.",
+        "body": [
+            "resource \"cloudstack_vpn_customer_gateway\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   cidr = \"10.0.0.0/8\"",
+            "   esp_policy = \"aes256-sha1\"",
+            "   gateway = \"192.168.0.1\"",
+            "   ike_policy = \"aes256-sha1\"",
+            "   ipsec_psk = \"terraform\"",
+            "}"
+        ]
+    },
+    "cloudstack_vpn_connection": {
+        "prefix": "tf-cloudstack_vpn_connection",
+        "description": "define cloudstack_vpn_connection resource.",
+        "body": [
+            "resource \"cloudstack_vpn_connection\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   customer_gateway_id = \"8dab9381-ae73-48b8-9a3d-c460933ef5f7\"",
+            "   vpn_gateway_id = \"a7900060-f8a8-44eb-be15-ea54cf499703\"",
+            "}"
+        ]
+    }
+}

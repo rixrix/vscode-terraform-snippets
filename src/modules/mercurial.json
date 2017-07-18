@@ -1,0 +1,11 @@
+{
+    "mercurial_module": {
+        "prefix": "tf-mercurial_module",
+        "description": "Define a module with Mercurial source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"hg::http://\"",
+            "}"
+        ]
+    }
+}

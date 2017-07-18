@@ -1,0 +1,18 @@
+{
+    "artifactory_backend": {
+        "prefix": "tf-artifactory_backend",
+        "description": "Define a backend-artifactory backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"artifactory\"",
+            "   config {",
+            "       username = \"SheldonCooper\"",
+            "       password = \"AmyFarrahFowler\"",
+            "       url = \"https://custom.artifactoryonline.com/artifactory\"",
+            "       repo = \"foo\"",
+            "       subpath = \"terraform-bar\"",
+            "   }",
+            "}"
+        ]
+    }
+}

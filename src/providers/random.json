@@ -1,0 +1,27 @@
+{
+    "random_id": {
+        "prefix": "tf-random_id",
+        "description": "define random_id resource.",
+        "body": [
+            "resource \"random_id\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   keepers = {",
+            "       # Generate a new id each time we switch to a new AMI id",
+            "       ami_id = \"${var.ami_id}\"",
+            "   }",
+            "   byte_length = 8",
+            "}"
+        ]
+    },
+    "random_shuffle": {
+        "prefix": "tf-random_shuffle",
+        "description": "define random_shuffle resource.",
+        "body": [
+            "resource \"random_shuffle\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   input = [\"us-west-1a\", \"us-west-1c\", \"us-west-1d\", \"us-west-1e\"]",
+            "   result_count = 2",
+            "}"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "gcs_backend": {
+        "prefix": "tf-gcs_backend",
+        "description": "Define a backend-gcs backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"gcs\"",
+            "   config {",
+            "       bucket = \"terraform-state-prod\"",
+            "       path = \"network/terraform.tfstate\"",
+            "       project = \"goopro\"",
+            "   }",
+            "}"
+        ]
+    }
+}

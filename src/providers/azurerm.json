@@ -1,0 +1,753 @@
+{
+    "azurerm": {
+        "prefix":"tf-azurerm",
+        "description": "Defines azurerm provider",
+        "body": [
+            "provider \"azurerm\" {",
+            "   subscription_id = \"subscription_id-example\"",
+            "   client_id = \"client_id-example\"",
+            "   client_secret = \"client_secret-example\"",
+            "   tenant_id = \"tenant_id-example\"",
+            "}"
+        ]
+    },
+    "azurerm_client_config": {
+        "prefix":"tf-azurerm_client_config",
+        "description": "Defines azurerm_client_config provider",
+        "body": [
+            "data \"azurerm_client_config\" {",
+            "}"
+        ]
+    },
+    "azurerm_resource_group": {
+        "prefix":"tf-azurerm_resource_group",
+        "description": "Defines azurerm_resource_group resource",
+        "body": [
+            "resource \"azurerm_resource_group\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   location = \"West US\"",
+            "}"
+        ]
+    },
+    "azurerm_cdn_profile": {
+        "prefix":"tf-azurerm_cdn_profile",
+        "description": "Defines azurerm_cdn_profile resource",
+        "body": [
+            "resource \"azurerm_cdn_profile\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   location = \"West US\"",
+            "   sku = \"Standard_Verizon\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "}"
+        ]
+    },
+    "azurerm_cdn_endpoint": {
+        "prefix":"tf-azurerm_cdn_endpoint",
+        "description": "Defines azurerm_cdn_endpoint resource",
+        "body": [
+            "resource \"azurerm_cdn_endpoint\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   profile_name = \"\\${azurerm_cdn_profile.test.name}\"",
+            "   location = \"West US\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "}"
+        ]
+    },
+    "azurerm_dns_a_record": {
+        "prefix":"tf-azurerm_dns_a_record",
+        "description": "Defines azurerm_dns_a_record resource",
+        "body": [
+            "resource \"azurerm_dns_a_record\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   zone_name = \"\\${azurerm_dns_zone.test.name}\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   ttl = \"300\"",
+            "   records = [\"10.0.180.17\"]",
+            "}"
+        ]
+    },
+    "azurerm_dns_aaaa_record": {
+        "prefix":"tf-azurerm_dns_aaaa_record",
+        "description": "Defines azurerm_dns_aaaa_record resource",
+        "body": [
+            "resource \"azurerm_dns_aaaa_record\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   zone_name = \"\\${azurerm_dns_zone.test.name}\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   ttl = \"300\"",
+            "   records = [\"2607:f8b0:4009:1803::1005\"]",
+            "}"
+        ]
+    },
+    "azurerm_dns_cname_record": {
+        "prefix":"tf-azurerm_dns_cname_record",
+        "description": "Defines azurerm_dns_cname_record resource",
+        "body": [
+            "resource \"azurerm_dns_cname_record\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   zone_name = \"\\${azurerm_dns_zone.test.name}\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   ttl = \"300\"",
+            "   records = [\"contoso.com\"]",
+            "}"
+        ]
+    },
+    "azurerm_dns_mx_record": {
+        "prefix":"tf-azurerm_dns_mx_record",
+        "description": "Defines azurerm_dns_mx_record resource",
+        "body": [
+            "resource \"azurerm_dns_mx_record\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   zone_name = \"\\${azurerm_dns_zone.test.name}\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   ttl = \"300\"\n",
+            "   record {",
+            "       preference = 10",
+            "       exchange = \"mail1.contoso.com\"",
+            "   }\n",
+            "   record {",
+            "       preference = 20",
+            "       exchange = \"mail2.contoso.com\"",
+            "   }",
+            "}"
+        ]
+    },
+    "azurerm_dns_ns_record": {
+        "prefix":"tf-azurerm_dns_ns_record",
+        "description": "Defines azurerm_dns_ns_record resource",
+        "body": [
+            "resource \"azurerm_dns_ns_record\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   zone_name = \"\\${azurerm_dns_zone.test.name}\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   ttl = \"300\"\n",
+            "   record {",
+            "       nsdname = \"ns1.contoso.com\"",
+            "   }\n",
+            "   record {",
+            "       nsdname = \"ns2.contoso.com\"",
+            "   }",
+            "}"
+        ]
+    },
+    "azurerm_dns_srv_record": {
+        "prefix":"tf-azurerm_dns_srv_record",
+        "description": "Defines azurerm_dns_srv_record resource",
+        "body": [
+            "resource \"azurerm_dns_srv_record\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   zone_name = \"\\${azurerm_dns_zone.test.name}\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   ttl = \"300\"\n",
+            "   record {",
+            "       priority = 1",
+            "       weight = 5",
+            "       port = 8080",
+            "       target = \"target1.contoso.com\"",
+            "   }",
+            "}"
+        ]
+    },
+    "azurerm_dns_txt_record": {
+        "prefix":"tf-azurerm_dns_txt_record",
+        "description": "Defines azurerm_dns_txt_record resource",
+        "body": [
+            "resource \"azurerm_dns_txt_record\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   zone_name = \"\\${azurerm_dns_zone.test.name}\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   ttl = \"300\"\n",
+            "   record {",
+            "       value = \"google-site-authenticator\"",
+            "   }\n",
+            "   record {",
+            "       value = \"more site information here\"",
+            "   }",
+            "}"
+        ]
+    },
+    "azurerm_dns_zone": {
+        "prefix":"tf-azurerm_dns_zone",
+        "description": "Defines azurerm_dns_zone resource",
+        "body": [
+            "resource \"azurerm_dns_zone\" \"${MyResource}\" {",
+            "   name = \"mydomain.com\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "}"
+        ]
+    },
+    "azurerm_eventhub": {
+        "prefix":"tf-azurerm_eventhub",
+        "description": "Defines azurerm_eventhub resource",
+        "body": [
+            "resource \"azurerm_eventhub\" \"${MyResource}\" {",
+            "   name                = \"acceptanceTestEventHub\"",
+            "   namespace_name      = \"\\${azurerm_eventhub_namespace.test.name}\"",
+            "   location            = \"\\${azurerm_resource_group.test.location}\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   partition_count     = 2",
+            "   message_retention   = 2",
+            "}"
+        ]
+    },
+    "azurerm_eventhub_namespace": {
+        "prefix":"tf-azurerm_eventhub_namespace",
+        "description": "Defines azurerm_eventhub_namespace resource",
+        "body": [
+            "resource \"azurerm_eventhub_namespace\" \"${MyResource}\" {",
+            "   name = \"acceptanceTestEventHubNamespace\"",
+            "   location = \"West US\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   sku = \"Basic\"",
+            "   capacity = 2",
+            "}"
+        ]
+    },
+    "azurerm_key_vault": {
+        "prefix":"tf-azurerm_key_vault",
+        "description": "Defines azurerm_key_vault resource",
+        "body": [
+            "resource \"azurerm_key_vault\" \"${MyResource}\" {",
+            "   name = \"testvault\"",
+            "   location = \"West US\"",
+            "   resource_group_name = \"${azurerm_resource_group.test.name}\"\n",
+            "   sku {",
+            "       name = \"standard\"",
+            "   }\n",
+            "   tenant_id = \"d6e396d0-5584-41dc-9fc0-268df99bc610\"\n",
+            "   access_policy {",
+            "       tenant_id = \"d6e396d0-5584-41dc-9fc0-268df99bc610\"",
+            "       object_id = \"d746815a-0433-4a21-b95d-fc437d2d475b\"",
+            "       key_permissions = [",
+            "           \"all\"",
+            "       ]",
+            "       secret_permissions = [",
+            "           \"get\"",
+            "       ]",
+            "   }\n",
+            "   enabled_for_disk_encryption = true",
+            "}"
+        ]
+    },
+    "azurerm_lb": {
+        "prefix":"tf-azurerm_lb",
+        "description": "Defines azurerm_lb resource",
+        "body": [
+            "resource \"azurerm_lb\" \"${MyResource}\" {",
+            "   name = \"acceptanceTestEventHubNamespace\"",
+            "   location = \"West US\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "}"
+        ]
+    },
+    "azurerm_lb_backend_address_pool": {
+        "prefix":"tf-azurerm_lb_backend_address_pool",
+        "description": "Defines azurerm_lb_backend_address_pool resource",
+        "body": [
+            "resource \"azurerm_lb_backend_address_pool\" \"${MyResource}\" {",
+            "   name = \"BackEndAddressPool\"",
+            "   location = \"West US\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   loadbalancer_id = \"\\${azurerm_lb.test.id}\"",
+            "}"
+        ]
+    },
+    "azurerm_lb_rule": {
+        "prefix":"tf-azurerm_lb_rule",
+        "description": "Defines azurerm_lb_rule resource",
+        "body": [
+            "resource \"azurerm_lb_rule\" \"${MyResource}\" {",
+            "   name = \"LBRule\"",
+            "   location = \"West US\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   loadbalancer_id = \"\\${azurerm_lb.test.id}\"",
+            "   protocol = \"Tcp\"",
+            "   frontend_port = 3389",
+            "   backend_port = 3389",
+            "   frontend_ip_configuration_name = \"PublicIPAddress\"",
+            "}"
+        ]
+    },
+    "azurerm_lb_nat_rule": {
+        "prefix":"tf-azurerm_lb_nat_rule",
+        "description": "Defines azurerm_lb_nat_rule resource",
+        "body": [
+            "resource \"azurerm_lb_nat_rule\" \"${MyResource}\" {",
+            "   name = \"RDP Access\"",
+            "   location = \"West US\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   loadbalancer_id = \"\\${azurerm_lb.test.id}\"",
+            "   protocol = \"Tcp\"",
+            "   frontend_port = 3389",
+            "   backend_port = 3389",
+            "   frontend_ip_configuration_name = \"PublicIPAddress\"",
+            "}"
+        ]
+    },
+    "azurerm_lb_nat_pool": {
+        "prefix":"tf-azurerm_lb_nat_pool",
+        "description": "Defines azurerm_lb_nat_pool resource",
+        "body": [
+            "resource \"azurerm_lb_nat_pool\" \"${MyResource}\" {",
+            "   name = \"SampleApplication Pool\"",
+            "   location = \"West US\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   loadbalancer_id = \"\\${azurerm_lb.test.id}\"",
+            "   protocol = \"Tcp\"",
+            "   frontend_port_start = 80",
+            "   frontend_port_end = 81",
+            "   backend_port = 8080",
+            "   frontend_ip_configuration_name = \"PublicIPAddress\"",
+            "}"
+        ]
+    },
+    "azurerm_lb_probe": {
+        "prefix":"tf-azurerm_lb_probe",
+        "description": "Defines azurerm_lb_probe resource",
+        "body": [
+            "resource \"azurerm_lb_probe\" \"${MyResource}\" {",
+            "   name = \"SSH Running Probe\"",
+            "   location = \"West US\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   loadbalancer_id = \"\\${azurerm_lb.test.id}\"",
+            "   port = 22",
+            "}"
+        ]
+    },
+    "azurerm_virtual_network": {
+        "prefix":"tf-azurerm_virtual_network",
+        "description": "Defines azurerm_virtual_network resource",
+        "body": [
+            "resource \"azurerm_virtual_network\" \"${MyResource}\" {",
+            "   name = \"virtualNetwork1\"",
+            "   location = \"West US\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   address_space = [\"10.0.0.0/16\"]",
+            "   dns_servers = [\"10.0.0.4\"]",
+            "}"
+        ]
+    },
+    "azurerm_virtual_network_peering": {
+        "prefix":"tf-azurerm_virtual_network_peering",
+        "description": "Defines azurerm_virtual_network_peering resource",
+        "body": [
+            "resource \"azurerm_virtual_network_peering\" \"${MyResource}\" {",
+            "   name = \"peer2to1\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   virtual_network_name = \"\\${azurerm_virtual_network.test1.name}\"",
+            "   remote_virtual_network_id = \"\\${azurerm_virtual_network.test2.id}\"",
+            "}"
+        ]
+    },
+    "azurerm_network_security_group": {
+        "prefix":"tf-azurerm_network_security_group",
+        "description": "Defines azurerm_network_security_group resource",
+        "body": [
+            "resource \"azurerm_network_security_group\" \"${MyResource}\" {",
+            "   name = \"acceptanceTestSecurityGroup1\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   location = \"West US\"",
+            "}"
+        ]
+    },
+    "azurerm_network_security_rule": {
+        "prefix":"tf-azurerm_network_security_rule",
+        "description": "Defines azurerm_network_security_rule resource",
+        "body": [
+            "resource \"azurerm_network_security_rule\" \"${MyResource}\" {",
+            "   name = \"test123\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   network_security_group_name = \"\\${azurerm_network_security_group.test.name}\"",
+            "}"
+        ]
+    },
+    "azurerm_public_ip": {
+        "prefix":"tf-azurerm_public_ip",
+        "description": "Defines azurerm_public_ip resource",
+        "body": [
+            "resource \"azurerm_public_ip\" \"${MyResource}\" {",
+            "   name = \"acceptanceTestPublicIp1\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   public_ip_address_allocation = \"static\"",
+            "   location = \"West US\"",
+            "}"
+        ]
+    },
+    "azurerm_subnet": {
+        "prefix":"tf-azurerm_subnet",
+        "description": "Defines azurerm_subnet resource",
+        "body": [
+            "resource \"azurerm_subnet\" \"${MyResource}\" {",
+            "   name = \"testsubnet\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   virtual_network_name = \"\\${azurerm_virtual_network.test.name}\"",
+            "   address_prefix = \"10.0.1.0/24\"",
+            "}"
+        ]
+    },
+    "azurerm_local_network_gateway": {
+        "prefix":"tf-azurerm_local_network_gateway",
+        "description": "Defines azurerm_local_network_gateway resource",
+        "body": [
+            "resource \"azurerm_local_network_gateway\" \"${MyResource}\" {",
+            "   name = \"backHome\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   location = \"\\${azurerm_resource_group.test.location}\"",
+            "   gateway_address = \"12.13.14.15\"",
+            "   address_space = [\"10.0.0.0/16\"]",
+            "}"
+        ]
+    },
+    "azurerm_network_interface": {
+        "prefix":"tf-azurerm_network_interface",
+        "description": "Defines azurerm_network_interface resource",
+        "body": [
+            "resource \"azurerm_network_interface\" \"${MyResource}\" {",
+            "   name = \"acceptanceTestNetworkInterface1\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   location = \"West US\"",
+            "}"
+        ]
+    },
+    "azurerm_route_table": {
+        "prefix":"tf-azurerm_route_table",
+        "description": "Defines azurerm_route_table resource",
+        "body": [
+            "resource \"azurerm_route_table\" \"${MyResource}\" {",
+            "   name = \"acceptanceTestNetworkInterface1\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   location = \"West US\"",
+            "}"
+        ]
+    },
+    "azurerm_route": {
+        "prefix":"tf-azurerm_route",
+        "description": "Defines azurerm_route resource",
+        "body": [
+            "resource \"azurerm_route\" \"${MyResource}\" {",
+            "   name = \"acceptanceTestNetworkInterface1\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   route_table_name = \"\\${azurerm_route_table.test.name}\"",
+            "   address_prefix = \"10.1.0.0/16\"",
+            "   next_hop_type = \"vnetlocal\"",
+            "}"
+        ]
+    },
+    "azurerm_traffic_manager_profile": {
+        "prefix":"tf-azurerm_traffic_manager_profile",
+        "description": "Defines azurerm_traffic_manager_profile resource",
+        "body": [
+            "resource \"azurerm_traffic_manager_profile\" \"${MyResource}\" {",
+            "   name = \"profile1\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   location = \"West US\"",
+            "}"
+        ]
+    },
+    "azurerm_traffic_manager_endpoint": {
+        "prefix":"tf-azurerm_traffic_manager_endpoint",
+        "description": "Defines azurerm_traffic_manager_endpoint resource",
+        "body": [
+            "resource \"azurerm_traffic_manager_endpoint\" \"${MyResource}\" {",
+            "   name                = \"profile1\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   profile_name        = \"\\${azurerm_traffic_manager_profile.test.name}\"",
+            "   target              = \"terraform.io\"",
+            "   type                = \"externalEndpoints\"",
+            "   weight              = 100",
+            "}"
+        ]
+    },
+    "azurerm_search_service": {
+        "prefix":"tf-azurerm_search_service",
+        "description": "Defines azurerm_search_service resource",
+        "body": [
+            "resource \"azurerm_search_service\" \"${MyResource}\" {",
+            "   name = \"acceptanceTestSearchService1\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   location = \"West US\"",
+            "   sku = \"standard\"",
+            "}"
+        ]
+    },
+    "azurerm_servicebus_namespace": {
+        "prefix":"tf-azurerm_servicebus_namespace",
+        "description": "Defines azurerm_servicebus_namespace resource",
+        "body": [
+            "resource \"azurerm_servicebus_namespace\" \"${MyResource}\" {",
+            "   name = \"acceptanceTestSearchService1\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   location = \"West US\"",
+            "   sku = \"basic\"",
+            "}"
+        ]
+    },
+    "azurerm_servicebus_subscription": {
+        "prefix":"tf-azurerm_servicebus_subscription",
+        "description": "Defines azurerm_servicebus_subscription resource",
+        "body": [
+            "resource \"azurerm_servicebus_subscription\" \"${MyResource}\" {",
+            "   name = \"testSubscription\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   namespace_name = \"\\${azurerm_servicebus_namespace.test.name}\"",
+            "   topic_name = \"\\${azurerm_servicebus_topic.test.name}\"",
+            "   location = \"West US\"",
+            "}"
+        ]
+    },
+    "azurerm_servicebus_topic": {
+        "prefix":"tf-azurerm_servicebus_topic",
+        "description": "Defines azurerm_servicebus_topic resource",
+        "body": [
+            "resource \"azurerm_servicebus_topic\" \"${MyResource}\" {",
+            "   name = \"testTopic\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   namespace_name = \"\\${azurerm_servicebus_namespace.test.name}\"",
+            "   location = \"West US\"",
+            "   enable_partitioning = true",
+            "}"
+        ]
+    },
+    "azurerm_sql_database": {
+        "prefix":"tf-azurerm_sql_database",
+        "description": "Defines azurerm_sql_database resource",
+        "body": [
+            "resource \"azurerm_sql_database\" \"${MyResource}\" {",
+            "   name = \"testTopic\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   location = \"West US\"",
+            "}"
+        ]
+    },
+    "azurerm_sql_firewall_rule": {
+        "prefix":"tf-azurerm_sql_firewall_rule",
+        "description": "Defines azurerm_sql_firewall_rule resource",
+        "body": [
+            "resource \"azurerm_sql_firewall_rule\" \"${MyResource}\" {",
+            "   name = \"FirewallRule1\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   server_name = \"\\${azurerm_sql_server.test.name}\"",
+            "   start_ip_address = \"10.0.17.62\"",
+            "   end_ip_address = \"10.0.17.62\"",
+            "}"
+        ]
+    },
+    "azurerm_sql_server": {
+        "prefix":"tf-azurerm_sql_server",
+        "description": "Defines azurerm_sql_server resource",
+        "body": [
+            "resource \"azurerm_sql_server\" \"${MyResource}\" {",
+            "   name = \"MySqlServer\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"\\",
+            "   location = \"West US\"",
+            "   version = \"12.0\"",
+            "   administrator_login = \"mradministrator\"",
+            "   administrator_login_password = \"thisIsDog11\"",
+            "}"
+        ]
+    },
+    "azurerm_storage_account": {
+        "prefix":"tf-azurerm_storage_account",
+        "description": "Defines azurerm_storage_account resource",
+        "body": [
+            "resource \"azurerm_storage_account\" \"${MyResource}\" {",
+            "   name = \"storageaccountname\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   location = \"West US\"",
+            "   account_type = \"Standard_GRS\"",
+            "}"
+        ]
+    },
+    "azurerm_storage_container": {
+        "prefix":"tf-azurerm_storage_container",
+        "description": "Defines azurerm_storage_container resource",
+        "body": [
+            "resource \"azurerm_storage_container\" \"${MyResource}\" {",
+            "   name = \"vhds\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   storage_account_name = \"\\${azurerm_storage_account.test.name}\"",
+            "   container_access_type = \"private\"",
+            "}"
+        ]
+    },
+    "azurerm_storage_blob": {
+        "prefix":"tf-azurerm_storage_blob",
+        "description": "Defines azurerm_storage_blob resource",
+        "body": [
+            "resource \"azurerm_storage_blob\" \"${MyResource}\" {",
+            "   name = \"sample.vhd\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   storage_account_name = \"\\${azurerm_storage_account.test.name}\"",
+            "   storage_container_name = \"\\${azurerm_storage_container.test.name}\"",
+            "}"
+        ]
+    },
+    "azurerm_storage_queue": {
+        "prefix":"tf-azurerm_storage_queue",
+        "description": "Defines azurerm_storage_queue resource",
+        "body": [
+            "resource \"azurerm_storage_queue\" \"${MyResource}\" {",
+            "   name = \"mysamplequeue\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   storage_account_name = \"\\${azurerm_storage_account.test.name}\"",
+            "}"
+        ]
+    },
+    "azurerm_storage_share": {
+        "prefix":"tf-azurerm_storage_share",
+        "description": "Defines azurerm_storage_share resource",
+        "body": [
+            "resource \"azurerm_storage_share\" \"${MyResource}\" {",
+            "   name = \"sharename\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   storage_account_name = \"\\${azurerm_storage_account.test.name}\"",
+            "   quota = 50",
+            "}"
+        ]
+    },
+    "azurerm_storage_table": {
+        "prefix":"tf-azurerm_storage_table",
+        "description": "Defines azurerm_storage_table resource",
+        "body": [
+            "resource \"azurerm_storage_table\" \"${MyResource}\" {",
+            "   name = \"mysampletable\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   storage_account_name = \"\\${azurerm_storage_account.test.name}\"",
+            "}"
+        ]
+    },
+    "azurerm_template_deployment": {
+        "prefix":"tf-azurerm_template_deployment",
+        "description": "Defines azurerm_template_deployment resource",
+        "body": [
+            "resource \"azurerm_template_deployment\" \"${MyResource}\" {",
+            "   name = \"acctesttemplate-01\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   deployment_mode = \"Complete\"",
+            "   template_body = <<DEPLOY",
+            "...",
+            "DEPLOY",
+            "}"
+        ]
+    },
+    "azurerm_availability_set": {
+        "prefix":"tf-azurerm_availability_set",
+        "description": "Defines azurerm_availability_set resource",
+        "body": [
+            "resource \"azurerm_availability_set\" \"${MyResource}\" {",
+            "   name = \"my-${MyResource}-name\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   location = \"West US\"",
+            "}"
+        ]
+    },
+    "azurerm_virtual_machine": {
+        "prefix":"tf-azurerm_virtual_machine",
+        "description": "Defines azurerm_virtual_machine resource",
+        "body": [
+            "resource \"azurerm_virtual_machine\" \"${MyResource}\" {",
+            "   name = \"my-${MyResource}-name\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   location = \"West US\"",
+            "   network_interface_ids = [\"\\${azurerm_network_interface.test.id}\"]",
+            "   vm_size = \"Standard_A0\"\n",
+            "   storage_image_reference {",
+            "       publisher = \"Canonical\"",
+            "       offer     = \"UbuntuServer\"",
+            "       sku       = \"14.04.2-LTS\"",
+            "       version   = \"latest\"",
+            "   }\n",
+            "   storage_os_disk {",
+            "       name          = \"myosdisk1\"",
+            "       vhd_uri       = \"\\${azurerm_storage_account.test.primary_blob_endpoint}\\${azurerm_storage_container.test.name}/myosdisk1.vhd\"",
+            "       caching       = \"ReadWrite\"",
+            "       create_option = \"FromImage\"",
+            "   }\n",
+            "   storage_data_disk {",
+            "       name          = \"datadisk0\"",
+            "       vhd_uri       = \"\\${azurerm_storage_account.test.primary_blob_endpoint}\\${azurerm_storage_container.test.name}/datadisk0.vhd\"",
+            "       disk_size_gb  = \"1023\"",
+            "       create_option = \"empty\"",
+            "       lun           = 0",
+            "   }\n",
+            "   os_profile {",
+            "       computer_name  = \"hostname\"",
+            "       admin_username = \"testadmin\"",
+            "       admin_password = \"Password1234!\"",
+            "   }\n",
+            "   os_profile_linux_config {",
+            "       disable_password_authentication = false",
+            "   }",
+            "}"
+        ]
+    },
+    "azurerm_virtual_machine_extension": {
+        "prefix":"tf-azurerm_virtual_machine_extension",
+        "description": "Defines azurerm_virtual_machine_extension resource",
+        "body": [
+            "resource \"azurerm_virtual_machine_extension\" \"${MyResource}\" {",
+            "   name = \"my-${MyResource}-name\"",
+            "   location = \"West US\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   virtual_machine_name = \"\\${azurerm_virtual_machine.test.name}\"",
+            "   publisher = \"Microsoft.OSTCExtensions\"",
+            "   type = \"CustomScriptForLinux\"",
+            "   type_handler_version = \"1.2\"\n",
+            "   settings = <<SETTINGS",
+            "{",
+            "    \"commandToExecute\": \"hostname\"",
+            "}",
+            "SETTINGS",
+            "}"
+        ]
+    },
+    "azurerm_virtual_machine_scale_set": {
+        "prefix":"tf-azurerm_virtual_machine_scale_set",
+        "description": "Defines azurerm_virtual_machine_scale_set resource",
+        "body": [
+            "resource \"azurerm_virtual_machine_scale_set\" \"${MyResource}\" {",
+            "   name = \"my-${MyResource}-name\"",
+            "   location = \"West US\"",
+            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "   upgrade_policy_mode = \"Manual\"\n",
+            "   sku {",
+            "       name = \"Standard_A0\"",
+            "       tier = \"Standard\"",
+            "       capacity = 2",
+            "   }\n",
+            "   os_profile {",
+            "       computer_name_prefix = \"testvm\"",
+            "       admin_username = \"myadmin\"",
+            "       admin_password = \"Passwword1234\"",
+            "   }\n",
+            "   os_profile_linux_config {",
+            "       disable_password_authentication = true",
+            "       ssh_keys {",
+            "           path = \"/home/myadmin/.ssh/authorized_keys\"",
+            "           key_data = \"\\${file(\"~/.ssh/demo_key.pub\")}\"",
+            "       }",
+            "   }\n",
+            "   network_profile {",
+            "       name = \"TestNetworkProfile\"",
+            "       primary = true",
+            "       ip_configuration {",
+            "           name = \"TestIPConfiguration\"",
+            "           subnet_id = \"\\${azurerm_subnet.test.id}\"",
+            "       }",
+            "   }\n",
+            "   storage_profile_os_disk {",
+            "       name = \"osDiskProfile\"",
+            "       caching       = \"ReadWrite\"",
+            "       create_option = \"FromImage\"",
+            "       vhd_containers = [\"\\${azurerm_storage_account.test.primary_blob_endpoint}\\${azurerm_storage_container.test.name}\"]",
+            "   }\n",
+            "   storage_profile_image_reference {",
+            "       publisher = \"Canonical\"",
+            "       offer     = \"UbuntuServer\"",
+            "       sku       = \"14.04.2-LTS\"",
+            "       version   = \"latest\"",
+            "   }",
+            "}"
+        ]
+    }
+}

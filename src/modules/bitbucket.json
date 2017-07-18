@@ -1,0 +1,11 @@
+{
+    "bitbucket_module": {
+        "prefix": "tf-bitbucket_module",
+        "description": "Define a module with BitBucket source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"bitbucket.org/username\"",
+            "}"
+        ]
+    }
+}

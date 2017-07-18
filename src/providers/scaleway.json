@@ -1,0 +1,107 @@
+{
+    "scaleway": {
+        "prefix": "tf-scaleway",
+        "description": "define a scaleway provider.",
+        "body": [
+            "provider \"scaleway\" {",
+            "   access_key = \" \"",
+            "   organization = \" \"",
+            "   region = \"par1\"",
+            "}"
+        ]
+    },
+    "scaleway_bootscript": {
+        "prefix": "tf-scaleway_bootscript",
+        "description": "Define a scaleway_bootscript data",
+        "body": [
+            "data \"scaleway_bootscript\" \"${config}\" {",
+            "   architecture = \"arm\"",
+            "   name_filter = \"Rescue\"",
+            "}"
+        ]
+    },
+    "scaleway_image": {
+        "prefix": "tf-scaleway_image",
+        "description": "Define a scaleway_image data",
+        "body": [
+            "data \"scaleway_image\" \"${config}\" {",
+            "   architecture = \"arm\"",
+            "   name = \"Ubuntu Precise\"",
+            "}"
+        ]
+    },
+    "scaleway_ip": {
+        "prefix": "tf-scaleway_ip",
+        "description": "define scaleway_ip resource.",
+        "body": [
+            "resource \"scaleway_ip\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "}"
+        ]
+    },
+    "scaleway_server": {
+        "prefix": "tf-scaleway_server",
+        "description": "define scaleway_server resource.",
+        "body": [
+            "resource \"scaleway_server\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   image = \"5faef9cd-ea9b-4a63-9171-9e26bec03dbc\"",
+            "   type = \"VC1M\"\n",
+            "   volume {",
+            "       size_in_gb = 20",
+            "       type = \"l_ssd\"",
+            "   }",
+            "}"
+        ]
+    },
+    "scaleway_security_group": {
+        "prefix": "tf-scaleway_security_group",
+        "description": "define scaleway_security_group resource.",
+        "body": [
+            "resource \"scaleway_security_group\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "}"
+        ]
+    },
+    "scaleway_security_group_rule": {
+        "prefix": "tf-scaleway_security_group_rule",
+        "description": "define scaleway_security_group_rule resource.",
+        "body": [
+            "resource \"scaleway_security_group_rule\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   security_group = \"\\${scaleway_security_group.test.id}\"\n",
+            "   action = \"accept\"",
+            "   direction = \"inbound\"",
+            "   ip_range = \"0.0.0.0/0\"",
+            "   protocol = \"TCP\"",
+            "   port = 25",
+            "}"
+        ]
+    },
+    "scaleway_volume": {
+        "prefix": "tf-scaleway_volume",
+        "description": "define scaleway_volume resource.",
+        "body": [
+            "resource \"scaleway_volume\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   size_in_gb = 20",
+            "   type = \"l_ssd\"",
+            "}"
+        ]
+    },
+    "scaleway_volume_attachment": {
+        "prefix": "tf-scaleway_volume_attachment",
+        "description": "define scaleway_volume_attachment resource.",
+        "body": [
+            "resource \"scaleway_volume_attachment\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   server = \"\\${scaleway_server.test.id}\"",
+            "   volume = \"\\${scaleway_volume.test.id}\"",
+            "}"
+        ]
+    }
+}

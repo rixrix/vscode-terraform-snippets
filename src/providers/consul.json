@@ -1,0 +1,61 @@
+{
+    "consul_keys": {
+        "prefix":"tf-consul_keys",
+        "description": "Defines consul_keys",
+        "body": [
+            "data \"consul_keys\" \"${MyConsulResource}\" {",
+            "   key {",
+            "       name = \"<your keyname here>\"",
+            "   }",
+            "}"
+        ]
+    },
+    "consul_agent_service": {
+        "prefix":"tf-consul_agent_service",
+        "description": "Defines consul_agent_service",
+        "body": [
+            "resource \"consul_agent_service\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "consul_catalog_entry": {
+        "prefix":"tf-consul_catalog_entry",
+        "description": "Defines consul_catalog_entry",
+        "body": [
+            "resource \"consul_catalog_entry\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "consul_key_prefix": {
+        "prefix":"tf-consul_key_prefix",
+        "description": "Defines consul_key_prefix",
+        "body": [
+            "resource \"consul_key_prefix\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "consul_node": {
+        "prefix":"tf-consul_node",
+        "description": "Defines consul_node",
+        "body": [
+            "resource \"consul_node\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "consul_prepared_query": {
+        "prefix":"tf-consul_prepared_query",
+        "description": "Defines consul_prepared_query",
+        "body": [
+            "resource \"consul_prepared_query\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "consul_service": {
+        "prefix":"tf-consul_service",
+        "description": "Defines consul_service",
+        "body": [
+            "resource \"consul_service\" \"${MyResource}\" {",
+            "}"
+        ]
+    }
+}

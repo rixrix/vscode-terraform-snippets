@@ -1,0 +1,29 @@
+{
+    "dme": {
+        "prefix": "tf-dme",
+        "description": "define a dme provider.",
+        "body": [
+            "provider \"dme\" {",
+            "   akey = \"\\${var.dme_akey}\"",
+            "   skey = \"\\${var.dme_skey}\"",
+            "   usesandbox = true",
+            "}"
+        ]
+    },
+    "dme_record": {
+        "prefix": "tf-dme_record",
+        "description": "define dme_record resource.",
+        "body": [
+            "resource \"dme_record\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   domainid = \"123456\"",
+            "   name = \"www\"",
+            "   type = \"A\"",
+            "   value = \"192.168.1.1\"",
+            "   ttl = 3600",
+            "   gtdLocation = \"DEFAULT\"",
+            "}"
+        ]
+    }
+}

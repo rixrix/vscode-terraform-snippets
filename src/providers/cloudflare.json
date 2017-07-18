@@ -1,0 +1,25 @@
+{
+    "cloudflare": {
+        "prefix":"tf-cloudflare",
+        "description": "Defines cloudflare provider",
+        "body": [
+            "provider \"cloudflare\" {",
+            "   email  = \"${email}\"",
+            "   token = \"example-token\"",
+            "}"
+        ]
+    },
+    "cloudflare_record": {
+        "prefix":"tf-cloudflare_record",
+        "description": "Defines cloudflare_record resource",
+        "body": [
+            "resource \"chef_role\" \"${MyResource}\" {",
+            "   domain = \"cloudflare_domain\"",
+            "   name = \"terraform\"",
+            "   value = \"192.168.0.11\"",
+            "   type = \"A\"",
+            "   ttl = 3600",
+            "}"
+        ]
+    }
+}

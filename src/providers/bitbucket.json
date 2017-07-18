@@ -1,0 +1,36 @@
+{
+    "bitbucket": {
+        "prefix":"tf-bitbucket",
+        "description": "Defines bitbucket",
+        "body": [
+            "provider \"bitbucket\" {",
+            "   username = \"${bitbucketUsername}\"",
+            "   password = \"****\"",
+            "}"
+        ]
+    },
+    "bitbucket_default_reviewers": {
+        "prefix":"tf-bitbucket_default_reviewers",
+        "description": "Defines bitbucket_default_reviewers",
+        "body": [
+            "resource \"bitbucket_default_reviewers\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "bitbucket_hook": {
+        "prefix":"tf-bitbucket_hook",
+        "description": "Defines bitbucket_hook",
+        "body": [
+            "resource \"bitbucket_hook\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "bitbucket_repository": {
+        "prefix":"tf-bitbucket_repository",
+        "description": "Defines bitbucket_repository",
+        "body": [
+            "resource \"bitbucket_repository\" \"${MyResource}\" {",
+            "}"
+        ]
+    }
+}

@@ -36,10 +36,13 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "glob": "^7.1.2",
+    "task-nibbler": "^1.0.5",
     "vsce": "^1.18.0"
   },
   "scripts": {
     "vsce:publish": "vsce publish",
-    "postversion": "npm run vsce:publish && git push && git push --tags"
+    "postversion": "npm run vsce:publish && git push && git push --tags",
+    "build": "node ./scripts/build.js"
   }
 }

@@ -1,0 +1,16 @@
+{
+    "s3_backend": {
+        "prefix": "tf-s3_backend",
+        "description": "Define a backend-s3 backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"s3\"",
+            "   config {",
+            "       bucket = \"terraform-state-prod\"",
+            "       key = \"network/terraform.tfstate\"",
+            "       region = \"us-east-1\"",
+            "   }",
+            "}"
+        ]
+    }
+}

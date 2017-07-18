@@ -1,0 +1,14 @@
+{
+    "http_backend": {
+        "prefix": "tf-http_backend",
+        "description": "Define a backend-http backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"http\"",
+            "   config {",
+            "       address = \"http://my.rest.api.com\"",
+            "   }",
+            "}"
+        ]
+    }
+}

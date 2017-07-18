@@ -1,0 +1,14 @@
+{
+    "null_resource_provisioner": {
+        "prefix": "tf-null_resource_provisioner",
+        "description": "Define a null_resource provisioner",
+        "body": [
+            "resource \"null_resource\" \"${cluster}\" {",
+            "   # Changes to any instance of the cluster requires re-provisioning",
+            "   triggers {",
+            "       cluster_instance_ids = \"\\${join(",", aws_instance.cluster.*.id)}\"",
+            "   }",
+            "}"
+        ]
+    }
+}

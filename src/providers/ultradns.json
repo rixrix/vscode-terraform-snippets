@@ -1,0 +1,28 @@
+{
+    "ultradns": {
+        "prefix": "tf-ultradns",
+        "description": "define a ultradns provider.",
+        "body": [
+            "provider \"ultradns\" {",
+            "   username = \"\\${var.ultradns_username}\"",
+            "   password = \"\\${var.ultradns_password}\"",
+            "   baseurl  = \"https://test-restapi.ultradns.com/\"",
+            "}"
+        ]
+    },
+    "ultradns_record": {
+        "prefix": "tf-ultradns_record",
+        "description": "define ultradns_record resource.",
+        "body": [
+            "resource \"ultradns_record\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   zone = \"\\${var.ultradns_domain}\"",
+            "   name = \"terraform\"",
+            "   rdata = [ \"192.168.0.11\" ]",
+            "   type = \"A\"",
+            "   ttl = 3600",
+            "}"
+        ]
+    }
+}

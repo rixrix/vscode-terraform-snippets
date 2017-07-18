@@ -1,0 +1,11 @@
+{
+    "local_exec_provisioner": {
+        "prefix": "tf-local_exec_provisioner",
+        "description": "Define a local-exec provisioner",
+        "body": [
+            "   provisioner \"local-exec\" {",
+            "       command = \"echo ${aws_instance.web.private_ip} >> private_ips.txt\"",
+            "   }"
+        ]
+    }
+}

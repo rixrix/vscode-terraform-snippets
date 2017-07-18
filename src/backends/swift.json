@@ -1,0 +1,14 @@
+{
+    "swift_backend": {
+        "prefix": "tf-swift_backend",
+        "description": "Define a backend-swift backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"swift\"",
+            "   config {",
+            "       path = \"terraform_state\"",
+            "   }",
+            "}"
+        ]
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "docker_registry_image": {
+        "prefix":"tf-docker_registry_image",
+        "description": "Defines docker_registry_image",
+        "body": [
+            "data \"docker_registry_image\" \"${ubuntu}\" {",
+            "   name = \"ubuntu:precise\"",
+            "}"
+        ]
+    },
+    "docker_container": {
+        "prefix":"tf-docker_container",
+        "description": "Defines docker_container",
+        "body": [
+            "resource \"docker_container\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "docker_image": {
+        "prefix":"tf-docker_image",
+        "description": "Defines docker_image",
+        "body": [
+            "resource \"docker_image\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "docker_network": {
+        "prefix":"tf-docker_network",
+        "description": "Defines docker_network",
+        "body": [
+            "resource \"docker_network\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "docker_volume": {
+        "prefix":"tf-docker_volume",
+        "description": "Defines docker_volume",
+        "body": [
+            "resource \"docker_volume\" \"${MyResource}\" {",
+            "}"
+        ]
+    }
+}

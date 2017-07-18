@@ -1,5 +1,158 @@
 {
-    "variable": {
+    "artifactory_backend": {
+        "prefix": "tf-artifactory_backend",
+        "description": "Define a backend-artifactory backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"artifactory\"",
+            "   config {",
+            "       username = \"SheldonCooper\"",
+            "       password = \"AmyFarrahFowler\"",
+            "       url = \"https://custom.artifactoryonline.com/artifactory\"",
+            "       repo = \"foo\"",
+            "       subpath = \"terraform-bar\"",
+            "   }",
+            "}"
+        ]
+    },    "atlas_backend": {
+        "prefix": "tf-atlas_backend",
+        "description": "Define a backend-atlas backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"atlas\"",
+            "   config {",
+            "       name = \"bigbang/example\"",
+            "       access_token = \"X2iTFefU5aWOjg.atlasv1.YaDa\"",
+            "   }",
+            "}"
+        ]
+    },    "azure_backend": {
+        "prefix": "tf-azure_backend",
+        "description": "Define a backend-azure backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"azure\"",
+            "   config {",
+            "       storage_account_name = \"terraform123abc\"",
+            "       container_name = \"terraform-state\"",
+            "       key = \"prod.terraform.tfstate\"",
+            "   }",
+            "}"
+        ]
+    },    "consul_backend": {
+        "prefix": "tf-consul_backend",
+        "description": "Define a backend-consul backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"consul\"",
+            "   config {",
+            "       path = \"full/path\"",
+            "   }",
+            "}"
+        ]
+    },    "etcd_backend": {
+        "prefix": "tf-etcd_backend",
+        "description": "Define a backend-etcd backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"etcd\"",
+            "   config {",
+            "       path = \"path/to/terraform.tfstate\"",
+            "       endpoints = \"http://one:4001 http://two:4001\"",
+            "   }",
+            "}"
+        ]
+    },    "gcs_backend": {
+        "prefix": "tf-gcs_backend",
+        "description": "Define a backend-gcs backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"gcs\"",
+            "   config {",
+            "       bucket = \"terraform-state-prod\"",
+            "       path = \"network/terraform.tfstate\"",
+            "       project = \"goopro\"",
+            "   }",
+            "}"
+        ]
+    },    "http_backend": {
+        "prefix": "tf-http_backend",
+        "description": "Define a backend-http backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"http\"",
+            "   config {",
+            "       address = \"http://my.rest.api.com\"",
+            "   }",
+            "}"
+        ]
+    },    "local_backend": {
+        "prefix": "tf-local_backend",
+        "description": "Define a backend-local backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"local\"",
+            "   config {",
+            "       path = \"\\${path.module}/../../terraform.tfstate\"",
+            "   }",
+            "}"
+        ]
+    },    "s3_backend": {
+        "prefix": "tf-s3_backend",
+        "description": "Define a backend-s3 backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"s3\"",
+            "   config {",
+            "       bucket = \"terraform-state-prod\"",
+            "       key = \"network/terraform.tfstate\"",
+            "       region = \"us-east-1\"",
+            "   }",
+            "}"
+        ]
+    },    "swift_backend": {
+        "prefix": "tf-swift_backend",
+        "description": "Define a backend-swift backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"swift\"",
+            "   config {",
+            "       path = \"terraform_state\"",
+            "   }",
+            "}"
+        ]
+    },    "module": {
+        "prefix": "tf-module",
+        "description": "Modules in Terraform are self-contained packages of Terraform configurations that are managed as a group.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"\"",
+            "}"
+        ]
+    },    "output": {
+        "prefix": "tf-output",
+        "description": "Outputs are a way to tell Terraform what data is important.",
+        "body": [
+            "output \"${myOutput}\" {",
+            "   value = \"\"",
+            "}"
+        ]
+    },    "resource": {
+        "prefix": "tf-resource",
+        "description": "define a provisioner.",
+        "body": [
+            "resource \"${1}\" \"${2}\" {",
+            "\t${3}",
+            "}"
+        ]
+    },
+    "depends_on": {
+        "prefix": "tf-depends_on_rix",
+        "description": "Define explicit dependencies.",
+        "body": [
+            "depends_on = [\"${dependsOn}\"]"
+        ]
+    },    "variable": {
         "prefix": "tf-variable",
         "description": "Define variables.",
         "body": [
@@ -14,35 +167,96 @@
             "   default =   \"\"",
             "}"
         ]
-    },
-    "output": {
-        "prefix": "tf-output",
-        "description": "Outputs are a way to tell Terraform what data is important.",
-        "body": [
-            "output \"${myOutput}\" {",
-            "   value = \"\"",
-            "}"
-        ]
-    },
-    "module": {
-        "prefix": "tf-module",
-        "description": "Modules in Terraform are self-contained packages of Terraform configurations that are managed as a group.",
+    },    "bitbucket_module": {
+        "prefix": "tf-bitbucket_module",
+        "description": "Define a module with BitBucket source.",
         "body": [
             "module \"${myModuleName}\" {",
-            "   source = \"\"",
+            "   source = \"bitbucket.org/username\"",
             "}"
         ]
-    },
-    "resource": {
-        "prefix": "tf-resource",
-        "description": "define a provisioner.",
+    },    "git_module": {
+        "prefix": "tf-git_module",
+        "description": "Define a module with genertic Git source.",
         "body": [
-            "resource \"${1}\" \"${2}\" {",
-            "\t${3}",
+            "module \"${myModuleName}\" {",
+            "   source = \"git://\"",
+            "}"
+        ]
+    },    "github_private_module": {
+        "prefix": "tf-github_private_module",
+        "description": "Define a module with github with private source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"git::https://MACHINE-USER:MACHINE-PASS@github.com/username\"",
             "}"
         ]
     },
-    "aws": {
+    "github_module": {
+        "prefix": "tf-github_module",
+        "description": "Define a module with github source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"github.com/username\"",
+            "}"
+        ]
+    },    "mercurial_module": {
+        "prefix": "tf-mercurial_module",
+        "description": "Define a module with Mercurial source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"hg::http://\"",
+            "}"
+        ]
+    },    "s3_module": {
+        "prefix": "tf-s3_module",
+        "description": "Define a module with S3 source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"s3::https://\"",
+            "}"
+        ]
+    },    "archive": {
+        "prefix":"tf-archive",
+        "description": "Defines archive",
+        "body": [
+            "provider \"archive\" {",
+            "}"
+        ]
+    },
+    "archive_file": {
+        "prefix":"tf-archive_file",
+        "description": "Defines archive_file",
+        "body": [
+            "data \"archive_file\" \"${init}\" {",
+            "   type        = \"zip\"",
+            "   source_file = \"\\${path.module}/init.tpl\"",
+            "   output_path = \"\\${path.module}/files/init.zip\"",
+            "}"
+        ]
+    },    "atlas": {
+        "prefix":"tf-atlas",
+        "description": "Defines atlas",
+        "body": [
+            "provider \"atlas\" {",
+            "   token = \"${atlasToken}\"",
+            "}"
+        ]
+    },
+    "atlas_artifact_data": {
+        "prefix":"tf-atlas_artifact",
+        "description": "Defines atlas_artifact data",
+        "body": [
+            "data \"atlas_artifact\" \"${web}\" {",
+            "   name = \"hashicorp/web\"",
+            "   type = \"amazon.image\"",
+            "   build = \"latest\"",
+            "   metadata {",
+            "       arch = \"386\"",
+            "   }",
+            "}"
+        ]
+    },    "aws": {
         "prefix": "tf-aws",
         "description": "define a aws provider.",
         "body": [
@@ -53,180 +267,14 @@
             "}"
         ]
     },
-    "aws-profile": {
-        "prefix": "tf-aws-profile",
+    "aws_profile": {
+        "prefix": "tf-aws_profile",
         "description": "define a aws provider with profile.",
         "body": [
             "provider \"aws\" {",
             "   region = \"${1:AWS REGION}\"",
             "   shared_credentials_file = \"${2:path/to/.aws/creds}\"",
             "   profile = \"${3:AWS PROFILE}\"",
-            "}"
-        ]
-    },
-    "depends_on": {
-        "prefix": "tf-depends_on",
-        "description": "Define explicit dependencies.",
-        "body": [
-            "depends_on = [\"${dependsOn}\"]"
-        ]
-    },
-    "module-github": {
-        "prefix": "tf-module-github",
-        "description": "Define a module with github source.",
-        "body": [
-            "module \"${myModuleName}\" {",
-            "   source = \"github.com/username\"",
-            "}"
-        ]
-    },
-    "module-github-private": {
-        "prefix": "tf-module-github-private",
-        "description": "Define a module with github with private source.",
-        "body": [
-            "module \"${myModuleName}\" {",
-            "   source = \"git::https://MACHINE-USER:MACHINE-PASS@github.com/username\"",
-            "}"
-        ]
-    },
-    "module-bitbucket": {
-        "prefix": "tf-module-bitbucket",
-        "description": "Define a module with BitBucket source.",
-        "body": [
-            "module \"${myModuleName}\" {",
-            "   source = \"bitbucket.org/username\"",
-            "}"
-        ]
-    },
-    "module-git": {
-        "prefix": "tf-module-git",
-        "description": "Define a module with genertic Git source.",
-        "body": [
-            "module \"${myModuleName}\" {",
-            "   source = \"git://\"",
-            "}"
-        ]
-    },
-    "module-mercurial": {
-        "prefix": "tf-module-mercurial",
-        "description": "Define a module with Mercurial source.",
-        "body": [
-            "module \"${myModuleName}\" {",
-            "   source = \"hg::http://\"",
-            "}"
-        ]
-    },
-    "module-s3": {
-        "prefix": "tf-module-s3",
-        "description": "Define a module with S3 source.",
-        "body": [
-            "module \"${myModuleName}\" {",
-            "   source = \"s3::https://\"",
-            "}"
-        ]
-    },
-    "provisioner-connection": {
-        "prefix": "tf-provisioner-connection",
-        "description": "Define a connection provisioner",
-        "body": [
-            "# Copies the file as the root user using SSH",
-            "provisioner \"file\" {",
-            "   source      = \"conf/myapp.conf\"",
-            "   destination = \"/etc/myapp.conf\"",
-            "   connection {",
-            "       type        = \"ssh\"",
-            "       user        = \"root\"",
-            "       password    = \"samplePasswordHere\"",
-            "   }",
-            "}"
-        ]
-    },
-    "provisioner-file": {
-        "prefix": "tf-provisioner-file",
-        "description": "Define a file provisioner",
-        "body": [
-            "   # Copies the myapp.conf file to /etc/myapp.conf",
-            "   provisioner \"file\" {",
-            "       source = \"conf/myapp.conf\"",
-            "       destination = \"/etc/myapp.conf\"",
-            "   }"
-        ]
-    },
-    "provisioner-local-exec": {
-        "prefix": "tf-provisioner-local-exec",
-        "description": "Define a local-exec provisioner",
-        "body": [
-            "   provisioner \"local-exec\" {",
-            "       command = \"echo ${aws_instance.web.private_ip} >> private_ips.txt\"",
-            "   }"
-        ]
-    },
-    "provisioner-remote-exec": {
-        "prefix": "tf-provisioner-remote-exec",
-        "description": "Define a remote-exec provisioner",
-        "body": [
-            "   provisioner \"remote-exec\" {",
-            "       inline = [",
-            "           \"puppet apply\",",
-            "           \"consul join ${aws_instance.web.private_ip}\"",
-            "       ]",
-            "   }"
-        ]
-    },
-    "provisioner-null_resource": {
-        "prefix": "tf-provisioner-null_resource",
-        "description": "Define a null_resource provisioner",
-        "body": [
-            "resource \"null_resource\" \"${cluster}\" {",
-            "   # Changes to any instance of the cluster requires re-provisioning",
-            "   triggers {",
-            "       cluster_instance_ids = \"\\${join(",", aws_instance.cluster.*.id)}\"",
-            "   }",
-            "}"
-        ]
-    },
-    "provisioner-chef": {
-        "prefix": "tf-provisioner-chef",
-        "description": "Define a local-exec provisioner",
-        "body": [
-            "   provisioner \"chef\" {",
-            "       node_name = \"${webserver1}\"",
-            "       run_list = [\"cookbook::recipe\"]",
-            "       user_name = \"user_name-example\"",
-            "       user_key = \"user_key-example\"",
-            "       server_url = \"server_url-example\"",
-            "   }"
-        ]
-    },
-    "template_file": {
-        "prefix": "tf-template_file",
-        "description": "Define a template_file template from file",
-        "body": [
-            "data \"template_file\" \"${init}\" {",
-            "   template = \"\\${file(\"\\${path.module}/${init}.tpl\")}\"\n",
-            "   vars {",
-            "       consul_address = \"\\${aws_instance.consul.private_ip}\"",
-            "   }",
-            "}"
-        ]
-    },
-    "template_file-inline": {
-        "prefix": "tf-template_file-inline",
-        "description": "Define a template_file template inline",
-        "body": [
-            "data \"template_file\" \"${init}\" {",
-            "   template = \"\\$\\${consul_address}:1234\"",
-            "   vars {",
-            "       consul_address = \"\\${aws_instance.consul.private_ip}\"",
-            "   }",
-            "}"
-        ]
-    },
-    "template_cloudinit_config": {
-        "prefix": "tf-template_cloudinit_config",
-        "description": "Define a template_cloudinit_config template",
-        "body": [
-            "data \"template_cloudinit_config\" \"${config}\" {",
             "}"
         ]
     },
@@ -2226,1023 +2274,97 @@
             "}"
         ]
     },
-    "consul_keys": {
-        "prefix":"tf-consul_keys",
-        "description": "Defines consul_keys",
+    "aws-region-us-east-1": {
+        "prefix": "tf-aws-region-us-east-1",
+        "description": "Define a aws-region-us-east-1 US East (N.Virginia) region code",
         "body": [
-            "data \"consul_keys\" \"${MyConsulResource}\" {",
-            "   key {",
-            "       name = \"<your keyname here>\"",
-            "   }",
-            "}"
+            "\"us-east-1\""
         ]
     },
-    "consul_agent_service": {
-        "prefix":"tf-consul_agent_service",
-        "description": "Defines consul_agent_service",
+    "aws-region-us-east-2": {
+        "prefix": "tf-aws-region-us-east-2",
+        "description": "Define a aws-region-us-east-2 US East (Ohio) region code",
         "body": [
-            "resource \"consul_agent_service\" \"${MyResource}\" {",
-            "}"
+            "\"us-east-2\""
         ]
     },
-    "consul_catalog_entry": {
-        "prefix":"tf-consul_catalog_entry",
-        "description": "Defines consul_catalog_entry",
+    "aws-region-us-west-1": {
+        "prefix": "tf-aws-region-us-west-1",
+        "description": "Define a aws-region-us-west-1 US West (N. California) region code",
         "body": [
-            "resource \"consul_catalog_entry\" \"${MyResource}\" {",
-            "}"
+            "\"us-west-1\""
         ]
     },
-    "consul_key_prefix": {
-        "prefix":"tf-consul_key_prefix",
-        "description": "Defines consul_key_prefix",
+    "aws-region-us-west-2": {
+        "prefix": "tf-aws-region-us-west-2",
+        "description": "Define a aws-region-us-west-2 US West (Oregon) region code",
         "body": [
-            "resource \"consul_key_prefix\" \"${MyResource}\" {",
-            "}"
+            "\"us-west-2\""
         ]
     },
-    "consul_node": {
-        "prefix":"tf-consul_node",
-        "description": "Defines consul_node",
+    "aws-region-eu-west-1": {
+        "prefix": "tf-aws-region-eu-west-1",
+        "description": "Define a aws-region-eu-west-1 EU (Ireland) region code",
         "body": [
-            "resource \"consul_node\" \"${MyResource}\" {",
-            "}"
+            "\"eu-west-1\""
         ]
     },
-    "consul_prepared_query": {
-        "prefix":"tf-consul_prepared_query",
-        "description": "Defines consul_prepared_query",
+    "aws-region-eu-central-1": {
+        "prefix": "tf-aws-region-eu-central-1",
+        "description": "Define a aws-region-eu-central-1 EU (Frankfurt) region code",
         "body": [
-            "resource \"consul_prepared_query\" \"${MyResource}\" {",
-            "}"
+            "\"eu-central-1\""
         ]
     },
-    "consul_service": {
-        "prefix":"tf-consul_service",
-        "description": "Defines consul_service",
+    "aws-region-ap-northeast-1": {
+        "prefix": "tf-aws-region-ap-northeast-1",
+        "description": "Define a aws-region-ap-northeast-1 Asia Pacific (Tokyo) region code",
         "body": [
-            "resource \"consul_service\" \"${MyResource}\" {",
-            "}"
+            "\"ap-northeast-1\""
         ]
     },
-    "docker_registry_image": {
-        "prefix":"tf-docker_registry_image",
-        "description": "Defines docker_registry_image",
+    "aws-region-ap-northeast-2": {
+        "prefix": "tf-aws-region-ap-northeast-2",
+        "description": "Define a aws-region-ap-northeast-2 Asia Pacific (Seoul) region code",
         "body": [
-            "data \"docker_registry_image\" \"${ubuntu}\" {",
-            "   name = \"ubuntu:precise\"",
-            "}"
+            "\"ap-northeast-2\""
         ]
     },
-    "docker_container": {
-        "prefix":"tf-docker_container",
-        "description": "Defines docker_container",
+    "aws-region-ap-southeast-1": {
+        "prefix": "tf-aws-region-ap-southeast-1",
+        "description": "Define a aws-region-ap-southeast-1 Asia Pacific (Singapore) region code",
         "body": [
-            "resource \"docker_container\" \"${MyResource}\" {",
-            "}"
+            "\"ap-southeast-1\""
         ]
     },
-    "docker_image": {
-        "prefix":"tf-docker_image",
-        "description": "Defines docker_image",
+    "aws-region-ap-southeast-2": {
+        "prefix": "tf-aws-region-ap-southeast-2",
+        "description": "Define a aws-region-ap-southeast-2 Asia Pacific (Sydney) region code",
         "body": [
-            "resource \"docker_image\" \"${MyResource}\" {",
-            "}"
+            "\"ap-southeast-2\""
         ]
     },
-    "docker_network": {
-        "prefix":"tf-docker_network",
-        "description": "Defines docker_network",
+    "aws-region-ap-south-1": {
+        "prefix": "tf-aws-region-ap-south-1",
+        "description": "Define a aws-region-ap-south-1 Asia Pacific (Mumbai) region code",
         "body": [
-            "resource \"docker_network\" \"${MyResource}\" {",
-            "}"
+            "\"ap-south-1\""
         ]
     },
-    "docker_volume": {
-        "prefix":"tf-docker_volume",
-        "description": "Defines docker_volume",
+    "aws-region-sa-east-1": {
+        "prefix": "tf-aws-region-sa-east-1",
+        "description": "Define a aws-region-sa-east-1 South America (São Paulo) region code",
         "body": [
-            "resource \"docker_volume\" \"${MyResource}\" {",
-            "}"
+            "\"sa-east-1\""
         ]
     },
-    "heroku": {
-        "prefix":"tf-heroku",
-        "description": "Defines heroku",
+    "aws-region-ca-central-1": {
+        "prefix": "tf-aws-region-ca-central-1",
+        "description": "Define a aws-region-ca-central-1 Canada (Central) region code",
         "body": [
-            "provider \"heroku\" {",
-            "   email = \"ops@company.com\"",
-            "   api_key = \"\\${var.heroku_api_key}\"",
-            "}"
+            "\"ca-central-1\""
         ]
-    },
-    "heroku_addon": {
-        "prefix":"tf-heroku_addon",
-        "description": "Defines heroku_addon",
-        "body": [
-            "resource \"heroku_addon\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "heroku_app": {
-        "prefix":"tf-heroku_app",
-        "description": "Defines heroku_app",
-        "body": [
-            "resource \"heroku_app\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "heroku_cert": {
-        "prefix":"tf-heroku_cert",
-        "description": "Defines heroku_cert",
-        "body": [
-            "resource \"heroku_cert\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "heroku_domain": {
-        "prefix":"tf-heroku_domain",
-        "description": "Defines heroku_domain",
-        "body": [
-            "resource \"heroku_domain\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "heroku_drain": {
-        "prefix":"tf-heroku_drain",
-        "description": "Defines heroku_drain",
-        "body": [
-            "resource \"heroku_drain\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "digitalocean": {
-        "prefix":"tf-digitalocean",
-        "description": "Defines digitalocean",
-        "body": [
-            "provider \"digitalocean\" {",
-            "   token = \"\\${var.${do_token}}\"",
-            "}"
-        ]
-    },
-    "digitalocean_domain": {
-        "prefix":"tf-digitalocean_domain",
-        "description": "Defines digitalocean_domain",
-        "body": [
-            "resource \"digitalocean_domain\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "digitalocean_droplet": {
-        "prefix":"tf-digitalocean_droplet",
-        "description": "Defines digitalocean_droplet",
-        "body": [
-            "resource \"digitalocean_droplet\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "digitalocean_floating_ip": {
-        "prefix":"tf-digitalocean_floating_ip",
-        "description": "Defines digitalocean_floating_ip",
-        "body": [
-            "resource \"digitalocean_floating_ip\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "digitalocean_record": {
-        "prefix":"tf-digitalocean_record",
-        "description": "Defines digitalocean_record",
-        "body": [
-            "resource \"digitalocean_record\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "digitalocean_ssh_key": {
-        "prefix":"tf-digitalocean_ssh_key",
-        "description": "Defines digitalocean_ssh_key",
-        "body": [
-            "resource \"digitalocean_ssh_key\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "digitalocean_tag": {
-        "prefix":"tf-digitalocean_tag",
-        "description": "Defines digitalocean_tag",
-        "body": [
-            "resource \"digitalocean_tag\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "digitalocean_volume": {
-        "prefix":"tf-digitalocean_volume",
-        "description": "Defines digitalocean_volume",
-        "body": [
-            "resource \"digitalocean_volume\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "bitbucket": {
-        "prefix":"tf-bitbucket",
-        "description": "Defines bitbucket",
-        "body": [
-            "provider \"bitbucket\" {",
-            "   username = \"${bitbucketUsername}\"",
-            "   password = \"****\"",
-            "}"
-        ]
-    },
-    "bitbucket_default_reviewers": {
-        "prefix":"tf-bitbucket_default_reviewers",
-        "description": "Defines bitbucket_default_reviewers",
-        "body": [
-            "resource \"bitbucket_default_reviewers\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "bitbucket_hook": {
-        "prefix":"tf-bitbucket_hook",
-        "description": "Defines bitbucket_hook",
-        "body": [
-            "resource \"bitbucket_hook\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "bitbucket_repository": {
-        "prefix":"tf-bitbucket_repository",
-        "description": "Defines bitbucket_repository",
-        "body": [
-            "resource \"bitbucket_repository\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "github_membership": {
-        "prefix":"tf-github_membership",
-        "description": "Defines github_membership",
-        "body": [
-            "resource \"github_membership\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "github_repository": {
-        "prefix":"tf-github_repository",
-        "description": "Defines github_repository",
-        "body": [
-            "resource \"github_repository\" \"${MyResource}\" {",
-            "   name        = \"example\"",
-            "   description = \"example\"",
-            "",
-            "}"
-        ]
-    },
-    "github_repository_collaborator": {
-        "prefix":"tf-github_repository_collaborator",
-        "description": "Defines github_repository_collaborator",
-        "body": [
-            "resource \"github_repository_collaborator\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "github_team": {
-        "prefix":"tf-github_team",
-        "description": "Defines github_team",
-        "body": [
-            "resource \"github_team\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "github_team_membership": {
-        "prefix":"tf-github_team_membership",
-        "description": "Defines github_team_membership",
-        "body": [
-            "resource \"github_team_membership\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "github_team_repository": {
-        "prefix":"tf-github_team_repository",
-        "description": "Defines github_team_repository",
-        "body": [
-            "resource \"github_team_repository\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "github_issue_label": {
-        "prefix":"tf-github_issue_label",
-        "description": "Defines github_issue_label",
-        "body": [
-            "resource \"github_issue_label\" \"${MyResource}\" {",
-            "}"
-        ]
-    },
-    "archive": {
-        "prefix":"tf-archive",
-        "description": "Defines archive",
-        "body": [
-            "provider \"archive\" {",
-            "}"
-        ]
-    },
-    "archive_file": {
-        "prefix":"tf-archive_file",
-        "description": "Defines archive_file",
-        "body": [
-            "data \"archive_file\" \"${init}\" {",
-            "   type        = \"zip\"",
-            "   source_file = \"\\${path.module}/init.tpl\"",
-            "   output_path = \"\\${path.module}/files/init.zip\"",
-            "}"
-        ]
-    },
-    "atlas": {
-        "prefix":"tf-atlas",
-        "description": "Defines atlas",
-        "body": [
-            "provider \"atlas\" {",
-            "   token = \"${atlasToken}\"",
-            "}"
-        ]
-    },
-    "atlas_artifact_data": {
-        "prefix":"tf-atlas_artifact",
-        "description": "Defines atlas_artifact data",
-        "body": [
-            "data \"atlas_artifact\" \"${web}\" {",
-            "   name = \"hashicorp/web\"",
-            "   type = \"amazon.image\"",
-            "   build = \"latest\"",
-            "   metadata {",
-            "       arch = \"386\"",
-            "   }",
-            "}"
-        ]
-    },
-    "chef": {
-        "prefix":"tf-chef",
-        "description": "Defines chef",
-        "body": [
-            "provider \"chef\" {",
-            "   server_url  = \"${url}\"",
-            "   client_name = \"samplechef\"",
-            "}"
-        ]
-    },
-    "chef_data_bag": {
-        "prefix":"tf-chef_data_bag",
-        "description": "Defines chef_data_bag resource",
-        "body": [
-            "resource \"chef_data_bag\" \"${MyResource}\" {",
-            "   name = \"sampleName\"",
-            "}"
-        ]
-    },
-    "chef_data_bag_item": {
-        "prefix":"tf-chef_data_bag_item",
-        "description": "Defines chef_data_bag_item resource",
-        "body": [
-            "resource \"chef_data_bag_item\" \"${MyResource}\" {",
-            "   data_bag_name = \"example-data-bag\"",
-            "content_json = <<EOT",
-            "{",
-            "   \"id\": \"example-item\",",
-            "   \"any_arbitrary_data\": true",
-            "}",
-            "EOT",
-            "}"
-        ]
-    },
-    "chef_environment": {
-        "prefix":"tf-chef_environment",
-        "description": "Defines chef_environment resource",
-        "body": [
-            "resource \"chef_environment\" \"${MyResource}\" {",
-            "   name = \"example-environment\"",
-            "}"
-        ]
-    },
-    "chef_node": {
-        "prefix":"tf-chef_node",
-        "description": "Defines chef_node resource",
-        "body": [
-            "resource \"chef_node\" \"${MyResource}\" {",
-            "   name = \"example-environment\"",
-            "}"
-        ]
-    },
-    "chef_role": {
-        "prefix":"tf-chef_role",
-        "description": "Defines chef_role resource",
-        "body": [
-            "resource \"chef_role\" \"${MyResource}\" {",
-            "   name = \"example-environment\"",
-            "}"
-        ]
-    },
-    "cloudflare": {
-        "prefix":"tf-cloudflare",
-        "description": "Defines cloudflare provider",
-        "body": [
-            "provider \"cloudflare\" {",
-            "   email  = \"${email}\"",
-            "   token = \"example-token\"",
-            "}"
-        ]
-    },
-    "cloudflare_record": {
-        "prefix":"tf-cloudflare_record",
-        "description": "Defines cloudflare_record resource",
-        "body": [
-            "resource \"chef_role\" \"${MyResource}\" {",
-            "   domain = \"cloudflare_domain\"",
-            "   name = \"terraform\"",
-            "   value = \"192.168.0.11\"",
-            "   type = \"A\"",
-            "   ttl = 3600",
-            "}"
-        ]
-    },
-    "mysql": {
-        "prefix":"tf-mysql",
-        "description": "Defines mysql provider",
-        "body": [
-            "provider \"mysql\" {",
-            "   endpoint  = \"endpoint-example\"",
-            "   username  = \"username-example\"",
-            "   password  = \"password-example\"",
-            "}"
-        ]
-    },
-    "mysql_database": {
-        "prefix":"tf-mysql_database",
-        "description": "Defines mysql_database resource",
-        "body": [
-            "resource \"mysql_database\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "}"
-        ]
-    },
-    "mysql_grant": {
-        "prefix":"tf-mysql_grant",
-        "description": "Defines mysql_grant resource",
-        "body": [
-            "resource \"mysql_grant\" \"${MyResource}\" {",
-            "   user        = \"example-user\"",
-            "   host        = \"example-host\"",
-            "   database    = \"example-database\"",
-            "   privileges  = \"example-privileges \"",
-            "}"
-        ]
-    },
-    "mysql_user": {
-        "prefix":"tf-mysql_user",
-        "description": "Defines mysql_user resource",
-        "body": [
-            "resource \"mysql_user\" \"${MyResource}\" {",
-            "   user        = \"example-user\"",
-            "   host        = \"example-host\"",
-            "   password    = \"example-password \"",
-            "}"
-        ]
-    },
-    "postgresql": {
-        "prefix":"tf-postgresql",
-        "description": "Defines postgresql provider",
-        "body": [
-            "provider \"postgresql\" {",
-            "   host        = \"host-example\"",
-            "   port        = \"port-example\"",
-            "   username    = \"username-example\"",
-            "   password    = \"password-example\"",
-            "   ssl_mode    = \"ssl_mode-example\"",
-            "}"
-        ]
-    },
-    "postgresql_database": {
-        "prefix":"tf-postgresql_database",
-        "description": "Defines postgresql_database resource",
-        "body": [
-            "resource \"postgresql_database\" \"${MyResource}\" {",
-            "   name    = \"example-name\"",
-            "   owner   = \"example-owner\"",
-            "}"
-        ]
-    },
-    "postgresql_role": {
-        "prefix":"tf-postgresql_role",
-        "description": "Defines postgresql_role resource",
-        "body": [
-            "resource \"postgresql_role\" \"${MyResource}\" {",
-            "   name        = \"example-name\"",
-            "   login       = true",
-            "   password    = \"example-password\"",
-            "   encrypted   = true",
-            "}"
-        ]
-    },
-    "postgresql_extension": {
-        "prefix":"tf-postgresql_extension",
-        "description": "Defines postgresql_extension resource",
-        "body": [
-            "resource \"postgresql_extension\" \"${MyResource}\" {",
-            "   name        = \"example-name\"",
-            "}"
-        ]
-    },
-    "google": {
-        "prefix":"tf-google",
-        "description": "Defines google provider",
-        "body": [
-            "provider \"google\" {",
-            "   credentials = \"credentials -example\"",
-            "   project     = \"project-example\"",
-            "   region      = \"us-central1\"",
-            "}"
-        ]
-    },
-    "google_iam_policy": {
-        "prefix":"tf-google_iam_policy",
-        "description": "Defines google_iam_policy policy",
-        "body": [
-            "data \"google_iam_policy\" \"${admin}\" {",
-            "   binding {",
-            "       role = \"roles/compute.instanceAdmin\"",
-            "           members = [",
-            "               \"serviceAccount:your-custom-sa@your-project.iam.gserviceaccount.com\",",
-            "           ]",
-            "   }",
-            "   binding {",
-            "       role = \"roles/storage.objectViewer\"",
-            "       members = [",
-            "           \"user:evanbrown@google.com\",",
-            "       ]",
-            "   }",
-            "}"
-        ]
-    },
-    "google_project": {
-        "prefix":"tf-google_project",
-        "description": "Defines google_project resource",
-        "body": [
-            "resource \"google_project\" \"${MyResource}\" {",
-            "   id          = \"example-id\"",
-            "   policy_data = \"example-policy_data\"",
-            "}"
-        ]
-    },
-    "google_compute_address": {
-        "prefix":"tf-google_compute_address",
-        "description": "Defines google_compute_address resource",
-        "body": [
-            "resource \"google_compute_address\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "}"
-        ]
-    },
-    "google_compute_autoscaler": {
-        "prefix":"tf-google_compute_autoscaler",
-        "description": "Defines google_compute_autoscaler resource",
-        "body": [
-            "resource \"google_compute_autoscaler\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   zone = \"example-zone\"",
-            "   target = \"example-target\"",
-            "   autoscaling_policy = {",
-            "       max_replicas    = 5",
-            "       min_replicas    = 1",
-            "       cooldown_period = 60\n",
-            "       cpu_utilization {",
-            "           target = 0.5",
-            "       }",
-            "   }",
-            "}"
-        ]
-    },
-    "google_pubsub_subscription": {
-        "prefix":"tf-google_pubsub_subscription",
-        "description": "Defines google_pubsub_subscription resource",
-        "body": [
-            "resource \"google_pubsub_subscription\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   topic = \"example-topic\"",
-            "}"
-        ]
-    },
-    "google_compute_backend_service": {
-        "prefix":"tf-google_compute_backend_service",
-        "description": "Defines google_compute_backend_service resource",
-        "body": [
-            "resource \"google_compute_backend_service\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"",
-            "   health_checks  = [\"example-health_checks\"]",
-            "}"
-        ]
-    },
-    "google_compute_disk": {
-        "prefix":"tf-google_compute_disk",
-        "description": "Defines google_compute_disk resource",
-        "body": [
-            "resource \"google_compute_disk\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   type = \"pd-ssd\"",
-            "   zone = \"us-central1-a\"",
-            "   image = \"debian7-wheezy\"",
-            "}"
-        ]
-    },
-    "google_compute_firewall": {
-        "prefix":"tf-google_compute_firewall",
-        "description": "Defines google_compute_firewall resource",
-        "body": [
-            "resource \"google_compute_firewall\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   network = \"example-network\"",
-            "   allow {",
-            "       protocol = \"icmp\"",
-            "   }",
-            "}"
-        ]
-    },
-    "google_compute_forwarding_rule": {
-        "prefix":"tf-google_compute_forwarding_rule",
-        "description": "Defines google_compute_forwarding_rule resource",
-        "body": [
-            "resource \"google_compute_forwarding_rule\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   target = \"\\${google_compute_target_pool.default.self_link}\"",
-            "   port_range = \"80\"",
-            "}"
-        ]
-    },
-    "google_compute_global_address": {
-        "prefix":"tf-google_compute_global_address",
-        "description": "Defines google_compute_global_address resource",
-        "body": [
-            "resource \"google_compute_global_address\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "}"
-        ]
-    },
-    "google_compute_global_forwarding_rule": {
-        "prefix":"tf-google_compute_global_forwarding_rule",
-        "description": "Defines google_compute_global_forwarding_rule resource",
-        "body": [
-            "resource \"google_compute_global_forwarding_rule\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   target = \"\\${google_compute_target_http_proxy.default.self_link}\"",
-            "   port_range = \"80\"",
-            "}"
-        ]
-    },
-    "google_compute_http_health_check": {
-        "prefix":"tf-google_compute_http_health_check",
-        "description": "Defines google_compute_http_health_check resource",
-        "body": [
-            "resource \"google_compute_http_health_check\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   request_path  = \"/health_check\"",
-            "   timeout_sec = 1",
-            "   check_interval_sec = 1",
-            "}"
-        ]
-    },
-    "google_compute_https_health_check": {
-        "prefix":"tf-google_compute_https_health_check",
-        "description": "Defines google_compute_https_health_check resource",
-        "body": [
-            "resource \"google_compute_https_health_check\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   request_path  = \"/health_check\"",
-            "   timeout_sec = 1",
-            "   check_interval_sec = 1",
-            "}"
-        ]
-    },
-    "google_compute_image": {
-        "prefix":"tf-google_compute_image",
-        "description": "Defines google_compute_image resource",
-        "body": [
-            "resource \"google_compute_image\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   raw_disk {",
-            "       source = \"https://storage.googleapis.com/my-bucket/my-disk-image-tarball.tar.gz\"",
-            "   }",
-            "}"
-        ]
-    },
-    "google_compute_instance": {
-        "prefix":"tf-google_compute_instance",
-        "description": "Defines google_compute_instance resource",
-        "body": [
-            "resource \"google_compute_instance\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   machine_type = \"n1-standard-1\"",
-            "   zone = \"us-central1-a\"",
-            "   disk { image = \"debian-cloud/debian-8\" }",
-            "}"
-        ]
-    },
-    "google_compute_instance_group": {
-        "prefix":"tf-google_compute_instance_group",
-        "description": "Defines google_compute_instance_group resource",
-        "body": [
-            "resource \"google_compute_instance_group\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"",
-            "   zone = \"us-central1-a\"",
-            "}"
-        ]
-    },
-    "google_compute_instance_group_manager": {
-        "prefix":"tf-google_compute_instance_group_manager",
-        "description": "Defines google_compute_instance_group_manager resource",
-        "body": [
-            "resource \"google_compute_instance_group_manager\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"",
-            "   base_instance_name = \"example-base_instance_name\"",
-            "   instance_template = \"\\${google_compute_instance_template.foobar.self_link}\"",
-            "   zone = \"us-central1-a\"",
-            "}"
-        ]
-    },
-    "google_compute_instance_template": {
-        "prefix":"tf-google_compute_instance_template",
-        "description": "Defines google_compute_instance_template resource",
-        "body": [
-            "resource \"google_compute_instance_template\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"",
-            "   machine_type = \"n1-standard-1\"",
-            "   disk {",
-            "       source_image = \"debian-cloud/debian-8\"",
-            "       auto_delete = true",
-            "       boot = true",
-            "   }",
-            "}"
-        ]
-    },
-    "google_compute_network": {
-        "prefix":"tf-google_compute_network",
-        "description": "Defines google_compute_network resource",
-        "body": [
-            "resource \"google_compute_network\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   ipv4_range = \"10.0.0.0/16\"",
-            "}"
-        ]
-    },
-    "google_compute_project_metadata": {
-        "prefix":"tf-google_compute_project_metadata",
-        "description": "Defines google_compute_project_metadata resource",
-        "body": [
-            "resource \"google_compute_project_metadata\" \"${MyResource}\" {",
-            "   metadata {",
-            "       foo  = \"bar\"",
-            "       fizz = \"buzz\"",
-            "       13   = \"42\"",
-            "   }",
-            "}"
-        ]
-    },
-    "google_compute_route": {
-        "prefix":"tf-google_compute_route",
-        "description": "Defines google_compute_route resource",
-        "body": [
-            "resource \"google_compute_route\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   dest_range = \"15.0.0.0/24\"",
-            "   network = \"\\${google_compute_network.foobar.name}\"",
-            "   next_hop_ip = \"10.0.1.5\"",
-            "   priority = 100",
-            "}"
-        ]
-    },
-    "google_compute_ssl_certificate": {
-        "prefix":"tf-google_compute_ssl_certificate",
-        "description": "Defines google_compute_ssl_certificate resource",
-        "body": [
-            "resource \"google_compute_ssl_certificate\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"",
-            "   private_key = \"\\${file(\"path/to/private.key\")}\"",
-            "   certificate = \"\\${file(\"path/to/certificate.crt\")}",
-            "}"
-        ]
-    },
-    "google_compute_subnetwork": {
-        "prefix":"tf-google_compute_subnetwork",
-        "description": "Defines google_compute_subnetwork resource",
-        "body": [
-            "resource \"google_compute_subnetwork\" \"${MyResource}\" {",
-            "   name          = \"default-us-east1\"",
-            "   ip_cidr_range = \"10.0.0.0/16\"",
-            "   network       = \"\\${google_compute_network.default.self_link}\"",
-            "   region        = \"us-east1\"",
-            "}"
-        ]
-    },
-    "google_compute_target_http_proxy": {
-        "prefix":"tf-google_compute_target_http_proxy",
-        "description": "Defines google_compute_target_http_proxy resource",
-        "body": [
-            "resource \"google_compute_target_http_proxy\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"",
-            "   url_map = \"\\${google_compute_url_map.default.self_link}\"",
-            "}"
-        ]
-    },
-    "google_compute_target_https_proxy": {
-        "prefix":"tf-google_compute_target_https_proxy",
-        "description": "Defines google_compute_target_https_proxy resource",
-        "body": [
-            "resource \"google_compute_target_https_proxy\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"",
-            "   url_map = \"\\${google_compute_url_map.default.self_link}\"",
-            "   ssl_certificates = [\"\\${google_compute_ssl_certificate.default.self_link}\"]",
-            "}"
-        ]
-    },
-    "google_compute_target_pool": {
-        "prefix":"tf-google_compute_target_pool",
-        "description": "Defines google_compute_target_pool resource",
-        "body": [
-            "resource \"google_compute_target_pool\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"\n",
-            "   instances = [",
-            "       \"us-central1-a/myinstance1\",",
-            "       \"us-central1-b/myinstance2\",",
-            "   ]\n",
-            "   health_checks = [",
-            "       \"\\${google_compute_http_health_check.default.name}\",",
-            "   ]",
-            "}"
-        ]
-    },
-    "google_compute_url_map": {
-        "prefix":"tf-google_compute_url_map",
-        "description": "Defines google_compute_url_map resource",
-        "body": [
-            "resource \"google_compute_url_map\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"\n",
-            "   default_service = \"\\${google_compute_backend_service.home.self_link}\"",
-            "}"
-        ]
-    },
-    "google_compute_vpn_gateway": {
-        "prefix":"tf-google_compute_vpn_gateway",
-        "description": "Defines google_compute_vpn_gateway resource",
-        "body": [
-            "resource \"google_compute_vpn_gateway\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"\n",
-            "   network = \"\\${google_compute_network.network1.self_link}\"",
-            "   region = \"\\${var.region}\"",
-            "}"
-        ]
-    },
-    "google_compute_vpn_tunnel": {
-        "prefix":"tf-google_compute_vpn_tunnel",
-        "description": "Defines google_compute_vpn_tunnel resource",
-        "body": [
-            "resource \"google_compute_vpn_tunnel\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"\n",
-            "   peer_ip = \"15.0.0.120\"",
-            "   shared_secret = \"a shared_secret\"",
-            "   target_vpn_gateway = \"\\${google_compute_vpn_gateway.target_gateway.self_link}\"",
-            "}"
-        ]
-    },
-    "google_container_cluster": {
-        "prefix":"tf-google_container_cluster",
-        "description": "Defines google_container_cluster resource",
-        "body": [
-            "resource \"google_container_cluster\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"\n",
-            "   zone = \"us-central1-a\"",
-            "   initial_node_count = 1\n",
-            "   master_auth {",
-            "       username = \"mr.yoda\"",
-            "       password = \"adoy.rm\"",
-            "   }",
-            "}"
-        ]
-    },
-    "google_dns_managed_zone": {
-        "prefix":"tf-google_dns_managed_zone",
-        "description": "Defines google_dns_managed_zone resource",
-        "body": [
-            "resource \"google_dns_managed_zone\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"\n",
-            "   dns_name = \"prod.mydomain.com.\"",
-            "}"
-        ]
-    },
-    "google_dns_record_set": {
-        "prefix":"tf-google_dns_record_set",
-        "description": "Defines google_dns_record_set resource",
-        "body": [
-            "resource \"google_dns_record_set\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"\n",
-            "   type = \"A\"",
-            "   ttl = 300",
-            "}"
-        ]
-    },
-    "google_pubsub_topic": {
-        "prefix":"tf-google_pubsub_topic",
-        "description": "Defines google_pubsub_topic resource",
-        "body": [
-            "resource \"google_pubsub_topic\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"\n",
-            "}"
-        ]
-    },
-    "google_sql_database": {
-        "prefix":"tf-google_sql_database",
-        "description": "Defines google_sql_database resource",
-        "body": [
-            "resource \"google_sql_database\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"\n",
-            "   instance = \"\\${google_sql_database_instance.master.name}\"",
-            "}"
-        ]
-    },
-    "google_sql_database_instance": {
-        "prefix":"tf-google_sql_database_instance",
-        "description": "Defines google_sql_database_instance resource",
-        "body": [
-            "resource \"google_sql_database_instance\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"\n",
-            "   region = \"us-central",
-            "   settings { tier = \"D0\" }",
-            "}"
-        ]
-    },
-    "google_sql_user": {
-        "prefix":"tf-google_sql_user",
-        "description": "Defines google_sql_user resource",
-        "body": [
-            "resource \"google_sql_user\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"\n",
-            "   host = \"me.com",
-            "   password = \"example-password\"",
-            "   instance = \"\\${google_sql_database_instance.master.name}\"",
-            "}"
-        ]
-    },
-    "google_storage_bucket": {
-        "prefix":"tf-google_storage_bucket",
-        "description": "Defines google_storage_bucket resource",
-        "body": [
-            "resource \"google_storage_bucket\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   description = \"example-description\"\n",
-            "}"
-        ]
-    },
-    "google_storage_bucket_acl": {
-        "prefix":"tf-google_storage_bucket_acl",
-        "description": "Defines google_storage_bucket_acl resource",
-        "body": [
-            "resource \"google_storage_bucket_acl\" \"${MyResource}\" {",
-            "   bucket = \"\\${google_storage_bucket.image_store.name}\"",
-            "}"
-        ]
-    },
-    "google_storage_bucket_object": {
-        "prefix":"tf-google_storage_bucket_object",
-        "description": "Defines google_storage_bucket_object resource",
-        "body": [
-            "resource \"google_storage_bucket_object\" \"${MyResource}\" {",
-            "   name = \"example-name\"",
-            "   bucket = \"bucket-store\"",
-            "   source = \"/images/nature/garden-tiger-moth.jpg\"",
-            "}"
-        ]
-    },
-    "google_storage_object_acl": {
-        "prefix":"tf-google_storage_object_acl",
-        "description": "Defines google_storage_object_acl resource",
-        "body": [
-            "resource \"google_storage_object_acl\" \"${MyResource}\" {",
-            "   bucket = \"\\${google_storage_bucket.image_store.name}\"",
-            "   object = \"\\${google_storage_bucket_object.image_store.name}\"",
-            "}"
-        ]
-    },
-    "azurerm": {
+    },    "azurerm": {
         "prefix":"tf-azurerm",
         "description": "Defines azurerm provider",
         "body": [
@@ -3992,8 +3114,236 @@
             "   }",
             "}"
         ]
+    },    "bitbucket": {
+        "prefix":"tf-bitbucket",
+        "description": "Defines bitbucket",
+        "body": [
+            "provider \"bitbucket\" {",
+            "   username = \"${bitbucketUsername}\"",
+            "   password = \"****\"",
+            "}"
+        ]
     },
-    "cloudstack": {
+    "bitbucket_default_reviewers": {
+        "prefix":"tf-bitbucket_default_reviewers",
+        "description": "Defines bitbucket_default_reviewers",
+        "body": [
+            "resource \"bitbucket_default_reviewers\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "bitbucket_hook": {
+        "prefix":"tf-bitbucket_hook",
+        "description": "Defines bitbucket_hook",
+        "body": [
+            "resource \"bitbucket_hook\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "bitbucket_repository": {
+        "prefix":"tf-bitbucket_repository",
+        "description": "Defines bitbucket_repository",
+        "body": [
+            "resource \"bitbucket_repository\" \"${MyResource}\" {",
+            "}"
+        ]
+    },    "clc": {
+        "prefix": "tf-clc",
+        "description": "define a clc provider.",
+        "body": [
+            "provider \"clc\" {",
+            "   username = \"\\${var.clc_username}\"",
+            "   password = \"\\${var.clc_password}\"",
+            "   account  = \"\\${var.clc_account}\" # optional",
+            "}"
+        ]
+    },
+    "clc_server": {
+        "prefix": "tf-clc_server",
+        "description": "define clc_server resource.",
+        "body": [
+            "resource \"clc_server\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   source_server_id = \"UBUNTU-14-64-TEMPLATE\"",
+            "   group_id = \"\\${clc_group.frontends.id}\"",
+            "   cpu = 2",
+            "   memory_mb = 2048",
+            "   password = \"Green123$\"",
+            "   additional_disks {",
+            "       path = \"/var\"",
+            "       size_gb = 100",
+            "       type = \"partitioned\"",
+            "   }\n",
+            "   additional_disks {",
+            "       size_gb = 10",
+            "       type = \"raw\"",
+            "   }",
+            "}"
+        ]
+    },
+    "clc_group": {
+        "prefix": "tf-clc_group",
+        "description": "define clc_group resource.",
+        "body": [
+            "resource \"clc_group\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   location_id = \"WA1\"",
+            "   name = \"frontends\"",
+            "   parent = \"Default Group\"",
+            "}"
+        ]
+    },
+    "clc_public_ip": {
+        "prefix": "tf-clc_public_ip",
+        "description": "define clc_public_ip resource.",
+        "body": [
+            "resource \"clc_public_ip\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   server_id = \"\\${clc_server.node.0.id}\"",
+            "   internal_ip_address = \"${clc_server.node.0.private_ip_address}\"",
+            "   ports {",
+            "       protocol = \"ICMP\"",
+            "       port = -1",
+            "   }\n",
+            "   ports {",
+            "       protocol = \"TCP\"",
+            "       port = 22",
+            "   }\n",
+            "   ports {",
+            "       protocol = \"TCP\"",
+            "       port = 2000",
+            "       port_to = 9000",
+            "   }\n",
+            "   source_restrictions {",
+            "       cidr = \"85.39.22.15/30\"",
+            "   }",
+            "}"
+        ]
+    },
+    "clc_load_balancer": {
+        "prefix": "tf-clc_load_balancer",
+        "description": "define clc_load_balancer resource.",
+        "body": [
+            "resource \"clc_load_balancer\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   data_center = \"\\${clc_group.frontends.location_id}\"",
+            "   name = \"api\"",
+            "   description = \"api load balancer\"",
+            "   status = \"enabled\"",
+            "}"
+        ]
+    },
+    "clc_load_balancer_pool": {
+        "prefix": "tf-clc_load_balancer_pool",
+        "description": "define clc_load_balancer_pool resource.",
+        "body": [
+            "resource \"clc_load_balancer_pool\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   data_center = \"\\${clc_group.frontends.location_id}\"",
+            "   load_balancer = \"\\${clc_load_balancer.api.id}\"",
+            "   method = \"roundRobin\"",
+            "   persistence = \"standard\"",
+            "   port = 80\n",
+            "   nodes {",
+            "       status = \"enabled\"",
+            "       ipAddress = \"\\${clc_server.node.0.private_ip_address}\"",
+            "       privatePort = 3000",
+            "   }\n",
+            "   nodes {",
+            "       status = \"enabled\"",
+            "       ipAddress = \"\\${clc_server.node.1.private_ip_address}\"",
+            "       privatePort = 3000",
+            "   }",
+            "}"
+        ]
+    },    "chef": {
+        "prefix":"tf-chef",
+        "description": "Defines chef",
+        "body": [
+            "provider \"chef\" {",
+            "   server_url  = \"${url}\"",
+            "   client_name = \"samplechef\"",
+            "}"
+        ]
+    },
+    "chef_data_bag": {
+        "prefix":"tf-chef_data_bag",
+        "description": "Defines chef_data_bag resource",
+        "body": [
+            "resource \"chef_data_bag\" \"${MyResource}\" {",
+            "   name = \"sampleName\"",
+            "}"
+        ]
+    },
+    "chef_data_bag_item": {
+        "prefix":"tf-chef_data_bag_item",
+        "description": "Defines chef_data_bag_item resource",
+        "body": [
+            "resource \"chef_data_bag_item\" \"${MyResource}\" {",
+            "   data_bag_name = \"example-data-bag\"",
+            "content_json = <<EOT",
+            "{",
+            "   \"id\": \"example-item\",",
+            "   \"any_arbitrary_data\": true",
+            "}",
+            "EOT",
+            "}"
+        ]
+    },
+    "chef_environment": {
+        "prefix":"tf-chef_environment",
+        "description": "Defines chef_environment resource",
+        "body": [
+            "resource \"chef_environment\" \"${MyResource}\" {",
+            "   name = \"example-environment\"",
+            "}"
+        ]
+    },
+    "chef_node": {
+        "prefix":"tf-chef_node",
+        "description": "Defines chef_node resource",
+        "body": [
+            "resource \"chef_node\" \"${MyResource}\" {",
+            "   name = \"example-environment\"",
+            "}"
+        ]
+    },
+    "chef_role": {
+        "prefix":"tf-chef_role",
+        "description": "Defines chef_role resource",
+        "body": [
+            "resource \"chef_role\" \"${MyResource}\" {",
+            "   name = \"example-environment\"",
+            "}"
+        ]
+    },    "cloudflare": {
+        "prefix":"tf-cloudflare",
+        "description": "Defines cloudflare provider",
+        "body": [
+            "provider \"cloudflare\" {",
+            "   email  = \"${email}\"",
+            "   token = \"example-token\"",
+            "}"
+        ]
+    },
+    "cloudflare_record": {
+        "prefix":"tf-cloudflare_record",
+        "description": "Defines cloudflare_record resource",
+        "body": [
+            "resource \"chef_role\" \"${MyResource}\" {",
+            "   domain = \"cloudflare_domain\"",
+            "   name = \"terraform\"",
+            "   value = \"192.168.0.11\"",
+            "   type = \"A\"",
+            "   ttl = 3600",
+            "}"
+        ]
+    },    "cloudstack": {
         "prefix": "tf-cloudstack",
         "description": "define a cloudstack.",
         "body": [
@@ -4303,272 +3653,7 @@
             "   vpn_gateway_id = \"a7900060-f8a8-44eb-be15-ea54cf499703\"",
             "}"
         ]
-    },
-    "softlayer": {
-        "prefix": "tf-softlayer",
-        "description": "define a softlayer provider.",
-        "body": [
-            "provider \"softlayer\" {",
-            "   username = \"\"",
-            "   api_key = \"\"",
-            "}"
-        ]
-    },
-    "softlayer_virtual_guest": {
-        "prefix": "tf-softlayer_virtual_guest",
-        "description": "define softlayer_virtual_guest resource.",
-        "body": [
-            "resource \"softlayer_virtual_guest\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   domain = \"bar.example.com\"",
-            "   image = \"DEBIAN_7_64\"",
-            "   region = \"ams01\"",
-            "   public_network_speed = 10",
-            "   hourly_billing = true",
-            "   private_network_only = false",
-            "   cpu = 1",
-            "   ram = 1024",
-            "   disks = [25, 10, 20]",
-            "   user_data = \"{\"value\":\"newvalue\"}\"",
-            "   dedicated_acct_host_only = true",
-            "   local_disk = false",
-            "   frontend_vlan_id = 1085155",
-            "   backend_vlan_id = 1085157",
-            "}"
-        ]
-    },
-    "softlayer_ssh_key": {
-        "prefix": "tf-softlayer_ssh_key",
-        "description": "define softlayer_ssh_key resource.",
-        "body": [
-            "resource \"softlayer_ssh_key\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   notes = \"test_ssh_key_notes\"",
-            "   public_key = \"ssh-rsa <rsa_public_key>\"",
-            "}"
-        ]
-    },
-    "scaleway": {
-        "prefix": "tf-scaleway",
-        "description": "define a scaleway provider.",
-        "body": [
-            "provider \"scaleway\" {",
-            "   access_key = \" \"",
-            "   organization = \" \"",
-            "   region = \"par1\"",
-            "}"
-        ]
-    },
-    "scaleway_bootscript": {
-        "prefix": "tf-scaleway_bootscript",
-        "description": "Define a scaleway_bootscript data",
-        "body": [
-            "data \"scaleway_bootscript\" \"${config}\" {",
-            "   architecture = \"arm\"",
-            "   name_filter = \"Rescue\"",
-            "}"
-        ]
-    },
-    "scaleway_image": {
-        "prefix": "tf-scaleway_image",
-        "description": "Define a scaleway_image data",
-        "body": [
-            "data \"scaleway_image\" \"${config}\" {",
-            "   architecture = \"arm\"",
-            "   name = \"Ubuntu Precise\"",
-            "}"
-        ]
-    },
-    "scaleway_ip": {
-        "prefix": "tf-scaleway_ip",
-        "description": "define scaleway_ip resource.",
-        "body": [
-            "resource \"scaleway_ip\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "}"
-        ]
-    },
-    "scaleway_server": {
-        "prefix": "tf-scaleway_server",
-        "description": "define scaleway_server resource.",
-        "body": [
-            "resource \"scaleway_server\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   image = \"5faef9cd-ea9b-4a63-9171-9e26bec03dbc\"",
-            "   type = \"VC1M\"\n",
-            "   volume {",
-            "       size_in_gb = 20",
-            "       type = \"l_ssd\"",
-            "   }",
-            "}"
-        ]
-    },
-    "scaleway_security_group": {
-        "prefix": "tf-scaleway_security_group",
-        "description": "define scaleway_security_group resource.",
-        "body": [
-            "resource \"scaleway_security_group\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"",
-            "}"
-        ]
-    },
-    "scaleway_security_group_rule": {
-        "prefix": "tf-scaleway_security_group_rule",
-        "description": "define scaleway_security_group_rule resource.",
-        "body": [
-            "resource \"scaleway_security_group_rule\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"",
-            "   security_group = \"\\${scaleway_security_group.test.id}\"\n",
-            "   action = \"accept\"",
-            "   direction = \"inbound\"",
-            "   ip_range = \"0.0.0.0/0\"",
-            "   protocol = \"TCP\"",
-            "   port = 25",
-            "}"
-        ]
-    },
-    "scaleway_volume": {
-        "prefix": "tf-scaleway_volume",
-        "description": "define scaleway_volume resource.",
-        "body": [
-            "resource \"scaleway_volume\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"",
-            "   size_in_gb = 20",
-            "   type = \"l_ssd\"",
-            "}"
-        ]
-    },
-    "scaleway_volume_attachment": {
-        "prefix": "tf-scaleway_volume_attachment",
-        "description": "define scaleway_volume_attachment resource.",
-        "body": [
-            "resource \"scaleway_volume_attachment\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"",
-            "   server = \"\\${scaleway_server.test.id}\"",
-            "   volume = \"\\${scaleway_volume.test.id}\"",
-            "}"
-        ]
-    },
-    "clc": {
-        "prefix": "tf-clc",
-        "description": "define a clc provider.",
-        "body": [
-            "provider \"clc\" {",
-            "   username = \"\\${var.clc_username}\"",
-            "   password = \"\\${var.clc_password}\"",
-            "   account  = \"\\${var.clc_account}\" # optional",
-            "}"
-        ]
-    },
-    "clc_server": {
-        "prefix": "tf-clc_server",
-        "description": "define clc_server resource.",
-        "body": [
-            "resource \"clc_server\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"",
-            "   source_server_id = \"UBUNTU-14-64-TEMPLATE\"",
-            "   group_id = \"\\${clc_group.frontends.id}\"",
-            "   cpu = 2",
-            "   memory_mb = 2048",
-            "   password = \"Green123$\"",
-            "   additional_disks {",
-            "       path = \"/var\"",
-            "       size_gb = 100",
-            "       type = \"partitioned\"",
-            "   }\n",
-            "   additional_disks {",
-            "       size_gb = 10",
-            "       type = \"raw\"",
-            "   }",
-            "}"
-        ]
-    },
-    "clc_group": {
-        "prefix": "tf-clc_group",
-        "description": "define clc_group resource.",
-        "body": [
-            "resource \"clc_group\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"",
-            "   location_id = \"WA1\"",
-            "   name = \"frontends\"",
-            "   parent = \"Default Group\"",
-            "}"
-        ]
-    },
-    "clc_public_ip": {
-        "prefix": "tf-clc_public_ip",
-        "description": "define clc_public_ip resource.",
-        "body": [
-            "resource \"clc_public_ip\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"",
-            "   server_id = \"\\${clc_server.node.0.id}\"",
-            "   internal_ip_address = \"${clc_server.node.0.private_ip_address}\"",
-            "   ports {",
-            "       protocol = \"ICMP\"",
-            "       port = -1",
-            "   }\n",
-            "   ports {",
-            "       protocol = \"TCP\"",
-            "       port = 22",
-            "   }\n",
-            "   ports {",
-            "       protocol = \"TCP\"",
-            "       port = 2000",
-            "       port_to = 9000",
-            "   }\n",
-            "   source_restrictions {",
-            "       cidr = \"85.39.22.15/30\"",
-            "   }",
-            "}"
-        ]
-    },
-    "clc_load_balancer": {
-        "prefix": "tf-clc_load_balancer",
-        "description": "define clc_load_balancer resource.",
-        "body": [
-            "resource \"clc_load_balancer\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"",
-            "   data_center = \"\\${clc_group.frontends.location_id}\"",
-            "   name = \"api\"",
-            "   description = \"api load balancer\"",
-            "   status = \"enabled\"",
-            "}"
-        ]
-    },
-    "clc_load_balancer_pool": {
-        "prefix": "tf-clc_load_balancer_pool",
-        "description": "define clc_load_balancer_pool resource.",
-        "body": [
-            "resource \"clc_load_balancer_pool\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"",
-            "   data_center = \"\\${clc_group.frontends.location_id}\"",
-            "   load_balancer = \"\\${clc_load_balancer.api.id}\"",
-            "   method = \"roundRobin\"",
-            "   persistence = \"standard\"",
-            "   port = 80\n",
-            "   nodes {",
-            "       status = \"enabled\"",
-            "       ipAddress = \"\\${clc_server.node.0.private_ip_address}\"",
-            "       privatePort = 3000",
-            "   }\n",
-            "   nodes {",
-            "       status = \"enabled\"",
-            "       ipAddress = \"\\${clc_server.node.1.private_ip_address}\"",
-            "       privatePort = 3000",
-            "   }",
-            "}"
-        ]
-    },
-    "cobbler": {
+    },    "cobbler": {
         "prefix": "tf-cobbler",
         "description": "define a cobbler provider.",
         "body": [
@@ -4653,8 +3738,65 @@
             "   }",
             "}"
         ]
+    },    "consul_keys": {
+        "prefix":"tf-consul_keys",
+        "description": "Defines consul_keys",
+        "body": [
+            "data \"consul_keys\" \"${MyConsulResource}\" {",
+            "   key {",
+            "       name = \"<your keyname here>\"",
+            "   }",
+            "}"
+        ]
     },
-    "datadog": {
+    "consul_agent_service": {
+        "prefix":"tf-consul_agent_service",
+        "description": "Defines consul_agent_service",
+        "body": [
+            "resource \"consul_agent_service\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "consul_catalog_entry": {
+        "prefix":"tf-consul_catalog_entry",
+        "description": "Defines consul_catalog_entry",
+        "body": [
+            "resource \"consul_catalog_entry\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "consul_key_prefix": {
+        "prefix":"tf-consul_key_prefix",
+        "description": "Defines consul_key_prefix",
+        "body": [
+            "resource \"consul_key_prefix\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "consul_node": {
+        "prefix":"tf-consul_node",
+        "description": "Defines consul_node",
+        "body": [
+            "resource \"consul_node\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "consul_prepared_query": {
+        "prefix":"tf-consul_prepared_query",
+        "description": "Defines consul_prepared_query",
+        "body": [
+            "resource \"consul_prepared_query\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "consul_service": {
+        "prefix":"tf-consul_service",
+        "description": "Defines consul_service",
+        "body": [
+            "resource \"consul_service\" \"${MyResource}\" {",
+            "}"
+        ]
+    },    "datadog": {
         "prefix": "tf-datadog",
         "description": "define a datadog provider.",
         "body": [
@@ -4715,8 +3857,96 @@
 
             "}"
         ]
+    },    "digitalocean": {
+        "prefix":"tf-digitalocean",
+        "description": "Defines digitalocean",
+        "body": [
+            "provider \"digitalocean\" {",
+            "   token = \"\\${var.${do_token}}\"",
+            "}"
+        ]
     },
-    "dme": {
+    "digitalocean_domain": {
+        "prefix":"tf-digitalocean_domain",
+        "description": "Defines digitalocean_domain",
+        "body": [
+            "resource \"digitalocean_domain\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "digitalocean_droplet": {
+        "prefix":"tf-digitalocean_droplet",
+        "description": "Defines digitalocean_droplet",
+        "body": [
+            "resource \"digitalocean_droplet\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "digitalocean_floating_ip": {
+        "prefix":"tf-digitalocean_floating_ip",
+        "description": "Defines digitalocean_floating_ip",
+        "body": [
+            "resource \"digitalocean_floating_ip\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "digitalocean_record": {
+        "prefix":"tf-digitalocean_record",
+        "description": "Defines digitalocean_record",
+        "body": [
+            "resource \"digitalocean_record\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "digitalocean_ssh_key": {
+        "prefix":"tf-digitalocean_ssh_key",
+        "description": "Defines digitalocean_ssh_key",
+        "body": [
+            "resource \"digitalocean_ssh_key\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "digitalocean_tag": {
+        "prefix":"tf-digitalocean_tag",
+        "description": "Defines digitalocean_tag",
+        "body": [
+            "resource \"digitalocean_tag\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "digitalocean_volume": {
+        "prefix":"tf-digitalocean_volume",
+        "description": "Defines digitalocean_volume",
+        "body": [
+            "resource \"digitalocean_volume\" \"${MyResource}\" {",
+            "}"
+        ]
+    },    "dnsimple": {
+        "prefix": "tf-dnsimple",
+        "description": "define a dnsimple provider.",
+        "body": [
+            "provider \"dnsimple\" {",
+            "   token = \"\\${var.dnsimple_token}\"",
+            "   email = \"\\${var.dnsimple_email}\"",
+            "}"
+        ]
+    },
+    "dnsimple_record": {
+        "prefix": "tf-dnsimple_record",
+        "description": "define dnsimple_record resource.",
+        "body": [
+            "resource \"dnsimple_record\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   # Add a record to the root domain",
+            "   domain = \"\\${var.dnsimple_domain}\"",
+            "   name = \"",
+            "   value = \"192.168.0.11\"",
+            "   type = \"A\"",
+            "   ttl = 3600",
+            "}"
+        ]
+    },    "dme": {
         "prefix": "tf-dme",
         "description": "define a dme provider.",
         "body": [
@@ -4742,34 +3972,47 @@
             "   gtdLocation = \"DEFAULT\"",
             "}"
         ]
-    },
-    "dnsimple": {
-        "prefix": "tf-dnsimple",
-        "description": "define a dnsimple provider.",
+    },    "docker_registry_image": {
+        "prefix":"tf-docker_registry_image",
+        "description": "Defines docker_registry_image",
         "body": [
-            "provider \"dnsimple\" {",
-            "   token = \"\\${var.dnsimple_token}\"",
-            "   email = \"\\${var.dnsimple_email}\"",
+            "data \"docker_registry_image\" \"${ubuntu}\" {",
+            "   name = \"ubuntu:precise\"",
             "}"
         ]
     },
-    "dnsimple_record": {
-        "prefix": "tf-dnsimple_record",
-        "description": "define dnsimple_record resource.",
+    "docker_container": {
+        "prefix":"tf-docker_container",
+        "description": "Defines docker_container",
         "body": [
-            "resource \"dnsimple_record\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   # Add a record to the root domain",
-            "   domain = \"\\${var.dnsimple_domain}\"",
-            "   name = \"",
-            "   value = \"192.168.0.11\"",
-            "   type = \"A\"",
-            "   ttl = 3600",
+            "resource \"docker_container\" \"${MyResource}\" {",
             "}"
         ]
     },
-    "dyn": {
+    "docker_image": {
+        "prefix":"tf-docker_image",
+        "description": "Defines docker_image",
+        "body": [
+            "resource \"docker_image\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "docker_network": {
+        "prefix":"tf-docker_network",
+        "description": "Defines docker_network",
+        "body": [
+            "resource \"docker_network\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "docker_volume": {
+        "prefix":"tf-docker_volume",
+        "description": "Defines docker_volume",
+        "body": [
+            "resource \"docker_volume\" \"${MyResource}\" {",
+            "}"
+        ]
+    },    "dyn": {
         "prefix": "tf-dyn",
         "description": "define a dyn provider.",
         "body": [
@@ -4794,8 +4037,7 @@
             "   ttl = 3600",
             "}"
         ]
-    },
-    "fastly": {
+    },    "fastly": {
         "prefix": "tf-fastly",
         "description": "define a fastly provider.",
         "body": [
@@ -4831,8 +4073,609 @@
             "   force_destroy = true",
             "}"
         ]
+    },    "github_membership": {
+        "prefix":"tf-github_membership",
+        "description": "Defines github_membership",
+        "body": [
+            "resource \"github_membership\" \"${MyResource}\" {",
+            "}"
+        ]
     },
-    "grafana": {
+    "github_repository": {
+        "prefix":"tf-github_repository",
+        "description": "Defines github_repository",
+        "body": [
+            "resource \"github_repository\" \"${MyResource}\" {",
+            "   name        = \"example\"",
+            "   description = \"example\"",
+            "",
+            "}"
+        ]
+    },
+    "github_repository_collaborator": {
+        "prefix":"tf-github_repository_collaborator",
+        "description": "Defines github_repository_collaborator",
+        "body": [
+            "resource \"github_repository_collaborator\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "github_team": {
+        "prefix":"tf-github_team",
+        "description": "Defines github_team",
+        "body": [
+            "resource \"github_team\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "github_team_membership": {
+        "prefix":"tf-github_team_membership",
+        "description": "Defines github_team_membership",
+        "body": [
+            "resource \"github_team_membership\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "github_team_repository": {
+        "prefix":"tf-github_team_repository",
+        "description": "Defines github_team_repository",
+        "body": [
+            "resource \"github_team_repository\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "github_issue_label": {
+        "prefix":"tf-github_issue_label",
+        "description": "Defines github_issue_label",
+        "body": [
+            "resource \"github_issue_label\" \"${MyResource}\" {",
+            "}"
+        ]
+    },    "gitlab": {
+        "prefix": "tf-gitlab",
+        "description": "define a GitLab provider.",
+        "body": [
+            "provider \"gitlab\" {",
+            "   token = \"${myGitLabToken}\"",
+            "}"
+        ]
+    },
+    "gitlab_deploy_key": {
+        "prefix": "tf-gitlab_deploy_key",
+        "description": "define a gitlab_deploy_key resource.",
+        "body": [
+            "resource \"gitlab_deploy_key\" \"${example}\" {",
+            "   project = \"${example}/deploying\"",
+            "   title   = \"${example} deploy key\"",
+            "   key     = \"ssh-rsa AAAA\"",
+            "}"
+        ]
+    },
+    "gitlab_group": {
+        "prefix": "tf-gitlab_group",
+        "description": "define a gitlab_group resource.",
+        "body": [
+            "resource \"gitlab_group\" \"${example}\" {",
+            "   name        = \"${example}\"",
+            "   path        = \"${example}\"",
+            "   description = \"${example} description\"",
+            "}"
+        ]
+    },
+    "gitlab_project_hook": {
+        "prefix": "tf-gitlab_project_hook",
+        "description": "define a  gitlab_project_hook resource.",
+        "body": [
+            "resource \"gitlab_project_hook\" \"${example}\" {",
+            "   project = \"${example}/hooked\"",
+            "   url     = \"https://${example}.com/hooke/example\"",
+            "}"
+        ]
+    },
+    "gitlab_project": {
+        "prefix": "tf-gitlab_project",
+        "description": "define a  gitlab_project resource.",
+        "body": [
+            "resource \"gitlab_project\" \"${example}\" {",
+            "   name        = \"${example}\"",
+            "   description = \"${example}\"",
+            "}"
+        ]
+    },    "google": {
+        "prefix":"tf-google",
+        "description": "Defines google provider",
+        "body": [
+            "provider \"google\" {",
+            "   credentials = \"credentials -example\"",
+            "   project     = \"project-example\"",
+            "   region      = \"us-central1\"",
+            "}"
+        ]
+    },
+    "google_iam_policy": {
+        "prefix":"tf-google_iam_policy",
+        "description": "Defines google_iam_policy policy",
+        "body": [
+            "data \"google_iam_policy\" \"${admin}\" {",
+            "   binding {",
+            "       role = \"roles/compute.instanceAdmin\"",
+            "           members = [",
+            "               \"serviceAccount:your-custom-sa@your-project.iam.gserviceaccount.com\",",
+            "           ]",
+            "   }",
+            "   binding {",
+            "       role = \"roles/storage.objectViewer\"",
+            "       members = [",
+            "           \"user:evanbrown@google.com\",",
+            "       ]",
+            "   }",
+            "}"
+        ]
+    },
+    "google_project": {
+        "prefix":"tf-google_project",
+        "description": "Defines google_project resource",
+        "body": [
+            "resource \"google_project\" \"${MyResource}\" {",
+            "   id          = \"example-id\"",
+            "   policy_data = \"example-policy_data\"",
+            "}"
+        ]
+    },
+    "google_compute_address": {
+        "prefix":"tf-google_compute_address",
+        "description": "Defines google_compute_address resource",
+        "body": [
+            "resource \"google_compute_address\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "}"
+        ]
+    },
+    "google_compute_autoscaler": {
+        "prefix":"tf-google_compute_autoscaler",
+        "description": "Defines google_compute_autoscaler resource",
+        "body": [
+            "resource \"google_compute_autoscaler\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   zone = \"example-zone\"",
+            "   target = \"example-target\"",
+            "   autoscaling_policy = {",
+            "       max_replicas    = 5",
+            "       min_replicas    = 1",
+            "       cooldown_period = 60\n",
+            "       cpu_utilization {",
+            "           target = 0.5",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "google_pubsub_subscription": {
+        "prefix":"tf-google_pubsub_subscription",
+        "description": "Defines google_pubsub_subscription resource",
+        "body": [
+            "resource \"google_pubsub_subscription\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   topic = \"example-topic\"",
+            "}"
+        ]
+    },
+    "google_compute_backend_service": {
+        "prefix":"tf-google_compute_backend_service",
+        "description": "Defines google_compute_backend_service resource",
+        "body": [
+            "resource \"google_compute_backend_service\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   health_checks  = [\"example-health_checks\"]",
+            "}"
+        ]
+    },
+    "google_compute_disk": {
+        "prefix":"tf-google_compute_disk",
+        "description": "Defines google_compute_disk resource",
+        "body": [
+            "resource \"google_compute_disk\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   type = \"pd-ssd\"",
+            "   zone = \"us-central1-a\"",
+            "   image = \"debian7-wheezy\"",
+            "}"
+        ]
+    },
+    "google_compute_firewall": {
+        "prefix":"tf-google_compute_firewall",
+        "description": "Defines google_compute_firewall resource",
+        "body": [
+            "resource \"google_compute_firewall\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   network = \"example-network\"",
+            "   allow {",
+            "       protocol = \"icmp\"",
+            "   }",
+            "}"
+        ]
+    },
+    "google_compute_forwarding_rule": {
+        "prefix":"tf-google_compute_forwarding_rule",
+        "description": "Defines google_compute_forwarding_rule resource",
+        "body": [
+            "resource \"google_compute_forwarding_rule\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   target = \"\\${google_compute_target_pool.default.self_link}\"",
+            "   port_range = \"80\"",
+            "}"
+        ]
+    },
+    "google_compute_global_address": {
+        "prefix":"tf-google_compute_global_address",
+        "description": "Defines google_compute_global_address resource",
+        "body": [
+            "resource \"google_compute_global_address\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "}"
+        ]
+    },
+    "google_compute_global_forwarding_rule": {
+        "prefix":"tf-google_compute_global_forwarding_rule",
+        "description": "Defines google_compute_global_forwarding_rule resource",
+        "body": [
+            "resource \"google_compute_global_forwarding_rule\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   target = \"\\${google_compute_target_http_proxy.default.self_link}\"",
+            "   port_range = \"80\"",
+            "}"
+        ]
+    },
+    "google_compute_http_health_check": {
+        "prefix":"tf-google_compute_http_health_check",
+        "description": "Defines google_compute_http_health_check resource",
+        "body": [
+            "resource \"google_compute_http_health_check\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   request_path  = \"/health_check\"",
+            "   timeout_sec = 1",
+            "   check_interval_sec = 1",
+            "}"
+        ]
+    },
+    "google_compute_https_health_check": {
+        "prefix":"tf-google_compute_https_health_check",
+        "description": "Defines google_compute_https_health_check resource",
+        "body": [
+            "resource \"google_compute_https_health_check\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   request_path  = \"/health_check\"",
+            "   timeout_sec = 1",
+            "   check_interval_sec = 1",
+            "}"
+        ]
+    },
+    "google_compute_image": {
+        "prefix":"tf-google_compute_image",
+        "description": "Defines google_compute_image resource",
+        "body": [
+            "resource \"google_compute_image\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   raw_disk {",
+            "       source = \"https://storage.googleapis.com/my-bucket/my-disk-image-tarball.tar.gz\"",
+            "   }",
+            "}"
+        ]
+    },
+    "google_compute_instance": {
+        "prefix":"tf-google_compute_instance",
+        "description": "Defines google_compute_instance resource",
+        "body": [
+            "resource \"google_compute_instance\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   machine_type = \"n1-standard-1\"",
+            "   zone = \"us-central1-a\"",
+            "   disk { image = \"debian-cloud/debian-8\" }",
+            "}"
+        ]
+    },
+    "google_compute_instance_group": {
+        "prefix":"tf-google_compute_instance_group",
+        "description": "Defines google_compute_instance_group resource",
+        "body": [
+            "resource \"google_compute_instance_group\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   zone = \"us-central1-a\"",
+            "}"
+        ]
+    },
+    "google_compute_instance_group_manager": {
+        "prefix":"tf-google_compute_instance_group_manager",
+        "description": "Defines google_compute_instance_group_manager resource",
+        "body": [
+            "resource \"google_compute_instance_group_manager\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   base_instance_name = \"example-base_instance_name\"",
+            "   instance_template = \"\\${google_compute_instance_template.foobar.self_link}\"",
+            "   zone = \"us-central1-a\"",
+            "}"
+        ]
+    },
+    "google_compute_instance_template": {
+        "prefix":"tf-google_compute_instance_template",
+        "description": "Defines google_compute_instance_template resource",
+        "body": [
+            "resource \"google_compute_instance_template\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   machine_type = \"n1-standard-1\"",
+            "   disk {",
+            "       source_image = \"debian-cloud/debian-8\"",
+            "       auto_delete = true",
+            "       boot = true",
+            "   }",
+            "}"
+        ]
+    },
+    "google_compute_network": {
+        "prefix":"tf-google_compute_network",
+        "description": "Defines google_compute_network resource",
+        "body": [
+            "resource \"google_compute_network\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   ipv4_range = \"10.0.0.0/16\"",
+            "}"
+        ]
+    },
+    "google_compute_project_metadata": {
+        "prefix":"tf-google_compute_project_metadata",
+        "description": "Defines google_compute_project_metadata resource",
+        "body": [
+            "resource \"google_compute_project_metadata\" \"${MyResource}\" {",
+            "   metadata {",
+            "       foo  = \"bar\"",
+            "       fizz = \"buzz\"",
+            "       13   = \"42\"",
+            "   }",
+            "}"
+        ]
+    },
+    "google_compute_route": {
+        "prefix":"tf-google_compute_route",
+        "description": "Defines google_compute_route resource",
+        "body": [
+            "resource \"google_compute_route\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   dest_range = \"15.0.0.0/24\"",
+            "   network = \"\\${google_compute_network.foobar.name}\"",
+            "   next_hop_ip = \"10.0.1.5\"",
+            "   priority = 100",
+            "}"
+        ]
+    },
+    "google_compute_ssl_certificate": {
+        "prefix":"tf-google_compute_ssl_certificate",
+        "description": "Defines google_compute_ssl_certificate resource",
+        "body": [
+            "resource \"google_compute_ssl_certificate\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   private_key = \"\\${file(\"path/to/private.key\")}\"",
+            "   certificate = \"\\${file(\"path/to/certificate.crt\")}",
+            "}"
+        ]
+    },
+    "google_compute_subnetwork": {
+        "prefix":"tf-google_compute_subnetwork",
+        "description": "Defines google_compute_subnetwork resource",
+        "body": [
+            "resource \"google_compute_subnetwork\" \"${MyResource}\" {",
+            "   name          = \"default-us-east1\"",
+            "   ip_cidr_range = \"10.0.0.0/16\"",
+            "   network       = \"\\${google_compute_network.default.self_link}\"",
+            "   region        = \"us-east1\"",
+            "}"
+        ]
+    },
+    "google_compute_target_http_proxy": {
+        "prefix":"tf-google_compute_target_http_proxy",
+        "description": "Defines google_compute_target_http_proxy resource",
+        "body": [
+            "resource \"google_compute_target_http_proxy\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   url_map = \"\\${google_compute_url_map.default.self_link}\"",
+            "}"
+        ]
+    },
+    "google_compute_target_https_proxy": {
+        "prefix":"tf-google_compute_target_https_proxy",
+        "description": "Defines google_compute_target_https_proxy resource",
+        "body": [
+            "resource \"google_compute_target_https_proxy\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"",
+            "   url_map = \"\\${google_compute_url_map.default.self_link}\"",
+            "   ssl_certificates = [\"\\${google_compute_ssl_certificate.default.self_link}\"]",
+            "}"
+        ]
+    },
+    "google_compute_target_pool": {
+        "prefix":"tf-google_compute_target_pool",
+        "description": "Defines google_compute_target_pool resource",
+        "body": [
+            "resource \"google_compute_target_pool\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   instances = [",
+            "       \"us-central1-a/myinstance1\",",
+            "       \"us-central1-b/myinstance2\",",
+            "   ]\n",
+            "   health_checks = [",
+            "       \"\\${google_compute_http_health_check.default.name}\",",
+            "   ]",
+            "}"
+        ]
+    },
+    "google_compute_url_map": {
+        "prefix":"tf-google_compute_url_map",
+        "description": "Defines google_compute_url_map resource",
+        "body": [
+            "resource \"google_compute_url_map\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   default_service = \"\\${google_compute_backend_service.home.self_link}\"",
+            "}"
+        ]
+    },
+    "google_compute_vpn_gateway": {
+        "prefix":"tf-google_compute_vpn_gateway",
+        "description": "Defines google_compute_vpn_gateway resource",
+        "body": [
+            "resource \"google_compute_vpn_gateway\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   network = \"\\${google_compute_network.network1.self_link}\"",
+            "   region = \"\\${var.region}\"",
+            "}"
+        ]
+    },
+    "google_compute_vpn_tunnel": {
+        "prefix":"tf-google_compute_vpn_tunnel",
+        "description": "Defines google_compute_vpn_tunnel resource",
+        "body": [
+            "resource \"google_compute_vpn_tunnel\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   peer_ip = \"15.0.0.120\"",
+            "   shared_secret = \"a shared_secret\"",
+            "   target_vpn_gateway = \"\\${google_compute_vpn_gateway.target_gateway.self_link}\"",
+            "}"
+        ]
+    },
+    "google_container_cluster": {
+        "prefix":"tf-google_container_cluster",
+        "description": "Defines google_container_cluster resource",
+        "body": [
+            "resource \"google_container_cluster\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   zone = \"us-central1-a\"",
+            "   initial_node_count = 1\n",
+            "   master_auth {",
+            "       username = \"mr.yoda\"",
+            "       password = \"adoy.rm\"",
+            "   }",
+            "}"
+        ]
+    },
+    "google_dns_managed_zone": {
+        "prefix":"tf-google_dns_managed_zone",
+        "description": "Defines google_dns_managed_zone resource",
+        "body": [
+            "resource \"google_dns_managed_zone\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   dns_name = \"prod.mydomain.com.\"",
+            "}"
+        ]
+    },
+    "google_dns_record_set": {
+        "prefix":"tf-google_dns_record_set",
+        "description": "Defines google_dns_record_set resource",
+        "body": [
+            "resource \"google_dns_record_set\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   type = \"A\"",
+            "   ttl = 300",
+            "}"
+        ]
+    },
+    "google_pubsub_topic": {
+        "prefix":"tf-google_pubsub_topic",
+        "description": "Defines google_pubsub_topic resource",
+        "body": [
+            "resource \"google_pubsub_topic\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "}"
+        ]
+    },
+    "google_sql_database": {
+        "prefix":"tf-google_sql_database",
+        "description": "Defines google_sql_database resource",
+        "body": [
+            "resource \"google_sql_database\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   instance = \"\\${google_sql_database_instance.master.name}\"",
+            "}"
+        ]
+    },
+    "google_sql_database_instance": {
+        "prefix":"tf-google_sql_database_instance",
+        "description": "Defines google_sql_database_instance resource",
+        "body": [
+            "resource \"google_sql_database_instance\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   region = \"us-central",
+            "   settings { tier = \"D0\" }",
+            "}"
+        ]
+    },
+    "google_sql_user": {
+        "prefix":"tf-google_sql_user",
+        "description": "Defines google_sql_user resource",
+        "body": [
+            "resource \"google_sql_user\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "   host = \"me.com",
+            "   password = \"example-password\"",
+            "   instance = \"\\${google_sql_database_instance.master.name}\"",
+            "}"
+        ]
+    },
+    "google_storage_bucket": {
+        "prefix":"tf-google_storage_bucket",
+        "description": "Defines google_storage_bucket resource",
+        "body": [
+            "resource \"google_storage_bucket\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   description = \"example-description\"\n",
+            "}"
+        ]
+    },
+    "google_storage_bucket_acl": {
+        "prefix":"tf-google_storage_bucket_acl",
+        "description": "Defines google_storage_bucket_acl resource",
+        "body": [
+            "resource \"google_storage_bucket_acl\" \"${MyResource}\" {",
+            "   bucket = \"\\${google_storage_bucket.image_store.name}\"",
+            "}"
+        ]
+    },
+    "google_storage_bucket_object": {
+        "prefix":"tf-google_storage_bucket_object",
+        "description": "Defines google_storage_bucket_object resource",
+        "body": [
+            "resource \"google_storage_bucket_object\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
+            "   bucket = \"bucket-store\"",
+            "   source = \"/images/nature/garden-tiger-moth.jpg\"",
+            "}"
+        ]
+    },
+    "google_storage_object_acl": {
+        "prefix":"tf-google_storage_object_acl",
+        "description": "Defines google_storage_object_acl resource",
+        "body": [
+            "resource \"google_storage_object_acl\" \"${MyResource}\" {",
+            "   bucket = \"\\${google_storage_bucket.image_store.name}\"",
+            "   object = \"\\${google_storage_bucket_object.image_store.name}\"",
+            "}"
+        ]
+    },    "grafana": {
         "prefix": "tf-grafana",
         "description": "define a grafana provider.",
         "body": [
@@ -4867,8 +4710,56 @@
             "   database_name = \"\\${influxdb_database.metrics.name}\"",
             "}"
         ]
+    },    "heroku": {
+        "prefix":"tf-heroku",
+        "description": "Defines heroku",
+        "body": [
+            "provider \"heroku\" {",
+            "   email = \"ops@company.com\"",
+            "   api_key = \"\\${var.heroku_api_key}\"",
+            "}"
+        ]
     },
-    "influxdb": {
+    "heroku_addon": {
+        "prefix":"tf-heroku_addon",
+        "description": "Defines heroku_addon",
+        "body": [
+            "resource \"heroku_addon\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "heroku_app": {
+        "prefix":"tf-heroku_app",
+        "description": "Defines heroku_app",
+        "body": [
+            "resource \"heroku_app\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "heroku_cert": {
+        "prefix":"tf-heroku_cert",
+        "description": "Defines heroku_cert",
+        "body": [
+            "resource \"heroku_cert\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "heroku_domain": {
+        "prefix":"tf-heroku_domain",
+        "description": "Defines heroku_domain",
+        "body": [
+            "resource \"heroku_domain\" \"${MyResource}\" {",
+            "}"
+        ]
+    },
+    "heroku_drain": {
+        "prefix":"tf-heroku_drain",
+        "description": "Defines heroku_drain",
+        "body": [
+            "resource \"heroku_drain\" \"${MyResource}\" {",
+            "}"
+        ]
+    },    "influxdb": {
         "prefix": "tf-influxdb",
         "description": "define a influxdb provider.",
         "body": [
@@ -4914,8 +4805,7 @@
             "   query = \"SELECT min(mouse) INTO min_mouse FROM zoo GROUP BY time(30m)\"",
             "}"
         ]
-    },
-    "librato": {
+    },    "librato": {
         "prefix": "tf-librato",
         "description": "define a librato provider.",
         "body": [
@@ -4982,8 +4872,7 @@
             "   }",
             "}"
         ]
-    },
-    "logentries": {
+    },    "logentries": {
         "prefix": "tf-logentries",
         "description": "define a logentries provider.",
         "body": [
@@ -5014,8 +4903,7 @@
             "   location = \"www.example.com\"",
             "}"
         ]
-    },
-    "mailgun": {
+    },    "mailgun": {
         "prefix": "tf-mailgun",
         "description": "define a mailgun provider.",
         "body": [
@@ -5035,592 +4923,49 @@
             "   smtp_password = \"foobar\"",
             "}"
         ]
-    },
-    "packet": {
-        "prefix": "tf-packet",
-        "description": "define a packet provider.",
+    },    "mysql": {
+        "prefix":"tf-mysql",
+        "description": "Defines mysql provider",
         "body": [
-            "provider \"packet\" {",
-            "   auth_token = \"${auth_token}\"",
+            "provider \"mysql\" {",
+            "   endpoint  = \"endpoint-example\"",
+            "   username  = \"username-example\"",
+            "   password  = \"password-example\"",
             "}"
         ]
     },
-    "packet_device": {
-        "prefix": "tf-packet_device",
-        "description": "define packet_device resource.",
+    "mysql_database": {
+        "prefix":"tf-mysql_database",
+        "description": "Defines mysql_database resource",
         "body": [
-            "resource \"packet_device\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   hostname = \"tf.coreos2\"",
-            "   plan = \"baremetal_1\"",
-            "   facility = \"ewr1\"",
-            "   operating_system = \"coreos_stable\"",
-            "   billing_cycle = \"hourly\"",
-            "   project_id = \"\\${packet_project.cool_project.id}\"",
+            "resource \"mysql_database\" \"${MyResource}\" {",
+            "   name = \"example-name\"",
             "}"
         ]
     },
-    "packet_project": {
-        "prefix": "tf-packet_project",
-        "description": "define packet_project resource.",
+    "mysql_grant": {
+        "prefix":"tf-mysql_grant",
+        "description": "Defines mysql_grant resource",
         "body": [
-            "resource \"packet_project\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   payment_method = \"payment_method-id\"",
+            "resource \"mysql_grant\" \"${MyResource}\" {",
+            "   user        = \"example-user\"",
+            "   host        = \"example-host\"",
+            "   database    = \"example-database\"",
+            "   privileges  = \"example-privileges \"",
             "}"
         ]
     },
-    "packet_ssh_key": {
-        "prefix": "tf-packet_ssh_key",
-        "description": "define packet_ssh_key resource.",
+    "mysql_user": {
+        "prefix":"tf-mysql_user",
+        "description": "Defines mysql_user resource",
         "body": [
-            "resource \"packet_ssh_key\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   public_key = \"\\${file(\"/home/terraform/.ssh/id_rsa.pub\")}\"",
+            "resource \"mysql_user\" \"${MyResource}\" {",
+            "   user        = \"example-user\"",
+            "   host        = \"example-host\"",
+            "   password    = \"example-password \"",
             "}"
         ]
-    },
-    "packet_volume": {
-        "prefix": "tf-packet_volume",
-        "description": "define packet_volume resource.",
-        "body": [
-            "resource \"packet_volume\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   facility = \"ewr1\"",
-            "   project_id = \"\\${packet_project.cool_project.id}\"",
-            "   plan = \"storage_1\"",
-            "   size = 100",
-            "   billing_cycle = \"hourly\"",
-            "   snapshot_policies = { snapshot_frequency = \"1day\", snapshot_count = 7 }",
-            "   snapshot_policies = { snapshot_frequency = \"1month\", snapshot_count = 6 }",
-            "}"
-        ]
-    },
-    "pagerduty": {
-        "prefix": "tf-pagerduty",
-        "description": "define a pagerduty provider.",
-        "body": [
-            "provider \"pagerduty\" {",
-            "   token = \"${token}\"",
-            "}"
-        ]
-    },
-    "pagerduty_vendor": {
-        "prefix": "tf-pagerduty_vendor",
-        "description": "Define a pagerduty_vendor template",
-        "body": [
-            "data \"pagerduty_vendor\" \"${config}\" {",
-            "   name_regex = \"^Datadog$\"",
-            "}"
-        ]
-    },
-    "pagerduty_user": {
-        "prefix": "tf-pagerduty_user",
-        "description": "define pagerduty_user resource.",
-        "body": [
-            "resource \"pagerduty_user\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   email = \"125.greenholt.earline@graham.name\"",
-            "   teams = [\"${pagerduty_team.example.id}\"]",
-            "}"
-        ]
-    },
-    "pagerduty_team": {
-        "prefix": "tf-pagerduty_team",
-        "description": "define pagerduty_team resource.",
-        "body": [
-            "resource \"pagerduty_team\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "}"
-        ]
-    },
-    "pagerduty_escalation_policy": {
-        "prefix": "tf-pagerduty_escalation_policy",
-        "description": "define pagerduty_escalation_policy resource.",
-        "body": [
-            "resource \"pagerduty_escalation_policy\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   num_loops = 2",
-            "   teams     = [\"\\${pagerduty_team.example.id}\"]\n",
-            "   rule {",
-            "       escalation_delay_in_minutes = 10",
-            "       target {",
-            "           type = \"user\"",
-            "           id   = \"\\${pagerduty_user.example.id}\"",
-            "       }",
-            "   }",
-            "}"
-        ]
-    },
-    "pagerduty_schedule": {
-        "prefix": "tf-pagerduty_schedule",
-        "description": "define pagerduty_schedule resource.",
-        "body": [
-            "resource \"pagerduty_schedule\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   time_zone = \"America/New_York\"\n",
-            "   layer {",
-            "       name                         = \"Night Shift\"",
-            "       start                        = \"2015-11-06T20:00:00-05:00\"",
-            "       rotation_virtual_start       = \"2015-11-06T20:00:00-05:00\"",
-            "       rotation_turn_length_seconds = 86400",
-            "       users                        = [\"\\${pagerduty_user.foo.id}\"]",
-            "       restriction {",
-            "           type              = \"daily_restriction\"",
-            "           start_time_of_day = \"08:00:00\"",
-            "           duration_seconds  = 32400",
-            "       }",
-            "   }",
-            "}"
-        ]
-    },
-    "pagerduty_service": {
-        "prefix": "tf-pagerduty_service",
-        "description": "define pagerduty_service resource.",
-        "body": [
-            "resource \"pagerduty_service\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   auto_resolve_timeout    = 14400",
-            "   acknowledgement_timeout = 600",
-            "   escalation_policy       = \"\\${pagerduty_escalation_policy.example.id}\"",
-            "}"
-        ]
-    },
-    "pagerduty_service_integration": {
-        "prefix": "tf-pagerduty_service_integration",
-        "description": "define pagerduty_service_integration resource.",
-        "body": [
-            "resource \"pagerduty_service_integration\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   type    = \"generic_events_api_inbound_integration\"",
-            "   service = \"\\${pagerduty_service.example.id}\"",
-            "   vendor  = \"\\${data.pagerduty_vendor.datadog.id}\"",
-            "}"
-        ]
-    },
-    "powerdns": {
-        "prefix": "tf-powerdns",
-        "description": "define a powerdns provider.",
-        "body": [
-            "provider \"powerdns\" {",
-            "   api_key = \"\\${var.pdns_api_key}\"",
-            "   server_url = \"\\${var.pdns_server_url}\"",
-            "}"
-        ]
-    },
-    "powerdns_record": {
-        "prefix": "tf-powerdns_record",
-        "description": "define powerdns_record resource.",
-        "body": [
-            "resource \"powerdns_record\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   zone = \"example.com.\"",
-            "   type = \"A\"",
-            "   ttl = 300",
-            "   records = [\"192.168.0.11\"]",
-            "}"
-        ]
-    },
-    "rabbitmq": {
-        "prefix": "tf-rabbitmq",
-        "description": "define a rabbitmq provider.",
-        "body": [
-            "provider \"rabbitmq\" {",
-            "   endpoint = \"http://127.0.0.1\"",
-            "   username = \"guest\"",
-            "   password = \"guest\"",
-            "}"
-        ]
-    },
-    "rabbitmq_binding": {
-        "prefix": "tf-rabbitmq_binding",
-        "description": "define rabbitmq_binding resource.",
-        "body": [
-            "resource \"rabbitmq_binding\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   source = \"\\${rabbitmq_exchange.test.name}\"",
-            "   vhost = \"\\${rabbitmq_vhost.test.name}\"",
-            "   destination = \"\\${rabbitmq_queue.test.name}\"",
-            "   destination_type = \"queue\"",
-            "   routing_key = \"#\"",
-            "   properties_key = \"%23\"",
-            "}"
-        ]
-    },
-    "rabbitmq_exchange": {
-        "prefix": "tf-rabbitmq_exchange",
-        "description": "define rabbitmq_exchange resource.",
-        "body": [
-            "resource \"rabbitmq_exchange\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   vhost = \"\\${rabbitmq_permissions.guest.vhost}\"",
-            "   settings {",
-            "       type = \"fanout\"",
-            "       durable = false",
-            "       auto_delete = true",
-            "   }",
-            "}"
-        ]
-    },
-    "rabbitmq_permissions": {
-        "prefix": "tf-rabbitmq_permissions",
-        "description": "define rabbitmq_permissions resource.",
-        "body": [
-            "resource \"rabbitmq_permissions\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   user = \"${rabbitmq_user.test.name}\"",
-            "   vhost = \"${rabbitmq_vhost.test.name}\"",
-            "   permissions {",
-            "       configure = \".*\"",
-            "       write = \".*\"",
-            "       read = \".*\"",
-            "   }",
-            "}"
-        ]
-    },
-    "rabbitmq_policy": {
-        "prefix": "tf-rabbitmq_policy",
-        "description": "define rabbitmq_policy resource.",
-        "body": [
-            "resource \"rabbitmq_policy\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   vhost = \"\\${rabbitmq_permissions.guest.vhost}\"",
-            "   policy {",
-            "       pattern = \".*\"",
-            "       priority = 0",
-            "       apply_to = \"all\"",
-            "       definition {",
-            "           ha-mode = \"all\"",
-            "       }",
-            "   }",
-            "}"
-        ]
-    },
-    "rabbitmq_queue": {
-        "prefix": "tf-rabbitmq_queue",
-        "description": "define rabbitmq_queue resource.",
-        "body": [
-            "resource \"rabbitmq_queue\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   vhost = \"\\${rabbitmq_permissions.guest.vhost}\"",
-            "   settings {",
-            "       durable = false",
-            "       auto_delete = true",
-            "   }",
-            "}"
-        ]
-    },
-    "rabbitmq_user": {
-        "prefix": "tf-rabbitmq_user",
-        "description": "define rabbitmq_user resource.",
-        "body": [
-            "resource \"rabbitmq_user\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   password = \"foobar\"",
-            "   tags = [\"administrator\", \"management\"]",
-            "}"
-        ]
-    },
-    "rabbitmq_vhost": {
-        "prefix": "tf-rabbitmq_vhost",
-        "description": "define rabbitmq_vhost resource.",
-        "body": [
-            "resource \"rabbitmq_vhost\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "}"
-        ]
-    },
-    "random_id": {
-        "prefix": "tf-random_id",
-        "description": "define random_id resource.",
-        "body": [
-            "resource \"random_id\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   keepers = {",
-            "       # Generate a new id each time we switch to a new AMI id",
-            "       ami_id = \"${var.ami_id}\"",
-            "   }",
-            "   byte_length = 8",
-            "}"
-        ]
-    },
-    "random_shuffle": {
-        "prefix": "tf-random_shuffle",
-        "description": "define random_shuffle resource.",
-        "body": [
-            "resource \"random_shuffle\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   input = [\"us-west-1a\", \"us-west-1c\", \"us-west-1d\", \"us-west-1e\"]",
-            "   result_count = 2",
-            "}"
-        ]
-    },
-    "rundeck": {
-        "prefix": "tf-rundeck",
-        "description": "define a rundeck provider.",
-        "body": [
-            "provider \"rundeck\" {",
-            "   url = \"http://rundeck.example.com/\"",
-            "   auth_token = \"abcd1234\"",
-            "}"
-        ]
-    },
-    "rundeck_project": {
-        "prefix": "tf-rundeck_project",
-        "description": "define rundeck_project resource.",
-        "body": [
-            "resource \"rundeck_project\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   ssh_key_storage_path = \"anvils/id_rsa\"",
-            "   resource_model_source {",
-            "       type = \"file\"",
-            "       config = {",
-            "       format = \"resourcexml\"",
-            "           # This path is interpreted on the Rundeck server.",
-            "           file = \"/var/rundeck/projects/anvils/resources.xml\"",
-            "       }",
-            "   }",
-            "}"
-        ]
-    },
-    "rundeck_private_key": {
-        "prefix": "tf-rundeck_private_key",
-        "description": "define rundeck_private_key resource.",
-        "body": [
-            "resource \"rundeck_private_key\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   path = \"anvils/id_rsa\"",
-            "   key_material = \"\\${file(\"/id_rsa\")}\"",
-            "}"
-        ]
-    },
-    "rundeck_public_key": {
-        "prefix": "tf-rundeck_public_key",
-        "description": "define rundeck_public_key resource.",
-        "body": [
-            "resource \"rundeck_public_key\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   path = \"anvils/id_rsa.pub\"",
-            "   key_material = \"ssh-rsa yada-yada-yada\"",
-            "}"
-        ]
-    },
-    "rundeck_job": {
-        "prefix": "tf-rundeck_job",
-        "description": "define rundeck_job resource.",
-        "body": [
-            "resource \"rundeck_job\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   project_name = \"anvils\"",
-            "   node_filter_query = \"tags: web\"",
-            "   command {",
-            "       shell_command = \"sudo service anvils restart\"",
-            "   }",
-            "}"
-        ]
-    },
-    "statuscake": {
-        "prefix": "tf-statuscake",
-        "description": "define a statuscake provider.",
-        "body": [
-            "provider \"statuscake\" {",
-            "   username = \"username\"",
-            "   apikey = \"apikey\"",
-            "}"
-        ]
-    },
-    "statuscake_test": {
-        "prefix": "tf-statuscake_test",
-        "description": "define statuscake_test resource.",
-        "body": [
-            "resource \"statuscake_test\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   website_name = \"google.com\"",
-            "   website_url = \"www.google.com\"",
-            "   test_type = \"HTTP\"",
-            "   check_rate = 300",
-            "}"
-        ]
-    },
-    "terraform_remote_state": {
-        "prefix": "tf-terraform_remote_state",
-        "description": "Define a terraform_remote_state template",
-        "body": [
-            "data \"terraform_remote_state\" \"${config}\" {",
-            "   backend = \"atlas\"",
-            "   config {",
-            "       name = \"hashicorp/vpc-prod\"",
-            "   }",
-            "}"
-        ]
-    },
-    "tls_private_key": {
-        "prefix": "tf-tls_private_key",
-        "description": "define tls_private_key resource.",
-        "body": [
-            "resource \"tls_private_key\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   algorithm = \"ECDSA\"",
-            "   ecdsa_curve = \"P384\"",
-            "}"
-        ]
-    },
-    "tls_self_signed_cert": {
-        "prefix": "tf-tls_self_signed_cert",
-        "description": "define tls_self_signed_cert resource.",
-        "body": [
-            "resource \"tls_self_signed_cert\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   key_algorithm = \"ECDSA\"",
-            "   private_key_pem = \"\\${file(\"private_key.pem\")}\"",
-            "   subject {",
-            "       common_name = \"example.com\"",
-            "       organization = \"ACME Examples, Inc\"",
-            "   }",
-            "   validity_period_hours = 12",
-            "   allowed_uses = [",
-            "       \"key_encipherment\",",
-            "       \"digital_signature\",",
-            "       \"server_auth\",",
-            "   ]",
-            "}"
-        ]
-    },
-    "tls_locally_signed_cert": {
-        "prefix": "tf-tls_locally_signed_cert",
-        "description": "define tls_locally_signed_cert resource.",
-        "body": [
-            "resource \"tls_locally_signed_cert\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   cert_request_pem = \"\\${file(\\\"cert_request.pem\\\")}\"",
-            "   ca_key_algorithm = \"ECDSA\"",
-            "   ca_private_key_pem = \"\\${file(\\\"ca_private_key.pem\\\")}\"",
-            "   ca_cert_pem = \"\\${file(\\\"ca_cert.pem\\\")}\"",
-            "   validity_period_hours = 12",
-            "   allowed_uses = [",
-            "       \"key_encipherment\",",
-            "       \"digital_signature\",",
-            "       \"server_auth\",",
-            "   ]",
-            "}"
-        ]
-    },
-    "tls_cert_request": {
-        "prefix": "tf-tls_cert_request",
-        "description": "define tls_cert_request resource.",
-        "body": [
-            "resource \"tls_cert_request\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   key_algorithm = \"ECDSA\"",
-            "   private_key_pem = \"\\${file(\\\"private_key.pem\\\")}\"",
-            "   subject {",
-            "       common_name = \"example.com\"",
-            "       organization = \"ACME Examples, Inc\"",
-            "   }",
-            "}"
-        ]
-    },
-    "triton": {
-        "prefix": "tf-triton",
-        "description": "define a triton provider.",
-        "body": [
-            "provider \"triton\" {",
-            "   account      = \"AccountName\"",
-            "   key_material = \"\\${file(\"~/.ssh/id_rsa\")}\"",
-            "   key_id       = \"25:d4:a9:fe:ef:e6:c0:bf:b4:4b:4b:d4:a8:8f:01:0f\"",
-            "   # If using a private installation of Triton, specify the URL",
-            "   url = \"https://us-west-1.api.joyentcloud.com\"",
-            "}"
-        ]
-    },
-    "triton_firewall_rule": {
-        "prefix": "tf-triton_firewall_rule",
-        "description": "define triton_firewall_rule resource.",
-        "body": [
-            "resource \"triton_firewall_rule\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   rule = \"FROM any TO tag www ALLOW tcp (PORT 80 AND PORT 443)\"",
-            "   enabled = true",
-            "}"
-        ]
-    },
-    "triton_key": {
-        "prefix": "tf-triton_key",
-        "description": "define triton_key resource.",
-        "body": [
-            "resource \"triton_key\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   key = \"\\${file(\"keys/id_rsa\")}\"",
-            "}"
-        ]
-    },
-    "triton_machine": {
-        "prefix": "tf-triton_machine",
-        "description": "define triton_machine resource.",
-        "body": [
-            "resource \"triton_machine\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   package = \"g3-standard-0.25-smartos\"",
-            "   image = \"842e6fa6-6e9b-11e5-8402-1b490459e334\"",
-            "}"
-        ]
-    },
-    "ultradns": {
-        "prefix": "tf-ultradns",
-        "description": "define a ultradns provider.",
-        "body": [
-            "provider \"ultradns\" {",
-            "   username = \"\\${var.ultradns_username}\"",
-            "   password = \"\\${var.ultradns_password}\"",
-            "   baseurl  = \"https://test-restapi.ultradns.com/\"",
-            "}"
-        ]
-    },
-    "ultradns_record": {
-        "prefix": "tf-ultradns_record",
-        "description": "define ultradns_record resource.",
-        "body": [
-            "resource \"ultradns_record\" \"${myResourceName}\" {",
-            "   name = \"my-${myResourceName}\"",
-            "   description = \"my-description-${myResourceName}\"\n",
-            "   zone = \"\\${var.ultradns_domain}\"",
-            "   name = \"terraform\"",
-            "   rdata = [ \"192.168.0.11\" ]",
-            "   type = \"A\"",
-            "   ttl = 3600",
-            "}"
-        ]
-    },
-    "openstack": {
+    },    "openstack": {
         "prefix": "tf-openstack",
         "description": "define a openstack provider.",
         "body": [
@@ -6012,8 +5357,790 @@
             "   content_type = \"application/json\"",
             "}"
         ]
+    },    "packet": {
+        "prefix": "tf-packet",
+        "description": "define a packet provider.",
+        "body": [
+            "provider \"packet\" {",
+            "   auth_token = \"${auth_token}\"",
+            "}"
+        ]
     },
-    "vcd": {
+    "packet_device": {
+        "prefix": "tf-packet_device",
+        "description": "define packet_device resource.",
+        "body": [
+            "resource \"packet_device\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   hostname = \"tf.coreos2\"",
+            "   plan = \"baremetal_1\"",
+            "   facility = \"ewr1\"",
+            "   operating_system = \"coreos_stable\"",
+            "   billing_cycle = \"hourly\"",
+            "   project_id = \"\\${packet_project.cool_project.id}\"",
+            "}"
+        ]
+    },
+    "packet_project": {
+        "prefix": "tf-packet_project",
+        "description": "define packet_project resource.",
+        "body": [
+            "resource \"packet_project\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   payment_method = \"payment_method-id\"",
+            "}"
+        ]
+    },
+    "packet_ssh_key": {
+        "prefix": "tf-packet_ssh_key",
+        "description": "define packet_ssh_key resource.",
+        "body": [
+            "resource \"packet_ssh_key\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   public_key = \"\\${file(\"/home/terraform/.ssh/id_rsa.pub\")}\"",
+            "}"
+        ]
+    },
+    "packet_volume": {
+        "prefix": "tf-packet_volume",
+        "description": "define packet_volume resource.",
+        "body": [
+            "resource \"packet_volume\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   facility = \"ewr1\"",
+            "   project_id = \"\\${packet_project.cool_project.id}\"",
+            "   plan = \"storage_1\"",
+            "   size = 100",
+            "   billing_cycle = \"hourly\"",
+            "   snapshot_policies = { snapshot_frequency = \"1day\", snapshot_count = 7 }",
+            "   snapshot_policies = { snapshot_frequency = \"1month\", snapshot_count = 6 }",
+            "}"
+        ]
+    },    "pagerduty": {
+        "prefix": "tf-pagerduty",
+        "description": "define a pagerduty provider.",
+        "body": [
+            "provider \"pagerduty\" {",
+            "   token = \"${token}\"",
+            "}"
+        ]
+    },
+    "pagerduty_vendor": {
+        "prefix": "tf-pagerduty_vendor",
+        "description": "Define a pagerduty_vendor template",
+        "body": [
+            "data \"pagerduty_vendor\" \"${config}\" {",
+            "   name_regex = \"^Datadog$\"",
+            "}"
+        ]
+    },
+    "pagerduty_user": {
+        "prefix": "tf-pagerduty_user",
+        "description": "define pagerduty_user resource.",
+        "body": [
+            "resource \"pagerduty_user\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   email = \"125.greenholt.earline@graham.name\"",
+            "   teams = [\"${pagerduty_team.example.id}\"]",
+            "}"
+        ]
+    },
+    "pagerduty_team": {
+        "prefix": "tf-pagerduty_team",
+        "description": "define pagerduty_team resource.",
+        "body": [
+            "resource \"pagerduty_team\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "}"
+        ]
+    },
+    "pagerduty_escalation_policy": {
+        "prefix": "tf-pagerduty_escalation_policy",
+        "description": "define pagerduty_escalation_policy resource.",
+        "body": [
+            "resource \"pagerduty_escalation_policy\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   num_loops = 2",
+            "   teams     = [\"\\${pagerduty_team.example.id}\"]\n",
+            "   rule {",
+            "       escalation_delay_in_minutes = 10",
+            "       target {",
+            "           type = \"user\"",
+            "           id   = \"\\${pagerduty_user.example.id}\"",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "pagerduty_schedule": {
+        "prefix": "tf-pagerduty_schedule",
+        "description": "define pagerduty_schedule resource.",
+        "body": [
+            "resource \"pagerduty_schedule\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   time_zone = \"America/New_York\"\n",
+            "   layer {",
+            "       name                         = \"Night Shift\"",
+            "       start                        = \"2015-11-06T20:00:00-05:00\"",
+            "       rotation_virtual_start       = \"2015-11-06T20:00:00-05:00\"",
+            "       rotation_turn_length_seconds = 86400",
+            "       users                        = [\"\\${pagerduty_user.foo.id}\"]",
+            "       restriction {",
+            "           type              = \"daily_restriction\"",
+            "           start_time_of_day = \"08:00:00\"",
+            "           duration_seconds  = 32400",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "pagerduty_service": {
+        "prefix": "tf-pagerduty_service",
+        "description": "define pagerduty_service resource.",
+        "body": [
+            "resource \"pagerduty_service\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   auto_resolve_timeout    = 14400",
+            "   acknowledgement_timeout = 600",
+            "   escalation_policy       = \"\\${pagerduty_escalation_policy.example.id}\"",
+            "}"
+        ]
+    },
+    "pagerduty_service_integration": {
+        "prefix": "tf-pagerduty_service_integration",
+        "description": "define pagerduty_service_integration resource.",
+        "body": [
+            "resource \"pagerduty_service_integration\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   type    = \"generic_events_api_inbound_integration\"",
+            "   service = \"\\${pagerduty_service.example.id}\"",
+            "   vendor  = \"\\${data.pagerduty_vendor.datadog.id}\"",
+            "}"
+        ]
+    },    "postgresql": {
+        "prefix":"tf-postgresql",
+        "description": "Defines postgresql provider",
+        "body": [
+            "provider \"postgresql\" {",
+            "   host        = \"host-example\"",
+            "   port        = \"port-example\"",
+            "   username    = \"username-example\"",
+            "   password    = \"password-example\"",
+            "   ssl_mode    = \"ssl_mode-example\"",
+            "}"
+        ]
+    },
+    "postgresql_database": {
+        "prefix":"tf-postgresql_database",
+        "description": "Defines postgresql_database resource",
+        "body": [
+            "resource \"postgresql_database\" \"${MyResource}\" {",
+            "   name    = \"example-name\"",
+            "   owner   = \"example-owner\"",
+            "}"
+        ]
+    },
+    "postgresql_role": {
+        "prefix":"tf-postgresql_role",
+        "description": "Defines postgresql_role resource",
+        "body": [
+            "resource \"postgresql_role\" \"${MyResource}\" {",
+            "   name        = \"example-name\"",
+            "   login       = true",
+            "   password    = \"example-password\"",
+            "   encrypted   = true",
+            "}"
+        ]
+    },
+    "postgresql_extension": {
+        "prefix":"tf-postgresql_extension",
+        "description": "Defines postgresql_extension resource",
+        "body": [
+            "resource \"postgresql_extension\" \"${MyResource}\" {",
+            "   name        = \"example-name\"",
+            "}"
+        ]
+    },    "powerdns": {
+        "prefix": "tf-powerdns",
+        "description": "define a powerdns provider.",
+        "body": [
+            "provider \"powerdns\" {",
+            "   api_key = \"\\${var.pdns_api_key}\"",
+            "   server_url = \"\\${var.pdns_server_url}\"",
+            "}"
+        ]
+    },
+    "powerdns_record": {
+        "prefix": "tf-powerdns_record",
+        "description": "define powerdns_record resource.",
+        "body": [
+            "resource \"powerdns_record\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   zone = \"example.com.\"",
+            "   type = \"A\"",
+            "   ttl = 300",
+            "   records = [\"192.168.0.11\"]",
+            "}"
+        ]
+    },    "rabbitmq": {
+        "prefix": "tf-rabbitmq",
+        "description": "define a rabbitmq provider.",
+        "body": [
+            "provider \"rabbitmq\" {",
+            "   endpoint = \"http://127.0.0.1\"",
+            "   username = \"guest\"",
+            "   password = \"guest\"",
+            "}"
+        ]
+    },
+    "rabbitmq_binding": {
+        "prefix": "tf-rabbitmq_binding",
+        "description": "define rabbitmq_binding resource.",
+        "body": [
+            "resource \"rabbitmq_binding\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   source = \"\\${rabbitmq_exchange.test.name}\"",
+            "   vhost = \"\\${rabbitmq_vhost.test.name}\"",
+            "   destination = \"\\${rabbitmq_queue.test.name}\"",
+            "   destination_type = \"queue\"",
+            "   routing_key = \"#\"",
+            "   properties_key = \"%23\"",
+            "}"
+        ]
+    },
+    "rabbitmq_exchange": {
+        "prefix": "tf-rabbitmq_exchange",
+        "description": "define rabbitmq_exchange resource.",
+        "body": [
+            "resource \"rabbitmq_exchange\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   vhost = \"\\${rabbitmq_permissions.guest.vhost}\"",
+            "   settings {",
+            "       type = \"fanout\"",
+            "       durable = false",
+            "       auto_delete = true",
+            "   }",
+            "}"
+        ]
+    },
+    "rabbitmq_permissions": {
+        "prefix": "tf-rabbitmq_permissions",
+        "description": "define rabbitmq_permissions resource.",
+        "body": [
+            "resource \"rabbitmq_permissions\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   user = \"${rabbitmq_user.test.name}\"",
+            "   vhost = \"${rabbitmq_vhost.test.name}\"",
+            "   permissions {",
+            "       configure = \".*\"",
+            "       write = \".*\"",
+            "       read = \".*\"",
+            "   }",
+            "}"
+        ]
+    },
+    "rabbitmq_policy": {
+        "prefix": "tf-rabbitmq_policy",
+        "description": "define rabbitmq_policy resource.",
+        "body": [
+            "resource \"rabbitmq_policy\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   vhost = \"\\${rabbitmq_permissions.guest.vhost}\"",
+            "   policy {",
+            "       pattern = \".*\"",
+            "       priority = 0",
+            "       apply_to = \"all\"",
+            "       definition {",
+            "           ha-mode = \"all\"",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "rabbitmq_queue": {
+        "prefix": "tf-rabbitmq_queue",
+        "description": "define rabbitmq_queue resource.",
+        "body": [
+            "resource \"rabbitmq_queue\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   vhost = \"\\${rabbitmq_permissions.guest.vhost}\"",
+            "   settings {",
+            "       durable = false",
+            "       auto_delete = true",
+            "   }",
+            "}"
+        ]
+    },
+    "rabbitmq_user": {
+        "prefix": "tf-rabbitmq_user",
+        "description": "define rabbitmq_user resource.",
+        "body": [
+            "resource \"rabbitmq_user\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   password = \"foobar\"",
+            "   tags = [\"administrator\", \"management\"]",
+            "}"
+        ]
+    },
+    "rabbitmq_vhost": {
+        "prefix": "tf-rabbitmq_vhost",
+        "description": "define rabbitmq_vhost resource.",
+        "body": [
+            "resource \"rabbitmq_vhost\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "}"
+        ]
+    },    "random_id": {
+        "prefix": "tf-random_id",
+        "description": "define random_id resource.",
+        "body": [
+            "resource \"random_id\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   keepers = {",
+            "       # Generate a new id each time we switch to a new AMI id",
+            "       ami_id = \"${var.ami_id}\"",
+            "   }",
+            "   byte_length = 8",
+            "}"
+        ]
+    },
+    "random_shuffle": {
+        "prefix": "tf-random_shuffle",
+        "description": "define random_shuffle resource.",
+        "body": [
+            "resource \"random_shuffle\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   input = [\"us-west-1a\", \"us-west-1c\", \"us-west-1d\", \"us-west-1e\"]",
+            "   result_count = 2",
+            "}"
+        ]
+    },    "rundeck": {
+        "prefix": "tf-rundeck",
+        "description": "define a rundeck provider.",
+        "body": [
+            "provider \"rundeck\" {",
+            "   url = \"http://rundeck.example.com/\"",
+            "   auth_token = \"abcd1234\"",
+            "}"
+        ]
+    },
+    "rundeck_project": {
+        "prefix": "tf-rundeck_project",
+        "description": "define rundeck_project resource.",
+        "body": [
+            "resource \"rundeck_project\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   ssh_key_storage_path = \"anvils/id_rsa\"",
+            "   resource_model_source {",
+            "       type = \"file\"",
+            "       config = {",
+            "       format = \"resourcexml\"",
+            "           # This path is interpreted on the Rundeck server.",
+            "           file = \"/var/rundeck/projects/anvils/resources.xml\"",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "rundeck_private_key": {
+        "prefix": "tf-rundeck_private_key",
+        "description": "define rundeck_private_key resource.",
+        "body": [
+            "resource \"rundeck_private_key\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   path = \"anvils/id_rsa\"",
+            "   key_material = \"\\${file(\"/id_rsa\")}\"",
+            "}"
+        ]
+    },
+    "rundeck_public_key": {
+        "prefix": "tf-rundeck_public_key",
+        "description": "define rundeck_public_key resource.",
+        "body": [
+            "resource \"rundeck_public_key\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   path = \"anvils/id_rsa.pub\"",
+            "   key_material = \"ssh-rsa yada-yada-yada\"",
+            "}"
+        ]
+    },
+    "rundeck_job": {
+        "prefix": "tf-rundeck_job",
+        "description": "define rundeck_job resource.",
+        "body": [
+            "resource \"rundeck_job\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   project_name = \"anvils\"",
+            "   node_filter_query = \"tags: web\"",
+            "   command {",
+            "       shell_command = \"sudo service anvils restart\"",
+            "   }",
+            "}"
+        ]
+    },    "scaleway": {
+        "prefix": "tf-scaleway",
+        "description": "define a scaleway provider.",
+        "body": [
+            "provider \"scaleway\" {",
+            "   access_key = \" \"",
+            "   organization = \" \"",
+            "   region = \"par1\"",
+            "}"
+        ]
+    },
+    "scaleway_bootscript": {
+        "prefix": "tf-scaleway_bootscript",
+        "description": "Define a scaleway_bootscript data",
+        "body": [
+            "data \"scaleway_bootscript\" \"${config}\" {",
+            "   architecture = \"arm\"",
+            "   name_filter = \"Rescue\"",
+            "}"
+        ]
+    },
+    "scaleway_image": {
+        "prefix": "tf-scaleway_image",
+        "description": "Define a scaleway_image data",
+        "body": [
+            "data \"scaleway_image\" \"${config}\" {",
+            "   architecture = \"arm\"",
+            "   name = \"Ubuntu Precise\"",
+            "}"
+        ]
+    },
+    "scaleway_ip": {
+        "prefix": "tf-scaleway_ip",
+        "description": "define scaleway_ip resource.",
+        "body": [
+            "resource \"scaleway_ip\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "}"
+        ]
+    },
+    "scaleway_server": {
+        "prefix": "tf-scaleway_server",
+        "description": "define scaleway_server resource.",
+        "body": [
+            "resource \"scaleway_server\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   image = \"5faef9cd-ea9b-4a63-9171-9e26bec03dbc\"",
+            "   type = \"VC1M\"\n",
+            "   volume {",
+            "       size_in_gb = 20",
+            "       type = \"l_ssd\"",
+            "   }",
+            "}"
+        ]
+    },
+    "scaleway_security_group": {
+        "prefix": "tf-scaleway_security_group",
+        "description": "define scaleway_security_group resource.",
+        "body": [
+            "resource \"scaleway_security_group\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "}"
+        ]
+    },
+    "scaleway_security_group_rule": {
+        "prefix": "tf-scaleway_security_group_rule",
+        "description": "define scaleway_security_group_rule resource.",
+        "body": [
+            "resource \"scaleway_security_group_rule\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   security_group = \"\\${scaleway_security_group.test.id}\"\n",
+            "   action = \"accept\"",
+            "   direction = \"inbound\"",
+            "   ip_range = \"0.0.0.0/0\"",
+            "   protocol = \"TCP\"",
+            "   port = 25",
+            "}"
+        ]
+    },
+    "scaleway_volume": {
+        "prefix": "tf-scaleway_volume",
+        "description": "define scaleway_volume resource.",
+        "body": [
+            "resource \"scaleway_volume\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   size_in_gb = 20",
+            "   type = \"l_ssd\"",
+            "}"
+        ]
+    },
+    "scaleway_volume_attachment": {
+        "prefix": "tf-scaleway_volume_attachment",
+        "description": "define scaleway_volume_attachment resource.",
+        "body": [
+            "resource \"scaleway_volume_attachment\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   server = \"\\${scaleway_server.test.id}\"",
+            "   volume = \"\\${scaleway_volume.test.id}\"",
+            "}"
+        ]
+    },    "softlayer": {
+        "prefix": "tf-softlayer",
+        "description": "define a softlayer provider.",
+        "body": [
+            "provider \"softlayer\" {",
+            "   username = \"\"",
+            "   api_key = \"\"",
+            "}"
+        ]
+    },
+    "softlayer_virtual_guest": {
+        "prefix": "tf-softlayer_virtual_guest",
+        "description": "define softlayer_virtual_guest resource.",
+        "body": [
+            "resource \"softlayer_virtual_guest\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   domain = \"bar.example.com\"",
+            "   image = \"DEBIAN_7_64\"",
+            "   region = \"ams01\"",
+            "   public_network_speed = 10",
+            "   hourly_billing = true",
+            "   private_network_only = false",
+            "   cpu = 1",
+            "   ram = 1024",
+            "   disks = [25, 10, 20]",
+            "   user_data = \"{\"value\":\"newvalue\"}\"",
+            "   dedicated_acct_host_only = true",
+            "   local_disk = false",
+            "   frontend_vlan_id = 1085155",
+            "   backend_vlan_id = 1085157",
+            "}"
+        ]
+    },
+    "softlayer_ssh_key": {
+        "prefix": "tf-softlayer_ssh_key",
+        "description": "define softlayer_ssh_key resource.",
+        "body": [
+            "resource \"softlayer_ssh_key\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   notes = \"test_ssh_key_notes\"",
+            "   public_key = \"ssh-rsa <rsa_public_key>\"",
+            "}"
+        ]
+    },    "statuscake": {
+        "prefix": "tf-statuscake",
+        "description": "define a statuscake provider.",
+        "body": [
+            "provider \"statuscake\" {",
+            "   username = \"username\"",
+            "   apikey = \"apikey\"",
+            "}"
+        ]
+    },
+    "statuscake_test": {
+        "prefix": "tf-statuscake_test",
+        "description": "define statuscake_test resource.",
+        "body": [
+            "resource \"statuscake_test\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   website_name = \"google.com\"",
+            "   website_url = \"www.google.com\"",
+            "   test_type = \"HTTP\"",
+            "   check_rate = 300",
+            "}"
+        ]
+    },    "template_file": {
+        "prefix": "tf-template_file",
+        "description": "Define a template_file template from file",
+        "body": [
+            "data \"template_file\" \"${init}\" {",
+            "   template = \"\\${file(\"\\${path.module}/${init}.tpl\")}\"\n",
+            "   vars {",
+            "       consul_address = \"\\${aws_instance.consul.private_ip}\"",
+            "   }",
+            "}"
+        ]
+    },
+    "template_file-inline": {
+        "prefix": "tf-template_file-inline",
+        "description": "Define a template_file template inline",
+        "body": [
+            "data \"template_file\" \"${init}\" {",
+            "   template = \"\\$\\${consul_address}:1234\"",
+            "   vars {",
+            "       consul_address = \"\\${aws_instance.consul.private_ip}\"",
+            "   }",
+            "}"
+        ]
+    },
+    "template_cloudinit_config": {
+        "prefix": "tf-template_cloudinit_config",
+        "description": "Define a template_cloudinit_config template",
+        "body": [
+            "data \"template_cloudinit_config\" \"${config}\" {",
+            "}"
+        ]
+    },    "tls_private_key": {
+        "prefix": "tf-tls_private_key",
+        "description": "define tls_private_key resource.",
+        "body": [
+            "resource \"tls_private_key\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   algorithm = \"ECDSA\"",
+            "   ecdsa_curve = \"P384\"",
+            "}"
+        ]
+    },
+    "tls_self_signed_cert": {
+        "prefix": "tf-tls_self_signed_cert",
+        "description": "define tls_self_signed_cert resource.",
+        "body": [
+            "resource \"tls_self_signed_cert\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   key_algorithm = \"ECDSA\"",
+            "   private_key_pem = \"\\${file(\"private_key.pem\")}\"",
+            "   subject {",
+            "       common_name = \"example.com\"",
+            "       organization = \"ACME Examples, Inc\"",
+            "   }",
+            "   validity_period_hours = 12",
+            "   allowed_uses = [",
+            "       \"key_encipherment\",",
+            "       \"digital_signature\",",
+            "       \"server_auth\",",
+            "   ]",
+            "}"
+        ]
+    },
+    "tls_locally_signed_cert": {
+        "prefix": "tf-tls_locally_signed_cert",
+        "description": "define tls_locally_signed_cert resource.",
+        "body": [
+            "resource \"tls_locally_signed_cert\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   cert_request_pem = \"\\${file(\\\"cert_request.pem\\\")}\"",
+            "   ca_key_algorithm = \"ECDSA\"",
+            "   ca_private_key_pem = \"\\${file(\\\"ca_private_key.pem\\\")}\"",
+            "   ca_cert_pem = \"\\${file(\\\"ca_cert.pem\\\")}\"",
+            "   validity_period_hours = 12",
+            "   allowed_uses = [",
+            "       \"key_encipherment\",",
+            "       \"digital_signature\",",
+            "       \"server_auth\",",
+            "   ]",
+            "}"
+        ]
+    },
+    "tls_cert_request": {
+        "prefix": "tf-tls_cert_request",
+        "description": "define tls_cert_request resource.",
+        "body": [
+            "resource \"tls_cert_request\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   key_algorithm = \"ECDSA\"",
+            "   private_key_pem = \"\\${file(\\\"private_key.pem\\\")}\"",
+            "   subject {",
+            "       common_name = \"example.com\"",
+            "       organization = \"ACME Examples, Inc\"",
+            "   }",
+            "}"
+        ]
+    },    "triton": {
+        "prefix": "tf-triton",
+        "description": "define a triton provider.",
+        "body": [
+            "provider \"triton\" {",
+            "   account      = \"AccountName\"",
+            "   key_material = \"\\${file(\"~/.ssh/id_rsa\")}\"",
+            "   key_id       = \"25:d4:a9:fe:ef:e6:c0:bf:b4:4b:4b:d4:a8:8f:01:0f\"",
+            "   # If using a private installation of Triton, specify the URL",
+            "   url = \"https://us-west-1.api.joyentcloud.com\"",
+            "}"
+        ]
+    },
+    "triton_firewall_rule": {
+        "prefix": "tf-triton_firewall_rule",
+        "description": "define triton_firewall_rule resource.",
+        "body": [
+            "resource \"triton_firewall_rule\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   rule = \"FROM any TO tag www ALLOW tcp (PORT 80 AND PORT 443)\"",
+            "   enabled = true",
+            "}"
+        ]
+    },
+    "triton_key": {
+        "prefix": "tf-triton_key",
+        "description": "define triton_key resource.",
+        "body": [
+            "resource \"triton_key\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   key = \"\\${file(\"keys/id_rsa\")}\"",
+            "}"
+        ]
+    },
+    "triton_machine": {
+        "prefix": "tf-triton_machine",
+        "description": "define triton_machine resource.",
+        "body": [
+            "resource \"triton_machine\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   package = \"g3-standard-0.25-smartos\"",
+            "   image = \"842e6fa6-6e9b-11e5-8402-1b490459e334\"",
+            "}"
+        ]
+    },    "ultradns": {
+        "prefix": "tf-ultradns",
+        "description": "define a ultradns provider.",
+        "body": [
+            "provider \"ultradns\" {",
+            "   username = \"\\${var.ultradns_username}\"",
+            "   password = \"\\${var.ultradns_password}\"",
+            "   baseurl  = \"https://test-restapi.ultradns.com/\"",
+            "}"
+        ]
+    },
+    "ultradns_record": {
+        "prefix": "tf-ultradns_record",
+        "description": "define ultradns_record resource.",
+        "body": [
+            "resource \"ultradns_record\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   zone = \"\\${var.ultradns_domain}\"",
+            "   name = \"terraform\"",
+            "   rdata = [ \"192.168.0.11\" ]",
+            "   type = \"A\"",
+            "   ttl = 3600",
+            "}"
+        ]
+    },    "vcd": {
         "prefix": "tf-vcd",
         "description": "define a vcd provider.",
         "body": [
@@ -6117,8 +6244,7 @@
             "   }",
             "}"
         ]
-    },
-    "vsphere": {
+    },    "vsphere": {
         "prefix": "tf-vsphere",
         "description": "define a vsphere.",
         "body": [
@@ -6186,279 +6312,84 @@
             "   type = \"thin\"",
             "}"
         ]
-    },
-    "backend-artifactory": {
-        "prefix": "tf-backend-artifactory",
-        "description": "Define a backend-artifactory backend",
+    },    "chef_provisioner": {
+        "prefix": "tf-chef_provisioner",
+        "description": "Define a Chef provisioner",
         "body": [
-            "data \"terraform_remote_state\" \"${myBackend}\" {",
-            "   backend = \"artifactory\"",
-            "   config {",
-            "       username = \"SheldonCooper\"",
-            "       password = \"AmyFarrahFowler\"",
-            "       url = \"https://custom.artifactoryonline.com/artifactory\"",
-            "       repo = \"foo\"",
-            "       subpath = \"terraform-bar\"",
+            "   provisioner \"chef\" {",
+            "       node_name = \"${webserver1}\"",
+            "       run_list = [\"cookbook::recipe\"]",
+            "       user_name = \"user_name-example\"",
+            "       user_key = \"user_key-example\"",
+            "       server_url = \"server_url-example\"",
+            "   }"
+        ]
+    },    "connection_provisioner": {
+        "prefix": "tf-connection_provisioner",
+        "description": "Define a connection provisioner",
+        "body": [
+            "# Copies the file as the root user using SSH",
+            "provisioner \"file\" {",
+            "   source      = \"conf/myapp.conf\"",
+            "   destination = \"/etc/myapp.conf\"",
+            "   connection {",
+            "       type        = \"ssh\"",
+            "       user        = \"root\"",
+            "       password    = \"samplePasswordHere\"",
             "   }",
             "}"
         ]
-    },
-    "backend-atlas": {
-        "prefix": "tf-backend-atlas",
-        "description": "Define a backend-atlas backend",
+    },    "file_provisioner": {
+        "prefix": "tf-file_provisioner",
+        "description": "Define a file provisioner",
         "body": [
-            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   # Copies the myapp.conf file to /etc/myapp.conf",
+            "   provisioner \"file\" {",
+            "       source = \"conf/myapp.conf\"",
+            "       destination = \"/etc/myapp.conf\"",
+            "   }"
+        ]
+    },    "local_exec_provisioner": {
+        "prefix": "tf-local_exec_provisioner",
+        "description": "Define a local-exec provisioner",
+        "body": [
+            "   provisioner \"local-exec\" {",
+            "       command = \"echo ${aws_instance.web.private_ip} >> private_ips.txt\"",
+            "   }"
+        ]
+    },    "null_resource_provisioner": {
+        "prefix": "tf-null_resource_provisioner",
+        "description": "Define a null_resource provisioner",
+        "body": [
+            "resource \"null_resource\" \"${cluster}\" {",
+            "   # Changes to any instance of the cluster requires re-provisioning",
+            "   triggers {",
+            "       cluster_instance_ids = \"\\${join(",", aws_instance.cluster.*.id)}\"",
+            "   }",
+            "}"
+        ]
+    },    "remote_exec_provisioner": {
+        "prefix": "tf-remote_exec_provisioner",
+        "description": "Define a remote-exec provisioner",
+        "body": [
+            "   provisioner \"remote-exec\" {",
+            "       inline = [",
+            "           \"puppet apply\",",
+            "           \"consul join ${aws_instance.web.private_ip}\"",
+            "       ]",
+            "   }"
+        ]
+    },    "terraform_remote_state": {
+        "prefix": "tf-terraform_remote_state",
+        "description": "Define a terraform_remote_state template",
+        "body": [
+            "data \"terraform_remote_state\" \"${config}\" {",
             "   backend = \"atlas\"",
             "   config {",
-            "       name = \"bigbang/example\"",
-            "       access_token = \"X2iTFefU5aWOjg.atlasv1.YaDa\"",
+            "       name = \"hashicorp/vpc-prod\"",
             "   }",
             "}"
         ]
-    },
-    "backend-azure": {
-        "prefix": "tf-backend-azure",
-        "description": "Define a backend-azure backend",
-        "body": [
-            "data \"terraform_remote_state\" \"${myBackend}\" {",
-            "   backend = \"azure\"",
-            "   config {",
-            "       storage_account_name = \"terraform123abc\"",
-            "       container_name = \"terraform-state\"",
-            "       key = \"prod.terraform.tfstate\"",
-            "   }",
-            "}"
-        ]
-    },
-    "backend-consul": {
-        "prefix": "tf-backend-consul",
-        "description": "Define a backend-consul backend",
-        "body": [
-            "data \"terraform_remote_state\" \"${myBackend}\" {",
-            "   backend = \"consul\"",
-            "   config {",
-            "       path = \"full/path\"",
-            "   }",
-            "}"
-        ]
-    },
-    "backend-etcd": {
-        "prefix": "tf-backend-etcd",
-        "description": "Define a backend-etcd backend",
-        "body": [
-            "data \"terraform_remote_state\" \"${myBackend}\" {",
-            "   backend = \"etcd\"",
-            "   config {",
-            "       path = \"path/to/terraform.tfstate\"",
-            "       endpoints = \"http://one:4001 http://two:4001\"",
-            "   }",
-            "}"
-        ]
-    },
-    "backend-gcs": {
-        "prefix": "tf-backend-gcs",
-        "description": "Define a backend-gcs backend",
-        "body": [
-            "data \"terraform_remote_state\" \"${myBackend}\" {",
-            "   backend = \"gcs\"",
-            "   config {",
-            "       bucket = \"terraform-state-prod\"",
-            "       path = \"network/terraform.tfstate\"",
-            "       project = \"goopro\"",
-            "   }",
-            "}"
-        ]
-    },
-    "backend-http": {
-        "prefix": "tf-backend-http",
-        "description": "Define a backend-http backend",
-        "body": [
-            "data \"terraform_remote_state\" \"${myBackend}\" {",
-            "   backend = \"http\"",
-            "   config {",
-            "       address = \"http://my.rest.api.com\"",
-            "   }",
-            "}"
-        ]
-    },
-    "backend-local": {
-        "prefix": "tf-backend-local",
-        "description": "Define a backend-local backend",
-        "body": [
-            "data \"terraform_remote_state\" \"${myBackend}\" {",
-            "   backend = \"local\"",
-            "   config {",
-            "       path = \"\\${path.module}/../../terraform.tfstate\"",
-            "   }",
-            "}"
-        ]
-    },
-    "backend-s3": {
-        "prefix": "tf-backend-s3",
-        "description": "Define a backend-s3 backend",
-        "body": [
-            "data \"terraform_remote_state\" \"${myBackend}\" {",
-            "   backend = \"s3\"",
-            "   config {",
-            "       bucket = \"terraform-state-prod\"",
-            "       key = \"network/terraform.tfstate\"",
-            "       region = \"us-east-1\"",
-            "   }",
-            "}"
-        ]
-    },
-    "backend-swift": {
-        "prefix": "tf-backend-swift",
-        "description": "Define a backend-swift backend",
-        "body": [
-            "data \"terraform_remote_state\" \"${myBackend}\" {",
-            "   backend = \"swift\"",
-            "   config {",
-            "       path = \"terraform_state\"",
-            "   }",
-            "}"
-        ]
-    },
-    "aws-region-us-east-1": {
-        "prefix": "tf-aws-region-us-east-1",
-        "description": "Define a aws-region-us-east-1 US East (N.Virginia) region code",
-        "body": [
-            "\"us-east-1\""
-        ]
-    },
-    "aws-region-us-east-2": {
-        "prefix": "tf-aws-region-us-east-2",
-        "description": "Define a aws-region-us-east-2 US East (Ohio) region code",
-        "body": [
-            "\"us-east-2\""
-        ]
-    },
-    "aws-region-us-west-1": {
-        "prefix": "tf-aws-region-us-west-1",
-        "description": "Define a aws-region-us-west-1 US West (N. California) region code",
-        "body": [
-            "\"us-west-1\""
-        ]
-    },
-    "aws-region-us-west-2": {
-        "prefix": "tf-aws-region-us-west-2",
-        "description": "Define a aws-region-us-west-2 US West (Oregon) region code",
-        "body": [
-            "\"us-west-2\""
-        ]
-    },
-    "aws-region-eu-west-1": {
-        "prefix": "tf-aws-region-eu-west-1",
-        "description": "Define a aws-region-eu-west-1 EU (Ireland) region code",
-        "body": [
-            "\"eu-west-1\""
-        ]
-    },
-    "aws-region-eu-central-1": {
-        "prefix": "tf-aws-region-eu-central-1",
-        "description": "Define a aws-region-eu-central-1 EU (Frankfurt) region code",
-        "body": [
-            "\"eu-central-1\""
-        ]
-    },
-    "aws-region-ap-northeast-1": {
-        "prefix": "tf-aws-region-ap-northeast-1",
-        "description": "Define a aws-region-ap-northeast-1 Asia Pacific (Tokyo) region code",
-        "body": [
-            "\"ap-northeast-1\""
-        ]
-    },
-    "aws-region-ap-northeast-2": {
-        "prefix": "tf-aws-region-ap-northeast-2",
-        "description": "Define a aws-region-ap-northeast-2 Asia Pacific (Seoul) region code",
-        "body": [
-            "\"ap-northeast-2\""
-        ]
-    },
-    "aws-region-ap-southeast-1": {
-        "prefix": "tf-aws-region-ap-southeast-1",
-        "description": "Define a aws-region-ap-southeast-1 Asia Pacific (Singapore) region code",
-        "body": [
-            "\"ap-southeast-1\""
-        ]
-    },
-    "aws-region-ap-southeast-2": {
-        "prefix": "tf-aws-region-ap-southeast-2",
-        "description": "Define a aws-region-ap-southeast-2 Asia Pacific (Sydney) region code",
-        "body": [
-            "\"ap-southeast-2\""
-        ]
-    },
-    "aws-region-ap-south-1": {
-        "prefix": "tf-aws-region-ap-south-1",
-        "description": "Define a aws-region-ap-south-1 Asia Pacific (Mumbai) region code",
-        "body": [
-            "\"ap-south-1\""
-        ]
-    },
-    "aws-region-sa-east-1": {
-        "prefix": "tf-aws-region-sa-east-1",
-        "description": "Define a aws-region-sa-east-1 South America (São Paulo) region code",
-        "body": [
-            "\"sa-east-1\""
-        ]
-    },
-    "aws-region-ca-central-1": {
-        "prefix": "tf-aws-region-ca-central-1",
-        "description": "Define a aws-region-ca-central-1 Canada (Central) region code",
-        "body": [
-            "\"ca-central-1\""
-        ]
-    },
-    "gitlab": {
-        "prefix": "tf-gitlab",
-        "description": "define a GitLab provider.",
-        "body": [
-            "provider \"gitlab\" {",
-            "   token = \"${myGitLabToken}\"",
-            "}"
-        ]
-    },
-    "gitlab_deploy_key": {
-        "prefix": "tf-gitlab_deploy_key",
-        "description": "define a gitlab_deploy_key resource.",
-        "body": [
-            "resource \"gitlab_deploy_key\" \"${example}\" {",
-            "   project = \"${example}/deploying\"",
-            "   title   = \"${example} deploy key\"",
-            "   key     = \"ssh-rsa AAAA\"",
-            "}"
-        ]
-    },
-    "gitlab_group": {
-        "prefix": "tf-gitlab_group",
-        "description": "define a gitlab_group resource.",
-        "body": [
-            "resource \"gitlab_group\" \"${example}\" {",
-            "   name        = \"${example}\"",
-            "   path        = \"${example}\"",
-            "   description = \"${example} description\"",
-            "}"
-        ]
-    },
-    "gitlab_project_hook": {
-        "prefix": "tf-gitlab_project_hook",
-        "description": "define a  gitlab_project_hook resource.",
-        "body": [
-            "resource \"gitlab_project_hook\" \"${example}\" {",
-            "   project = \"${example}/hooked\"",
-            "   url     = \"https://${example}.com/hooke/example\"",
-            "}"
-        ]
-    },
-    "gitlab_project": {
-        "prefix": "tf-gitlab_project",
-        "description": "define a  gitlab_project resource.",
-        "body": [
-            "resource \"gitlab_project\" \"${example}\" {",
-            "   name        = \"${example}\"",
-            "   description = \"${example}\"",
-            "}"
-        ]
-    }
+    },
+"copyright": { "year": "2017" } 
 }

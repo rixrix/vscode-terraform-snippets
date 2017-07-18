@@ -1,0 +1,26 @@
+{
+    "statuscake": {
+        "prefix": "tf-statuscake",
+        "description": "define a statuscake provider.",
+        "body": [
+            "provider \"statuscake\" {",
+            "   username = \"username\"",
+            "   apikey = \"apikey\"",
+            "}"
+        ]
+    },
+    "statuscake_test": {
+        "prefix": "tf-statuscake_test",
+        "description": "define statuscake_test resource.",
+        "body": [
+            "resource \"statuscake_test\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   website_name = \"google.com\"",
+            "   website_url = \"www.google.com\"",
+            "   test_type = \"HTTP\"",
+            "   check_rate = 300",
+            "}"
+        ]
+    }
+}

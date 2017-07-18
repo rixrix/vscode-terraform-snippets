@@ -1,0 +1,14 @@
+{
+    "local_backend": {
+        "prefix": "tf-local_backend",
+        "description": "Define a backend-local backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"local\"",
+            "   config {",
+            "       path = \"\\${path.module}/../../terraform.tfstate\"",
+            "   }",
+            "}"
+        ]
+    }
+}

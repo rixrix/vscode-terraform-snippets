@@ -1,0 +1,395 @@
+{
+    "openstack": {
+        "prefix": "tf-openstack",
+        "description": "define a openstack provider.",
+        "body": [
+            "provider \"openstack\" {",
+            "   user_name  = \"admin\"",
+            "   tenant_name = \"admin\"",
+            "   password  = \"pwd\"",
+            "   auth_url  = \"http://myauthurl:5000/v2.0\"",
+            "}"
+        ]
+    },
+    "openstack_blockstorage_volume_v1": {
+        "prefix": "tf-openstack_blockstorage_volume_v1",
+        "description": "define openstack_blockstorage_volume_v1 resource.",
+        "body": [
+            "resource \"openstack_blockstorage_volume_v1\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   region = \"RegionOne\"",
+            "   size = 3",
+            "}"
+        ]
+    },
+    "openstack_blockstorage_volume_v2": {
+        "prefix": "tf-openstack_blockstorage_volume_v2",
+        "description": "define openstack_blockstorage_volume_v2 resource.",
+        "body": [
+            "resource \"openstack_blockstorage_volume_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   region = \"RegionOne\"",
+            "   size = 3",
+            "}"
+        ]
+    },
+    "openstack_compute_floatingip_v2": {
+        "prefix": "tf-openstack_compute_floatingip_v2",
+        "description": "define openstack_compute_floatingip_v2 resource.",
+        "body": [
+            "resource \"openstack_compute_floatingip_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   pool = \"public\"",
+            "}"
+        ]
+    },
+    "openstack_compute_instance_v2": {
+        "prefix": "tf-openstack_compute_instance_v2",
+        "description": "define openstack_compute_instance_v2 resource.",
+        "body": [
+            "resource \"openstack_compute_instance_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   image_id = \"ad091b52-742f-469e-8f3c-fd81cadf0743\"",
+            "   flavor_id = \"3\"",
+            "   key_pair = \"my_key_pair_name\"",
+            "   security_groups = [\"default\"]",
+            "   metadata {",
+            "       this = \"that\"",
+            "   }",
+            "   network {",
+            "       name = \"my_network\"",
+            "   }",
+            "}"
+        ]
+    },
+    "openstack_compute_keypair_v2": {
+        "prefix": "tf-openstack_compute_keypair_v2",
+        "description": "define openstack_compute_keypair_v2 resource.",
+        "body": [
+            "resource \"openstack_compute_keypair_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   public_key = \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAjpC1hwiOCCmKEWxJ4qzTTsJbKzndLotBCz5PcwtUnflmU+gHJtWMZKpuEGVi29h0A/+ydKek1O18k10Ff+4tyFjiHDQAnOfgWf7+b1yK+qDip3X1C0UPMbwHlTfSGWLGZqd9LvEFx9k3h/M+VtMvwR1lJ9LUyTAImnNjWG7TaIPmui30HvM2UiFEmqkr4ijq45MyX2+fLIePLRIF61p4whjHAQYufqyno3BS48icQb4p6iVEZPo4AE2o9oIyQvj2mx4dk5Y8CgSETOZTYDOR3rU2fZTRDRgPJDH9FWvQjF5tA0p3d9CoWWd2s6GKKbfoUIi8R/Db1BSPJwkqB\"",
+            "}"
+        ]
+    },
+    "openstack_compute_secgroup_v2": {
+        "prefix": "tf-openstack_compute_secgroup_v2",
+        "description": "define openstack_compute_secgroup_v2 resource.",
+        "body": [
+            "resource \"openstack_compute_secgroup_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   rule {",
+            "       from_port = 22",
+            "       to_port = 22",
+            "       ip_protocol = \"tcp\"",
+            "       cidr = \"0.0.0.0/0\"",
+            "   }",
+            "}"
+        ]
+    },
+    "openstack_compute_servergroup_v2": {
+        "prefix": "tf-openstack_compute_servergroup_v2",
+        "description": "define openstack_compute_servergroup_v2 resource.",
+        "body": [
+            "resource \"openstack_compute_servergroup_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   policies = [\"anti-affinity\"]",
+            "}"
+        ]
+    },
+    "openstack_networking_floatingip_v2": {
+        "prefix": "tf-openstack_networking_floatingip_v2",
+        "description": "define openstack_networking_floatingip_v2 resource.",
+        "body": [
+            "resource \"openstack_networking_floatingip_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   pool = \"public\"",
+            "}"
+        ]
+    },
+    "openstack_networking_network_v2": {
+        "prefix": "tf-openstack_networking_network_v2",
+        "description": "define openstack_networking_network_v2 resource.",
+        "body": [
+            "resource \"openstack_networking_network_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   admin_state_up = \"true\"",
+            "}"
+        ]
+    },
+    "openstack_networking_port_v2": {
+        "prefix": "tf-openstack_networking_port_v2",
+        "description": "define openstack_networking_port_v2 resource.",
+        "body": [
+            "resource \"openstack_networking_port_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   network_id = \"\\${openstack_networking_network_v2.network_1.id}\"",
+            "   admin_state_up = \"true\"",
+            "}"
+        ]
+    },
+    "openstack_networking_router_interface_v2": {
+        "prefix": "tf-openstack_networking_router_interface_v2",
+        "description": "define openstack_networking_router_interface_v2 resource.",
+        "body": [
+            "resource \"openstack_networking_router_interface_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   network_id = \"\\${openstack_networking_network_v2.network_1.id}\"",
+            "   subnet_id = \"\\${openstack_networking_network_v2.subnet_id.id}\"",
+            "}"
+        ]
+    },
+    "openstack_networking_router_route_v2": {
+        "prefix": "tf-openstack_networking_router_route_v2",
+        "description": "define openstack_networking_router_route_v2 resource.",
+        "body": [
+            "resource \"openstack_networking_router_route_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   depends_on = [\"openstack_networking_router_interface_v2.int_1\"]",
+            "   router_id = \"\\${openstack_networking_router_v2.router_1.id}\"",
+            "   destination_cidr = \"10.0.1.0/24\"",
+            "   next_hop = \"192.168.199.254\"",
+            "}"
+        ]
+    },
+    "openstack_networking_router_v2": {
+        "prefix": "tf-openstack_networking_router_v2",
+        "description": "define openstack_networking_router_v2 resource.",
+        "body": [
+            "resource \"openstack_networking_router_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   external_gateway = \"f67f0d72-0ddf-11e4-9d95-e1f29f417e2f\"",
+            "}"
+        ]
+    },
+    "openstack_networking_subnet_v2": {
+        "prefix": "tf-openstack_networking_subnet_v2",
+        "description": "define openstack_networking_subnet_v2 resource.",
+        "body": [
+            "resource \"openstack_networking_subnet_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   network_id = \"\\${openstack_networking_network_v2.network_1.id}\"",
+            "   cidr = \"192.168.199.0/24\"",
+            "}"
+        ]
+    },
+    "openstack_networking_secgroup_v2": {
+        "prefix": "tf-openstack_networking_secgroup_v2",
+        "description": "define openstack_networking_secgroup_v2 resource.",
+        "body": [
+            "resource \"openstack_networking_secgroup_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "}"
+        ]
+    },
+    "openstack_networking_secgroup_rule_v2": {
+        "prefix": "tf-openstack_networking_secgroup_rule_v2",
+        "description": "define openstack_networking_secgroup_rule_v2 resource.",
+        "body": [
+            "resource \"openstack_networking_secgroup_rule_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   direction = \"ingress\"",
+            "   ethertype = \"IPv4\"",
+            "   protocol = \"tcp\"",
+            "   port_range_min = 22",
+            "   port_range_max = 22",
+            "   remote_ip_prefix = \"0.0.0.0/0\"",
+            "   security_group_id = \"\\${openstack_networking_secgroup_v2.secgroup_1.id}\"",
+            "}"
+        ]
+    },
+    "openstack_lb_member_v1": {
+        "prefix": "tf-openstack_lb_member_v1",
+        "description": "define openstack_lb_member_v1 resource.",
+        "body": [
+            "resource \"openstack_lb_member_v1\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   pool_id = \"d9415786-5f1a-428b-b35f-2f1523e146d2\"",
+            "   address = \"192.168.0.10\"",
+            "   port = 80",
+            "}"
+        ]
+    },
+    "openstack_lb_monitor_v1": {
+        "prefix": "tf-openstack_lb_monitor_v1",
+        "description": "define openstack_lb_monitor_v1 resource.",
+        "body": [
+            "resource \"openstack_lb_monitor_v1\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   type = \"PING\"",
+            "   delay = 30",
+            "   timeout = 5",
+            "   max_retries = 3",
+            "   admin_state_up = \"true\"",
+            "}"
+        ]
+    },
+    "openstack_lb_pool_v1": {
+        "prefix": "tf-openstack_lb_pool_v1",
+        "description": "define openstack_lb_pool_v1 resource.",
+        "body": [
+            "resource \"openstack_lb_pool_v1\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   protocol = \"HTTP\"",
+            "   subnet_id = \"12345\"",
+            "   lb_method = \"ROUND_ROBIN\"",
+            "   lb_provider = \"haproxy\"",
+            "   monitor_ids = [\"67890\"]",
+            "}"
+        ]
+    },
+    "openstack_lb_vip_v1": {
+        "prefix": "tf-openstack_lb_vip_v1",
+        "description": "define openstack_lb_vip_v1 resource.",
+        "body": [
+            "resource \"openstack_lb_vip_v1\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   subnet_id = \"12345\"",
+            "   protocol = \"HTTP\"",
+            "   port = 80",
+            "   pool_id = \"67890\"",
+            "}"
+        ]
+    },
+    "openstack_lb_loadbalancer_v2": {
+        "prefix": "tf-openstack_lb_loadbalancer_v2",
+        "description": "define openstack_lb_loadbalancer_v2 resource.",
+        "body": [
+            "resource \"openstack_lb_loadbalancer_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   vip_subnet_id = \"d9415786-5f1a-428b-b35f-2f1523e146d2\"",
+            "}"
+        ]
+    },
+    "openstack_lb_listener_v2": {
+        "prefix": "tf-openstack_lb_listener_v2",
+        "description": "define openstack_lb_listener_v2 resource.",
+        "body": [
+            "resource \"openstack_lb_listener_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   protocol = \"HTTP\"",
+            "   protocol_port = 8080",
+            "   loadbalancer_id = \"d9415786-5f1a-428b-b35f-2f1523e146d2\"",
+            "}"
+        ]
+    },
+    "openstack_lb_pool_v2": {
+        "prefix": "tf-openstack_lb_pool_v2",
+        "description": "define openstack_lb_pool_v2 resource.",
+        "body": [
+            "resource \"openstack_lb_pool_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   protocol = \"ProtocolHTTP\"",
+            "   lb_method = \"ROUND_ROBIN\"",
+            "   listener_id =  \"d9415786-5f1a-428b-b35f-2f1523e146d2\"",
+            "   persistence {",
+            "       type          = \"HTTP_COOKIE\"",
+            "       cookie_name   = \"testCookie\"",
+            "   }",
+            "}"
+        ]
+    },
+    "openstack_lb_member_v2": {
+        "prefix": "tf-openstack_lb_member_v2",
+        "description": "define openstack_lb_member_v2 resource.",
+        "body": [
+            "resource \"openstack_lb_member_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   address = \"192.168.199.23\"",
+            "   protocol_port = 8080",
+            "}"
+        ]
+    },
+    "openstack_lb_monitor_v2": {
+        "prefix": "tf-openstack_lb_monitor_v2",
+        "description": "define openstack_lb_monitor_v2 resource.",
+        "body": [
+            "resource \"openstack_lb_monitor_v2\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   type = \"PING\"",
+            "   delay = 20",
+            "   timeout = 10",
+            "   max_retries = 5",
+            "}"
+        ]
+    },
+    "openstack_fw_firewall_v1": {
+        "prefix": "tf-openstack_fw_firewall_v1",
+        "description": "define openstack_fw_firewall_v1 resource.",
+        "body": [
+            "resource \"openstack_fw_firewall_v1\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   policy_id = \"\\${openstack_fw_policy_v1.policy_1.id}\"",
+            "}"
+        ]
+    },
+    "openstack_fw_policy_v1": {
+        "prefix": "tf-openstack_fw_policy_v1",
+        "description": "define openstack_fw_policy_v1 resource.",
+        "body": [
+            "resource \"openstack_fw_policy_v1\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   rules = [",
+            "       \"\\${openstack_fw_rule_v1.rule_1.id}\",",
+            "       \"\\${openstack_fw_rule_v1.rule_2.id}\"",
+            "   ]",
+            "}"
+        ]
+    },
+    "openstack_fw_rule_v1": {
+        "prefix": "tf-openstack_fw_rule_v1",
+        "description": "define openstack_fw_rule_v1 resource.",
+        "body": [
+            "resource \"openstack_fw_rule_v1\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   action = \"deny\"",
+            "   protocol = \"tcp\"",
+            "   destination_port = \"23\"",
+            "   enabled = \"true\"",
+            "}"
+        ]
+    },
+    "openstack_objectstorage_container_v1": {
+        "prefix": "tf-openstack_objectstorage_container_v1",
+        "description": "define openstack_objectstorage_container_v1 resource.",
+        "body": [
+            "resource \"openstack_objectstorage_container_v1\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   region = \"RegionOne\"",
+            "   metadata {",
+            "       test = \"true\"",
+            "   }",
+            "   content_type = \"application/json\"",
+            "}"
+        ]
+    }
+}

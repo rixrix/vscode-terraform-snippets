@@ -1,0 +1,70 @@
+{
+    "rundeck": {
+        "prefix": "tf-rundeck",
+        "description": "define a rundeck provider.",
+        "body": [
+            "provider \"rundeck\" {",
+            "   url = \"http://rundeck.example.com/\"",
+            "   auth_token = \"abcd1234\"",
+            "}"
+        ]
+    },
+    "rundeck_project": {
+        "prefix": "tf-rundeck_project",
+        "description": "define rundeck_project resource.",
+        "body": [
+            "resource \"rundeck_project\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   ssh_key_storage_path = \"anvils/id_rsa\"",
+            "   resource_model_source {",
+            "       type = \"file\"",
+            "       config = {",
+            "       format = \"resourcexml\"",
+            "           # This path is interpreted on the Rundeck server.",
+            "           file = \"/var/rundeck/projects/anvils/resources.xml\"",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "rundeck_private_key": {
+        "prefix": "tf-rundeck_private_key",
+        "description": "define rundeck_private_key resource.",
+        "body": [
+            "resource \"rundeck_private_key\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   path = \"anvils/id_rsa\"",
+            "   key_material = \"\\${file(\"/id_rsa\")}\"",
+            "}"
+        ]
+    },
+    "rundeck_public_key": {
+        "prefix": "tf-rundeck_public_key",
+        "description": "define rundeck_public_key resource.",
+        "body": [
+            "resource \"rundeck_public_key\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   path = \"anvils/id_rsa.pub\"",
+            "   key_material = \"ssh-rsa yada-yada-yada\"",
+            "}"
+        ]
+    },
+    "rundeck_job": {
+        "prefix": "tf-rundeck_job",
+        "description": "define rundeck_job resource.",
+        "body": [
+            "resource \"rundeck_job\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"\n",
+            "   project_name = \"anvils\"",
+            "   node_filter_query = \"tags: web\"",
+            "   command {",
+            "       shell_command = \"sudo service anvils restart\"",
+            "   }",
+            "}"
+        ]
+    }
+}

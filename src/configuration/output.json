@@ -1,0 +1,11 @@
+{
+    "output": {
+        "prefix": "tf-output",
+        "description": "Outputs are a way to tell Terraform what data is important.",
+        "body": [
+            "output \"${myOutput}\" {",
+            "   value = \"\"",
+            "}"
+        ]
+    }
+}

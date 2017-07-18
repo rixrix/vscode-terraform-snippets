@@ -1,0 +1,117 @@
+{
+    "clc": {
+        "prefix": "tf-clc",
+        "description": "define a clc provider.",
+        "body": [
+            "provider \"clc\" {",
+            "   username = \"\\${var.clc_username}\"",
+            "   password = \"\\${var.clc_password}\"",
+            "   account  = \"\\${var.clc_account}\" # optional",
+            "}"
+        ]
+    },
+    "clc_server": {
+        "prefix": "tf-clc_server",
+        "description": "define clc_server resource.",
+        "body": [
+            "resource \"clc_server\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   source_server_id = \"UBUNTU-14-64-TEMPLATE\"",
+            "   group_id = \"\\${clc_group.frontends.id}\"",
+            "   cpu = 2",
+            "   memory_mb = 2048",
+            "   password = \"Green123$\"",
+            "   additional_disks {",
+            "       path = \"/var\"",
+            "       size_gb = 100",
+            "       type = \"partitioned\"",
+            "   }\n",
+            "   additional_disks {",
+            "       size_gb = 10",
+            "       type = \"raw\"",
+            "   }",
+            "}"
+        ]
+    },
+    "clc_group": {
+        "prefix": "tf-clc_group",
+        "description": "define clc_group resource.",
+        "body": [
+            "resource \"clc_group\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   location_id = \"WA1\"",
+            "   name = \"frontends\"",
+            "   parent = \"Default Group\"",
+            "}"
+        ]
+    },
+    "clc_public_ip": {
+        "prefix": "tf-clc_public_ip",
+        "description": "define clc_public_ip resource.",
+        "body": [
+            "resource \"clc_public_ip\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   server_id = \"\\${clc_server.node.0.id}\"",
+            "   internal_ip_address = \"${clc_server.node.0.private_ip_address}\"",
+            "   ports {",
+            "       protocol = \"ICMP\"",
+            "       port = -1",
+            "   }\n",
+            "   ports {",
+            "       protocol = \"TCP\"",
+            "       port = 22",
+            "   }\n",
+            "   ports {",
+            "       protocol = \"TCP\"",
+            "       port = 2000",
+            "       port_to = 9000",
+            "   }\n",
+            "   source_restrictions {",
+            "       cidr = \"85.39.22.15/30\"",
+            "   }",
+            "}"
+        ]
+    },
+    "clc_load_balancer": {
+        "prefix": "tf-clc_load_balancer",
+        "description": "define clc_load_balancer resource.",
+        "body": [
+            "resource \"clc_load_balancer\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   data_center = \"\\${clc_group.frontends.location_id}\"",
+            "   name = \"api\"",
+            "   description = \"api load balancer\"",
+            "   status = \"enabled\"",
+            "}"
+        ]
+    },
+    "clc_load_balancer_pool": {
+        "prefix": "tf-clc_load_balancer_pool",
+        "description": "define clc_load_balancer_pool resource.",
+        "body": [
+            "resource \"clc_load_balancer_pool\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   description = \"my-description-${myResourceName}\"",
+            "   data_center = \"\\${clc_group.frontends.location_id}\"",
+            "   load_balancer = \"\\${clc_load_balancer.api.id}\"",
+            "   method = \"roundRobin\"",
+            "   persistence = \"standard\"",
+            "   port = 80\n",
+            "   nodes {",
+            "       status = \"enabled\"",
+            "       ipAddress = \"\\${clc_server.node.0.private_ip_address}\"",
+            "       privatePort = 3000",
+            "   }\n",
+            "   nodes {",
+            "       status = \"enabled\"",
+            "       ipAddress = \"\\${clc_server.node.1.private_ip_address}\"",
+            "       privatePort = 3000",
+            "   }",
+            "}"
+        ]
+    }
+}

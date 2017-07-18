@@ -1,0 +1,20 @@
+{
+    "github_private_module": {
+        "prefix": "tf-github_private_module",
+        "description": "Define a module with github with private source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"git::https://MACHINE-USER:MACHINE-PASS@github.com/username\"",
+            "}"
+        ]
+    },
+    "github_module": {
+        "prefix": "tf-github_module",
+        "description": "Define a module with github source.",
+        "body": [
+            "module \"${myModuleName}\" {",
+            "   source = \"github.com/username\"",
+            "}"
+        ]
+    }
+}

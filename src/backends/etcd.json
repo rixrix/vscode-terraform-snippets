@@ -1,0 +1,15 @@
+{
+    "etcd_backend": {
+        "prefix": "tf-etcd_backend",
+        "description": "Define a backend-etcd backend",
+        "body": [
+            "data \"terraform_remote_state\" \"${myBackend}\" {",
+            "   backend = \"etcd\"",
+            "   config {",
+            "       path = \"path/to/terraform.tfstate\"",
+            "       endpoints = \"http://one:4001 http://two:4001\"",
+            "   }",
+            "}"
+        ]
+    }
+}
