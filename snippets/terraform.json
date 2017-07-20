@@ -5032,7 +5032,16 @@
             "   channel_id  = \"${3:channel_id}\"",
             "}"
         ]
-    },    "openstack": {
+    },
+    "newrelic_application": {
+        "prefix": "tf-newrelic_application",
+        "description": "define a newrelic_application data resource.",
+        "body": [
+            "data   \"newrelic_application\" \"${1:myVarId}\" {",
+            "   name = \"${2:myVarName}\"",
+            "}"
+        ]
+    },    "openstack": {
         "prefix": "tf-openstack",
         "description": "define a openstack provider.",
         "body": [
