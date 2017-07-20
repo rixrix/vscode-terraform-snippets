@@ -1,5 +1,11 @@
 # Changelog
 
+# 1.7.0
+
+* New Relic
+* * https://newrelic.com/
+* * https://www.terraform.io/docs/providers/newrelic/index.html
+
 # 1.6.0
 
 * Arukas

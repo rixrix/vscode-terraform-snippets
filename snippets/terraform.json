@@ -4983,7 +4983,56 @@
             "   password    = \"example-password \"",
             "}"
         ]
-    },    "openstack": {
+    },    "newrelic": {
+        "prefix": "tf-newrelic",
+        "description": "define a newrelic provider.",
+        "body": [
+            "provider \"newrelic\" {",
+            "   api_key = \"${newrelic_api_key}\"",
+            "}"
+        ]
+    },
+    "newrelic_alert_policy": {
+        "prefix": "tf-newrelic_alert_policy",
+        "description": "define a newrelic_alert_policy resource.",
+        "body": [
+            "resource \"newrelic_alert_policy\" \"${1:myVar}\" {",
+            "   name = \"${2:myVar}\"",
+            "}"
+        ]
+    },
+    "newrelic_alert_channel": {
+        "prefix": "tf-newrelic_alert_channel",
+        "description": "define a newrelic_alert_channel resource.",
+        "body": [
+            "resource \"newrelic_alert_channel\" \"${1:myVarId}\" {",
+            "   name = \"${2:myVarName}\"",
+            "   type = \"${3:myVarType}\"",
+            "}"
+        ]
+    },
+    "newrelic_alert_condition": {
+        "prefix": "tf-newrelic_alert_condition",
+        "description": "define a newrelic_alert_condition resource.",
+        "body": [
+            "resource   \"newrelic_alert_condition\" \"${1:myVarId}\" {",
+            "   name        = \"${2:myVarName}\"",
+            "   type        = \"${3:myVarType}\"",
+            "   entities    = \"[${4:entities}\"]",
+            "   metric      = \"${5:metric}\"",
+            "}"
+        ]
+    },
+    "newrelic_alert_policy_channel": {
+        "prefix": "tf-newrelic_alert_policy_channel",
+        "description": "define a newrelic_alert_policy_channel resource.",
+        "body": [
+            "resource   \"newrelic_alert_policy_channel\" \"${1:myVarId}\" {",
+            "   policy_id   = \"${2:policy_id}\"",
+            "   channel_id  = \"${3:channel_id}\"",
+            "}"
+        ]
+    },    "openstack": {
         "prefix": "tf-openstack",
         "description": "define a openstack provider.",
         "body": [
