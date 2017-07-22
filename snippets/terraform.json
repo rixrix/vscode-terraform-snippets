@@ -4823,7 +4823,196 @@
             "   query = \"SELECT min(mouse) INTO min_mouse FROM zoo GROUP BY time(30m)\"",
             "}"
         ]
-    },    "librato": {
+    },    "kubernetes": {
+        "prefix": "tf-kubernetes",
+        "description": "define a kubernetes provider.",
+        "body": [
+            "provider \"kubernetes\" {",
+            "   config_context_auth_info    = \"${1:ops}\"",
+            "   config_context_cluster      = \"${2:mycluster}\"",
+            "}"
+        ]
+    },
+    "kubernetes_config_map": {
+        "prefix": "tf-kubernetes_config_map",
+        "description": "define a kubernetes_config_map resource.",
+        "body": [
+            "resource \"kubernetes_config_map\" \"${1:kubernetes_config_map_id}\" {",
+            "   metadata {",
+            "       name = \"${2:my-config}\"",
+            "   }",
+            "}"
+        ]
+    },
+    "kubernetes_horizontal_pod_autoscaler": {
+        "prefix": "tf-kubernetes_horizontal_pod_autoscaler",
+        "description": "define a kubernetes_horizontal_pod_autoscaler resource.",
+        "body": [
+            "resource \"kubernetes_horizontal_pod_autoscaler\" \"${1:kubernetes_horizontal_pod_autoscaler_id}\" {",
+            "   metadata {",
+            "       name = \"${2:my-metadata-name}\"",
+            "   }",
+            "   spec {",
+            "       max_replicas = \"${3:10}\"",
+            "       min_replicas = \"${4:8}\"",
+            "       scale_target_ref {",
+            "           kind = \"${5:ReplicationController}\"",
+            "           name = \"${6:MyApp}\"",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "kubernetes_limit_range": {
+        "prefix": "tf-kubernetes_limit_range",
+        "description": "define a kubernetes_limit_range resource.",
+        "body": [
+            "resource \"kubernetes_limit_range\" \"${1:kubernetes_limit_range_id}\" {",
+            "   metadata {",
+            "       name = \"${2:my-metadata-name}\"",
+            "   }",
+            "   spec {",
+            "       limit {",
+            "           type = \"${3:Pod}\"",
+            "           max {",
+            "               cpu     = \"${4:200m}\"",
+            "               memory  = \"${5:1024M}\"",
+            "           }",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "kubernetes_namespace": {
+        "prefix": "tf-kubernetes_namespace",
+        "description": "define a kubernetes_namespace resource.",
+        "body": [
+            "resource \"kubernetes_namespace\" \"${1:kubernetes_namespace_id}\" {",
+            "   name = \"${2:my-kubernetes-namespace}\"\n",
+            "   metadata {",
+            "       annotations {",
+            "           name = \"${3:my-annotations-name}\"",
+            "       }\n",
+            "       labels {",
+            "           mylabel = \"${4:mylabelValue}\"",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "kubernetes_persistent_volume": {
+        "prefix": "tf-kubernetes_persistent_volume",
+        "description": "define a kubernetes_persistent_volume resource.",
+        "body": [
+            "resource \"kubernetes_persistent_volume\" \"${1:kubernetes_persistent_volume_id}\" {",
+            "   metadata {",
+            "       name = \"${2:my-metadata-name}\"",
+            "   }",
+            "   spec {",
+            "       capacity {",
+            "           storage = \"${3:2Gi}\"",
+            "       }\n",
+            "       access_modes = [\"${4:ReadWriteMany}\"]",
+            "       persistent_volume_source {",
+            "           vsphere_volume {",
+            "               volume_path = \"${5:/absolute/path}\"",
+            "           }",
+            "       }",
+            "   }",
+            "}"
+        ]
+    },
+    "kubernetes_persistent_volume_claim": {
+        "prefix": "tf-kubernetes_persistent_volume_claim",
+        "description": "define a kubernetes_persistent_volume_claim resource.",
+        "body": [
+            "resource \"kubernetes_persistent_volume_claim\" \"${1:kubernetes_persistent_volume_claim_id}\" {",
+            "   metadata {",
+            "       name = \"${2:my-metadata-name}\"",
+            "   }",
+            "   spec {",
+            "       access_modes = [\"${3:ReadWriteMany}\"]",
+            "       resources {",
+            "           requests {",
+            "               storage = \"${4:5Gi}\"",
+            "           }",
+            "       }",
+            "       volume_name = \"\\${kubernetes_persistent_volume.${5:kubernetes_persistent_volume_id}.metadata.0.name\\}\"",
+            "   }",
+            "}"
+        ]
+    },
+    "kubernetes_resource_quota": {
+        "prefix": "tf-kubernetes_resource_quota",
+        "description": "define a kubernetes_resource_quota resource.",
+        "body": [
+            "resource \"kubernetes_resource_quota\" \"${1:kubernetes_resource_quota_id}\" {",
+            "   metadata {",
+            "       name = \"${2:my-metadata-name}\"",
+            "   }",
+            "   spec {",
+            "       hard {",
+            "           pods = \"${4:10}\"",
+            "       }",
+            "       scopes = [\"${3:BestEffort}\"]",
+            "   }",
+            "}"
+        ]
+    },
+    "kubernetes_secret": {
+        "prefix": "tf-kubernetes_secret",
+        "description": "define a kubernetes_secret resource.",
+        "body": [
+            "resource \"kubernetes_secret\" \"${1:kubernetes_secret_id}\" {",
+            "   metadata {",
+            "       name = \"${2:my-metadata-name}\"",
+            "   }\n",
+            "   data {",
+            "       username = \"${3:admin}\"",
+            "       password = \"${4:P4ssw0rd}\"",
+            "   }\n",
+            "   type = \"${5:kubernetes.io/basic-auth}\"",
+            "}"
+        ]
+    },
+    "kubernetes_secret_docker_config": {
+        "prefix": "tf-kubernetes_secret_docker_config",
+        "description": "define a kubernetes_secret resource with Docker example.",
+        "body": [
+            "resource \"kubernetes_secret\" \"${1:kubernetes_secret_id}\" {",
+            "   metadata {",
+            "       name = \"${2:my-metadata-name}\"",
+            "   }\n",
+            "   data {",
+            "       # FIXME: remove extra \"\\\" after $",
+            "       \"${3:.dockercfg}\" = \"\\$\\\\{file(\"\\$\\\\{path.module\\}/.docker/config.json\")\\}\"",
+            "   }\n",
+            "   type = \"${4:kubernetes.io/dockercfg}\"",
+            "}"
+        ]
+    },
+    "kubernetes_service": {
+        "prefix": "tf-kubernetes_service",
+        "description": "define a kubernetes_service resource.",
+        "body": [
+            "resource \"kubernetes_service\" \"${1:kubernetes_service_id}\" {",
+            "   metadata {",
+            "       name = \"${2:my-metadata-name}\"",
+            "   }\n",
+            "   spec {",
+            "       selector {",
+            "           App = \"${3:MyApp}\"",
+            "       }",
+            "       session_affinity = \"${4:ClientIP}\"",
+            "       port {",
+            "           port        = ${5:8080}",
+            "           target_port = ${6:808080}",
+            "       }",
+            "       type = \"${7:LoadBalancer}\"",
+            "   }\n",
+            "}"
+        ]
+    },    "librato": {
         "prefix": "tf-librato",
         "description": "define a librato provider.",
         "body": [

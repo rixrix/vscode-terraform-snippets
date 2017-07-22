@@ -89,7 +89,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 * Mailgun, Packet, PagerDuty, PowerDNS, RabbitMQ
 * Random, Rundeck, StatusCake, Terraform, TLS,
 * Triton, UltraDNS, OpenStack, VMware vCloud Director, VMware vSphere
-* GitLab, Arukas, New Relic
+* GitLab, Arukas, New Relic, Kubernetes
 
 ### Backends / Remote State
 

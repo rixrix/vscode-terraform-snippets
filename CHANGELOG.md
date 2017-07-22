@@ -1,5 +1,11 @@
 # Changelog
 
+# 1.8.0
+
+* Kubernetes
+* * https://kubernetes.io/
+* * https://www.terraform.io/docs/providers/kubernetes/index.html
+
 # 1.7.0
 
 * New Relic
