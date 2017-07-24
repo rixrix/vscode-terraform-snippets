@@ -6405,7 +6405,63 @@
             "   ttl = 3600",
             "}"
         ]
-    },    "vcd": {
+    },    "vault": {
+        "prefix": "tf-vault",
+        "description": "define vault provider.",
+        "body": [
+            "provider \"vault\" {",
+            "   address = \"${1:myVaultAddress}\"",
+            "   token   = \"${2:myVaultToken}\"",
+            "}"
+        ]
+    },
+    "vault_auth_backend": {
+        "prefix": "tf-vault_auth_backend",
+        "description": "define vault_auth_backend resource.",
+        "body": [
+            "resource \"vault_auth_backend\" \"${1:vault_auth_backend_id}\" {",
+            "   type = \"${2:myVaultPolicyName}\"",
+            "}"
+        ]
+    },
+    "vault_generic_secret": {
+        "prefix": "tf-vault_generic_secret",
+        "description": "define vault_generic_secret resource.",
+        "body": [
+            "resource \"vault_generic_secret\" \"${1:vault_generic_secret_id}\" {",
+            "   path        = \"${2:secret/foo}\"",
+            "   data_json   = <<EOT",
+            "   {",
+            "       \"foo\":\"bar\"",
+            "   }",
+            "EOT",
+            "}"
+        ]
+    },
+    "vault_mount": {
+        "prefix": "tf-vault_mount",
+        "description": "define vault_mount resource.",
+        "body": [
+            "resource \"vault_mount\" \"${1:vault_mount_id}\" {",
+            "   path = \"${2:myPath}\"",
+            "   type = \"${3:myType}\"",
+            "}"
+        ]
+    },
+    "vault_policy": {
+        "prefix": "tf-vault_policy",
+        "description": "define vault_policy resource.",
+        "body": [
+            "resource \"vault_policy\" \"${1:vault_policy_id}\" {",
+            "   name = \"${2:myPath}\"",
+            "   policy = <<EOT",
+            "path \"${3:secret/my_app}\" {",
+            "   policy = \"${4:write}\"",
+            "}",
+            "EOT",
+            "}"
+        ]
+    },    "vcd": {
         "prefix": "tf-vcd",
         "description": "define a vcd provider.",
         "body": [
