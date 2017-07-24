@@ -1,5 +1,11 @@
 # Changelog
 
+# 1.9.0
+
+* Vault
+* * https://www.terraform.io/docs/providers/vault/index.html
+* * https://www.vaultproject.io/
+
 # 1.8.0
 
 * Kubernetes
