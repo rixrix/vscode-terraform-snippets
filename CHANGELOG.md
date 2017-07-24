@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.9.1
+
+* Fix Arukas tab IDs & sequence
+
 # 1.9.0
 
 * Vault

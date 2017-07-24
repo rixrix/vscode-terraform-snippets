@@ -4,8 +4,8 @@
         "description": "Defines Arukas provider",
         "body": [
             "provider \"arukas\" {",
-            "   token   = \"\"",
-            "   secret  = \"\"",
+            "   token   = \"${1:token}\"",
+            "   secret  = \"${2:secret}\"",
             "}"
         ]
     },
@@ -13,8 +13,8 @@
         "prefix":"tf-arukas_container",
         "description": "Defines Arukas container",
         "body": [
-            "resource \"arukas_container\" \"${myArukas}\" {",
-            "   name   = \"${myArukas}\"",
+            "resource \"arukas_container\" \"${1:arukas_container_id}\" {",
+            "   name   = \"${2:myArukasName}\"",
             "}"
         ]
     }
