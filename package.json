@@ -36,13 +36,17 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "conventional-changelog": "^1.1.5",
+    "conventional-github-releaser": "^1.1.12",
     "glob": "^7.1.2",
     "task-nibbler": "^1.0.5",
     "vsce": "^1.18.0"
   },
   "scripts": {
-    "vsce:publish": "vsce publish",
-    "postversion": "npm run vsce:publish && git push && git push --tags",
-    "build": "node ./scripts/build.js"
+    "postversion": "npm run publish:vsce && npm run publish:release",
+    "publish:vsce": "vsce publish",
+    "publish:release": "conventional-github-releaser -p angular",
+    "build:snippets": "node ./scripts/build.js",
+    "build:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   }
 }
