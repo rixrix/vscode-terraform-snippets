@@ -1,172 +1,127 @@
-# Changelog
+<a name="1.9.1"></a>
+## [1.9.1](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.9.0...v1.9.1) (2017-07-24)
 
-# 1.9.1
 
-* Fix Arukas tab IDs & sequence
+### Bug Fixes
 
-# 1.9.0
+* Arukas ([84067d2](https://github.com/rixrix/vscode-terraform-snippets/commit/84067d2))
 
-* Vault
-* * https://www.terraform.io/docs/providers/vault/index.html
-* * https://www.vaultproject.io/
 
-# 1.8.0
 
-* Kubernetes
-* * https://kubernetes.io/
-* * https://www.terraform.io/docs/providers/kubernetes/index.html
+<a name="1.9.0"></a>
+# [1.9.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.8.0...v1.9.0) (2017-07-24)
 
-# 1.7.0
 
-* New Relic
-* * https://newrelic.com/
-* * https://www.terraform.io/docs/providers/newrelic/index.html
+### Features
 
-# 1.6.0
+* add Vault support. closes [#22](https://github.com/rixrix/vscode-terraform-snippets/issues/22) ([c12c454](https://github.com/rixrix/vscode-terraform-snippets/commit/c12c454))
 
-* Arukas
-* * https://www.terraform.io/docs/providers/arukas/index.html
-* * https://arukas.io/en/
 
-# 1.5.0
 
-* GitLab
-* * see, https://www.terraform.io/docs/providers/gitlab/index.html
+<a name="1.8.0"></a>
+# [1.8.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.7.0...v1.8.0) (2017-07-22)
 
-# 1.4.2
 
-* Resource template
-  * Logicial ordering in how you fill out variables [7ac40c1](https://github.com/rixrix/vscode-terraform-snippets/commit/7ac40c14388760b731edcedb57a2554dea654dc9) c/o [madole](https://github.com/madole)
+### Features
 
-# 1.4.0
+* add Kubernetes. closes [#12](https://github.com/rixrix/vscode-terraform-snippets/issues/12) ([33690da](https://github.com/rixrix/vscode-terraform-snippets/commit/33690da))
 
-* AWS
-  * Add support for provider `Shared Credentials file` [661d3d4](https://github.com/rixrix/vscode-terraform-snippets/commit/661d3d49a8b3f4737c34e96ac38b119170c21483) c/o [Lionel T.](https://github.com/lktslionel)
 
-# 1.3.2
-* AWS
-  * Fix missing required parameters for aws_instance
 
-# 1.3.0
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.6.0...v1.7.0) (2017-07-20)
 
-* Add support for Amazon Regions
-  * us-east-1, us-east-2, us-west-1, us-west-2, eu-west-1
-  * eu-central-1, ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2
-  * ap-south-1, sa-east-1, ca-central-1
 
-# 1.2.1
+### Features
 
-* Doc updates
+* add New Relic, closes [#13](https://github.com/rixrix/vscode-terraform-snippets/issues/13) ([8194b7d](https://github.com/rixrix/vscode-terraform-snippets/commit/8194b7d))
 
-# 1.2.0
 
-* Backends / Remote State
-* - Artifactory, Atlas, Microsoft Azure Storage, Consul, Etcd,
-* - Google Cloud Storage, Http, Local, Manta, Amazon S3, Openstack Swift
 
-# 1.1.1
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.5.2...v1.6.0) (2017-07-18)
 
-* Add support for `VMware vCloud Director`
-* Add support for `VMware vSphere`
-* Add support for `Chef provisioner`
 
-# 1.0.0
+### Features
 
-* Add support for `CenturyLinkCloud`
-* Add support for `Cobbler`
-* Add support for `Datadog`
-* Add support for `DNSMadeEasy`
-* Add support for `DNSimple`
-* Add support for `Dyn`
-* Add support for `Fastly`
-* Add support for `Grafana`
-* Add support for `InfluxDB`
-* Add support for `Librato`
-* Add support for `Logentries`
-* Add support for `Mailgun`
-* Add support for `Packet`
-* Add support for `PagerDuty`
-* Add support for `PowerDNS`
-* Add support for `RabbitMQ`
-* Add support for `Random`
-* Add support for `Rundeck`
-* Add support for `StatusCake`
-* Add support for `Terraform`
-* Add support for `TLS`
-* Add support for `Triton`
-* Add support for `UltraDNS`
+* add Arukas ([1f5b2b5](https://github.com/rixrix/vscode-terraform-snippets/commit/1f5b2b5))
 
-# 0.10.0
 
-* Add support for `Google Cloud`
-* Add support for `Azure Resource Manager`
-* Add support for `Cloudstack`
-* Add support for `SoftLayer`
-* Add support for `Scaleway`
 
-# 0.9.0
+<a name="1.5.2"></a>
+## [1.5.2](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.5.1...v1.5.2) (2017-07-16)
 
-* Add support for `Archive`
-* Add support for `Atlas`
-* Add support for `Chef`
-* Add support for `Cloudflare`
-* Add support for `MySQL`
-* Add support for `PostgreSQL`
 
-# 0.8.0
+### Bug Fixes
 
-* Add support for `BitBucket`
-* Add support for `Github`
+* minor script fixes ([d14dcc6](https://github.com/rixrix/vscode-terraform-snippets/commit/d14dcc6))
 
-# 0.7.0
 
-* Add support for `Docker`
-* Add support for `Heroku`
-* Add support for `Digital Ocean`
 
-# 0.6.0
+<a name="1.5.1"></a>
+## [1.5.1](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.5.0...v1.5.1) (2017-07-16)
 
-* Add support for `Consul` (basic snippets only)
 
-# 0.5.0
 
-* Add support for `all` AWS resources (basic snippets only)
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/rixrix/vscode-terraform-snippets/compare/db9f56a...v1.5.0) (2017-07-16)
 
-# 0.4.0
 
-* Add support for `depends_on`
-* Add support for `module github source`
-* Add support for `module github private source`
-* Add support for `module bitbucket source`
-* Add support for `module generic git source`
-* Add support for `module s3 source`
-* Add support for `provisioner connection`
-* Add support for `provisioner file`
-* Add support for `provisioner local-exec`
-* Add support for `provisioner remote-exec`
-* Add support for `provisioner null_resource`
-* Add support for `template template_file`
-* Add support for `template template_cloudinit_config`
+### Bug Fixes
 
-# 0.3.0
+* **aws:** fix missing required params for aws_instance ([b8d59b2](https://github.com/rixrix/vscode-terraform-snippets/commit/b8d59b2))
 
-Add support basic snippets building blocks
 
-* Add support for input variables
-* Add support for output variables
-* Add support for module
-* Add support for resource
-* Add support for provider
+### Features
 
-# 0.2.0
+* **Archive:** add Archive support ([868e544](https://github.com/rixrix/vscode-terraform-snippets/commit/868e544))
+* **Atlas:** add Atlas support ([0b58366](https://github.com/rixrix/vscode-terraform-snippets/commit/0b58366))
+* **aws:** add API Gateway Resources ([a1eb78e](https://github.com/rixrix/vscode-terraform-snippets/commit/a1eb78e))
+* **AWS:** Add AWS regions ([b95946e](https://github.com/rixrix/vscode-terraform-snippets/commit/b95946e))
+* **Azure:** Add Azure Resource Manager support ([5b0bdcc](https://github.com/rixrix/vscode-terraform-snippets/commit/5b0bdcc))
+* **backend:** add backend support ([e07c60f](https://github.com/rixrix/vscode-terraform-snippets/commit/e07c60f))
+* **basic:** input, output, module, resource, provider ([a481308](https://github.com/rixrix/vscode-terraform-snippets/commit/a481308))
+* **basics:** add depends_on, module-xxx, template, provisioner ([ffebd98](https://github.com/rixrix/vscode-terraform-snippets/commit/ffebd98))
+* **bitbucket:** add support for bitbucket ([80801b1](https://github.com/rixrix/vscode-terraform-snippets/commit/80801b1))
+* **CenturyLinkCloud:** add CenturyLinkCloud support ([40b3f89](https://github.com/rixrix/vscode-terraform-snippets/commit/40b3f89))
+* **Chef:** add Chef support ([f21a41b](https://github.com/rixrix/vscode-terraform-snippets/commit/f21a41b))
+* **Chef provisioner:** add Chef provisioner support ([ba7ba5b](https://github.com/rixrix/vscode-terraform-snippets/commit/ba7ba5b))
+* **Cloudflare:** add Cloudflare support ([c50950e](https://github.com/rixrix/vscode-terraform-snippets/commit/c50950e))
+* **Cloudstack:** add Cloudstack support ([ff0cf09](https://github.com/rixrix/vscode-terraform-snippets/commit/ff0cf09))
+* **Cobbler:** add Cobbler support ([5cb3b45](https://github.com/rixrix/vscode-terraform-snippets/commit/5cb3b45))
+* **consul:** add support for Consule ([6439352](https://github.com/rixrix/vscode-terraform-snippets/commit/6439352))
+* **Datadog:** add Datadog support ([7e643c0](https://github.com/rixrix/vscode-terraform-snippets/commit/7e643c0))
+* **digital ocean:** add digital ocean ([813d50f](https://github.com/rixrix/vscode-terraform-snippets/commit/813d50f))
+* **DNSimple:** add DNSimple support ([3c95044](https://github.com/rixrix/vscode-terraform-snippets/commit/3c95044))
+* **DNSMadeEasy:** add DNSMadeEasy support ([8d0cc7a](https://github.com/rixrix/vscode-terraform-snippets/commit/8d0cc7a))
+* **Dyn:** add Dyn support ([aedc7a2](https://github.com/rixrix/vscode-terraform-snippets/commit/aedc7a2))
+* **Fastly:** add Fastly support ([51004cf](https://github.com/rixrix/vscode-terraform-snippets/commit/51004cf))
+* **github:** add github support ([6d45754](https://github.com/rixrix/vscode-terraform-snippets/commit/6d45754))
+* **Google Cloud:** Add Google Cloud support ([9d74477](https://github.com/rixrix/vscode-terraform-snippets/commit/9d74477))
+* **Grafana:** add Grafana support ([cad904d](https://github.com/rixrix/vscode-terraform-snippets/commit/cad904d))
+* **heroku:** add support for Heroku ([5922742](https://github.com/rixrix/vscode-terraform-snippets/commit/5922742))
+* **InfluxDB:** add InfluxDB support ([dd3914d](https://github.com/rixrix/vscode-terraform-snippets/commit/dd3914d))
+* **Librato:** add Librato support ([dad4541](https://github.com/rixrix/vscode-terraform-snippets/commit/dad4541))
+* **Logentries:** add Logentries support ([6effd4f](https://github.com/rixrix/vscode-terraform-snippets/commit/6effd4f))
+* **Mailgun:** add Mailgun support ([5eefc9e](https://github.com/rixrix/vscode-terraform-snippets/commit/5eefc9e))
+* **MySQL:** Add MySQL support ([75c7076](https://github.com/rixrix/vscode-terraform-snippets/commit/75c7076))
+* **Packet:** add Packet support ([97425a6](https://github.com/rixrix/vscode-terraform-snippets/commit/97425a6))
+* **PagerDuty:** add PagerDuty support ([043c314](https://github.com/rixrix/vscode-terraform-snippets/commit/043c314))
+* **PostgreSQL:** add PostgreSQL support ([6b72076](https://github.com/rixrix/vscode-terraform-snippets/commit/6b72076))
+* **PowerDNS:** add PowerDNS support ([995fe41](https://github.com/rixrix/vscode-terraform-snippets/commit/995fe41))
+* **RabbitMQ:** add RabbitMQ support ([846dd93](https://github.com/rixrix/vscode-terraform-snippets/commit/846dd93))
+* **Random:** add Random support ([6121232](https://github.com/rixrix/vscode-terraform-snippets/commit/6121232))
+* **Rundeck:** add Rundeck support ([10ab974](https://github.com/rixrix/vscode-terraform-snippets/commit/10ab974))
+* **scaleway:** add scaleway support ([406e31b](https://github.com/rixrix/vscode-terraform-snippets/commit/406e31b))
+* **snippets:** initial terraform snippets ([db9f56a](https://github.com/rixrix/vscode-terraform-snippets/commit/db9f56a))
+* add GitLab snippets ([fadb545](https://github.com/rixrix/vscode-terraform-snippets/commit/fadb545))
+* **softlayer:** add softlayer support ([74d5138](https://github.com/rixrix/vscode-terraform-snippets/commit/74d5138))
+* **StatusCake:** add StatusCake support ([b0d77b1](https://github.com/rixrix/vscode-terraform-snippets/commit/b0d77b1))
+* **Terraform:** add Terraform support ([f5123af](https://github.com/rixrix/vscode-terraform-snippets/commit/f5123af))
+* **TLS:** add TLS support ([aa69464](https://github.com/rixrix/vscode-terraform-snippets/commit/aa69464))
+* **Triton:** add Triton support ([c4444ff](https://github.com/rixrix/vscode-terraform-snippets/commit/c4444ff))
+* **UltraDNS:** add UltraDNS support ([5084768](https://github.com/rixrix/vscode-terraform-snippets/commit/5084768))
+* **VMware vSphere:** add VMware vSphere support ([6004722](https://github.com/rixrix/vscode-terraform-snippets/commit/6004722))
 
-* Add AWS API Gateway Resources
 
-# 0.1.2
 
-* Fix screenshot not displaying in IDE view
-
-# 0.1.0
-
-* Initial release
-* Initial support for AWS Data Sources
