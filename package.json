@@ -2,7 +2,7 @@
   "name": "terraform-snippets",
   "displayName": "Advanced Terraform Snippets Generator",
   "description": "Provides 550+ code snippets of Hashicorp's Terraform cloud orchestration tool.",
-  "version": "1.10.0",
+  "version": "1.10.2",
   "publisher": "mindginative",
   "author": {
     "name": "Richard Sentino",
@@ -45,7 +45,7 @@
   "scripts": {
     "postversion": "npm run publish:release",
     "publish:vsce": "vsce publish",
-    "publish:release": "conventional-github-releaser -p angular",
+    "publish:release": "conventional-github-releaser -p angular -r 0",
     "build:snippets": "node ./scripts/build.js",
     "build:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   }
