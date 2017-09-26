@@ -1,3 +1,28 @@
+<a name="1.10.4"></a>
+## [1.10.4](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.10.2...v1.10.4) (2017-09-26)
+
+patch: build script
+
+<a name="1.10.2"></a>
+## [1.10.2](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.10.1...v1.10.2) (2017-09-26)
+
+patch: build script
+
+<a name="1.10.1"></a>
+## [1.10.1](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.10.0...v1.10.1) (2017-09-26)
+
+patch: build script
+
+<a name="1.10.0"></a>
+# [1.10.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.9.1...v1.10.0) (2017-09-26)
+
+
+### Features
+
+* Add support for OpsGenie, closes [#17](https://github.com/rixrix/vscode-terraform-snippets/issues/17) ([984ca29](https://github.com/rixrix/vscode-terraform-snippets/commit/984ca29))
+
+
+
 <a name="1.9.1"></a>
 ## [1.9.1](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.9.0...v1.9.1) (2017-07-24)
 
