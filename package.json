@@ -43,7 +43,7 @@
     "vsce": "^1.18.0"
   },
   "scripts": {
-    "postversion": "npm run publish:vsce && npm run publish:release",
+    "postversion": "npm run publish:release",
     "publish:vsce": "vsce publish",
     "publish:release": "conventional-github-releaser -p angular",
     "build:snippets": "node ./scripts/build.js",
