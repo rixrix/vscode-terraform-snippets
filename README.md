@@ -89,7 +89,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 * Mailgun, Packet, PagerDuty, PowerDNS, RabbitMQ
 * Random, Rundeck, StatusCake, Terraform, TLS,
 * Triton, UltraDNS, OpenStack, VMware vCloud Director, VMware vSphere
-* GitLab, Arukas, New Relic, Kubernetes, Vault
+* GitLab, Arukas, New Relic, Kubernetes, Vault, OpsGenie
 
 ### Backends / Remote State
 
@@ -108,6 +108,16 @@ Install the [Terraform Language](https://marketplace.visualstudio.com/items?item
 4. Select `Install Extension`
 5. Choose the extension
 6. Reload Visual Studio Code
+
+## Development
+
+### How to build
+
+- `npm run build:snippets`
+  - Generates a single file in "snippets/terraform.json" from "src/" snippets file.
+
+### Convention
+  - All commit logs must follow the "Conventional Changelog" convention, particularly "angular" preset. see https://github.com/conventional-changelog/conventional-changelog
 
 ## How can you help ?
 
