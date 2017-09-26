@@ -5622,7 +5622,45 @@
             "   content_type = \"application/json\"",
             "}"
         ]
-    },    "packet": {
+    },    "opsgenie": {
+        "prefix": "tf-opsgenie",
+        "description": "define a opsgenie provider.",
+        "body": [
+            "provider \"opsgenie\" {",
+            "   api_key = \"\\${myApiKey}\"",
+            "}"
+        ]
+    },
+    "opsgenie_user_data": {
+        "prefix": "tf-opsgenie_user_data",
+        "description": "define a opsgenie_user data source.",
+        "body": [
+            "data \"opsgenie_user\" \"${1:opsgenie_user_data_id}\" {",
+            "   username = \"${2:opsgenie_user_data_username}\"",
+            "}"
+        ]
+    },
+    "opsgenie_team": {
+        "prefix": "tf-opsgenie_team",
+        "description": "define a opsgenie_team resource.",
+        "body": [
+            "resource \"opsgenie_team\" \"${1:opsgenie_team_id}\" {",
+            "   name        = \"${2:opsgenie_team_name}\"",
+            "   description = \"${3:opsgenie_team_description}\"",
+            "}"
+        ]
+    },
+    "opsgenie_user": {
+        "prefix": "tf-opsgenie_user",
+        "description": "define a opsgenie_user resource.",
+        "body": [
+            "resource \"opsgenie_user\" \"${1:opsgenie_user_id}\" {",
+            "   username    = \"${2:opsgenie_user_username}\"",
+            "   full_name   = \"${3:opsgenie_user_full_name}\"",
+            "   role        = \"${4:opsgenie_user_role}\"",
+            "}"
+        ]
+    },    "packet": {
         "prefix": "tf-packet",
         "description": "define a packet provider.",
         "body": [
