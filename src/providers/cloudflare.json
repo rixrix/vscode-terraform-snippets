@@ -13,7 +13,7 @@
         "prefix":"tf-cloudflare_record",
         "description": "Defines cloudflare_record resource",
         "body": [
-            "resource \"chef_role\" \"${MyResource}\" {",
+            "resource \"cloudflare_record\" \"${MyResource}\" {",
             "   domain = \"cloudflare_domain\"",
             "   name = \"terraform\"",
             "   value = \"192.168.0.11\"",
