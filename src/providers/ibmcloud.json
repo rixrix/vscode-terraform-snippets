@@ -1,0 +1,42 @@
+{
+    "ibmcloud": {
+        "prefix": "tf-ibmcloud",
+        "description": "define IBM Cloud provider.",
+        "body": [
+            "provider \"ibm\" {",
+            "   bluemix_api_key = \"\\${var.ibm_bmx_api_key}\"",
+            "   softlayer_username = \"\\${var.ibm_sl_username}\"",
+            "   softlayer_api_key = \"\\${var.ibm_sl_api_key}\"",
+            "}"
+        ]
+    },
+    "ibm_compute_ssh_key": {
+        "prefix": "tf-ibm_compute_ssh_key",
+        "description": "create IBM Cloud infranstructure SSH key resource.",
+        "body": [
+            "resource \"ibm_compute_ssh_key\" \"${myResourceName}\" {",
+            "   label = \"${myResourceName}\"",
+            "   public_key = \"${var.ssh_public_key}\"",
+            "}"
+        ]
+    },
+    "ibm_compute_vm_instance": {
+        "prefix": "tf-ibm_compute_vm_instance",
+        "description": "Create virtual server with SSH key.",
+        "body": [
+            "resource \"ibm_compute_vm_instance\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   domain = \"example.com\"",
+            "   image = \"DEBIAN_7_64\"",
+            "   region = \"ams01\"",
+            "   public_network_speed = 10",
+            "   hourly_billing = true",
+            "   private_network_only = false",
+            "   cpu = 1",
+            "   ram = 1024",
+            "   disks = [25, 10, 20]",
+            "   local_disk = false",
+            "}"
+        ]
+    }
+}
