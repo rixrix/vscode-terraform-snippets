@@ -1,4 +1,4 @@
-{
+    {
     "azurerm": {
         "prefix":"tf-azurerm",
         "description": "Defines azurerm provider",
@@ -550,11 +550,12 @@
         "prefix":"tf-azurerm_storage_account",
         "description": "Defines azurerm_storage_account resource",
         "body": [
-            "resource \"azurerm_storage_account\" \"${MyResource}\" {",
-            "   name = \"storageaccountname\"",
-            "   resource_group_name = \"\\${azurerm_resource_group.test.name}\"",
+            "resource \"azurerm_storage_account\" \"${1:MyResourceName}\" {",
+            "   name = \"${2:MyStorageAccountName}\"",
+            "   resource_group_name = \"${3:azurerm_resource_group_name}\"",
             "   location = \"West US\"",
-            "   account_type = \"Standard_GRS\"",
+            "   account_tier = \"Standard\"",
+            "   account_replication_type = \"GRS\"",
             "}"
         ]
     },
