@@ -1,52 +1,57 @@
 {
-  "name": "terraform-snippets",
-  "displayName": "Advanced Terraform Snippets Generator",
-  "description": "Provides 550+ code snippets of Hashicorp's Terraform cloud orchestration tool.",
-  "version": "1.10.5",
-  "publisher": "mindginative",
-  "author": {
-    "name": "Richard Sentino",
-    "email": "richard@mindginative.com"
-  },
-  "bugs": {
-    "url": "https://github.com/rixrix/vscode-terraform-snippets/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rixrix/vscode-terraform-snippets.git"
-  },
-  "engines": {
-    "vscode": "^1.0.0"
-  },
-  "categories": [
-    "Snippets"
-  ],
-  "contributes": {
-    "snippets": [
-      {
-        "language": "terraform",
-        "path": "./snippets/terraform.json"
-      }
-    ]
-  },
-  "icon": "images/logo-header-black@2x-c6b59644.png",
-  "galleryBanner": {
-    "color": "#822ff7",
-    "theme": "dark"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "conventional-changelog": "^1.1.5",
-    "conventional-github-releaser": "^1.1.12",
-    "glob": "^7.1.2",
-    "task-nibbler": "^1.0.5",
-    "vsce": "^1.18.0"
-  },
-  "scripts": {
-    "postversion": "npm run publish:release",
-    "publish:vsce": "vsce publish",
-    "publish:release": "conventional-github-releaser -p angular -r 0",
-    "build:snippets": "node ./scripts/build.js",
-    "build:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
-  }
+	"name": "terraform-snippets",
+	"displayName": "Advanced Terraform Snippets Generator",
+	"description": "Provides 550+ code snippets of Hashicorp's Terraform cloud orchestration tool.",
+	"version": "1.10.5",
+	"publisher": "mindginative",
+	"author": {
+		"name": "Richard Sentino",
+		"email": "richard@mindginative.com"
+	},
+	"bugs": {
+		"url": "https://github.com/rixrix/vscode-terraform-snippets/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rixrix/vscode-terraform-snippets.git"
+	},
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "terraform",
+				"path": "./snippets/terraform.json"
+			}
+		]
+	},
+	"icon": "images/logo-header-black@2x-c6b59644.png",
+	"galleryBanner": {
+		"color": "#822ff7",
+		"theme": "dark"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"conventional-changelog": "^1.1.5",
+		"conventional-github-releaser": "^1.1.12",
+		"glob": "^7.1.2",
+		"task-nibbler": "^1.0.5",
+		"vsce": "^1.18.0"
+	},
+	"scripts": {
+		"postversion": "npm run publish:release",
+		"publish:vsce": "vsce publish",
+		"publish:release": "conventional-github-releaser -p angular -r 0",
+		"build:snippets": "node ./scripts/build.js",
+		"build:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+	},
+	"__metadata": {
+		"id": "2624ae48-4d99-446a-acd6-63c633093655",
+		"publisherDisplayName": "Richard Sentino",
+		"publisherId": "45d724a7-d479-4d38-a910-876dde48897d"
+	}
 }
