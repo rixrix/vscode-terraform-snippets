@@ -1,6 +1,6 @@
 {
     "ibmcloud": {
-        "prefix": "tf-ibmcloud",
+        "prefix": "tf-ibm_provider",
         "description": "define IBM Cloud provider.",
         "body": [
             "provider \"ibm\" {",
