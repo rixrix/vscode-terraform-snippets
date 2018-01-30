@@ -29,6 +29,7 @@ tf-aws-profile                       // generates `provider "aws" { profile = ""
 tf-azurerm                          // generates `provider "azurerm" { ... }`
 tf-google                           // generates `provider "google" { ... }`
 tf-openstack                        // generates `provider "openstack" { ... }`
+tf-ibm_provider                     // generates `provider "ibm" { ... }`
 ```
 
 #### Backends / Remote State
@@ -90,7 +91,7 @@ Alternatively, press `Ctrl`+`Space` (Windows, Linux) or `Cmd`+`Space` (OSX) to a
 * Mailgun, Packet, PagerDuty, PowerDNS, RabbitMQ
 * Random, Rundeck, StatusCake, Terraform, TLS,
 * Triton, UltraDNS, OpenStack, VMware vCloud Director, VMware vSphere
-* GitLab, Arukas, New Relic, Kubernetes, Vault, OpsGenie
+* GitLab, Arukas, New Relic, Kubernetes, Vault, OpsGenie, IBM Cloud
 
 ### Backends / Remote State
 
