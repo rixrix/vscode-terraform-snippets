@@ -1,35 +1,17 @@
-<a name="1.10.5"></a>
-## [1.10.5](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.10.4...v1.10.5) (2017-10-23)
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.10.6...v2.0.0) (2018-01-30)
 
 
 ### Bug Fixes
 
 * Fix cloudflare_record snippet ([7ff046c](https://github.com/rixrix/vscode-terraform-snippets/commit/7ff046c))
-
-
-
-<a name="1.10.4"></a>
-## [1.10.4](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.10.2...v1.10.4) (2017-09-26)
-
-
-
-<a name="1.10.2"></a>
-## [1.10.2](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.10.1...v1.10.2) (2017-09-26)
-
-
-
-<a name="1.10.1"></a>
-## [1.10.1](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.10.0...v1.10.1) (2017-09-26)
-
-
-
-<a name="1.10.0"></a>
-# [1.10.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.9.1...v1.10.0) (2017-09-26)
+* **azure:** remove azurerm account deprecated field, fixes [#38](https://github.com/rixrix/vscode-terraform-snippets/issues/38) ([17f1ed4](https://github.com/rixrix/vscode-terraform-snippets/commit/17f1ed4))
 
 
 ### Features
 
 * Add support for OpsGenie, closes [#17](https://github.com/rixrix/vscode-terraform-snippets/issues/17) ([984ca29](https://github.com/rixrix/vscode-terraform-snippets/commit/984ca29))
+* **ibm:** add IBM Cloud snippets ([#39](https://github.com/rixrix/vscode-terraform-snippets/issues/39)) ([5ed3446](https://github.com/rixrix/vscode-terraform-snippets/commit/5ed3446))
 
 
 
@@ -39,72 +21,9 @@
 
 ### Bug Fixes
 
-* Arukas ([84067d2](https://github.com/rixrix/vscode-terraform-snippets/commit/84067d2))
-
-
-
-<a name="1.9.0"></a>
-# [1.9.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.8.0...v1.9.0) (2017-07-24)
-
-
-### Features
-
-* add Vault support. closes [#22](https://github.com/rixrix/vscode-terraform-snippets/issues/22) ([c12c454](https://github.com/rixrix/vscode-terraform-snippets/commit/c12c454))
-
-
-
-<a name="1.8.0"></a>
-# [1.8.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.7.0...v1.8.0) (2017-07-22)
-
-
-### Features
-
-* add Kubernetes. closes [#12](https://github.com/rixrix/vscode-terraform-snippets/issues/12) ([33690da](https://github.com/rixrix/vscode-terraform-snippets/commit/33690da))
-
-
-
-<a name="1.7.0"></a>
-# [1.7.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.6.0...v1.7.0) (2017-07-20)
-
-
-### Features
-
-* add New Relic, closes [#13](https://github.com/rixrix/vscode-terraform-snippets/issues/13) ([8194b7d](https://github.com/rixrix/vscode-terraform-snippets/commit/8194b7d))
-
-
-
-<a name="1.6.0"></a>
-# [1.6.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.5.2...v1.6.0) (2017-07-18)
-
-
-### Features
-
-* add Arukas ([1f5b2b5](https://github.com/rixrix/vscode-terraform-snippets/commit/1f5b2b5))
-
-
-
-<a name="1.5.2"></a>
-## [1.5.2](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.5.1...v1.5.2) (2017-07-16)
-
-
-### Bug Fixes
-
-* minor script fixes ([d14dcc6](https://github.com/rixrix/vscode-terraform-snippets/commit/d14dcc6))
-
-
-
-<a name="1.5.1"></a>
-## [1.5.1](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.5.0...v1.5.1) (2017-07-16)
-
-
-
-<a name="1.5.0"></a>
-# [1.5.0](https://github.com/rixrix/vscode-terraform-snippets/compare/db9f56a...v1.5.0) (2017-07-16)
-
-
-### Bug Fixes
-
 * **aws:** fix missing required params for aws_instance ([b8d59b2](https://github.com/rixrix/vscode-terraform-snippets/commit/b8d59b2))
+* Arukas ([84067d2](https://github.com/rixrix/vscode-terraform-snippets/commit/84067d2))
+* minor script fixes ([d14dcc6](https://github.com/rixrix/vscode-terraform-snippets/commit/d14dcc6))
 
 
 ### Features
@@ -149,13 +68,17 @@
 * **Rundeck:** add Rundeck support ([10ab974](https://github.com/rixrix/vscode-terraform-snippets/commit/10ab974))
 * **scaleway:** add scaleway support ([406e31b](https://github.com/rixrix/vscode-terraform-snippets/commit/406e31b))
 * **snippets:** initial terraform snippets ([db9f56a](https://github.com/rixrix/vscode-terraform-snippets/commit/db9f56a))
+* add Arukas ([1f5b2b5](https://github.com/rixrix/vscode-terraform-snippets/commit/1f5b2b5))
 * add GitLab snippets ([fadb545](https://github.com/rixrix/vscode-terraform-snippets/commit/fadb545))
+* add Kubernetes. closes [#12](https://github.com/rixrix/vscode-terraform-snippets/issues/12) ([33690da](https://github.com/rixrix/vscode-terraform-snippets/commit/33690da))
+* add New Relic, closes [#13](https://github.com/rixrix/vscode-terraform-snippets/issues/13) ([8194b7d](https://github.com/rixrix/vscode-terraform-snippets/commit/8194b7d))
+* **UltraDNS:** add UltraDNS support ([5084768](https://github.com/rixrix/vscode-terraform-snippets/commit/5084768))
+* add Vault support. closes [#22](https://github.com/rixrix/vscode-terraform-snippets/issues/22) ([c12c454](https://github.com/rixrix/vscode-terraform-snippets/commit/c12c454))
 * **softlayer:** add softlayer support ([74d5138](https://github.com/rixrix/vscode-terraform-snippets/commit/74d5138))
 * **StatusCake:** add StatusCake support ([b0d77b1](https://github.com/rixrix/vscode-terraform-snippets/commit/b0d77b1))
 * **Terraform:** add Terraform support ([f5123af](https://github.com/rixrix/vscode-terraform-snippets/commit/f5123af))
 * **TLS:** add TLS support ([aa69464](https://github.com/rixrix/vscode-terraform-snippets/commit/aa69464))
 * **Triton:** add Triton support ([c4444ff](https://github.com/rixrix/vscode-terraform-snippets/commit/c4444ff))
-* **UltraDNS:** add UltraDNS support ([5084768](https://github.com/rixrix/vscode-terraform-snippets/commit/5084768))
 * **VMware vSphere:** add VMware vSphere support ([6004722](https://github.com/rixrix/vscode-terraform-snippets/commit/6004722))
 
 
