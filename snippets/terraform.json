@@ -252,7 +252,8 @@
             "   name   = \"${2:myArukasName}\"",
             "}"
         ]
-    },    "atlas": {
+    }
+,    "atlas": {
         "prefix":"tf-atlas",
         "description": "Defines atlas",
         "body": [
@@ -2612,6 +2613,37 @@
             "}"
         ]
     },
+    "azurerm_kubernetes_cluster": {
+        "prefix":"tf-azurerm_kubernetes_cluster",
+        "description": "Defines azurerm_kubernetes_cluster (AKS) resource",
+        "body": [
+            "resource \"azurerm_kubernetes_cluster\" \"${MyResource}\" {",
+            "   name                   = \"acctestaks1\"",
+            "   location               = \"West US\"",
+            "   resource_group_name    = \"${azurerm_resource_group.test.name}\"",
+            "   kubernetes_version     = \"1.8.2\"",
+            "   dns_prefix             = \"acctestagent1\"",
+            "   linux_profile {",
+            "     admin_username = \"acctestuser1\"",
+            "       ssh_keys {",
+            "         path = \"/home/myadmin/.ssh/authorized_keys\"",
+            "         key_data = \"\\${file(\"~/.ssh/demo_key.pub\")}\"",
+            "      }",
+            "   }",
+            "   agent_pool_profile {",
+            "     name              = \"default\"",
+            "     count             = 1",
+            "     vm_size           = \"Standard_A0\"",
+            "     os_type           = \"Linux\"",
+            "     os_disk_size_gb   = 30",
+            "   }",
+            "   service_principal {",
+            "     client_id     = \"00000000-0000-0000-0000-000000000000\"",
+            "     client_secret = \"00000000000000000000000000000000\"",
+            "   }",
+            "}"
+        ]
+    },
     "azurerm_lb": {
         "prefix":"tf-azurerm_lb",
         "description": "Defines azurerm_lb resource",
@@ -4817,8 +4849,8 @@
             "   local_disk = false",
             "}"
         ]
-    }
-},    "influxdb": {
+    },
+    "influxdb": {
         "prefix": "tf-influxdb",
         "description": "define a influxdb provider.",
         "body": [
@@ -5053,7 +5085,8 @@
             "   }\n",
             "}"
         ]
-    },    "librato": {
+    }
+,    "librato": {
         "prefix": "tf-librato",
         "description": "define a librato provider.",
         "body": [
@@ -6540,7 +6573,8 @@
             "EOT",
             "}"
         ]
-    },    "vcd": {
+    }
+,    "vcd": {
         "prefix": "tf-vcd",
         "description": "define a vcd provider.",
         "body": [
