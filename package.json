@@ -36,7 +36,7 @@
 	},
 	"license": "MIT",
 	"devDependencies": {
-		"conventional-changelog": "^1.1.5",
+		"conventional-changelog": "^1.1.24",
 		"conventional-github-releaser": "^1.1.12",
 		"glob": "^7.1.2",
 		"task-nibbler": "^1.0.5",
