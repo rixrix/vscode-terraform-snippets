@@ -1,5 +1,20 @@
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v2.0.1...v2.1.0) (2018-06-24)
+
+
+### Features
+
+* **azurerm_kubernetes_cluster:** support for azurerm_kubernetes_cluster (AKS) ([#45](https://github.com/rixrix/vscode-terraform-snippets/issues/45)) ([1f8a7e7](https://github.com/rixrix/vscode-terraform-snippets/commit/1f8a7e7))
+
+
+
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/rixrix/vscode-terraform-snippets/compare/v2.0.0...v2.0.1) (2018-01-30)
+
+
+
 <a name="2.0.0"></a>
-# [2.0.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.10.6...v2.0.0) (2018-01-30)
+# [2.0.0](https://github.com/rixrix/vscode-terraform-snippets/compare/v1.10.7...v2.0.0) (2018-01-29)
 
 
 ### Bug Fixes
