@@ -1,3 +1,6 @@
+# News
+> ## I'm looking for volunteers to help me maintain this project. I don't have enough time to do some of the work.
+
 # Advanced Terraform Snippets for Visual Studio Code
 
 Provides **550+** code snippets of Hashicorp's [Terraform](https://www.terraform.io/) cloud orchestration tool for [Visual Studio Code](https://code.visualstudio.com/).

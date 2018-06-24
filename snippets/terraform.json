@@ -252,8 +252,7 @@
             "   name   = \"${2:myArukasName}\"",
             "}"
         ]
-    }
-,    "atlas": {
+    },    "atlas": {
         "prefix":"tf-atlas",
         "description": "Defines atlas",
         "body": [
@@ -4847,10 +4846,516 @@
             "   ram = 1024",
             "   disks = [25, 10, 20]",
             "   local_disk = false",
+            "   ssh_key_ids = \"${ibm_compute_ssh_key.myResourceName.id}\"]",
             "}"
         ]
     },
-    "influxdb": {
+     "ibm_org": {
+        "prefix": "tf-ibm_org",
+        "description": "define a ibm org resource.",
+        "body": [
+            "data \"ibm_org\" \"${myResourceName}\" {",
+            "   org = \"my-org\"",
+    		"}"
+    		]
+    },
+    "ibm_space": {
+        "prefix": "tf-ibm_space",
+        "description": "define a ibm space resource.",
+        "body": [
+            "data \"ibm_space\" \"${myResourceName}\" {",
+            "   org    = \"my-org\"",
+            "   space  = \"prod\"",
+    		"}"
+    		]
+    },
+    "ibm_account": {
+        "prefix": "tf-ibm_account",
+        "description": "define a ibm space resource.",
+        "body": [
+            "data \"ibm_account\" \"${myResourceName}\" {",
+            "   org_guid = \"${data.ibm_org.myResourceName-org.id}\"",
+    		"}"
+    		]
+    },
+    "ibm_container_cluster": {
+        "prefix": "tf-ibm_container_cluster",
+        "description": "define a ibm container cluster resource.",
+        "body": [
+            "resource \"ibm_container_cluster\" \"${myResourceName}\" {",
+            "   name       = \"my-${myResourceName}\"",
+            "   datacenter = \"\"",
+            "   org_guid = \"${data.ibm_org.myResourceName-org.id}\"",
+            "   space_guid = \"${data.ibm_space.myResourceName-space.id}\"",
+            "   account_guid = \"${data.ibm_account.myResourceName-account.id}\"",
+            "   workers = [{",
+            "   name = \"worker1\"",
+    		"   }]",
+    		" 	webhook = [{",
+    		"		level = \"Normal\""
+    		"		type = \"slack\""
+    		"		url = \"\""
+  			"	}]"
+            "   machine_type    = \"free\"",
+            "   isolation       = \"public\"",
+            "   public_vlan_id  = \"${ibm_network_vlan.myResourceName.id}\"",
+            "   private_vlan_id = \"${ibm_network_vlan.myResourceName.id}\"",
+    		"}"
+        ]
+    },
+    "ibm_network_vlan": {
+        "prefix": "tf-ibm_network_vlan",
+        "description": "define a ibm network vlan resource.",
+        "body": [
+            "resource \"ibm_network_vlan\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   datacenter = \"\"",
+            "   type = \"PUBLIC\"",
+            "   subnet_size = 8",
+            "   router_hostname = \"\"",
+            "	tags = [",
+     		"		\"collectd\",",
+     		"		\"mesos-master\"",
+   			"	]",
+            "}"
+            ]
+    },
+    "ibm_app": {
+        "prefix": "tf-ibm_app",
+        "description": "define a ibm app resource.",
+        "body": [
+            "resource \"ibm_app\" \"${myResourceName}\" {",
+               "name              = \"my-${myResourceName}\"",
+               "space_guid        = \"${data.ibm_space.myResourceName-space.id}\"",
+               "app_path          = \"/test/app1.zip\"",
+               "wait_time_minutes = 90",
+            "}"
+       ]
+    },
+    "ibm_app_route": {
+        "prefix": "tf-ibm_app_route",
+        "description": "define a ibm app route resource.",
+        "body": [
+            "data \"ibm_app_domain_shared\" \"${myResourceName}\" {",
+			"   name        = \"\"",
+		    "}",
+		    "resource \"ibm_app_route\" \"${myResourceName}-route\" {",
+			"   domain_guid       = \"${data.ibm_app_domain_shared.myResourceName-domain.id}\"",
+			"   space_guid        = \"${data.ibm_space.myResourceName-space.id}\"",
+			"   host              = \"myHost\"",
+			"   path              = \"/app\"",
+		    "}"
+        ]
+    },
+    "ibm_app_domain_private": {
+        "prefix": "tf-ibm_app_domain_private",
+        "description": "define a ibm domain private resource.",
+        "body": [
+		    "resource \"ibm_app_domain_private\" \"${myResourceName}\" {",
+			"    name = \"${myResourceName}\"",
+			"   org_guid = \"${data.ibm_org.myResourceName-org.id}\"",
+		    "}",
+		    "data \"ibm_app_domain_private\" \"${myResourceName}-data-domain-private\" {",
+		    "   name = \"${ibm_app_domain_private.myResourceName-domain-private.name}\"",
+		    "}"
+        ]
+    },
+    "ibm_compute_autoscale_group": {
+        "prefix": "tf-ibm_compute_autoscale_group",
+        "description": "define a ibm compute auto scale group resource.",
+        "body": [
+            "resource \"ibm_lb\" \"${myResourceName}\" {",
+            "   connections = 250",
+            "   datacenter = \"\"",
+            "   ha_enabled = false",
+            "}",
+            "resource \"ibm_lb_service_group\" \"${myResourceName}-lb-service-group\" {",
+            "   load_balancer_id = \"${ibm_lb.local_lb_01.id}\"",
+            "   allocation = 100",
+            "   port = 80",
+            "   routing_method = \"ROUND_ROBIN\"",
+            "   routing_type = \"HTTP\"",
+            "}",
+            "resource \"ibm_compute_autoscale_group\" \"${myResourceName}\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   regional_group = \"\"",
+            "   cooldown = 30",
+            "   minimum_member_count = 1",
+            "   maximum_member_count = 10",
+            "   termination_policy = \"\"",
+            "   virtual_server_id = \"${ibm_lb_service_group.myResourceName-lb-service-group.id}\"",
+            "   port = 8080",
+            "   health_check = {",
+            "       type = \"HTTP\"",
+            "   }",
+            "   virtual_guest_member_template = {",
+            "   hostname = \"my-Host\"",
+            "   domain = \"ibm.com\"",
+            "   cores = ",
+            "   memory = ",
+            "   network_speed = ",
+            "   hourly_billing = true",
+            "   os_reference_code = \"\"",
+            "   local_disk = false",
+            "   disks = [25,100]",
+            "   datacenter = \"\"",
+            "   post_install_script_uri = \"\"",
+            "   user_metadata = \"#!/bin/bash\"",
+            "   }",
+            "}"
+        ]
+    },
+    "ibm_compute_autoscale_policy": {
+        "prefix": "tf-ibm_compute_autoscale_policy",
+        "description": "define a ibm compute auto scale policy resource.",
+        "body": [
+            "resource \"ibm_compute_autoscale_policy\" \"${myResourceName}\" {",
+            "   name = \"${myResourceName}\"",
+            "   scale_type = \"\"",
+            "   scale_amount = ",
+            "   cooldown = ",
+            "   scale_group_id = \"${ibm_compute_autoscale_group.myResourceName-autoscale-group.id}\"",
+            "   triggers = {",
+            "       type = \"RESOURCE_USE\"",
+            "       watches = {",
+            "           metric = \"host.cpu.percent\"",
+            "           operator = \">\"",
+            "           value = \"80\"",
+            "           period = 120",
+            "       }",
+            "   }",
+            "   triggers = {",
+            "       type = \"ONE_TIME\"",
+            "       date = \"2009-11-11T23:00:00+00:00\"",
+            "   }",
+            "   triggers = {",
+            "       type = \"REPEATING\"",
+            "       schedule = \"0 1 ? * MON,WED *\"",
+            "   }",
+            "}"
+        ]
+    },
+    "ibm_compute_monitor": {
+        "prefix": "tf-ibm_compute_monitor",
+        "description": "define a ibm compute monitor resource.",
+        "body": [
+            "resource \"ibm_compute_monitor\" \"${myResourceName}\" {",
+            "   guest_id = \"${ibm_compute_vm_instance.myResourceName.id}\"",
+            "   ip_address = \"${ibm_compute_vm_instance.myResourceName.ipv4_address}\"",
+            "   query_type_id = 1",
+            "   response_action_id = 1",
+            "   wait_cycles = 5",     
+            "   notified_users = [6575505]",
+            "}"
+        ]
+    },
+    "ibm_compute_provisioning_hook": {
+        "prefix": "tf-ibm_compute_provisioning_hook",
+        "description": "define a ibm compute provisioning hook resource.",
+        "body": [
+            "resource \"ibm_compute_provisioning_hook\" \"${myResourceName}\" {",
+            "    name = \"my-${myResourceName}\"",
+            "    uri = \"https://www.ibm.com\"",
+            "}"
+        ]
+    },
+    "ibm_compute_user": {
+        "prefix": "tf-ibm_compute_user",
+        "description": "define a ibm compute user resource.",
+        "body": [
+            "resource \"ibm_compute_user\" \"${myResourceName}\" {",
+            "    first_name = \"first_name\"",
+            "    last_name = \"last_name\"",
+            "    email = \"user@ibm.com\"",
+            "    company_name = \"company_name\"",
+            "    address1 = \"1 Main St.\"",
+            "    address2 = \"Suite 345\"",
+            "    city = \"\"",
+            "    state = \"\"",
+            "    country = \"\"",
+            "    timezone = \"\"",
+            "    username = \"\"",
+            "    password = \"\"",
+            "    permissions = [",
+            "        \"\",",
+            "        \"\"",
+            "    ]",
+            "    has_api_key = true",
+            "    }"
+        ]
+    },
+    "ibm_dns_domain": {
+        "prefix": "tf-ibm_dns_domain",
+        "description": "define a ibm dns domain resource.",
+        "body": [
+            "resource \"ibm_dns_domain\" \"${myResourceName}\" {",
+                "name = \"my-${myResourceName}\"",
+                "target = \"172.16.0.100\"",
+            "}"
+        ]
+    },
+    "ibm_dns_record": {
+        "prefix": "tf-ibm_dns_record",
+        "description": "define a ibm dns record resource.",
+        "body": [
+            "resource \"ibm_dns_record\" \"${myResourceName}\" {",
+            "   data = \"127.0.0.1\"",
+            "    domain_id = \"${ibm_dns_domain.myResourceName.id}\"",
+            "    expire = 900",
+            "   minimum_ttl = 90",
+            "   mx_priority = 1",
+            "   refresh = 1",
+            "   host = \"%s\"",
+            "   responsible_person = \"user@ibm.com\"",
+            "   ttl = 900",
+            "   retry = 1",
+            "   type = \"a\"",
+            "}"
+        ]
+    },
+    "ibm_firewall_policy": {
+        "prefix": "tf-ibm_firewall_policy",
+        "description": "define a ibm firewall policy resource.",
+        "body": [
+            "resource \"ibm_firewall\" \"${myResourceName}\" {",
+            "   ha_enabled = false",
+            "   public_vlan_id = \"${ibm_compute_vm_instance.myResourceName.public_vlan_id}\"",
+            "    }",
+            "resource \"ibm_firewall_policy\" \"rules\" {",
+            "    firewall_id = \"${ibm_firewall.accfw2.id}\"",
+            "   rules = {",
+            "       action = \"\"",
+            "       src_ip_address = \"\"",
+            "       src_ip_cidr = ",
+            "       dst_ip_address = \"\"",
+            "       dst_ip_cidr = ",
+            "       dst_port_range_start = 1",
+            "       dst_port_range_end = ",
+            "       notes = \"Deny all\"",
+            "       protocol = \"tcp\"",
+            "    }",
+            "}"
+        ]
+    },
+    "ibm_lb_service": {
+        "prefix": "tf-ibm_lb_service",
+        "description": "define a ibm lb service resource.",
+        "body": [
+            "resource \"ibm_lb\" \"${myResourceName}\" {",
+            "   connections = 250",
+            "   datacenter    = \"\"",
+            "   ha_enabled  = false",
+            "   dedicated = false",
+            "}",
+            "resource \"ibm_lb_service_group\" \"${myResourceName}\" {",
+            "   port = ",
+            "   routing_method = \"\"",
+            "   routing_type = \"HTTP\"",
+            "   load_balancer_id = \"${ibm_lb.myResourceName.id}\"",
+            "   allocation = ",
+            "}",
+            "resource \"ibm_lb_service\" \"${myResourceName}\" {",
+            "   port = 80",
+            "   enabled = true",
+            "   service_group_id = \"${ibm_lb_service_group.myResourceName_lb_service_group.service_group_id}\"",
+            "   weight = 1",
+            "   health_check_type = \"\"",
+            "   ip_address_id = \"${ibm_compute_vm_instance.myResourceName.ip_address_id}\"",
+            "}"
+        ]
+    },
+    "ibm_network_public_ip": {
+        "prefix": "tf-ibm_network_public_ip",
+        "description": "define a ibm network public ip resource.",
+        "body": [
+            "resource \"ibm_network_public_ip\" \"${myResourceName}\" {",
+            "   routes_to = \"${ibm_compute_vm_instance.myResourceName.ipv4_address}\"",
+            "   notes = \"public ip notes\"",
+            "}"
+        ]
+    },
+    "ibm_service_instance": {
+        "prefix": "tf-ibm_service_instance",
+        "description": "define a ibm service instance resource.",
+        "body": [
+            "resource \"ibm_service_instance\" \"${myResourceName}\" {",
+            "   name              = \"my-${myResourceName}\"",
+            "   space_guid        = \"${data.ibm_space.myResourceName-space.id}\"",
+            "   service           = \"\"",
+            "   plan              = \"\"",
+            "   tags               = [\"cluster-service\",\"cluster-bind\"]",
+            "}",
+            "resource \"ibm_service_key\" \"serviceKey\" {",
+            "   name = \"my-${myResourceName}\"",
+            "   service_instance_guid = \"${ibm_service_instance.myResourceName.id}\"",
+            "}"
+        ]
+    },
+    "ibm_storage_block": {
+        "prefix": "tf-ibm_storage_block",
+        "description": "define a ibm storage block resource.",
+        "body": [
+            "resource \"ibm_storage_block\" \"${myResourceName}\" {",
+            "   type = \"\"",
+            "   datacenter = \"${ibm_compute_vm_instance.myResourceName.datacenter}\"",
+            "   capacity = 20",
+            "   iops = 0.25",
+            "   snapshot_capacity = 10",
+            "   os_format_type = \"\"",
+            "   notes = \"notes\"",
+            "}"
+        ]
+    },
+    "ibm_storage_file": {
+        "prefix": "tf-ibm_storage_file",
+        "description": "define a ibm storage file resource.",
+        "body": [
+            "resource \"ibm_storage_file\" \"${myResourceName}\" {",
+            "   type = \"\"",
+            "   datacenter = \"${ibm_compute_vm_instance.myResourceName.datacenter}\"",
+            "   capacity = 20",
+            "   iops = 0.25",
+            "   snapshot_capacity = 10",
+            "   notes = \"notes\"",
+            "}"
+        ]
+    },
+    "ibm_compute_bare_metal": {
+        "prefix": "tf-ibm_compute_bare_metal",
+        "description": "define a ibm app resource.",
+        "body": [
+            "resource \"ibm_compute_bare_metal\" \"${myResourceName}\" {",
+            "   hostname = \"myHost\"",
+            "   domain = \"ibm.com\"",
+            "   os_reference_code = \"\"",
+            "   datacenter = \"\"",
+            "   network_speed = ",
+            "   hourly_billing = true",
+            "   private_network_only = false",
+            "   user_metadata = \"{\\\"value\\\":\\\"newvalue\"}\\\"",
+            "   fixed_config_preset = \"\"",
+            "   tags = [\"collectd\"]",
+            "   notes = \"baremetal notes\"",
+            "}"
+        ]
+    },
+    "ibm_compute_image_template": {
+        "prefix": "tf-ibm_compute_image_template",
+        "description": "define a ibm app resource.",
+        "body": [
+            "data \"ibm_compute_image_template\" \"${myResourceName}\" {",
+            "   name = \"jumpbox\"",
+            "}"
+        ]
+    },
+    "ibm_app_domain_shared": {
+        "prefix": "tf-ibm_app_domain_shared",
+        "description": "define a ibm app domain shared resource.",
+        "body": [
+            "data \"ibm_app_domain_shared\" \"${myResourceName}\" {",
+			"   name        = \"mybluemix.net\"",
+		    "}",
+		    "resource \"ibm_app_route\" \"${myResourceName}_route\" {",
+			"   domain_guid       = \"${data.ibm_app_domain_shared.domain_shared.id}\"",
+			"   space_guid        = \"${data.ibm_space.myResourceName-space.id}\"",
+			"   host              = \"myHost\"",
+			"   path              = \"/app\"",
+		    "}"
+        ]
+    },
+    "ibm_lb_vpx": {
+        "prefix": "tf-ibm_lb_vpx",
+        "description": "define a ibm lb vpx resource.",
+        "body": [
+            "resource \"ibm_lb_vpx\" \"${myResourceName}\" {",
+            "   datacenter = \"dal09\"",
+            "   speed = 10",
+            "   version = \"10.1\"",
+            "   plan = \"Standard\"",
+            "   ip_count = 2",
+            "}"
+        ]
+    },
+    "ibm_lb_vpx_vip": {
+        "prefix": "tf-ibm_lb_vpx_vip",
+        "description": "define a ibm lb vpx vip resource.",
+        "body": [
+            "resource \"ibm_lb_vpx_vip\" \"${myResourceName}\" {",
+            "   name = \"test_load_balancer_vip\"",
+            "   nad_controller_id = \"${ibm_lb_vpx.lb_vpx.id}\"",
+            "   load_balancing_method = \"lc\"",
+            "   source_port = 80",
+            "   type = \"HTTP\"",
+            "   virtual_ip_address = \"${ibm_lb_vpx.lb_vpx.vip_pool[0]}\"",
+            "}"
+        ]
+    },
+    "ibm_lb_vpx_service": {
+        "prefix": "tf-ibm_lb_vpx_service",
+        "description": "define a ibm lb vpx service resource.",
+        "body": [
+            "resource \"ibm_lb_vpx_service\" \"${myResourceName}\" {",
+            "   name = \"test_load_balancer_service1\"",
+            "   vip_id = \"${ibm_lb_vpx_vip.testacc_vip.id}\"",
+            "   destination_ip_address = \"${ibm_compute_vm_instance.myResourceName.ipv4_address}\"",
+            "   destination_port = ",
+            "   weight = 55",
+            "   connection_limit = ",
+            "   health_check = \"HTTP\"",
+            " }"
+        ]
+    },
+    "ibm_lb_vpx_ha": {
+        "prefix": "tf-ibm_lb_vpx_ha",
+        "description": "define a ibm lb vpx ha resource.",
+        "body": [
+            "resource \"ibm_lb_vpx_ha\" \"${myResourceName}\" {",
+                "primary_id = \"${ibm_lb_vpx.lb_vpx.id}\"",
+                "secondary_id = \"${ibm_lb_vpx.lb_vpx.id}\"",
+                "stay_secondary = true",
+            "}"
+        ]
+    },
+    "ibm_lb": {
+        "prefix": "tf-ibm_lb",
+        "description": "define a ibm lb resource.",
+        "body": [
+            "resource \"ibm_lb\" \"${myResourceName}\" {",
+            "   connections = ",
+            "   datacenter    = \"\"",
+            "   ha_enabled  = false",
+            "   dedicated = true",	
+            "}"
+        ]
+    },
+    "ibm_network_gateway": {
+    	"prefix": "tf-ibm_lb",
+        "description": "define a ibm network gateway resource.",
+        "body": [
+                 "resource \"ibm_network_gateway\" \"${MyResource}\" {",
+                 "	name = \"test\"",
+                 "	ssh_key_ids = [\"${data.ibm_compute_ssh_key.key.id}\"]",
+                 "	members {",
+                 "	hostname             = \"mygateway\"",
+                 "	domain               = \"ibm.com\"",
+                 "	datacenter           = \"\"",
+                 "	network_speed        = ",
+                 "	private_network_only = false",
+                 "	ssh_key_ids          = [\"${data.ibm_compute_ssh_key.key.id}\"]",
+                 "	tcp_monitoring       = true",
+                 "	process_key_name     = \"\"",
+                 "	os_key_name          = \"\"",
+                 "	redundant_network    = false",
+                 "	disk_key_names       = [\"\"]",
+                 "	public_bandwidth     = ",
+                 "	memory               = ",
+                 "	tags                 = [\"gateway tags 1\", \"terraform test tags 1\"]",
+                 "	notes                = \"gateway notes 1\"",
+                 "	ipv6_enabled         = true",
+				 "	}"
+         ]
+    }
+},    "influxdb": {
         "prefix": "tf-influxdb",
         "description": "define a influxdb provider.",
         "body": [
@@ -5085,8 +5590,7 @@
             "   }\n",
             "}"
         ]
-    }
-,    "librato": {
+    },    "librato": {
         "prefix": "tf-librato",
         "description": "define a librato provider.",
         "body": [
@@ -6573,8 +7077,7 @@
             "EOT",
             "}"
         ]
-    }
-,    "vcd": {
+    },    "vcd": {
         "prefix": "tf-vcd",
         "description": "define a vcd provider.",
         "body": [
