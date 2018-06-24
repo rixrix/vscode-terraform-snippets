@@ -53,5 +53,8 @@
 		"id": "2624ae48-4d99-446a-acd6-63c633093655",
 		"publisherDisplayName": "Richard Sentino",
 		"publisherId": "45d724a7-d479-4d38-a910-876dde48897d"
+	},
+	"dependencies": {
+		"conventional-changelog-cli": "^2.0.1"
 	}
 }
