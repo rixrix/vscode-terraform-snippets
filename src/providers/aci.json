@@ -1,0 +1,25 @@
+
+provider "aci" {
+  # cisco-aci user name
+  username = "admin"
+  # cisco-aci password
+  password = "password"
+  # cisco-aci url
+  url      = "https://my-cisco-aci.com"
+  insecure = true
+}
+
+
+{
+    "aci": {
+        "prefix": "tf-aci",
+        "description": "define cisco aci provider.",
+        "body": [
+            "provider \"aci\" {",
+            "   username = \"${username}\"",
+                password = \"${password}\"",
+                url = \"${url}\"",
+                insecure = \"${true|false}\"",
+            "}"
+        ]
+    },
