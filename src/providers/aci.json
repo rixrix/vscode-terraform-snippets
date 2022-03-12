@@ -1,13 +1,44 @@
-{
-    "aci": {
+
+    {
+        "aci": {
         "prefix": "tf-aci",
-        "description": "define cisco aci provider.",
+        "description": "define a aci provider.",
         "body": [
             "provider \"aci\" {",
-            "   username = \"${username}\"",
-                password = \"${password}\"",
-                url = \"${url}\"",
-                insecure = \"${true|false}\"",
+            "username = \"username\"",
+            "password  = \"password\"",
+            "url = \"url\"",
             "}"
         ]
     },
+    "aci_aaa_domain":{
+    "prefix": "tf_aci_aaa__domain",
+    "descrioption": "Manage ACI aaa Domain",
+    "body": [
+            "resource \"aci_aaa_domain\" \"example\" {",
+            "name       = \"aaa_domain_1\"",
+            "description = \"from terraform\"",
+            "annotation  = \"tag_aaa\"",
+            "name_alias  = \"alias_aaa\"",
+          "}"
+    ]
+    },
+    "aci_authentication_propertie": {
+        "prefix":"tf_aci_authentication_properties",
+        "description": "Manages ACI AAA Authentication Properties and Default Radius Authentication Settings",
+        "body":[
+            "resource \"aci_authentication_properties\" \"example\" {",
+                "annotation = \"orchestrator:terraform\"",
+                "name_alias = \"example_name_alias\"",
+                "description = \"from terraform\"",
+                "def_role_policy = \"no-login\"",
+                "ping_check = \"true\"",
+                "retries = \"1\"",
+                "timeout = \"5\"",
+              "}"
+
+        ]   
+        
+
+    }
+}
