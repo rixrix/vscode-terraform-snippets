@@ -23,7 +23,7 @@
           "}"
     ]
     },
-    "aci_authentication_propertie": {
+    "aci_authentication_properties": {
         "prefix":"tf_aci_authentication_properties",
         "description": "Manages ACI AAA Authentication Properties and Default Radius Authentication Settings",
         "body":[
@@ -40,5 +40,21 @@
         ]   
         
 
+    },
+    "aci_console_authentication": {
+        "prefix": "tf-aci_console_authentication",
+        "description": "Manages ACI Console Authentication.",
+        "body": [
+            "resource \"aci_console_authentication\" \"example\" {",
+                "annotation     = \"orchestrator:terraform\"",
+                "provider_group = \"60\"",
+                "realm          = \"ldap\"",
+                "realm_sub_type = \"default\"",
+                "name_alias     = \"console_alias\"",
+                "description    = \"From Terraform\"",
+              "}"
+        ]
     }
+
+
 }
