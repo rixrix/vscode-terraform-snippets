@@ -1,0 +1,13 @@
+{
+"aci_aaa_domain":{
+    "prefix": "tf-aci_aaa_domain",
+    "descrioption": "Manage ACI aaa Domain",
+    "body": [
+            "resource \"aci_aaa_domain\" \"example\" {",
+            "name       = \"aaa_domain_1\"",
+            "description = \"from terraform\"",
+            "annotation  = \"tag_aaa\"",
+            "name_alias  = \"alias_aaa\"",
+          "}"
+    ]
+    }
